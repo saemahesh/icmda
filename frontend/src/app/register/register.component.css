@@ -1,0 +1,36 @@
+
+.image{
+    height:68em; 
+    background-size:initial;
+    width:auto;
+  }
+
+  .wrapper {
+    text-align: center;
+}
+
+.button {
+    position: absolute;
+    top: 50%;
+}
+
+.hs-item{
+  height: 780px;
+  background-repeat: no-repeat;
+    background-size: contain;
+  background-image: url(https://storage.needpix.com/rsynced_images/background-2203989_1280.jpg);
+}
+form{
+  padding-left: 106px;
+  padding-right: 106px;
+  background-color: black;
+  opacity: 0.8;
+  margin-top:70px;
+}
+label{
+  color: white;
+}
+input:not([type]), input[type=text]:not(.browser-default), input[type=password]:not(.browser-default), input[type=email]:not(.browser-default), input[type=url]:not(.browser-default), input[type=time]:not(.browser-default), input[type=date]:not(.browser-default), input[type=datetime]:not(.browser-default), input[type=datetime-local]:not(.browser-default), input[type=tel]:not(.browser-default), input[type=number]:not(.browser-default), input[type=search]:not(.browser-default), textarea.materialize-textarea{
+  font-size: 1.5rem;
+  padding-left: 10px;
+}
