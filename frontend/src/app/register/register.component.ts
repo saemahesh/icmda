@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { RegisterService } from './register.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-register',
@@ -44,7 +45,7 @@ export class RegisterComponent implements OnInit {
   registrationForm: FormGroup;
   submitted = false;
   selectedValue: any;
-  constructor(private fb: FormBuilder, private registerService: RegisterService, private router: Router) { }
+  constructor(private fb: FormBuilder, private registerService: RegisterService, private router: Router, private toastrService : ToastrService) { }
   ngOnInit() {
     this.buildForm();
   }
@@ -73,13 +74,25 @@ export class RegisterComponent implements OnInit {
       formValues: this.registrationForm.value
     }
 
-    this.registerService.postUserDetails(object).subscribe((res: any) => {
+    this.registerService.postUserDetails(object).subscribe(res => {
       this.submitted = false;
       this.registrationForm.reset();
-    })
+      this.showSuccess();
+    },
+    err => {
+      this.toastrService.error('Not registered..Sorry for inconvienience..');
+    });
   }
   yourOnUploadHandler(event) {
     this.selectedValue = event.cdnUrl;
+  }
+
+  showSuccess()
+  {
+    this.router.navigate(['/dashboard']).then(()=>
+    {
+      this.toastrService.success('Successfully registered..Thank you ', 'Success');
+    });
   }
 
 }

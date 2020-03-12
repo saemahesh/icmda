@@ -35,11 +35,11 @@ exports.register = (data, callback) => {
   );
 };
 
-exports.getCategory = (login, callback) => {
+exports.getMember = (id, callback) => {
   try {
     executeQuery.queryForAll(
-      sqlQueryMap["getCategory"],
-      [login.userName, login.password],
+      sqlQueryMap["getMember"],
+      [id],
       (err, result) => {
         if (err) {
           callback(err, null);
@@ -74,7 +74,6 @@ exports.getProfiles = (addUser, callback) => {
 };
 exports.sendMail = (mail_data, callback) => {
   
-const nodemailer = require('nodemailer'); 
   data = mail_data.formValues;
   data.profile_pic = mail_data.imageUrl;
 
@@ -83,7 +82,7 @@ let mailTransporter = nodemailer.createTransport({
 	service: 'gmail', 
 	auth: { 
 		user: 'saemahesh@gmail.com', 
-		pass: 'Nxe4y@wkat'
+		pass: ''
 	} 
 }); 
 let id_url = `http://localhost:3000/idcard/${data.id}`

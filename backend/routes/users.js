@@ -26,8 +26,10 @@ router.post("/login", (req, res) => {
     }
   });
 });
-router.get("/get-category", (req, res) => {
-  UserService.getCategory(req.body, (err, result) => {
+router.get("/get-member/:id", (req, res) => {
+  var id = req.params.id;
+  console.log('id ', id);
+  UserService.getMember(id, (err, result) => {
     if (err) {
       res.status(500);
       res.send({ err: "no users found", result: null });
@@ -37,7 +39,7 @@ router.get("/get-category", (req, res) => {
   });
 });
 
-router.post("/getProfiles", (req, res) => {
+router.get("/getProfiles", (req, res) => {
   UserService.getProfiles(req.body, (err, result) => {
     if (err) {
       res.status(500);

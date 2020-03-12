@@ -5,7 +5,7 @@ let mailTransporter = nodemailer.createTransport({
 	service: 'gmail', 
 	auth: { 
 		user: 'saemahesh@gmail.com', 
-		pass: 'Nxe4y@wkat'
+		pass: ''
 	} 
 }); 
 
@@ -15,7 +15,7 @@ let mailTransporter = nodemailer.createTransport({
 //   secure: false, // secure:true for port 465, secure:false for port 587
 //  auth: { 
 // 		user: 'saemahesh@gmail.com', 
-// 		pass: 'Nxe4y@wkat'
+// 		pass: ''
 // 	} 
 // });
 

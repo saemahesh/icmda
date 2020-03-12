@@ -1,7 +1,7 @@
 	.id-card-holder {
-			width: 233px;
+			width: 300px;
 		    padding: 4px;
-		    margin: 0 auto;
+		    margin: 50px auto;
 		    background-color: #1f1f1f;
 		    border-radius: 5px;
 		    position: relative;
@@ -14,7 +14,7 @@
 		    background-color: #0a0a0a;
 		    height: 100px;
 		    position: absolute;
-		    top: 105px;
+		    top: 190px;
 		    border-radius: 0 5px 5px 0;
 		}
 		.id-card-holder:before {
@@ -24,8 +24,8 @@
 		    background-color: #0a0a0a;
 		    height: 100px;
 		    position: absolute;
-		    top: 105px;
-		    left: 222px;
+		    top: 190px;
+		    left: 290px;
 		    border-radius: 5px 0 0 5px;
 		}
 		.id-card {
@@ -135,4 +135,9 @@
             html, body {
                 height: 100%;
             }
-        }
+		}
+		
+		.id-card-holder .address p{
+			font-weight: bold;
+			font-size: 10px;
+		}

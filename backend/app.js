@@ -11,6 +11,8 @@ let usersRouter = require("./routes/users");
 let caseRouter = require("./routes/case");
 let jwt = require("jsonwebtoken");
 let passport = require("passport");
+nodemailer = require('nodemailer'); 
+
 let passportJWT = require("passport-jwt");
 let extractJwt = passportJWT.ExtractJwt;
 let jwtStrategy = passportJWT.Strategy;

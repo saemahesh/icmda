@@ -13,8 +13,8 @@
  <sql-query id="getProfiles">
        <![CDATA[select * from user_tbl]]>
    </sql-query>
-  <sql-query id="getCategory">
-       <![CDATA[select * from category_tbl  ]]>
+  <sql-query id="getMember">
+       <![CDATA[select * from user_tbl where id =?  ]]>
    </sql-query>
 
 
