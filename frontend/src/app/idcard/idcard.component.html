@@ -8,20 +8,19 @@
 				
 			</div>
 			<h6 style="font-weight: bold;">MEMBER</h6>
-			<h2 style="font-weight: bold;">E R JANARDHAN</h2>
+			<h2 style="font-weight: bold;">{{ profileDetails.username }}</h2>
 			<div class="qr-code">
-				<img src="https://ucarecdn.com/f05fc56e-e0e8-45d2-bea8-3ce1b2447867/" style="height:100%;width:80%">
+				<img src="{{ profileDetails.profile_pic }}" style="height:100%;width:80%">
 			</div>
 			<h3 style="font-weight:bold;margin-top: 10px">
-            ART FORM : SAXOPHONE
+            ART FORM : {{ profileDetails.art_form }}
             </h3>
             <hr>
             <div class="address">
-                <p><strong></strong>No-4 Anbunagar Main Road,
-                    Alwarthiru Nagar, <p>
+                <p>{{ profileDetails.address }}<p>
                 <p>
-                    Chennai, Tamilnadu - India. <strong>600087</strong></p>
-                <p>Ph: +91 9840111333 | E-mail: thyagayyatv@gmail.com</p>
+                    {{ profileDetails.city }} <strong>- {{ profileDetails.zipcode }}</strong></p>
+                <p>Ph: {{ profileDetails.mobile }} | E-mail: {{ profileDetails.email }} </p>
 
             </div>
 		

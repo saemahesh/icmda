@@ -5,7 +5,6 @@ import { IdcardComponent } from './idcard/idcard.component';
 import { HomeComponent } from './home/home.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
-
 const routes: Routes = [
   {
     path:'',

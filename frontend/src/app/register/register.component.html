@@ -36,9 +36,9 @@
                 <label style="font-size: medium;">Mobile Number</label>
                 <input type="text" class="form-control" id="name" formControlName="mobileNumber" maxlength="10">
                 <div *ngIf="submitted && f.mobileNumber.errors">
-                    <div *ngIf="f.mobileNumber.errors.required" style="color:red">Mobile Number is required</div>
+                    <div *ngIf="f.mobileNumber.errors.required" style="color:red">Mobile number is required</div>
                 </div>
-                <div *ngIf="f.mobileNumber.errors?.pattern" style="color:red">Mobile Number be a valid email address
+                <div *ngIf="f.mobileNumber.errors?.pattern" style="color:red">Provide valid mobile number
                 </div>
             </div>
             <div class="form-group">

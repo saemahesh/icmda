@@ -78,21 +78,23 @@ export class RegisterComponent implements OnInit {
       this.submitted = false;
       this.registrationForm.reset();
       this.showSuccess();
-    },
-    err => {
-      this.toastrService.error('Not registered..Sorry for inconvienience..');
+
+    }, error => {
+      this.toastrService.error(`Email already exists ${error.error.sqlMessage}`, 'ERROR');
+      console.log("Erororor", error);
     });
   }
+
   yourOnUploadHandler(event) {
     this.selectedValue = event.cdnUrl;
   }
 
   showSuccess()
   {
-    this.router.navigate(['/dashboard']).then(()=>
-    {
-      this.toastrService.success('Successfully registered..Thank you ', 'Success');
-    });
+      this.toastrService.success('Successfully registered..Thank you ', 'Success', { timeOut : 3000});
+      setTimeout( () => {
+      this.router.navigate(['/dashboard']);
+      },3000);
   }
 
 }
