@@ -27,8 +27,11 @@
         <ul class="list-group" id="contact-list" >
           <li class="list-group-item" *ngFor="let user of item.value">
             <div class="col-xs-12 col-sm-3">
-              <img src="{{user.profile_pic}}" alt="{{user.username}}"
-                class="img-responsive img-circle" />
+
+                <a href="/idcard/{{user.id}}">
+                    <img src="{{user.profile_pic}}" alt="{{user.username}}"
+                    class="img-responsive img-circle" />     
+                </a>
             </div>
             <div class="col-xs-12 col-sm-9">
               <span class="name">{{user.username}}</span><br />
