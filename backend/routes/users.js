@@ -45,7 +45,17 @@ router.get("/getProfiles", (req, res) => {
       res.status(500);
       res.send({ err: err, result: null });
     } else {
-      res.send(result);
+      var data = {};
+      result.forEach(element => {
+        if(data[element.art_form]){
+          data[element.art_form].push(element)
+        }else{
+          data[element.art_form] = [];
+          data[element.art_form].push(element)
+
+        }
+      });
+      res.send(data);
     }
   });
 });
