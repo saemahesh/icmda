@@ -15,5 +15,9 @@ export class HomeComponent implements OnInit {
   register(){
     this.router.navigate(['/register']);
   }
-
+  scrollTo(className: string):void {
+    const elementList = document.querySelectorAll('.' + className);
+    const element = elementList[0] as HTMLElement;
+    element.scrollIntoView({ behavior: 'smooth' });
+ }
 }

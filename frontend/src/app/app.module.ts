@@ -11,6 +11,14 @@ import { IdcardComponent } from './idcard/idcard.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { CommitteeMembersComponent } from './committee-members/committee-members.component';
+import { SidebarDirective } from 'src/sidebar.directive';
+import { ActivitiesComponent } from './activities/activities.component';
+import { MembersEthicsComponent } from './members-ethics/members-ethics.component';
+import { MembershipComponent } from './membership/membership.component';
+import { SupportUsComponent } from './support-us/support-us.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
+import { IcmdaPageComponent } from './icmda-page/icmda-page.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +27,14 @@ import { ToastrModule } from 'ngx-toastr';
     HomeComponent,
     IdcardComponent,
     DashboardComponent,
+    CommitteeMembersComponent,
+    SidebarDirective,
+    ActivitiesComponent,
+    MembersEthicsComponent,
+    MembershipComponent,
+    SupportUsComponent,
+    ContactUsComponent,
+    IcmdaPageComponent
   ],
   imports: [
     BrowserModule,

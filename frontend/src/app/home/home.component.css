@@ -1,0 +1,39 @@
+
+body{
+  font-family: 'Inter', sans-serif;
+}
+
+
+.owl-item{
+   width: 1413.08px;
+}
+.hs-item{
+  height: 0px;
+}
+.main{
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background: #0a183d;
+
+}
+img{
+  width: 120%;
+}
+.dance img{
+  width:250%;
+  margin-top: 30%;
+}
+
+@media screen and (max-width: 600px) {
+    .hero-section .intro-section .how-section .concept-section {
+      width: 50%;
+      margin-top: 0;
+    }
+.site-btn{
+    margin-left: 16%;
+}
+
+
+}

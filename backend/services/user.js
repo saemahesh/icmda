@@ -65,6 +65,7 @@ exports.getProfiles = (addUser, callback) => {
     [],
     (err, result) => {
       if (err) {
+        console.log('err ', err);
         callback(err, null);
       } else {
         callback(null, result);
