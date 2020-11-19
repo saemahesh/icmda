@@ -79,11 +79,11 @@
           </div>
           <div class="col-md-6">
             <div class="form-group">
-              <label style="font-size: medium;">Zipcode</label>
+              <label style="font-size: medium;">Zipcode/Pincode</label>
               <input type="text" class="form-control" id="name" formControlName="zipcode" maxlength="6">
             </div>
             <div *ngIf="submitted && f.zipcode.errors">
-              <div *ngIf="f.zipcode.errors.required" style="color:red">Zipcode is required</div>
+              <div *ngIf="f.zipcode.errors.required" style="color:red">Zipcode/Pincode is required</div>
             </div>
           </div>
         </div>

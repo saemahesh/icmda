@@ -8,6 +8,10 @@
        <![CDATA[insert into user_tbl (username,art_form,email,mobile,address,city,zipcode,date,profile_pic)
                 values (?,?,?,?,?,?,?,?,?)]]>
    </sql-query>
+<sql-query id="eventRegister">
+       <![CDATA[insert into event_tbl (username,art_form,email,mobile,address,city,coutnry,zipcode,date,profile_pic)
+                values (?,?,?,?,?,?,?,?,?,?)]]>
+   </sql-query>
 
 
  <sql-query id="getProfiles">

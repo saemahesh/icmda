@@ -15,6 +15,19 @@ router.post("/register", (req, res) => {
     }
   });
 });
+router.post("/event-register", (req, res) => {
+  // console.log(' req ', req);
+  UserService.eventRegister(req.body, (err, result) => {
+    if (err) {
+      res.json(err);
+    } else {
+      res.json({
+        auth: true,
+        token: result
+      });
+    }
+  });
+});
 
 router.post("/login", (req, res) => {
   UserService.loginFun(req.body, (err, result) => {

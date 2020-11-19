@@ -11,6 +11,7 @@ import { MembersEthicsComponent } from './members-ethics/members-ethics.componen
 import { SupportUsComponent } from './support-us/support-us.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { IcmdaPageComponent } from './icmda-page/icmda-page.component';
+import { EventRegisterComponent } from './event-register/event-register.component';
 
 const routes: Routes = [
   {
@@ -57,6 +58,10 @@ const routes: Routes = [
   {
     path:'icmda',
     component:IcmdaPageComponent
+  },
+  {
+    path:'event-registration',
+    component:EventRegisterComponent
   },
 ];
 

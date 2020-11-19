@@ -19,6 +19,7 @@ import { MembershipComponent } from './membership/membership.component';
 import { SupportUsComponent } from './support-us/support-us.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { IcmdaPageComponent } from './icmda-page/icmda-page.component';
+import { EventRegisterComponent } from './event-register/event-register.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { IcmdaPageComponent } from './icmda-page/icmda-page.component';
     MembershipComponent,
     SupportUsComponent,
     ContactUsComponent,
-    IcmdaPageComponent
+    IcmdaPageComponent,
+    EventRegisterComponent
   ],
   imports: [
     BrowserModule,

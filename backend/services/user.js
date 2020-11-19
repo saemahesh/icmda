@@ -34,7 +34,37 @@ exports.register = (data, callback) => {
     }
   );
 };
-
+exports.eventRegister = (data, callback) => {
+  let today = moment().toDate();
+  console.log('data ', data);
+  // var data = ;
+  executeQuery.queryForAll(
+    sqlQueryMap["eventRegister"],
+    [
+     data.formValues.artistName,
+     data.formValues.artForm,
+     data.formValues.email,
+     data.formValues.mobileNumber,
+     data.formValues.address,
+     data.formValues.city,
+     data.formValues.country,
+     data.formValues.zipcode,
+     today,
+     data.imageUrl
+      
+    ],
+    (err, result) => {
+      if (err) {
+        callback(err, null);
+      } else {
+        data.formValues.id = result.insertId;
+        this.sendMail(data)
+       console.log('result ', result.insertId)
+        callback(null, result);
+      }
+    }
+  );
+};
 exports.getMember = (id, callback) => {
   try {
     executeQuery.queryForAll(

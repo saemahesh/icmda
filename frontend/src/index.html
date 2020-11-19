@@ -25,7 +25,7 @@
 		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
   <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">  
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -39,6 +39,14 @@
   a {
     text-decoration: none !important;
 }
+@media screen and (max-width: 600px) {
+  . {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
 </style> 
 
 <body style="font-family: inter;">
@@ -71,46 +79,45 @@
       <!-- <li><a href="/dashboard">Dashboard</a></li> -->
       <li><a href="/contact-us">Contact</a></li>
     </ul>
-    <div class="slicknav_menu">
-      <a href="#" aria-haspopup="true" role="button" tabindex="0" class="slicknav_btn slicknav_collapsed">
-        <span class="slicknav_menutxt">MENU</span>
+    <div class="slicknav_menu" id="slicknav_menu">
+      <a onclick="openNavPop()"   aria-haspopup="true" role="button" tabindex="0" class="slicknav_btn slicknav_collapsed" >
+        <span class="slicknav_menutxt"  >MENU</span>
         <span class="slicknav_icon">
           <span class="slicknav_icon-bar"></span>
           <span class="slicknav_icon-bar"></span>
           <span class="slicknav_icon-bar"></span>
         </span>
       </a>
-      <ul class="slicknav_nav slicknav_hidden" aria-hidden="true" role="menu" style="display: none;">
-        <li class="header-right-warp">
-          <div class="header-right">
-            <a href="#" class="hr-btn">Help</a>
-            <span>|</span>
-            <div class="user-panel">
-              <a href="" class="login">Login</a>
-              <a href="" class="register">Create an account</a>
-            </div>
-          </div>
-        </li>
-        <li><a href="index.html" role="menuitem" tabindex="-1">Home</a></li>
-        <li><a href="#" role="menuitem" tabindex="-1">About</a></li>
-        <li class="slicknav_collapsed slicknav_parent"><a href="#" role="menuitem" aria-haspopup="true" tabindex="-1"
-            class="slicknav_item slicknav_row"><a href="#" tabindex="-1">Pages</a>
-            <span class="slicknav_arrow"><i class="fa fa-angle-right"></i></span></a>
-          <ul class="sub-menu slicknav_hidden" role="menu" aria-hidden="true" style="display: none;">
-            <li><a href="category.html" role="menuitem" tabindex="-1">Category</a></li>
-            <li><a href="playlist.html" role="menuitem" tabindex="-1">Playlist</a></li>
-            <li><a href="artist.html" role="menuitem" tabindex="-1">Artist</a></li>
-            <li><a href="blog.html" role="menuitem" tabindex="-1">Blog</a></li>
-            <li><a href="contact.html" role="menuitem" tabindex="-1">Contact</a></li>
-          </ul>
-        </li>
-        <li><a href="blog.html" role="menuitem" tabindex="-1">News</a></li>
-        <li><a href="contact.html" role="menuitem" tabindex="-1">Contact</a></li>
-      </ul>
+     <div id="mobileNav" class="slicknav_nav slicknav_hidden" aria-hidden="true" role="menu" style="display: none;"  >
+        <li><a href="/">Home</a></li>
+      <li><a href="#">Organization</a>
+       <ul class="sub-menu">
+          <li><a href="/icmda" >ICMDA</a></li>
+          <li><a href="/committee-members">Committee Members</a></li>
+          <li><a href="/activities">Activities</a></li>
+          <li><a href="/membership">Membership</a></li>
+          <li><a href="/members-ethics">Members Ethics</a></li>
+        </ul></li>
+      <li><a href="/support-us">Support Us</a>
+       
+      </li>
+      <li><a href="/contact-us">Contact</a></li>
+    </div>
     </div>
   </header>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://preview.colorlib.com/theme/solmusic/js/main.js"></script>
+  <script>
+  function openNavPop() {
+    var x = document.getElementById("mobileNav");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }</script>
+  
 
   <app-root></app-root>
   <footer class="footer-section">
