@@ -9,8 +9,10 @@
                 values (?,?,?,?,?,?,?,?,?)]]>
    </sql-query>
 <sql-query id="eventRegister">
-       <![CDATA[insert into event_tbl (username,art_form,email,mobile,address,city,coutnry,zipcode,date,profile_pic)
-                values (?,?,?,?,?,?,?,?,?,?)]]>
+       <![CDATA[insert into dec_event_tbl (name,group_name,teacher_name,teacher_mobile,teacher_email,art_category,art_form,
+                                      participation,gender,age,level,identity_card_type,identity_card_number,email,
+                                      mobile,address,city,zipcode,profile_pic,country)
+                values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)]]>
    </sql-query>
 
 
