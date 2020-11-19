@@ -14,6 +14,7 @@
   <link
     href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i&amp;display=swap"
     rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://colorlib.com/preview/theme/solmusic/Fcss/bootstrap.min.css">
   <link rel="stylesheet" href="https://colorlib.com/preview/theme/solmusic/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://colorlib.com/preview/theme/solmusic/css/owl.carousel.min.css">
@@ -25,7 +26,7 @@
 		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
   <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -35,19 +36,44 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css" rel="stylesheet" />
-<style>
-  a {
-    text-decoration: none !important;
-}
-@media screen and (max-width: 600px) {
-  . {display: none;}
-  .topnav a.icon {
-    float: right;
-    display: block;
-  }
-}
+  <style>
+    a {
+      text-decoration: none !important;
+    }
 
-</style> 
+    .blinking {
+
+      animation: opacity 1s ease-in-out infinite;
+      opacity: 1;
+      background: red !important
+    }
+
+    @keyframes opacity {
+      0% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      /* . {
+        display: none;
+      } */
+
+      .topnav a.icon {
+        float: right;
+        display: block;
+      }
+    }
+
+  </style>
 
 <body style="font-family: inter;">
   <header class="header-section clearfix">
@@ -60,64 +86,70 @@
       <span>|</span>
       <div class="user-panel">
         <!-- <a href="" class="login">Login</a> -->
-        <a href="/register" class="register">Register</a>
+        <a href="/register" class="register">Member Register</a>
       </div>
     </div>
     <ul class="main-menu">
       <li><a href="/">Home</a></li>
+      <li><a href="/event-registration">Online Competition <span class="label label-default blinking">New</span></a>
+      </li>
       <li><a href="#">Organization</a>
-       <ul class="sub-menu">
-          <li><a href="/icmda" >ICMDA</a></li>
+        <ul class="sub-menu">
+          <li><a href="/icmda">ICMDA</a></li>
           <li><a href="/committee-members">Committee Members</a></li>
           <li><a href="/activities">Activities</a></li>
           <li><a href="/membership">Membership</a></li>
           <li><a href="/members-ethics">Members Ethics</a></li>
-        </ul></li>
+        </ul>
+      </li>
       <li><a href="/support-us">Support Us</a>
-       
+
       </li>
       <!-- <li><a href="/dashboard">Dashboard</a></li> -->
       <li><a href="/contact-us">Contact</a></li>
     </ul>
     <div class="slicknav_menu" id="slicknav_menu">
-      <a onclick="openNavPop()"   aria-haspopup="true" role="button" tabindex="0" class="slicknav_btn slicknav_collapsed" >
-        <span class="slicknav_menutxt"  >MENU</span>
+      <a onclick="openNavPop()" aria-haspopup="true" role="button" tabindex="0" class="slicknav_btn slicknav_collapsed">
+        <span class="slicknav_menutxt">MENU</span>
         <span class="slicknav_icon">
           <span class="slicknav_icon-bar"></span>
           <span class="slicknav_icon-bar"></span>
           <span class="slicknav_icon-bar"></span>
         </span>
       </a>
-     <div id="mobileNav" class="slicknav_nav slicknav_hidden" aria-hidden="true" role="menu" style="display: none;"  >
+      <div id="mobileNav" class="slicknav_nav slicknav_hidden" aria-hidden="true" role="menu" style="display: none;">
         <li><a href="/">Home</a></li>
-      <li><a href="#">Organization</a>
-       <ul class="sub-menu">
-          <li><a href="/icmda" >ICMDA</a></li>
-          <li><a href="/committee-members">Committee Members</a></li>
-          <li><a href="/activities">Activities</a></li>
-          <li><a href="/membership">Membership</a></li>
-          <li><a href="/members-ethics">Members Ethics</a></li>
-        </ul></li>
-      <li><a href="/support-us">Support Us</a>
-       
-      </li>
-      <li><a href="/contact-us">Contact</a></li>
-    </div>
+        <li><a href="#">Organization</a>
+          <ul class="sub-menu">
+            <li><a href="/icmda">ICMDA</a></li>
+            <li><a href="/committee-members">Committee Members</a></li>
+            <li><a href="/activities">Activities</a></li>
+            <li><a href="/membership">Membership</a></li>
+            <li><a href="/members-ethics">Members Ethics</a></li>
+          </ul>
+        </li>
+        <li><a href="/support-us">Support Us</a>
+
+        </li>
+        <li><a href="/contact-us">Contact</a></li>
+      </div>
     </div>
   </header>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="https://preview.colorlib.com/theme/solmusic/js/main.js"></script>
   <script>
-  function openNavPop() {
-    var x = document.getElementById("mobileNav");
-    if (x.style.display === "none") {
-      x.style.display = "block";
-    } else {
-      x.style.display = "none";
+    function openNavPop() {
+      var x = document.getElementById("mobileNav");
+      if (x.style.display === "none") {
+        x.style.display = "block";
+      } else {
+        x.style.display = "none";
+      }
     }
-  }</script>
-  
+
+  </script>
+
 
   <app-root></app-root>
   <footer class="footer-section">
@@ -166,6 +198,7 @@
             </script>
             <script type="text/javascript">
               document.write(new Date().getFullYear());
+
             </script> ICMDA
           </div>
           <div class="social-links">

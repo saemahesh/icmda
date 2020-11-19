@@ -11,42 +11,54 @@ import { ToastrService } from 'ngx-toastr';
 export class EventRegisterComponent implements OnInit {
 
   selectedCat = 0;
-  diffCat=[];
-  artCategory=[{id:1,cat:'Music'},{id:2,cat:'Dance'}]
-  
+  diffCat = [];
+  groupName: boolean = false;
+  CompType: any;
+  gender: any;
+  artCategory = [{ id: 1, cat: 'Music' }, { id: 2, cat: 'Dance' }]
+  compCat = [
+    { id: 1, name: 'Solo' },
+    { id: 2, name: 'Group' }
+  ]
+  competitionLevel = [
+    { name: 'National' }, { name: 'International' }
+  ]
+  identityType = [
+    { name: 'Aadhar Card' }, { name: 'Pan card' }, { name: 'Voter Card' }, { name: 'Others' }
+  ]
   allList = [
-    { id: 1, cat_id: 1,name: 'VOCAL'  },
-    { id: 2, cat_id: 1,name: 'VEENA' },
-    { id: 3, cat_id: 1,name: 'VIOLIN' },
-    { id: 4, cat_id: 1,name: 'GUITAR' },
-    { id: 5, cat_id: 1,name: 'SAXOPHONE' },
-    { id: 6, cat_id: 1,name: 'FLUTE' },
-    { id: 7, cat_id: 1,name: 'NADHASWARAM' },
-    { id: 8, cat_id: 1,name: 'CLARINATE' },
-    { id: 9, cat_id: 1,name: 'GOTTU VADYAM' },
-    { id: 10,cat_id: 1, name: 'KEYBOARD' },
-    { id: 11,cat_id: 1, name: 'THAMBOORA' },
-    { id: 12,cat_id: 1, name: 'SITHAR / CARNATIC' },
-    { id: 13,cat_id: 1, name: 'MRIDHANGAM' },
-    { id: 14,cat_id: 1, name: 'GATAM' },
-    { id: 15,cat_id: 1, name: 'MORSING' },
-    { id: 16,cat_id: 1, name: 'KANJIRA' },
-    { id: 17,cat_id: 1, name: 'TABLA' },
-    { id: 18,cat_id: 1, name: 'THAVIL' },
-    { id: 19,cat_id: 1, name: 'KONNAKOL' },
-    { id: 20,cat_id: 1, name: 'DRUMS SPADS' },
-    { id: 21,cat_id: 1, name: 'JALATHARAGAM' },
-    { id: 21,cat_id: 2, name: 'BHARATHANATYAM' },
-    { id: 22,cat_id: 2, name: 'KUCHIPUDI' },
-    { id: 23,cat_id: 2, name: 'KATHAKALI' },
-    { id: 24,cat_id: 2, name: 'MOHINI ATTAM' },
-    { id: 25,cat_id: 2, name: 'SANGEETHOPANYAM' },
-    { id: 26,cat_id: 2, name: 'NAARASANKEERTANAM' },
-    { id: 27,cat_id: 2, name: 'HARIKATHA' },
-    { id: 28,cat_id: 2, name: 'VILLUPAATU' },
-    { id: 29,cat_id: 2, name: 'PRAVACHANAMS' },
+    { id: 1, cat_id: 1, name: 'VOCAL' },
+    { id: 2, cat_id: 1, name: 'VEENA' },
+    { id: 3, cat_id: 1, name: 'VIOLIN' },
+    { id: 4, cat_id: 1, name: 'GUITAR' },
+    { id: 5, cat_id: 1, name: 'SAXOPHONE' },
+    { id: 6, cat_id: 1, name: 'FLUTE' },
+    { id: 7, cat_id: 1, name: 'NADHASWARAM' },
+    { id: 8, cat_id: 1, name: 'CLARINATE' },
+    { id: 9, cat_id: 1, name: 'GOTTU VADYAM' },
+    { id: 10, cat_id: 1, name: 'KEYBOARD' },
+    { id: 11, cat_id: 1, name: 'THAMBOORA' },
+    { id: 12, cat_id: 1, name: 'SITHAR / CARNATIC' },
+    { id: 13, cat_id: 1, name: 'MRIDHANGAM' },
+    { id: 14, cat_id: 1, name: 'GATAM' },
+    { id: 15, cat_id: 1, name: 'MORSING' },
+    { id: 16, cat_id: 1, name: 'KANJIRA' },
+    { id: 17, cat_id: 1, name: 'TABLA' },
+    { id: 18, cat_id: 1, name: 'THAVIL' },
+    { id: 19, cat_id: 1, name: 'KONNAKOL' },
+    { id: 20, cat_id: 1, name: 'DRUMS SPADS' },
+    { id: 21, cat_id: 1, name: 'JALATHARAGAM' },
+    { id: 21, cat_id: 2, name: 'BHARATHANATYAM' },
+    { id: 22, cat_id: 2, name: 'KUCHIPUDI' },
+    { id: 23, cat_id: 2, name: 'KATHAKALI' },
+    { id: 24, cat_id: 2, name: 'MOHINI ATTAM' },
+    { id: 25, cat_id: 2, name: 'SANGEETHOPANYAM' },
+    { id: 26, cat_id: 2, name: 'NAARASANKEERTANAM' },
+    { id: 27, cat_id: 2, name: 'HARIKATHA' },
+    { id: 28, cat_id: 2, name: 'VILLUPAATU' },
+    { id: 29, cat_id: 2, name: 'PRAVACHANAMS' },
   ];
-  countryList=[
+  countryList = [
     { id: 1, name: 'India' },
     { id: 2, name: 'USA' },
     { id: 3, name: 'Europe' },
@@ -54,11 +66,17 @@ export class EventRegisterComponent implements OnInit {
     { id: 5, name: 'Srilanka' },
     { id: 6, name: 'Reunion Island' },
   ];
-  
+
+  genderList = [
+    { name: 'Male' }, { name: 'Female' }, { name: 'Others' }
+  ]
+
   registrationForm: FormGroup;
   submitted = false;
   selectedValue: any;
-  constructor(private fb: FormBuilder, private router: Router, private toastrService : ToastrService) { }
+  age: any;
+  compLevel: any;
+  constructor(private fb: FormBuilder, private router: Router, private toastrService: ToastrService) { }
   ngOnInit() {
     this.buildForm();
   }
@@ -66,8 +84,17 @@ export class EventRegisterComponent implements OnInit {
   buildForm() {
     this.registrationForm = this.fb.group({
       artistName: ['', Validators.required],
+      compType: ['', Validators.required],
+      gender: ['', Validators.required],
+      age: ['', Validators.required],
+      compLevel: ['', Validators.required],
+      IdentityNumber: ['', Validators.required],
+      identityType: ['', Validators.required],
+      teacherNumber: [''],
+      teacherEmail: [''],
       artForm: ['', Validators.required],
-      email: ['', [Validators.required, Validators.pattern(/^[A-Za-z]+[a-zA-Z_.0-9]*\@\w+\.\w+/)]],
+      groupName: ['', Validators.required],
+      email: ['', [Validators.pattern(/^[A-Za-z]+[a-zA-Z_.0-9]*\@\w+\.\w+/)]],
       mobileNumber: ['', [Validators.required, Validators.pattern('[1-9]{1}[0-9]{9}')]],
       address: ['', Validators.required],
       city: ['', Validators.required],
@@ -116,6 +143,26 @@ export class EventRegisterComponent implements OnInit {
     //   this.toastrService.error(error.code)
 
     // });
+  }
+
+  keyup(value) {
+    if (value) {
+      var age: any = Number(value);
+      if (age > 18) {
+        this.competitionLevel = [{ name: 'Distrcit' }, { name: 'State' }, { name: 'National' }, { name: 'International' }];
+      } else {
+        this.competitionLevel = [{ name: 'National' }, { name: 'International' }]
+      }
+    }
+  }
+
+  onChangeComp(value) {
+    this.CompType = value;
+    if (value == 'Group') {
+      this.groupName = true;
+    } else {
+      this.groupName = false;
+    }
   }
 
   yourOnUploadHandler(event) {
