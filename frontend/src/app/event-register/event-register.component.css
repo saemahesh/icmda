@@ -23,8 +23,19 @@
 form{
   padding-left: 106px;
   padding-right: 106px;
-  background-color: #111c29;
+  background-color: #0e1721;
   opacity: 0.8;
+  MARGIN-TOP: -20PX;
+  padding-bottom: 5%;
+  padding-top: 5%;
+}
+.swal-wide{
+  width:50% !important;
+}
+@media screen and (max-width: 767px) {
+  form {
+    MARGIN-TOP: -20PX !important ;
+  }
 }
 label{
   color: white;
@@ -41,9 +52,11 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
   form{
     padding-left: 4%;
     padding-right: 7%;
-    background-color: black;
+    background-color: #0e1721;
     opacity: 0.8;
     margin-top:70px;
+    padding-bottom: 5%;
+    padding-top: 5%;
   }
 .hs-item{
   height: 141%;

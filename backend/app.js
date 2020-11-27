@@ -80,7 +80,7 @@ const pool = mysql.createPool({
   port: process.env.DB_PORT,
   database: process.env.DB_NAME,
   connectionLimit: 500,
-  connectTimeout: 50000
+  connectTimeout: 100000
 });
 
 executeQuery = db_template(pool);

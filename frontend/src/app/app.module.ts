@@ -20,6 +20,8 @@ import { SupportUsComponent } from './support-us/support-us.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { IcmdaPageComponent } from './icmda-page/icmda-page.component';
 import { EventRegisterComponent } from './event-register/event-register.component';
+import { MusicComponent } from './music/music.component';
+import { DanceComponent } from './dance/dance.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { EventRegisterComponent } from './event-register/event-register.componen
     SupportUsComponent,
     ContactUsComponent,
     IcmdaPageComponent,
-    EventRegisterComponent
+    EventRegisterComponent,
+    MusicComponent,
+    DanceComponent
   ],
   imports: [
     BrowserModule,

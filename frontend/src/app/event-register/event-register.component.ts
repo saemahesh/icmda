@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { EventRegisterService } from "./event-register.service";
+import * as moment from 'moment';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-event-register',
@@ -15,16 +18,29 @@ export class EventRegisterComponent implements OnInit {
   groupName: boolean = false;
   CompType: any;
   gender: any;
-  artCategory = [{ id: 1, cat: 'Music' }, { id: 2, cat: 'Dance' }]
+  showLevelSelection:any;
+  registrationForm: FormGroup;
+  submitted = false;
+  selectedValue: any;
+  age: any;
+  compLevel: any;
+  amount:any;
+  profileImage=false;
+  changeSelection:any;
+  showImageError= false;
+  artCategory = [
+   { id: 1, cat: 'Music' },
+   { id: 2, cat: 'Dance' }
+  ]
   compCat = [
-    { id: 1, name: 'Solo' },
-    { id: 2, name: 'Group' }
+    { id: 1, name: 'Solo' }
   ]
-  competitionLevel = [
-    { name: 'National' }, { name: 'International' }
-  ]
+  competitionLevel = [];
   identityType = [
-    { name: 'Aadhar Card' }, { name: 'Pan card' }, { name: 'Voter Card' }, { name: 'Others' }
+    { name: 'Aadhar Card' },
+    { name: 'Pan card' },
+    { name: 'Voter Card' }, 
+    { name: 'Others' }
   ]
   allList = [
     { id: 1, cat_id: 1, name: 'VOCAL' },
@@ -50,14 +66,13 @@ export class EventRegisterComponent implements OnInit {
     { id: 21, cat_id: 1, name: 'JALATHARAGAM' },
     { id: 21, cat_id: 2, name: 'BHARATHANATYAM' },
     { id: 22, cat_id: 2, name: 'KUCHIPUDI' },
-    { id: 23, cat_id: 2, name: 'KATHAKALI' },
-    { id: 24, cat_id: 2, name: 'MOHINI ATTAM' },
-    { id: 25, cat_id: 2, name: 'SANGEETHOPANYAM' },
-    { id: 26, cat_id: 2, name: 'NAARASANKEERTANAM' },
-    { id: 27, cat_id: 2, name: 'HARIKATHA' },
-    { id: 28, cat_id: 2, name: 'VILLUPAATU' },
-    { id: 29, cat_id: 2, name: 'PRAVACHANAMS' },
+    { id: 25, cat_id: 1, name: 'SANGEETHOPANYAM' },
+    { id: 26, cat_id: 1, name: 'NAARASANKEERTANAM' },
+    { id: 27, cat_id: 1, name: 'HARIKATHA' },
+    { id: 28, cat_id: 1, name: 'VILLUPAATU' },
+    { id: 29, cat_id: 1, name: 'PRAVACHANAMS' },
   ];
+ 
   countryList = [
     { id: 1, name: 'India' },
     { id: 2, name: 'USA' },
@@ -66,40 +81,45 @@ export class EventRegisterComponent implements OnInit {
     { id: 5, name: 'Srilanka' },
     { id: 6, name: 'Reunion Island' },
   ];
-
+  showLevel=[
+    {id:1,name:'Sub-Junior'},
+    {id:2,name:'Junior'},
+    {id:3,name:'Senior'},
+    {id:4,name:'Super Senior'},
+    {id:5,name:'Open Category for Gold Medal'},
+  ]
   genderList = [
     { name: 'Male' }, { name: 'Female' }, { name: 'Others' }
   ]
 
-  registrationForm: FormGroup;
-  submitted = false;
-  selectedValue: any;
-  age: any;
-  compLevel: any;
-  constructor(private fb: FormBuilder, private router: Router, private toastrService: ToastrService) { }
+
+  constructor(private fb: FormBuilder, private router: Router, private toastrService: ToastrService, private eventservice:EventRegisterService ) { }
   ngOnInit() {
     this.buildForm();
+  
   }
 
   buildForm() {
     this.registrationForm = this.fb.group({
-      artistName: ['', Validators.required],
-      compType: ['', Validators.required],
+      name: ['', Validators.required],
+      compType: ['Solo', Validators.required],
+      artCategory: ['', Validators.required],
+      artForm: ['', Validators.required],
       gender: ['', Validators.required],
       age: ['', Validators.required],
       compLevel: ['', Validators.required],
-      IdentityNumber: ['', Validators.required],
+      cLevel: ['',Validators.required],
       identityType: ['', Validators.required],
-      teacherNumber: [''],
-      teacherEmail: [''],
-      artForm: ['', Validators.required],
-      groupName: ['', Validators.required],
-      email: ['', [Validators.pattern(/^[A-Za-z]+[a-zA-Z_.0-9]*\@\w+\.\w+/)]],
+      identityNumber: ['', Validators.required],
+      email: ['',Validators.required],
       mobileNumber: ['', [Validators.required, Validators.pattern('[1-9]{1}[0-9]{9}')]],
       address: ['', Validators.required],
-      city: ['', Validators.required],
       country: ['', Validators.required],
+      city: ['', Validators.required],
       zipcode: ['', Validators.required],
+      teacherName:['', Validators.required],
+      teacherNumber: ['', Validators.required],
+      teacherEmail: ['', Validators.required],  
     })
   }
 
@@ -108,63 +128,67 @@ export class EventRegisterComponent implements OnInit {
   }
 
   submitForm() {
+    console.log("ccoomminng", this.registrationForm)
+    console.log("ffff", this.selectedValue)
+
     this.submitted = true;
-    if (this.registrationForm.invalid) {
+    if (this.registrationForm.invalid || !this.selectedValue) {
+      this.toastrService.error('Please fill all required fields');
       return;
     }
+
     const object = {
       imageUrl: this.selectedValue,
-      formValues: this.registrationForm.value
+      formValues: this.registrationForm.value,
+      amount: this.amount
     }
+    console.log(object)
+    
+    this.eventservice.postEventDetails(object).subscribe(res => {
+      this.submitted = false;
+      if (res.code === 'ER_DUP_ENTRY') {
+        this.toastrService.error('Email already exists');
 
-    // this.registerService.postUserDetails(object).subscribe(res => {
-    //   this.submitted = false;
-    //   if (res.code === 'ER_DUP_ENTRY') {
-    //     this.toastrService.error('Email already exists');
+      } else if (res.token.affectedRows === 1) {
+        Swal.fire({
+          icon: 'success',
+          title: 'You have successfully registered in this event, Your Registration ID :<br> DEC2020-' + res.token.insertId + '.<br> Please check your email for detailed informations',
+          showConfirmButton: true,
+        }).then(suuess=>{
+        this.router.navigate(['']);
+        this.registrationForm.reset();
 
-    //   } else if (res.token.affectedRows === 1) {
-    //     this.toastrService.success('Successfully registered..Thank you ', 'Success', {
-    //       timeOut: 3000
-    //     });
-    //     setTimeout(() => {
-    //       this.router.navigate(['']);
-    //     }, 3000);
-    //     this.registrationForm.reset();
+        })
+      
 
-    //   } else {
-    //     this.toastrService.error('Something went wrong, Please try again');
-    //   }
+      } else {
+        this.toastrService.error('Something went wrong, Please try again');
+      }
 
-    // }, error => {
-    //   if (error.code === 'ER_DUP_ENTRY') {
-    //     this.toastrService.error('Email already exists');
-    //     console.log("Erororor", error);
-    //   }
-    //   this.toastrService.error(error.code)
+    }, error => {
+      if (error.code === 'ER_DUP_ENTRY') {
+        this.toastrService.error('Email already exists');
+        console.log("Erororor", error);
+      }
+      this.toastrService.error(error.code)
 
-    // });
+    });
   }
-
-  keyup(value) {
+  dobChange(value) {
     if (value) {
-      var age: any = Number(value);
-      if (age > 18) {
+    let currentYear = moment();
+    let getYear = moment(value, 'YYYY');  
+    let diff = currentYear.diff(getYear, 'years'); 
+    let age: any = Number(diff);
+      if (!age) {
+        this.competitionLevel = [];
+      } else if (age >= 18) {
         this.competitionLevel = [{ name: 'Distrcit' }, { name: 'State' }, { name: 'National' }, { name: 'International' }];
       } else {
-        this.competitionLevel = [{ name: 'National' }, { name: 'International' }]
+        this.competitionLevel = [{ name: 'Distrcit' }, { name: 'State' }]
       }
     }
   }
-
-  onChangeComp(value) {
-    this.CompType = value;
-    if (value == 'Group') {
-      this.groupName = true;
-    } else {
-      this.groupName = false;
-    }
-  }
-
   yourOnUploadHandler(event) {
     this.selectedValue = event.cdnUrl;
   }
@@ -173,5 +197,44 @@ export class EventRegisterComponent implements OnInit {
     this.diffCat = this.allList.filter((item) => {
       return item.cat_id === Number(cat_id)
     });
+  }
+  onChafngeCat(ff){
+    console.log( typeof ff)
+    this.showLevelSelection=ff;
+    if(ff == '1' || '2'){
+      this.amount= Number(600);
+    } if(ff == '3'){
+      this.amount= Number(800);
+    } if(ff == '4'){
+      this.amount= Number(1000);
+    } if(ff == '5'){
+      this.amount= Number(1500);
+    }
+  }
+  countryChange(countryValue){
+    console.log(typeof countryValue)
+    if(countryValue !== ("Srilanka" || "srilanka" || "sri lanka")){
+      console.log("any other country")
+      if(this.showLevelSelection == '1' || '2'){
+        this.amount= Number(600);
+      } if(this.showLevelSelection == '3'){
+        this.amount= Number(800);
+      } if(this.showLevelSelection == '4'){
+        this.amount= Number(1000);
+      } if(this.showLevelSelection == '5'){
+        this.amount= Number(1500);
+      }
+    }else{
+      console.log("control")
+      if(this.showLevelSelection == '1' || '2'){
+        this.amount= Number(300);
+      } if(this.showLevelSelection == '3'){
+        this.amount= Number(400);
+      } if(this.showLevelSelection == '4'){
+        this.amount= Number(500);
+      } if(this.showLevelSelection == '5'){
+        this.amount= Number(750);
+      }
+    }
   }
 }

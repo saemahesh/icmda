@@ -12,6 +12,8 @@ import { SupportUsComponent } from './support-us/support-us.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { IcmdaPageComponent } from './icmda-page/icmda-page.component';
 import { EventRegisterComponent } from './event-register/event-register.component';
+import { MusicComponent } from './music/music.component';
+import { DanceComponent } from './dance/dance.component';
 
 const routes: Routes = [
   {
@@ -62,6 +64,14 @@ const routes: Routes = [
   {
     path:'event-registration',
     component:EventRegisterComponent
+  },
+  {
+    path:'event-guidelines-music',
+    component:MusicComponent
+  },
+  {
+    path:'event-guidelines-dance',
+    component:DanceComponent
   },
 ];
 
