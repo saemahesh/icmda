@@ -123,7 +123,7 @@
           </span></label>
           <div class="form-group">
             <select class="form-control" id="power" formControlName="cLevel"
-              (change)="onChafngeCat($event.target.value)">
+              (change)="onChangeCompLevel($event.target.value)">
               <option value="" disabled selected>Select your choice</option> {{showLevel}}
               <option *ngFor="let sl of showLevel" value="{{sl.id}}">{{sl.name}}</option>
             </select>
@@ -273,7 +273,7 @@
       </div>
       <div class="col-md-6">
         <div class="form-group">
-          <label style="font-size:medium">Please e-mail us, your video & payment receipt to below e-mail address. If payment receipt is not valid, then you are not allowed to participate in competition</label><br>
+          <label style="font-size:17px">Please e-mail us, your video & payment receipt to below e-mail address. If payment receipt is not valid, then you are not allowed to participate in competition</label><br>
           <input type="email" disabled class="form-control" id="name" value="videos@icmda.co.in" style="background-color: white;color: black;font-size: 10px4;font-weight: bold;">
         </div>
         </div>
