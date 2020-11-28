@@ -326,7 +326,7 @@ a:active {
     </div>
 
 	<footer class="site-footer" id="footer">
-		<p class="site-footer__fineprint" id="fineprint">Copyright ©2020 | All Rights Reserved</p>
+		<p class="site-footer__fineprint" id="fineprint">Copyright © ICMDA 2020 | All Rights Reserved</p>
 	</footer>
 </body>
 </html>`}; 
@@ -651,8 +651,11 @@ let mailDetails = {
   </p>
   
   Feel free to reach us if you have any queries.
+
+  Email : icmdachennai@gmail.com 
+  Phone : 9840111333 | 9884112999
     <footer class="site-footer" id="footer">
-      <p class="site-footer__fineprint" id="fineprint">Copyright ©2020 | All Rights Reserved</p>
+      <p class="site-footer__fineprint" id="fineprint">Copyright © ICMDA 2020 | All Rights Reserved</p>
     </footer>
   </body>
   </html>

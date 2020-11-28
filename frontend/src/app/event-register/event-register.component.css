@@ -25,9 +25,9 @@ form{
   padding-right: 106px;
   background-color: #0e1721;
   opacity: 0.8;
-  MARGIN-TOP: -20PX;
+  MARGIN-TOP: 0PX;
   padding-bottom: 5%;
-  padding-top: 5%;
+  padding-top: 0%;
 }
 .swal-wide{
   width:50% !important;

@@ -1,4 +1,15 @@
-    <form [formGroup]="registrationForm">
+
+<form [formGroup]="registrationForm" style="
+    background-image: url(https://www.milapfest.com/wp-content/uploads/2013/09/22.veena_1.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-blend-mode: multiply;
+">
+<marquee behavior="scroll" onmouseover="this.stop();" onmouseout="this.start();" direction="left"  scrollamount="10" style="color:red;font-size: large;font-weight: bold;">
+  Last date for Online competition registration & uploading videos is 31st December.
+  Guidelines for dance <a href="/event-guidelines-dance" target="blank">Click here</a>.
+  Guidelines for music <a href="/event-guidelines-music" target="blank">Click here</a>.
+</marquee>
       <h1 style="text-align: center;color: white;margin-top:20px">Online Competition Dec 2020</h1>
       <div class="col-md-12">
         <div class="form-group">
@@ -220,7 +231,7 @@
           <label style="font-size: medium;">Zipcode/ PinCode<span style="color: red;">*</span> <span *ngIf="submitted && f.zipcode.errors">
             <span *ngIf="f.zipcode.errors.required" style="color:red">Required</span>
           </span></label>
-          <input type="text" class="form-control" id="name" formControlName="zipcode" maxlength="6">
+          <input type="text" class="form-control" id="name" formControlName="zipcode" maxlength="20">
         </div>
        
       </div>
@@ -267,8 +278,7 @@
         </div>
         </div>
       <div class=" col-md-12 well" style="background: #343a4e;">
-        <label style="font-size: medium;">Make payment with either PhonePe/Gpay/Paypal and Upload the
-          receipt</label><br>
+        <label style="font-size: medium;">Make payment with either PhonePe/Gpay/Paypal</label><br>
         <div class="col-md-4">
           <div class="form-group">
             <label style="font-size: medium;">Amount</label>
@@ -279,7 +289,7 @@
         </div>
         <div class="col-md-4">
           <div class="form-group">
-            <label style="font-size: medium;">PhonePe/GPay</label>
+            <label style="font-size: medium;">PhonePe/GPay(India)</label>
             <div style="background-color: white;font-size: 20px;padding-left:10px;font-weight: bold;">
               9884220404
               <img src="../../assets/images/phonepe.png" width="37px" style="margin-left: 22px;" >
@@ -289,7 +299,7 @@
         </div>
         <div class="col-md-4">
           <div class="form-group">
-            <label style="font-size: medium;">PayPal</label>
+            <label style="font-size: medium;">PayPal(International)</label>
             <div style="background-color: white;font-size: 20px;padding-left:10px;font-weight: bold;padding-top: 9px;">
               <a href="https://paypal.me/icmdaDecEvent" target="blank">https://paypal.me/icmdaDecEvent</a>
             </div>

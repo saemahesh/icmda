@@ -152,7 +152,7 @@ export class EventRegisterComponent implements OnInit {
       } else if (res.token.affectedRows === 1) {
         Swal.fire({
           icon: 'success',
-          title: 'You have successfully registered in this event, Your Registration ID :<br> DEC2020-' + res.token.insertId + '.<br> Please check your email for detailed informations',
+          title: 'You have successfully registered in this event, Your Registration ID :<br> DEC2020-' + res.token.insertId + '.<br> Please check your email for detailed information',
           showConfirmButton: true,
         }).then(suuess=>{
         this.router.navigate(['']);
@@ -183,9 +183,9 @@ export class EventRegisterComponent implements OnInit {
       if (!age) {
         this.competitionLevel = [];
       } else if (age >= 18) {
-        this.competitionLevel = [{ name: 'Distrcit' }, { name: 'State' }, { name: 'National' }, { name: 'International' }];
+        this.competitionLevel = [{ name: 'State' }, { name: 'National' }, { name: 'International' }];
       } else {
-        this.competitionLevel = [{ name: 'Distrcit' }, { name: 'State' }]
+        this.competitionLevel = [{ name: 'State' }]
       }
     }
   }
