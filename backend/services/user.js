@@ -646,15 +646,36 @@ let mailDetails = {
      <button type="button" class="btn btn-success" style="cursor:pointer;margin-top:10px">Click here to see the Guidelines for Dance</button>
      </a>
       </div>
+
+  <div class=" col-md-12 well" style=" border: 5px solid #5db29f;  padding: 10px;">
+        <label style="font-size:medium;background: #33626d;color: white;padding: 5px;">Make payment with either PhonePe/Gpay/Paypal (ignore if already paid)</label><br>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label style="font-size: medium;">PhonePe/GPay(India)</label>
+            <div style="background-color: white;font-size: 20px;padding-left:10px;font-weight: bold;">
+              9884220404
+
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label style="font-size: medium;">PayPal(International)</label>
+            <div style="background-color: white;font-size: 1em;padding-left:10px;font-weight: bold;padding: 8px;">
+              <a href="https://paypal.me/icmdaDecEvent" target="blank">https://paypal.me/icmdaDecEvent</a>
+            </div>
+          </div>
+        </div>
+      </div>
   
-  <p style="color:red">Please e-mail your video along with payment receipt to the <strong style="color:black">videos@icmda.co.in</strong> email. If payment receipt is not valid, then you are not allowed to participate in competitation
+  <p style="color:red;margin-top:10px"> Important Note: Please e-mail your video along with payment receipt to the <strong style="color:black">videos@icmda.co.in</strong> email. If payment receipt is not valid, then you are not allowed to participate in competition
   </p>
   
   Feel free to reach us if you have any queries.
 
   Email : icmdachennai@gmail.com 
   Phone : 9840111333 | 9884112999
-    <footer class="site-footer" id="footer">
+    <footer class="site-footer" id="footer" style="padding:15px">
       <p class="site-footer__fineprint" id="fineprint">Copyright © ICMDA 2020 | All Rights Reserved</p>
     </footer>
   </body>

@@ -99,6 +99,11 @@ img{
   background-color: #717171;
 }
 
+.carousel img{
+  height: 500px;
+}
+
+
 /* Fading animation */
 .fade {
   -webkit-animation-name: fade;
@@ -136,5 +141,10 @@ img{
   margin-top: 0%;
 
 }
+
+.carousel img{
+  height: 200px;
+}
+
 
 }
