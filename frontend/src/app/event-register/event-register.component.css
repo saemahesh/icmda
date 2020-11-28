@@ -20,6 +20,10 @@
     background-size: contain;
   background-image: url(https://storage.needpix.com/rsynced_images/background-2203989_1280.jpg);
 }
+form input{
+  color: white;
+  font-weight: bold;
+}
 form{
   padding-left: 106px;
   padding-right: 106px;

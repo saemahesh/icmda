@@ -62,7 +62,7 @@ const routes: Routes = [
     component:IcmdaPageComponent
   },
   {
-    path:'event-registration',
+    path:'competition-registration',
     component:EventRegisterComponent
   },
   {
