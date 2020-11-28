@@ -648,10 +648,10 @@ let mailDetails = {
       </div>
 
   <div class=" col-md-12 well" style=" border: 5px solid #5db29f;  padding: 10px;">
-        <label style="font-size:medium;background: #33626d;color: white;padding: 5px;">Make payment with either PhonePe/Gpay/Paypal (ignore if already paid)</label><br>
+        <label style="font-size:medium;background: #33626d;color: white;padding: 5px;">Make payment with either PhonePe / Gpay/ Paypal (ignore if already paid)</label><br>
         <div class="col-md-4">
           <div class="form-group">
-            <label style="font-size: medium;">PhonePe/GPay(India)</label>
+            <label style="font-size: medium;">PhonePe / GPay (India)</label>
             <div style="background-color: white;font-size: 20px;padding-left:10px;font-weight: bold;">
               9884220404
 
@@ -660,7 +660,7 @@ let mailDetails = {
         </div>
         <div class="col-md-4">
           <div class="form-group">
-            <label style="font-size: medium;">PayPal(International)</label>
+            <label style="font-size: medium;">PayPal (International)</label>
             <div style="background-color: white;font-size: 1em;padding-left:10px;font-weight: bold;padding: 8px;">
               <a href="https://paypal.me/icmdaDecEvent" target="blank">https://paypal.me/icmdaDecEvent</a>
             </div>
