@@ -103,6 +103,16 @@ img{
   height: 500px;
 }
 
+.links {
+  display: grid;
+}
+.links div{
+  margin-top: 10px;
+  color: white;
+}
+.links a{
+  color:red;
+}
 
 /* Fading animation */
 .fade {

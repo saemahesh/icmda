@@ -63,14 +63,13 @@ export class EventRegisterComponent implements OnInit {
     { id: 20, cat_id: 1, name: "DRUMS SPADS" },
     { id: 21, cat_id: 1, name: "JALATHARAGAM" },
     { id: 21, cat_id: 2, name: "BHARATHANATYAM" },
-    { id: 22, cat_id: 2, name: "KUCHIPUDI" },
-    { id: 25, cat_id: 1, name: "SANGEETHOPANYAM" },
-    { id: 26, cat_id: 1, name: "NAARASANKEERTANAM" },
-    { id: 27, cat_id: 1, name: "HARIKATHA" },
-    { id: 28, cat_id: 1, name: "VILLUPAATU" },
-    { id: 29, cat_id: 1, name: "PRAVACHANAMS" },
+    { id: 22, cat_id: 2, name: "KUCHIPUDI" }
   ];
-
+    // { id: 25, cat_id: 1, name: "SANGEETHOPANYAM" },
+    // { id: 26, cat_id: 1, name: "NAARASANKEERTANAM" },
+    // { id: 27, cat_id: 1, name: "HARIKATHA" },
+    // { id: 28, cat_id: 1, name: "VILLUPAATU" },
+    // { id: 29, cat_id: 1, name: "PRAVACHANAMS" },
   countryList = [
     { id: 1, name: "India" },
     { id: 2, name: "USA" },

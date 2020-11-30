@@ -647,7 +647,7 @@ let mailDetails = {
      </a>
       </div>
 
-  <div class=" col-md-12 well" style=" border: 5px solid #5db29f;  padding: 10px;">
+  <div class=" col-md-12 well" style=" border: 5px solid #5db29f;  padding: 10px;"> 
         <label style="font-size:medium;background: #33626d;color: white;padding: 5px;">Make payment with either PhonePe / Gpay/ Paypal (ignore if already paid)</label><br>
         <div class="col-md-4">
           <div class="form-group">
@@ -668,7 +668,7 @@ let mailDetails = {
         </div>
       </div>
   
-  <p style="color:red;margin-top:10px"> Important Note: Please e-mail your video along with payment receipt to the <strong style="color:black">videos@icmda.co.in</strong> email. If payment receipt is not valid, then you are not allowed to participate in competition
+  <p style="color:red;margin-top:10px"> Important Note: Please e-mail your video file or video link along with payment receipt to the <strong style="color:black">videos@icmda.co.in</strong> email. If payment receipt is not valid, then you are not allowed to participate in competition
   </p>
   
   Feel free to reach us if you have any queries.
