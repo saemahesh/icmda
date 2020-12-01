@@ -176,9 +176,8 @@
           <label style="font-size: medium;">Mobile Number<span style="color: red;">*</span><span *ngIf="submitted && f.mobileNumber.errors">
             <span *ngIf="f.mobileNumber.errors.required" style="color:red">Required</span>
           </span>
-          <span *ngIf="f.mobileNumber.errors?.pattern" style="color:red">Invalid Number
-          </span></label>
-          <input type="number" class="form-control" id="name" formControlName="mobileNumber" maxlength="10">
+        </label>
+          <input type="number" class="form-control" id="name" formControlName="mobileNumber" maxlength="20">
           
         </div>
       </div>
@@ -249,7 +248,7 @@
           <label style="font-size: medium;">Teacher Mobile Number<span style="color: red;">*</span> <span *ngIf="submitted && f.teacherNumber.errors">
             <span *ngIf="f.teacherNumber.errors.required" style="color:red">Required</span>
           </span></label>
-          <input type="number" class="form-control" id="name" formControlName="teacherNumber" maxlength="10">
+          <input type="number" class="form-control" id="name" formControlName="teacherNumber" maxlength="20">
          
         </div>
       </div>

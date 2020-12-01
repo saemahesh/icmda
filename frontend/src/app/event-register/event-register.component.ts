@@ -110,10 +110,7 @@ export class EventRegisterComponent implements OnInit {
       identityType: ["", Validators.required],
       identityNumber: ["", Validators.required],
       email: ["", Validators.required],
-      mobileNumber: [
-        "",
-        [Validators.required, Validators.pattern("[1-9]{1}[0-9]{9}")],
-      ],
+      mobileNumber: ["",Validators.required],
       address: ["", Validators.required],
       country: ["", Validators.required],
       city: ["", Validators.required],
