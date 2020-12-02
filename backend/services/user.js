@@ -541,7 +541,7 @@ let mailDetails = {
   
     <div class="main-content">
       <i class="fa fa-check main-content__checkmark" id="checkmark"></i>
-    <p class="main-content__body" data-lead-id="main-content-body">Thanks ${data.name} for registering to the DEC2020 online competition. Your participation details are metioned below.</p>
+    <p class="main-content__body" data-lead-id="main-content-body">Thanks ${data.name} for registering to the DEC2020 online competition. Your participation details are mentioned below.</p>
     </div>
   
   <table id="customers" style="margin-top:10px">
@@ -634,7 +634,7 @@ let mailDetails = {
     </tr>
     <tr>
       <td>Amount to pay</td>
-      <td>${data.amount}</td>
+      <td>${data.amount} INR</td>
     </tr>
   </table>
   
@@ -648,7 +648,7 @@ let mailDetails = {
       </div>
 
   <div class=" col-md-12 well" style=" border: 5px solid #5db29f;  padding: 10px;"> 
-        <label style="font-size:medium;background: #33626d;color: white;padding: 5px;">Make payment with either PhonePe / Gpay/ Paypal (ignore if already paid)</label><br>
+        <label style="font-size:medium;background: #33626d;color: white;padding: 5px;">Make payment with either PhonePe / Gpay/ Paypal / NetBanking (ignore if already paid)</label><br>
         <div class="col-md-4">
           <div class="form-group">
             <label style="font-size: medium;">PhonePe / GPay (India)</label>
@@ -666,6 +666,15 @@ let mailDetails = {
             </div>
           </div>
         </div>
+        <div class="col-md-4">
+        <div class="form-group">
+          <label style="font-size: medium;">NetBanking</label>
+          <div style="background-color: white;font-size: 1em;padding-left:10px;font-weight: bold;padding: 8px;display:grid">
+           <span>Account No : 20264708218 </span>
+           <span>IFSC       : SBIN0016987 </span>
+          </div>
+        </div>
+      </div>
       </div>
   
   <p style="color:red;margin-top:10px"> Important Note: Please e-mail your video file or video link along with payment receipt to the <strong style="color:black">videos@icmda.co.in</strong> email. If payment receipt is not valid, then you are not allowed to participate in competition
