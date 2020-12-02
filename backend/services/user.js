@@ -671,6 +671,7 @@ let mailDetails = {
           <label style="font-size: medium;">NetBanking</label>
           <div style="background-color: white;font-size: 1em;padding-left:10px;font-weight: bold;padding: 8px;display:grid">
            <span>Account No : 20264708218 </span>
+           <span>Name : Asha Deepa R </span>
            <span>IFSC       : SBIN0016987 </span>
           </div>
         </div>
