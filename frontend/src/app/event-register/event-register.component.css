@@ -13,6 +13,10 @@
     position: absolute;
     top: 50%;
 }
+.helplines div{
+  color:#76ff76;
+  text-align: center;
+}
 
 .hs-item{
   height: 780px;
