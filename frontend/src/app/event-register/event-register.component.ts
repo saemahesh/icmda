@@ -34,12 +34,12 @@ export class EventRegisterComponent implements OnInit {
   ];
   compCat = [{ id: 1, name: "Solo" }];
   competitionLevel = [];
-  identityType = [
-    { name: "Aadhar Card" },
-    { name: "Pan card" },
-    { name: "Voter Card" },
-    { name: "Others" },
-  ];
+  // identityType = [
+  //   { name: "Aadhar Card" },
+  //   { name: "Pan card" },
+  //   { name: "Voter Card" },
+  //   { name: "Others" },
+  // ];
   allList = [
     { id: 1, cat_id: 1, name: "VOCAL" },
     { id: 2, cat_id: 1, name: "VEENA" },
@@ -84,6 +84,8 @@ export class EventRegisterComponent implements OnInit {
     { id: 3, name: "Senior" },
     { id: 4, name: "Super Senior" },
     { id: 5, name: "Open Category for Gold Medal" },
+    { id: 6, name: "Prodigy Category" },
+    { id: 7, name: "Other Category" }
   ];
   genderList = [{ name: "Male" }, { name: "Female" }, { name: "Others" }];
 
@@ -107,8 +109,8 @@ export class EventRegisterComponent implements OnInit {
       age: ["", Validators.required],
       compLevel: ["", Validators.required],
       cLevel: ["", Validators.required],
-      identityType: ["", Validators.required],
-      identityNumber: ["", Validators.required],
+      // identityType: ["", Validators.required],
+      // identityNumber: ["", Validators.required],
       email: ["", Validators.required],
       mobileNumber: ["",Validators.required],
       address: ["", Validators.required],
@@ -216,6 +218,8 @@ export class EventRegisterComponent implements OnInit {
         level_3: 800,
         level_4: 1000,
         level_5: 1500,
+        level_6: 1000,
+        level_7: 1000,
       },
       srilanka: {
         level_1: 300,
@@ -223,6 +227,8 @@ export class EventRegisterComponent implements OnInit {
         level_3: 400,
         level_4: 500,
         level_5: 750,
+        level_6: 500,
+        level_7: 500
       },
     };
     if (this.showCountrySelection && this.showLevelSelection) {

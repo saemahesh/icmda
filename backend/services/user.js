@@ -44,21 +44,27 @@ exports.eventRegister = (data, callback) => {
   }if(data.formValues.artCategory==2){
     data.formValues.artCategory="Dance"
   }
-  switch(data.formValues.cLevel){
-    case '1':
-      data.formValues.cLevel="Sub-Junior";
+  switch (data.formValues.cLevel) {
+    case "1":
+      data.formValues.cLevel = "Sub-Junior";
       break;
-    case '2':
-      data.formValues.cLevel="Junior";
+    case "2":
+      data.formValues.cLevel = "Junior";
       break;
-    case '3':
-      data.formValues.cLevel="Senior";
+    case "3":
+      data.formValues.cLevel = "Senior";
       break;
-    case '4':
-      data.formValues.cLevel="Super Senior";
+    case "4":
+      data.formValues.cLevel = "Super Senior";
       break;
-    case '5':
-      data.formValues.cLevel="Open Category for Gold Medal";
+    case "5":
+      data.formValues.cLevel = "Open Category for Gold Medal";
+      break;
+    case "6":
+      data.formValues.cLevel = "Prodigy Category";
+      break;
+    case "7":
+      data.formValues.cLevel = "Other Category";
       break;
   }
 
@@ -76,8 +82,8 @@ exports.eventRegister = (data, callback) => {
      data.formValues.gender,
      data.formValues.age,
      data.formValues.compLevel,
-     data.formValues.identityType,
-     data.formValues.identityNumber,
+     '',
+     '',
      data.formValues.email,
      data.formValues.mobileNumber,
      data.formValues.address,
@@ -589,14 +595,6 @@ let mailDetails = {
       <td>${data.cLevel}</td>
     </tr>
     <tr>
-      <td>Identity Type</td>
-      <td>${data.identityType}</td>
-    </tr>
-    <tr>
-      <td>Identity Number</td>
-      <td>${data.identityNumber}</td>
-    </tr>
-    <tr>
       <td>Email</td>
       <td>${data.email}</td>
     </tr>
@@ -634,7 +632,7 @@ let mailDetails = {
     </tr>
     <tr>
       <td>Amount to pay</td>
-      <td>${data.amount} INR</td>
+      <td>${data.amount} INR (Excluding transaction fee)</td>
     </tr>
   </table>
   
