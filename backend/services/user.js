@@ -648,7 +648,9 @@ let mailDetails = {
       </div>
 
   <div class=" col-md-12 well" style=" border: 5px solid #5db29f;  padding: 10px;"> 
-        <label style="font-size:medium;background: #33626d;color: white;padding: 5px;">Make payment with either PhonePe / Gpay/ Paypal / NetBanking (ignore if already paid)</label><br>
+        <label style="font-size:medium;background: #33626d;color: white;padding: 5px;">Make payment with either PhonePe / Gpay/ Paypal / NetBanking 
+        <span style="color: red;">(Excluding transaction fee)</span>
+        </label><br>
         <div class="col-md-4">
           <div class="form-group">
             <label style="font-size: medium;">PhonePe / GPay (India)</label>
@@ -673,6 +675,7 @@ let mailDetails = {
            <span>Account No : 20264708218 </span>
            <span>Name : Asha Deepa R </span>
            <span>IFSC       : SBIN0016987 </span>
+           <span>BANK NAME  : State Bank Of India</span>
           </div>
         </div>
       </div>
