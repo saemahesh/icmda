@@ -34,6 +34,12 @@ export class EventRegisterComponent implements OnInit {
   ];
   compCat = [{ id: 1, name: "Solo" }];
   competitionLevel = [];
+  dayModel:any;
+  yearModel:any;
+  monthModel:any;
+  day:any;
+  month:any;
+  year:any;
   // identityType = [
   //   { name: "Aadhar Card" },
   //   { name: "Pan card" },
@@ -85,7 +91,7 @@ export class EventRegisterComponent implements OnInit {
     { id: 4, name: "Super Senior" },
     { id: 5, name: "Open Category for Gold Medal" },
     { id: 6, name: "Prodigy Category" },
-    { id: 7, name: "Other Category" }
+    { id: 7, name: "Special Category" }
   ];
   genderList = [{ name: "Male" }, { name: "Female" }, { name: "Others" }];
 
@@ -97,6 +103,7 @@ export class EventRegisterComponent implements OnInit {
   ) { }
   ngOnInit() {
     this.buildForm();
+    this.loadDOBData();
   }
 
   buildForm() {
@@ -109,8 +116,6 @@ export class EventRegisterComponent implements OnInit {
       age: ["", Validators.required],
       compLevel: ["", Validators.required],
       cLevel: ["", Validators.required],
-      // identityType: ["", Validators.required],
-      // identityNumber: ["", Validators.required],
       email: ["", Validators.required],
       mobileNumber: ["",Validators.required],
       address: ["", Validators.required],
@@ -118,8 +123,7 @@ export class EventRegisterComponent implements OnInit {
       city: ["", Validators.required],
       zipcode: ["", Validators.required],
       teacherName: ["", Validators.required],
-      teacherNumber: ["", Validators.required],
-      teacherEmail: ["", Validators.required],
+      teacherNumber: ["", Validators.required]
     });
   }
 
@@ -142,6 +146,7 @@ export class EventRegisterComponent implements OnInit {
       formValues: this.registrationForm.value,
       amount: this.amount,
     };
+    object.formValues.age = this.age;
     console.log(object);
 
     this.eventservice.postEventDetails(object).subscribe(
@@ -174,23 +179,75 @@ export class EventRegisterComponent implements OnInit {
       }
     );
   }
+  //2015-06-11
+  loadDOBData(){
+    let dayarr=[]
+    for(let i=1;i<=31;i++){
+      dayarr.push(i)
+    }
+    this.dayModel=dayarr;
+
+    this.competitionLevel = [
+      { name: "State" },
+      { name: "National" },
+      { name: "International" },
+    ];
+
+    let yeararr=[];
+    for(let j=1980;j<=2020;j++){
+      yeararr.push(j);
+    }
+    this.yearModel=yeararr;
+    this.monthModel=[
+    { name: "JAN" },
+    { name: "FEB" },
+    { name: "MAR" },
+    { name: "APR" },
+    { name: "MAY" },
+    { name: "JUNE" },
+    { name: "JULY" },
+    { name: "AUG" },
+    { name: "SEPT" },
+    {  name: "OCT" },
+    {  name: "NOV" },
+    {  name: "DEC" }
+  ]
+  }
+  daychnage(dayParam) {
+    this.day = dayParam
+    this.age = this.year + '-' + this.month + '-' + this.day;
+
+  }
+  monthChange(monthParam) {
+    
+    this.month = monthParam
+    this.age = this.year + '-' + this.month + '-' + this.day;
+
+  }
+  yearChange(yearParam) {
+    this.year = yearParam;
+  
+  
+    this.age  = this.year + '-' + this.month + '-' + this.day;
+    // this.dobChange(new Date(newDob))
+  
+}
   dobChange(value) {
+    console.log("llll",value)
     if (value) {
       let currentYear = moment();
       let getYear = moment(value, "YYYY");
       let diff = currentYear.diff(getYear, "years");
       let age: any = Number(diff);
-      if (!age) {
-        this.competitionLevel = [];
-      } else if (age >= 18) {
-        this.competitionLevel = [
-          { name: "State" },
-          { name: "National" },
-          { name: "International" },
-        ];
-      } else {
-        this.competitionLevel = [{ name: "State" }];
-      }
+      console.log("llll",age)
+
+      // if (!age) {
+      //   this.competitionLevel = [];
+      // } else if (age >= 18) {
+    
+      // } else {
+      //   this.competitionLevel = [{ name: "State" }];
+      // }
     }
   }
   yourOnUploadHandler(event) {

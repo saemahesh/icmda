@@ -64,7 +64,7 @@ exports.eventRegister = (data, callback) => {
       data.formValues.cLevel = "Prodigy Category";
       break;
     case "7":
-      data.formValues.cLevel = "Other Category";
+      data.formValues.cLevel = "Special Category";
       break;
   }
 
@@ -75,7 +75,7 @@ exports.eventRegister = (data, callback) => {
      data.formValues.name,
      data.formValues.teacherName,
      data.formValues.teacherNumber,
-     data.formValues.teacherEmail,
+     '',
      data.formValues.artCategory,
      data.formValues.artForm,
      data.formValues.compType,
@@ -587,11 +587,11 @@ let mailDetails = {
       <td>${data.age}</td>
     </tr>
     <tr>
-      <td>Competition Category</td>
+      <td>Competition Level</td>
       <td>${data.compLevel}</td>
     </tr>
     <tr>
-      <td>Competition Level</td>
+      <td>Participation Category</td>
       <td>${data.cLevel}</td>
     </tr>
     <tr>
@@ -626,10 +626,7 @@ let mailDetails = {
       <td>Teacher Mobile</td>
       <td>${data.teacherNumber}</td>
     </tr>
-    <tr>
-      <td>Teacher Email</td>
-      <td>${data.teacherEmail}</td>
-    </tr>
+
     <tr>
       <td>Amount to pay</td>
       <td>${data.amount} INR (Excluding transaction fee)</td>
@@ -679,7 +676,7 @@ let mailDetails = {
       </div>
       </div>
   
-  <p style="color:red;margin-top:10px"> Important Note: Please e-mail your video file or video link along with payment receipt to the <strong style="color:black">videos@icmda.co.in</strong> email. If payment receipt is not valid, then you are not allowed to participate in competition
+  <p style="color:red;margin-top:10px"> Important Note: Please e-mail your video link along with payment receipt to the <strong style="color:black">videos@icmda.co.in</strong> email. If payment receipt is not valid, then you are not allowed to participate in competition
   </p>
   
   Feel free to reach us if you have any queries.

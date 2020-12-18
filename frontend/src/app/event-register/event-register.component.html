@@ -18,7 +18,17 @@
     HelpLine (Other Languages) : +91 7338764767
   </div>
 </div>
-<h1 style="text-align: center;color: white;margin-top:20px">Online Competition Dec 2020</h1>
+<div class="row helplines">
+  <div class="col-md-6 col-xs-12">
+    <label style="font-size: medium;"> <a href="/event-guidelines-music" target="blank" style="color: red;">Click here</a> for Music guidelines</label>
+  </div>
+  <div class="col-md-6 col-xs-12">
+    <label style="font-size: medium;"> <a href="/event-guidelines-dance" target="blank" style="color: red;">Click here</a> for Dance guidelines</label>
+  </div>
+</div>
+
+<h1 style="text-align: center;color: white;margin-top:20px">Online Competition Dec 2020-21</h1>
+<h5 style="text-align: center;color: white;margin-top:20px;color:#46ff25">( State, National, International - Levels )</h5>
       <div class="col-md-12">
         <div class="form-group">
           <label style="font-size: medium;">Participant Name<span style="color: red;">*</span>  <span *ngIf="submitted && f.name.errors">
@@ -105,14 +115,51 @@
             <span *ngIf="f.age.errors.required" style="color:red">
               Required</span> </span>
             </label>
-          <input type="date" class="form-control" id="dob"  formControlName="age"
-          (change)="dobChange($event.target.value)" style="color: white;">
-         
+            <div class="form-inline dob" style="display: flex;">
+               <select class="form-control" id="sel2" (change)="daychnage($event.target.value)">
+              <option value="" disabled selected>Day</option>
+              <option *ngFor="let dMdl of dayModel" value="{{dMdl}}">{{dMdl}}</option>
+            </select>
+                <select class="form-control" id="sel1" (change)="monthChange($event.target.value)">
+                  <option value="" disabled selected>Month</option>
+                  <option *ngFor="let mnMdl of monthModel" value="{{mnMdl.name}}">{{mnMdl.name}}</option>
+                </select>
+               
+                <select class="form-control" id="sel3" (change)="yearChange($event.target.value)" formControlName="age">
+                  <option value="" disabled selected>Year</option>
+                  <option *ngFor="let yMdl of yearModel" value="{{yMdl}}">{{yMdl}}</option>
+
+                </select>
+            </div>
+            <!-- <div class="container">
+<div class="row">
+            <select class="form-control"  id="dob"  formControlName="age">
+              <option value="" disabled selected>Day</option>
+              <option *ngFor="let level of competitionLevel" value="{{level.name}}"*ngFor="let level of competitionLevel" value="{{level.name}}">{{level.name}}</option>
+            </select>
+          </div>
+          <div class="row">
+
+            <select class="form-control"  id="dob"  formControlName="age">
+              <option value="" disabled selected>Month</option>
+              <option *ngFor="let level of competitionLevel" value="{{level.name}}">{{level.name}}</option>
+            </select>
+          </div>
+          <div class="row">
+
+            <select class="form-control"  id="dob"  formControlName="age">
+              <option value="" disabled selected>Year</option>
+              <option *ngFor="let level of competitionLevel" value="{{level.name}}">{{level.name}}</option>
+            </select>
+          </div> -->
+          <!-- <input type="date" class="form-control" id="dob"  formControlName="age"
+          (change)="dobChange($event.target.value)" style="color: white;"> -->
+        <!-- </div> -->
         </div>
       </div>
       <div class="col-md-6">
         <div class="form-group">
-          <label style="font-size: medium;">Competition Category<span style="color: red;">*</span> <span *ngIf="submitted && f.compLevel.errors">
+          <label style="font-size: medium;">Competition Level<span style="color: red;">*</span> <span *ngIf="submitted && f.compLevel.errors">
             <span *ngIf="f.compLevel.errors.required" style="color:red">Required</span>
           </span></label>
           <div class="form-group">
@@ -126,7 +173,7 @@
       </div>
       <div class="col-md-6">
         <div class="form-group">
-          <label style="font-size: medium;">Competition Level<span style="color: red;">*</span> <span *ngIf="submitted && f.cLevel.errors">
+          <label style="font-size: medium;">Participation Category<span style="color: red;">*</span> <span *ngIf="submitted && f.cLevel.errors">
             <span *ngIf="f.cLevel.errors.required" style="color:red">Required</span>
           </span></label>
           <div class="form-group">
@@ -189,15 +236,7 @@
           
         </div>
       </div>
-      <div class="col-md-4">
-        <div class="form-group">
-          <label style="font-size: medium;">Address<span style="color: red;">*</span> <span *ngIf="submitted && f.address.errors">
-            <span *ngIf="f.address.errors.required" style="color:red">Required</span>
-          </span></label>
-          <input type="text" class="form-control" id="name" formControlName="address">
-         
-        </div>
-      </div>
+    
 
       <div class="col-md-4">
         <div class="form-group">
@@ -206,6 +245,25 @@
           </span></label>
           <input type="text" class="form-control" id="name" (change)="countryChange($event.target.value)" formControlName="country">
          
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="form-group">
+          <label style="font-size: medium;">City<span style="color: red;">*</span> <span *ngIf="submitted && f.city.errors">
+            <span *ngIf="f.city.errors.required" style="color:red">Required</span>
+          </span></label>
+          <input type="text" class="form-control" style="padding-top: 4%;" id="name" formControlName="city">
+        </div>
+      </div>
+
+      <div class="col-md-8">
+        <div class="form-group">
+          <label style="font-size: medium;">Address<span style="color: red;">*</span> <span *ngIf="submitted && f.address.errors">
+            <span *ngIf="f.address.errors.required" style="color:red">Required</span>
+          </span></label>
+          <textarea type="text" class="form-control" id="name" formControlName="address">
+          </textarea>
         </div>
       </div>
       <!-- <div class="col-md-4">
@@ -223,15 +281,7 @@
               <span *ngIf="f.country.errors.required" style="color:red">Country is required</span>
             </span>
           </div> -->
-      <div class="col-md-4">
-        <div class="form-group">
-          <label style="font-size: medium;">City<span style="color: red;">*</span> <span *ngIf="submitted && f.city.errors">
-            <span *ngIf="f.city.errors.required" style="color:red">Required</span>
-          </span></label>
-          <input type="text" class="form-control" id="name" formControlName="city">
-        </div>
-       
-      </div>
+
 
       <div class="col-md-4">
         <div class="form-group">
@@ -260,7 +310,7 @@
          
         </div>
       </div>
-      <div class="col-md-4">
+      <!-- <div class="col-md-4">
         <div class="form-group">
           <label style="font-size: medium;">Teacher Email<span style="color: red;">*</span>  <span *ngIf="submitted && f.teacherEmail.errors">
             <span *ngIf="f.teacherEmail.errors.required" style="color:red">Required</span>
@@ -268,7 +318,7 @@
           <input type="text" class="form-control" id="name" formControlName="teacherEmail" >
         
         </div>
-      </div>
+      </div> -->
       <div class="col-md-6">
       <div class="form-group">
         <label style="font-size:medium">Please upload your passport size photo<span style="color: red;">*</span><span *ngIf="!selectedValue && submitted" style="color:red">Required</span>
@@ -280,7 +330,7 @@
       </div>
       <div class="col-md-6">
         <div class="form-group">
-          <label style="color: red;font-size:17px;font-weight: bold;">Please e-mail us, your video file or video link & payment receipt to below e-mail address. If payment receipt is not valid, then you are not allowed to participate in competition</label><br>
+          <label style="color: red;font-size:17px;font-weight: bold;">Please e-mail us, your video link & payment receipt to below e-mail address. If payment receipt is not valid, then you are not allowed to participate in competition</label><br>
           <input type="email" disabled class="form-control" id="name" value="videos@icmda.co.in" style="background-color: white;color: black;font-size: 10px4;font-weight: bold;">
         </div>
         </div>
@@ -325,16 +375,6 @@
 
             </div>
           </div>
-        </div>
-      </div>
-      <div class="col-md-12">
-        <div class="form-group">
-        <label style="font-size: medium;"> <a href="/event-guidelines-music" target="blank">Click here</a> for Music guidelines</label>
-        </div>
-      </div>
-      <div class="col-md-12">
-        <div class="form-group">
-        <label style="font-size: medium;"> <a href="/event-guidelines-dance" target="blank">Click here</a> for Dance guidelines</label>
         </div>
       </div>
       

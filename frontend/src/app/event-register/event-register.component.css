@@ -17,6 +17,9 @@
   color:#76ff76;
   text-align: center;
 }
+.dob select{
+  margin-right:5px;
+}
 
 .hs-item{
   height: 780px;
@@ -25,8 +28,9 @@
   background-image: url(https://storage.needpix.com/rsynced_images/background-2203989_1280.jpg);
 }
 form input{
-  color: white;
+  color: black !important;
   font-weight: bold;
+  background: white;
 }
 form{
   padding-left: 106px;
@@ -37,6 +41,7 @@ form{
   padding-bottom: 5%;
   padding-top: 0%;
 }
+
 .swal-wide{
   width:50% !important;
 }
