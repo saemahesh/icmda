@@ -14,6 +14,7 @@ import Swal from 'sweetalert2'
 export class EventRegisterComponent implements OnInit {
   selectedCat = 0;
   diffCat = [];
+  patCat = [];
   groupName: boolean = false;
   CompType: any;
   gender: any;
@@ -92,6 +93,17 @@ export class EventRegisterComponent implements OnInit {
     { id: 5, name: "Open Category for Gold Medal" },
     { id: 6, name: "Prodigy Category" },
     { id: 7, name: "Special Category" }
+  ];
+  showLevel1 = [
+      { id: 1, name: "Sub-Junior" },
+      { id: 8, name: "Sub-Junior Progressive" },
+      { id: 2, name: "Junior" },
+      { id: 9, name: "Junior Progressive" },
+      { id: 3, name: "Senior" },
+      { id: 4, name: "Super Senior" },
+      { id: 5, name: "Open Category for Gold Medal" },
+      { id: 6, name: "Prodigy Category" },
+      { id: 7, name: "Special Category" }
   ];
   genderList = [{ name: "Male" }, { name: "Female" }, { name: "Others" }];
 
@@ -259,6 +271,16 @@ export class EventRegisterComponent implements OnInit {
       return item.cat_id === Number(cat_id);
     });
   }
+
+  onChangePatCat(cat_id: number) {
+      if (Number(cat_id) === 1) {
+          this.patCat = this.showLevel1;
+      }
+      if (Number(cat_id) === 2) {
+          this.patCat = this.showLevel;
+      }
+  }
+
   onChangeCompLevel(ff) {
     this.showLevelSelection = ff;
     this.calculateAmountToPay();
@@ -277,6 +299,8 @@ export class EventRegisterComponent implements OnInit {
         level_5: 1500,
         level_6: 1000,
         level_7: 1000,
+        level_8: 600,
+        level_9: 600
       },
       srilanka: {
         level_1: 300,
@@ -285,7 +309,9 @@ export class EventRegisterComponent implements OnInit {
         level_4: 500,
         level_5: 750,
         level_6: 500,
-        level_7: 500
+        level_7: 500,
+        level_8: 300,
+        level_9: 300
       },
     };
     if (this.showCountrySelection && this.showLevelSelection) {

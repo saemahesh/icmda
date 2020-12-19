@@ -66,6 +66,12 @@ exports.eventRegister = (data, callback) => {
     case "7":
       data.formValues.cLevel = "Special Category";
       break;
+    case "8":
+        data.formValues.cLevel = "Sub-Junior Progressive";
+        break;
+    case "9":
+        data.formValues.cLevel = "Junior Progressive";
+        break;
   }
 
   console.log(data.formValues.artCategory,data.formValues.cLevel)
