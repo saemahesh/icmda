@@ -194,7 +194,7 @@ export class EventRegisterComponent implements OnInit {
     ];
 
     let yeararr=[];
-    for(let j=1980;j<=2020;j++){
+    for(let j=2020;j>=1950;j--){
       yeararr.push(j);
     }
     this.yearModel=yeararr;

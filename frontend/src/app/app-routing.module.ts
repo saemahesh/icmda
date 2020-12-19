@@ -70,7 +70,7 @@ const routes: Routes = [
     component:MusicComponent
   },
   {
-    path:'event-guidelines-dance',
+    path:'guidelines',
     component:DanceComponent
   },
 ];

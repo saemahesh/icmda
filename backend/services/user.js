@@ -351,8 +351,7 @@ exports.sendEventMail = (mail_data, callback) => {
   data = mail_data.formValues;
   data.imageUrl = mail_data.imageUrl;
   data.amount = mail_data.amount;
-  data.music_guidelines_url = 'http://icmda.co.in/event-guidelines-music';
-  data.dance_guidelines_url = 'http://icmda.co.in/event-guidelines-dance';
+  data.guidelines_url = 'http://icmda.co.in/guidelines';
 
 
 let mailTransporter = nodemailer.createTransport({ 
@@ -634,11 +633,8 @@ let mailDetails = {
   </table>
   
      <div style="margin:30px 0;display:grid">
-     <a target="_blank" href="${data.music_guidelines_url}">
-     <button type="button" class="btn btn-success" style="cursor:pointer">Click here to see the Guidelines for Music</button>
-     </a>
-     <a target="_blank" href="${data.dance_guidelines_url}">
-     <button type="button" class="btn btn-success" style="cursor:pointer;margin-top:10px">Click here to see the Guidelines for Dance</button>
+     <a target="_blank" href="${data.guidelines_url}">
+     <button type="button" class="btn btn-success" style="cursor:pointer">Click here to see the Guidelines</button>
      </a>
       </div>
 
