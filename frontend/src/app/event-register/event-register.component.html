@@ -70,7 +70,8 @@
           </span></label>
           <div class="form-group">
             <select class="form-control" id="power" formControlName="artCategory"
-              (change)="onChangeCat($event.target.value)">
+              (change)="onChangeCat($event.target.value)"
+              (change)="onChangePatCat($event.target.value)">
               <option value="" disabled selected>Select your choice</option>
               <option *ngFor="let ac of artCategory" value="{{ac.id}}">{{ac.cat}}</option>
             </select>
@@ -179,7 +180,7 @@
             <select class="form-control" id="power" formControlName="cLevel"
               (change)="onChangeCompLevel($event.target.value)">
               <option value="" disabled selected>Select your choice</option> {{showLevel}}
-              <option *ngFor="let sl of showLevel" value="{{sl.id}}">{{sl.name}}</option>
+              <option *ngFor="let sl of patCat" value="{{sl.id}}">{{sl.name}}</option>
             </select>
           </div>
         </div>
