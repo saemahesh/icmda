@@ -165,7 +165,7 @@ let mailTransporter = nodemailer.createTransport({
 		pass: 'Jithyalakshmi1'
 	} 
 }); 
-let id_url = `http://localhost:3000/idcard/${data.id}`
+let id_url = `https://icmda.co.in/api/users/idcard/${data.id}`
 let mailDetails = { 
 	from: 'icmdachennai@gmail.com', 
 	to: data.email, 
