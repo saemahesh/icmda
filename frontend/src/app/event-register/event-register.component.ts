@@ -86,24 +86,24 @@ export class EventRegisterComponent implements OnInit {
     { id: 6, name: "Reunion Island" },
   ];
   showLevel = [
-    { id: 1, name: "Sub-Junior" },
-    { id: 2, name: "Junior" },
-    { id: 3, name: "Senior" },
-    { id: 4, name: "Super Senior" },
-    { id: 5, name: "Open Category for Gold Medal" },
-    { id: 6, name: "Prodigy Category" },
-    { id: 7, name: "Special Category" }
+    { id: 1, name: "Sub-Junior(5 - 8 yrs)" },
+    { id: 2, name: "Junior(9 - 12 yrs)" },
+    { id: 3, name: "Senior(13 - 16 yrs)" },
+    { id: 4, name: "Super Senior(17 - 20 yrs)" },
+    { id: 5, name: "Open Category for Gold Medal(above 20 yrs)" },
+    { id: 6, name: "Prodigy Category(below 15 yrs)" },
+    { id: 7, name: "Special Category(no age limit)" }
   ];
   showLevel1 = [
-      { id: 1, name: "Sub-Junior" },
-      { id: 8, name: "Sub-Junior Progressive" },
-      { id: 2, name: "Junior" },
-      { id: 9, name: "Junior Progressive" },
-      { id: 3, name: "Senior" },
-      { id: 4, name: "Super Senior" },
-      { id: 5, name: "Open Category for Gold Medal" },
-      { id: 6, name: "Prodigy Category" },
-      { id: 7, name: "Special Category" }
+      { id: 1, name: "Sub-Junior(5 - 8 yrs)" },
+      { id: 8, name: "Sub-Junior Progressive(5 - 8 yrs)" },
+      { id: 2, name: "Junior(9 - 12 yrs)" },
+      { id: 9, name: "Junior Progressive(9 - 12 yrs)" },
+      { id: 3, name: "Senior(13 - 16 yrs)" },
+      { id: 4, name: "Super Senior(17 - 20 yrs)" },
+      { id: 5, name: "Open Category for Gold Medal(above 20 yrs)" },
+      { id: 6, name: "Prodigy Category(below 15 yrs)" },
+      { id: 7, name: "Special Category(no age limit)" }
   ];
   genderList = [{ name: "Male" }, { name: "Female" }, { name: "Others" }];
 
