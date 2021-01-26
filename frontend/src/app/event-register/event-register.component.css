@@ -31,6 +31,7 @@ form input{
   color: black !important;
   font-weight: bold;
   background: white;
+  height: 30px !important;
 }
 form{
   padding-left: 106px;
