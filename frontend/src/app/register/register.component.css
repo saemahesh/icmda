@@ -34,6 +34,10 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
   font-size: 1.5rem;
   padding-left: 10px;
 }
+input {
+  background: white !important;
+  color: black !important;
+}
 @media screen and (max-width: 600px) {
   .container .hs-item {
     width: 100%;
@@ -44,7 +48,8 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
     padding-right: 7%;
     background-color: black;
     opacity: 0.8;
-    margin-top:70px;
+    margin-top: 78%;
+    margin-bottom: 13%;
   }
 .hs-item{
   height: 141%;

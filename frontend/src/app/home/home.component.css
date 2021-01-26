@@ -15,6 +15,12 @@
   background: #0a183d;
 
 }
+.membership-notes{
+  display: grid;
+}
+.membership-notes label{
+    font-size: 12px;
+}
 img{
   width: 120%;
 }

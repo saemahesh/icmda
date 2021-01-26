@@ -69,6 +69,7 @@ export class EventRegisterComponent implements OnInit {
     { id: 19, cat_id: 1, name: "KONNAKOL" },
     { id: 20, cat_id: 1, name: "DRUMS SPADS" },
     { id: 21, cat_id: 1, name: "JALATHARAGAM" },
+    { id: 22, cat_id: 1, name: "KAZOO" },
     { id: 21, cat_id: 2, name: "BHARATHANATYAM" },
     { id: 22, cat_id: 2, name: "KUCHIPUDI" }
   ];

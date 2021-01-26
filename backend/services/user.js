@@ -212,19 +212,20 @@ let mailDetails = {
     Thanks a bunch for filling that out. It means a lot to us, just like you do! 
     We really appreciate you for joining as a member at ICMDA. Thanks for joining our family.</p>
   </div>
-  
-  <div style="margin:30px 0">
-      <a target="_blank" href="${id_url}">
-      <button type="button" class="btn btn-success" style="background:lightgreen">Click here to download your ID card</button>
-      </a>
-   </div>
-  
-
+  <p>
+  You will get the id card soon.
+  </p>
 	<footer class="site-footer" id="footer">
 		<p class="site-footer__fineprint" id="fineprint">Copyright © ICMDA 2020 | All Rights Reserved</p>
 	</footer>
 </body>
 </html>`}; 
+
+// <div style="margin:30px 0">
+// <a target="_blank" href="${id_url}">
+// <button type="button" class="btn btn-success" style="background:lightgreen">Click here to download your ID card</button>
+// </a>
+// </div>
 
 mailTransporter.sendMail(mailDetails, function(err, data) { 
 	if(err) { 

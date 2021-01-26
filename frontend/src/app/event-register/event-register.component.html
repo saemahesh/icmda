@@ -25,14 +25,18 @@
     <label style="font-size: smaller;"> <a href="https://www.youtube.com/watch?v=_pcqR9A3Ut0" target="blank" style="color: red;">Click here</a> to know how to send video & payment receipt</label>
   </div>
 </div>
+
 <div class="row helplines">
-  <!-- <div class="col-md-6 col-xs-12">
-    <label style="font-size: medium;"> <a href="/event-guidelines-music" target="blank" style="color: red;">Click here</a> for Music guidelines</label>
-  </div> -->
-  <div class="col-md-12">
+  <div class="col-md-6 col-xs-12">
     <label style="font-size: medium;"> <a href="/guidelines" target="blank" style="color: red;">Click here</a> for Guidelines</label>
   </div>
+  <div class="col-md-6 col-xs-12">
+    <label style="font-size: medium;"> <a href="http://t.me/s/icmdachennai" target="blank" style="color: red;">Click here</a> to Join our Telegram channel for latest updates
+      <span class="label label-default blinking">New</span>
+    </label>
+  </div>
 </div>
+
 
 <h1 style="text-align: center;color: white;margin-top:20px">Online Competition Dec 2020-21</h1>
 <h5 style="text-align: center;color: white;margin-top:20px;color:#46ff25">( State, National, International - Levels )</h5>
@@ -302,7 +306,7 @@
       </div>
       <div class="col-md-4">
         <div class="form-group">
-          <label style="font-size: medium;">Teacher Name<span style="color: red;">*</span>  <span *ngIf="submitted && f.teacherName.errors">
+          <label style="font-size: medium;">Teacher/School Name<span style="color: red;">*</span>  <span *ngIf="submitted && f.teacherName.errors">
             <span *ngIf="f.teacherName.errors.required" style="color:red">Required</span>
           </span></label>
           <input type="text" class="form-control" id="name" formControlName="teacherName" maxlength="50">
@@ -311,7 +315,7 @@
       </div>
       <div class="col-md-4">
         <div class="form-group">
-          <label style="font-size: medium;">Teacher Mobile Number<span style="color: red;">*</span> <span *ngIf="submitted && f.teacherNumber.errors">
+          <label style="font-size: medium;">Teacher/School Mobile Number<span style="color: red;">*</span> <span *ngIf="submitted && f.teacherNumber.errors">
             <span *ngIf="f.teacherNumber.errors.required" style="color:red">Required</span>
           </span></label>
           <input type="number" class="form-control" id="name" formControlName="teacherNumber" maxlength="20">
@@ -329,7 +333,7 @@
       </div> -->
       <div class="col-md-6">
       <div class="form-group">
-        <label style="font-size:medium">Please upload your passport size photo<span style="color: red;">*</span><span *ngIf="!selectedValue && submitted" style="color:red">Required</span>
+        <label style="font-size:medium">Please upload passport size photo<span style="color: red;">*</span><span *ngIf="!selectedValue && submitted" style="color:red">Required</span>
         </label><br>
         <ngx-uploadcare-widget (on-upload-complete)="yourOnUploadHandler($event)" data-crop="3:4" public-key="786c3b03d6095e0a34f3" images-only="true"
           (on-upload-complete)="yourOnUploadHandler($event)">
