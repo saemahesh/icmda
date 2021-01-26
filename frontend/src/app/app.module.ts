@@ -22,6 +22,8 @@ import { IcmdaPageComponent } from './icmda-page/icmda-page.component';
 import { EventRegisterComponent } from './event-register/event-register.component';
 import { MusicComponent } from './music/music.component';
 import { DanceComponent } from './dance/dance.component';
+import { UsersDetailsComponent } from './users-details/users-details.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,8 @@ import { DanceComponent } from './dance/dance.component';
     IcmdaPageComponent,
     EventRegisterComponent,
     MusicComponent,
-    DanceComponent
+    DanceComponent,
+    UsersDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +53,8 @@ import { DanceComponent } from './dance/dance.component';
     HttpClientModule,
     UcWidgetModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

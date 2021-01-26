@@ -15,6 +15,7 @@ exports.register = (data, callback) => {
      data.formValues.artForm,
      data.formValues.email,
      data.formValues.mobileNumber,
+     data.formValues.country,
      data.formValues.address,
      data.formValues.city,
      data.formValues.zipcode,
@@ -152,6 +153,23 @@ exports.getProfiles = (addUser, callback) => {
     }
   );
 };
+
+exports.getRegistrationProfiles = (callback) => {
+  executeQuery.queryForAll(
+    sqlQueryMap["getRegistrationProfiles"],
+    [],
+    (err, result) => {
+      if (err) {
+        console.log('err ', err);
+        callback(err, null);
+      } else {
+        callback(null, result);
+      }
+    }
+  );
+};
+
+
 exports.sendMail = (mail_data, callback) => {
   
   data = mail_data.formValues;
@@ -165,11 +183,11 @@ let mailTransporter = nodemailer.createTransport({
 		pass: 'Jithyalakshmi1'
 	} 
 }); 
-let id_url = `https://icmda.co.in/api/users/idcard/${data.id}`
+let id_url = `https://icmda.co.in/idcard/${data.id}`
 let mailDetails = { 
 	from: 'icmdachennai@gmail.com', 
 	to: data.email, 
-	subject: `Thanks ${data.name} for registering at ICMDA`, 
+	subject: `Thanks ${data.artistName} for registering as a member at ICMDA`, 
 	html: `<html lang="en">
 <head>
 	<meta charset="utf-8" />
@@ -177,145 +195,7 @@ let mailDetails = {
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title></title>
 	<link href='https://fonts.googleapis.com/css?family=Lato:300,400|Montserrat:700' rel='stylesheet' type='text/css'>
-	<style>
-	
-@font-face {
-    font-family: "Akkurat-Regular";
-    src:url("../font/akkurat/lineto-akkurat-regular.eot");
-    src:url("../font/akkurat/lineto-akkurat-regular.eot?#iefix") format("embedded-opentype"),
-        url("../font/akkurat/lineto-akkurat-regular.woff") format("woff");
-    font-weight: normal;
-    font-style: normal;
-}
 
-.cf:before,
-.cf:after {
-    content: " ";
-    display: table;
-}
-.cf:after {
-    clear: both;
-}
-
-* {
-	box-sizing: border-box;
-}
-
-html {
-	font-size: 16px;
-	background-color: #fffffe;
-}
-body {
-	padding: 0 20px;
-	min-width: 300px;
-	font-family: 'Akkurat-Regular', sans-serif;
-	background-color: #fffffe;
-	color: #1a1a1a;
-	text-align: center;
-	word-wrap: break-word;
-	-webkit-font-smoothing: antialiased
-}
-a:link,
-a:visited {
-	color: #00c2a8;
-}
-a:hover,
-a:active {
-	color: #03a994;
-}
-.site-header {
-	margin: 0 auto;
-	max-width: 820px;
-}
-.site-header__title {
-	margin: 0;
-	font-family: Montserrat, sans-serif;
-	font-size: 2.5rem;
-	font-weight: 700;
-	line-height: 1.1;
-	text-transform: uppercase;
-	-webkit-hyphens: auto;
-	-moz-hyphens: auto;
-	-ms-hyphens: auto;
-	hyphens: auto;
-}
-
-.main-content {
-	margin: 0 auto;
-	max-width: 820px;
-}
-.main-content__checkmark {
-	font-size: 4.0625rem;
-	line-height: 1;
-	color: #24b663;
-}
-.main-content__body {
-	margin: 20px 0 0;
-	font-size: 1rem;
-	line-height: 1.4;
-}
-
-.site-footer {
-	margin: 0 auto;
-	padding: 80px 0 25px;
-	padding: 0;
-	max-width: 820px;
-}
-.site-footer__fineprint {
-	font-size: 0.9375rem;
-	line-height: 1.3;
-	font-weight: 300;
-}
-
-
-@media only screen and (min-width: 40em) {
-	
-	.site-header__title {
-		font-size: 6.25rem;
-	}
-	.main-content__checkmark {
-		font-size: 9.75rem;
-	}
-	.main-content__body {
-		font-size: 1.25rem;
-	}
-	.site-footer {
-		padding: 145px 0 25px;
-	}
-	.site-footer__fineprint {
-		font-size: 1.125rem;
-	}
-}
-
-
-.btn-success {
-    color: #fff;
-    background-color: #5cb85c;
-    border-color: #4cae4c;
-}
-.btn {
-    display: inline-block;
-    margin-bottom: 0;
-    font-weight: 400;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    -ms-touch-action: manipulation;
-    touch-action: manipulation;
-    cursor: pointer;
-    background-image: none;
-    border: 1px solid transparent;
-    padding: 6px 12px;
-    font-size: 14px;
-    line-height: 1.42857143;
-    border-radius: 4px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-	</style>
 	
 </head>
 <body>
@@ -328,14 +208,17 @@ a:active {
 
 	<div class="main-content">
 		<i class="fa fa-check main-content__checkmark" id="checkmark"></i>
-		<p class="main-content__body" data-lead-id="main-content-body">Thanks a bunch for filling that out. It means a lot to us, just like you do! We really appreciate you giving us a moment of your time today. Thanks for being you.</p>
-	</div>
-
-	 <div style="margin:30px 0">
-    <a target="_blank" href="${id_url}">
-    <button type="button" class="btn btn-success">Click here to download your ID card</button>
-    </a>
-    </div>
+    <p class="main-content__body" data-lead-id="main-content-body">
+    Thanks a bunch for filling that out. It means a lot to us, just like you do! 
+    We really appreciate you for joining as a member at ICMDA. Thanks for joining our family.</p>
+  </div>
+  
+  <div style="margin:30px 0">
+      <a target="_blank" href="${id_url}">
+      <button type="button" class="btn btn-success" style="background:lightgreen">Click here to download your ID card</button>
+      </a>
+   </div>
+  
 
 	<footer class="site-footer" id="footer">
 		<p class="site-footer__fineprint" id="fineprint">Copyright © ICMDA 2020 | All Rights Reserved</p>

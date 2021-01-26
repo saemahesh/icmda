@@ -51,12 +51,27 @@
         </div>
       </div>
       <div class="form-group">
-        <label style="font-size: medium;">Mobile Number</label>
-        <input type="text" class="form-control" id="name" formControlName="mobileNumber" maxlength="10">
-        <div *ngIf="submitted && f.mobileNumber.errors">
-          <div *ngIf="f.mobileNumber.errors.required" style="color:red">Mobile number is required</div>
-        </div>
-        <div *ngIf="f.mobileNumber.errors?.pattern" style="color:red">Provide valid mobile number
+        <div class="row show-grid">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label style="font-size: medium;">Mobile Number</label>
+              <input type="text" class="form-control" id="name" formControlName="mobileNumber"
+              placeholder="Include country code as well">
+              <div *ngIf="submitted && f.mobileNumber.errors">
+                <div *ngIf="f.mobileNumber.errors.required" style="color:red">Mobile number is required</div>
+              </div>
+             
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label style="font-size: medium;">Country</label>
+              <input type="text" class="form-control" id="name" formControlName="country">
+            </div>
+            <div *ngIf="submitted && f.country.errors">
+              <div *ngIf="f.country.errors.required" style="color:red">Country is required</div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="form-group">

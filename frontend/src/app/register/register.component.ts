@@ -59,7 +59,8 @@ export class RegisterComponent implements OnInit {
       artistName: ['', Validators.required],
       artForm: ['', Validators.required],
       email: ['', [Validators.required, Validators.pattern(/^[A-Za-z]+[a-zA-Z_.0-9]*\@\w+\.\w+/)]],
-      mobileNumber: ['', [Validators.required, Validators.pattern('[1-9]{1}[0-9]{9}')]],
+      mobileNumber: ['', Validators.required],
+      country: ['', Validators.required],
       address: ['', Validators.required],
       city: ['', Validators.required],
       zipcode: ['', Validators.required],
@@ -71,6 +72,7 @@ export class RegisterComponent implements OnInit {
   }
 
   submitForm() {
+    console.log("bb",this.registrationForm)
     this.submitted = true;
     if (this.registrationForm.invalid) {
       return;

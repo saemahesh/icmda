@@ -15,6 +15,7 @@ router.post("/register", (req, res) => {
     }
   });
 });
+
 router.post("/event-register", (req, res) => {
   // console.log(' req ', req);
   UserService.eventRegister(req.body, (err, result) => {
@@ -51,6 +52,20 @@ router.get("/get-member/:id", (req, res) => {
     }
   });
 });
+
+router.get("/getRegistrationProfiles", (req, res) => {
+  var id = req.params.id;
+  console.log('id ', id);
+  UserService.getRegistrationProfiles((err, result) => {
+    if (err) {
+      res.status(500);
+      res.send({ err: "no users found", result: null });
+    } else {
+      res.send(result);
+    }
+  });
+});
+
 
 router.get("/getProfiles", (req, res) => {
   UserService.getProfiles(req.body, (err, result) => {
