@@ -3,12 +3,12 @@
     <div id="accordion">
         <div class="card">
             <div class="card-header">
-              <a class="card-link" data-toggle="collapse" href="#collapse1">
+              <a class="card-link" (click)="guideline1 = !guideline1" >
                 Guidelines for INSTRUMENTS <span class="text-red"> Click Here</span>
                  <span class="label label-default blinking">New</span>
               </a>
             </div>
-            <div id="collapse1" class="collapse" data-parent="#accordion">
+            <div [ngStyle]="{'display': guideline1 ? 'block' : 'none'}" class="collapse" data-parent="#accordion">
               <div class="card-body">
                 <img src="../../assets/images/guidelines/INSTRUMENTS.jpg" width="100%" >
               </div>
@@ -16,12 +16,12 @@
           </div>
           <div class="card">
             <div class="card-header">
-              <a class="card-link" data-toggle="collapse" href="#collapse2">
+              <a class="card-link" (click)="guideline2 = !guideline2">
                 Guidelines for RHYTHM <span class="text-red"> Click Here</span>
                  <span class="label label-default blinking">New</span>
               </a>
             </div>
-            <div id="collapse2" class="collapse" data-parent="#accordion">
+            <div  [ngStyle]="{'display': guideline2 ? 'block' : 'none'}"  class="collapse" data-parent="#accordion">
               <div class="card-body">
                 <img src="../../assets/images/guidelines/RHYTHM.jpg" width="100%" >
               </div>
@@ -29,12 +29,12 @@
           </div>
           <div class="card">
             <div class="card-header">
-              <a class="card-link" data-toggle="collapse" href="#collapse3">
+              <a class="card-link" (click)="guideline3 = !guideline3">
                 Guidelines for VOCAL <span class="text-red"> Click Here</span>
                  <span class="label label-default blinking">New</span>
               </a>
             </div>
-            <div id="collapse3" class="collapse" data-parent="#accordion">
+            <div [ngStyle]="{'display': guideline3 ? 'block' : 'none'}" class="collapse" data-parent="#accordion">
               <div class="card-body">
                 <img src="../../assets/images/guidelines/VOCAL.jpg" width="100%" >
               </div>
@@ -42,11 +42,11 @@
           </div>
       <div class="card">
         <div class="card-header">
-          <a class="collapsed card-link" data-toggle="collapse" href="#collapse4">
+          <a class="collapsed card-link" (click)="guideline4 = !guideline4">
           Guidelines for BHARATHANATYAM <span class="text-red"> Click Here</span> <span class="label label-default blinking">New</span>
         </a>
         </div>
-        <div id="collapse4" class="collapse" data-parent="#accordion">
+        <div [ngStyle]="{'display': guideline4 ? 'block' : 'none'}"  class="collapse" data-parent="#accordion">
           <div class="card-body">
             <img src="../../assets/images/guidelines/BHARATHANATYAM.jpg" width="100%" >
           </div>
@@ -54,11 +54,11 @@
       </div>
       <div class="card">
         <div class="card-header">
-          <a class="collapsed card-link" data-toggle="collapse" href="#collapse5">
+          <a class="collapsed card-link" (click)="guideline5 = !guideline5">
            Guidelines for KUCHIPUDI <span class="text-red"> Click Here</span> <span class="label label-default blinking">New</span>
           </a>
         </div>
-        <div id="collapse5" class="collapse" data-parent="#accordion">
+        <div [ngStyle]="{'display': guideline5 ? 'block' : 'none'}" class="collapse" data-parent="#accordion">
           <div class="card-body">
             <img src="../../assets/images/guidelines/KUCHIPUDI.jpg" width="100%" >
           </div>
