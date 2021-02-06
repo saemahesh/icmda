@@ -1,61 +1,100 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { UsersDetailsService } from "./users-details.service";
-interface Country {
-  name: string;
-  flag: string;
-  area: number;
-  population: number;
-}
-
-const COUNTRIES: Country[] = [
-  {
-    name: 'Russia',
-    flag: 'f/f3/Flag_of_Russia.svg',
-    area: 17075200,
-    population: 146989754
-  },
-  {
-    name: 'Canada',
-    flag: 'c/cf/Flag_of_Canada.svg',
-    area: 9976140,
-    population: 36624199
-  },
-  {
-    name: 'United States',
-    flag: 'a/a4/Flag_of_the_United_States.svg',
-    area: 9629091,
-    population: 324459463
-  },
-  {
-    name: 'China',
-    flag: 'f/fa/Flag_of_the_People%27s_Republic_of_China.svg',
-    area: 9596960,
-    population: 1409517397
-  }
-];
+import { MatPaginator } from "@angular/material/paginator";
+import { MatTableDataSource } from "@angular/material/table";
+import { AbstractControl, FormBuilder } from "@angular/forms";
 @Component({
-  selector: 'app-users-details',
-  templateUrl: './users-details.component.html',
-  styleUrls: ['./users-details.component.css']
+  selector: "app-users-details",
+  templateUrl: "./users-details.component.html",
+  styleUrls: ["./users-details.component.css"],
 })
 export class UsersDetailsComponent implements OnInit {
-  countries = COUNTRIES;
+  displayedColumns: string[] = [
+    "sNo",
+    "name",
+    "age",
+    "artCategory",
+    "artForm",
+    "compCategory",
+    "compLevel",
+    "id",
+    "picture",
+  ];
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  readonly formControl: AbstractControl;
+  userdetails: any;
+  dataSource: any;
 
-  userdetails:any;
-
-  constructor(public userservice:UsersDetailsService) { }
+  constructor(
+    public userservice: UsersDetailsService,
+    formBuilder: FormBuilder
+  ) {
+    this.formControl = formBuilder.group({
+      name: "",
+      artCat: "",
+      artForm: "",
+      compCat: "",
+      compLevel: "",
+      id: "",
+    });
+    this.formControl.valueChanges.subscribe((value) => {
+      if (value.name != null) {
+        const filter = {
+          ...value,
+          name: value.name.trim().toLowerCase(),
+        } as string;
+        this.dataSource.filter = filter;
+      }
+    });
+  }
 
   ngOnInit(): void {
-    this.getData()
+    this.getData();
   }
-getData(){
-  this.userservice.getRegistrationProfiles().subscribe((res)=>{
-    this.userdetails =res;
-      console.log("ff",res)
-  },
-  err=>{
-    console.log("err",err)
-  })
-  
-}
+
+  getData() {
+    this.userservice.getRegistrationProfiles().subscribe(
+      (res) => {
+        this.userdetails = res;
+        for (let i = 0; i < this.userdetails.length; i++) {
+          this.userdetails[i]["sNo"] = i + 1;
+        }
+        this.dataSource = new MatTableDataSource(this.userdetails);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.filterPredicate = (data, filter) => {
+          const a =
+            !filter.name ||
+            data.name.toLowerCase().includes(filter.name.toLowerCase());
+          const b =
+            !filter.artCat ||
+            data.art_category
+              .toLowerCase()
+              .includes(filter.artCat.toLowerCase());
+          const c =
+            !filter.artForm ||
+            data.art_form.toLowerCase().includes(filter.artForm.toLowerCase());
+          const d =
+            !filter.compCat ||
+            data.comp_category
+              .toLowerCase()
+              .includes(filter.compCat.toLowerCase());
+          const e =
+            !filter.compLevel ||
+            data.comp_level
+              .toLowerCase()
+              .includes(filter.compLevel.toLowerCase());
+          const f = !filter.id || data.id == filter.id;
+          return a && b && c && d && e && f;
+        };
+        console.log("ff", res);
+      },
+      (err) => {
+        console.log("err", err);
+      }
+    );
+  }
+  clearFilters() {
+    this.formControl.reset();
+    this.dataSource.filter = "";
+  }
 }
