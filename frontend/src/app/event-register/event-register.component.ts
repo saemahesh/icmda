@@ -69,6 +69,7 @@ export class EventRegisterComponent implements OnInit {
     { id: 19, cat_id: 1, name: "KONNAKOL" },
     { id: 20, cat_id: 1, name: "DRUMS SPADS" },
     { id: 21, cat_id: 1, name: "JALATHARAGAM" },
+    { id: 22, cat_id: 1, name: "KAZOO" },
     { id: 21, cat_id: 2, name: "BHARATHANATYAM" },
     { id: 22, cat_id: 2, name: "KUCHIPUDI" }
   ];
@@ -86,24 +87,24 @@ export class EventRegisterComponent implements OnInit {
     { id: 6, name: "Reunion Island" },
   ];
   showLevel = [
-    { id: 1, name: "Sub-Junior(5 - 8 yrs)" },
-    { id: 2, name: "Junior(9 - 12 yrs)" },
-    { id: 3, name: "Senior(13 - 16 yrs)" },
-    { id: 4, name: "Super Senior(17 - 20 yrs)" },
-    { id: 5, name: "Open Category for Gold Medal(above 20 yrs)" },
-    { id: 6, name: "Prodigy Category(below 15 yrs)" },
-    { id: 7, name: "Special Category(no age limit)" }
+    { id: 1, name: "Sub-Junior (5 - 8 yrs)" },
+    { id: 2, name: "Junior (9 - 12 yrs)" },
+    { id: 3, name: "Senior (13 - 16 yrs)" },
+    { id: 4, name: "Super Senior (17 - 20 yrs)" },
+    { id: 5, name: "Open Category for Gold Medal (above 20 yrs)" },
+    { id: 6, name: "Prodigy Category (below 15 yrs)" },
+    { id: 7, name: "Special Category (no age limit)" }
   ];
   showLevel1 = [
-      { id: 1, name: "Sub-Junior(5 - 8 yrs)" },
-      { id: 8, name: "Sub-Junior Progressive(5 - 8 yrs)" },
-      { id: 2, name: "Junior(9 - 12 yrs)" },
-      { id: 9, name: "Junior Progressive(9 - 12 yrs)" },
-      { id: 3, name: "Senior(13 - 16 yrs)" },
-      { id: 4, name: "Super Senior(17 - 20 yrs)" },
-      { id: 5, name: "Open Category for Gold Medal(above 20 yrs)" },
-      { id: 6, name: "Prodigy Category(below 15 yrs)" },
-      { id: 7, name: "Special Category(no age limit)" }
+      { id: 1, name: "Sub-Junior (5 - 8 yrs)" },
+      { id: 8, name: "Sub-Junior Progressive (5 - 8 yrs)" },
+      { id: 2, name: "Junior (9 - 12 yrs)" },
+      { id: 9, name: "Junior Progressive (9 - 12 yrs)" },
+      { id: 3, name: "Senior (13 - 16 yrs)" },
+      { id: 4, name: "Super Senior (17 - 20 yrs)" },
+      { id: 5, name: "Open Category for Gold Medal (above 20 yrs)" },
+      { id: 6, name: "Prodigy Category (below 15 yrs)" },
+      { id: 7, name: "Special Category (no age limit)" }
   ];
   genderList = [{ name: "Male" }, { name: "Female" }, { name: "Others" }];
 

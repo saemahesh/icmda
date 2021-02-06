@@ -14,6 +14,7 @@ import { IcmdaPageComponent } from './icmda-page/icmda-page.component';
 import { EventRegisterComponent } from './event-register/event-register.component';
 import { MusicComponent } from './music/music.component';
 import { DanceComponent } from './dance/dance.component';
+import { UsersDetailsComponent } from './users-details/users-details.component';
 
 const routes: Routes = [
   {
@@ -72,6 +73,10 @@ const routes: Routes = [
   {
     path:'guidelines',
     component:DanceComponent
+  },
+  {
+    path:'users-details',
+    component: UsersDetailsComponent
   },
 ];
 

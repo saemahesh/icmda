@@ -15,6 +15,6 @@ export class IdcardService {
 
   getProfile(profileId: any): Observable<any>
   {
-    return this.httpClient.get(`${this.baseUrl}api/users/get-member/${profileId}`);
+    return this.httpClient.get(`${this.baseUrl}/get-member/${profileId}`);
   }
 }
