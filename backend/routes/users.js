@@ -66,6 +66,41 @@ router.get("/getRegistrationProfiles", (req, res) => {
   });
 });
 
+router.get("/getJudgesList", (req, res) => {
+  console.log('>>>>> getJudgesList ');
+  UserService.getJudgesList((err, result) => {
+    if (err) {
+      res.status(500);
+      res.send({ err: "no judges found", result: null });
+    } else {
+      res.send(result);
+    }
+  });
+});
+
+router.post("/insertMarks", (req, res) => {
+  console.log('>>>>> insertMarks ', req.body);
+  UserService.insertMarks(req.body, (err, result) => {
+    if (err) {
+      res.status(500);
+      res.send({ err: "err while inserting marks", result: null });
+    } else {
+      res.send(result);
+    }
+  });
+});
+
+router.post("/updateMarks", (req, res) => {
+  console.log('>>>>> updateMarks ', req.body);
+  UserService.updateMarks(req.body, (err, result) => {
+    if (err) {
+      res.status(500);
+      res.send({ err: "err while updating marks", result: null });
+    } else {
+      res.send(result);
+    }
+  });
+});
 
 router.get("/getProfiles", (req, res) => {
   UserService.getProfiles(req.body, (err, result) => {
