@@ -154,6 +154,71 @@ exports.getProfiles = (addUser, callback) => {
   );
 };
 
+exports.getJudgesList = (callback) => {
+  executeQuery.queryForAll(
+    sqlQueryMap["getJudgesList"],
+    [],
+    (err, result) => {
+      if (err) {
+        console.log('err ', err);
+        callback(err, null);
+      } else {
+        console.log('result ', result);
+        callback(null, result);
+      }
+    }
+  );
+};
+
+exports.insertMarks = (data, callback) => {
+  executeQuery.queryForAll(
+    sqlQueryMap["insertMarks"],
+    [data.participant_id,data.judge_id,data.marks],
+    (err, result) => {
+      if (err) {
+        console.log('err ', err);
+        callback(err, null);
+      } else {
+        console.log('result ', result);
+        callback(null, result);
+      }
+    }
+  );
+};
+
+
+exports.updateMarks = (data, callback) => {
+  executeQuery.queryForAll(
+    sqlQueryMap["updateMarks"],
+    [data.participant_id,data.judge_id,data.marks],
+    (err, result) => {
+      if (err) {
+        console.log('err ', err);
+        callback(err, null);
+      } else {
+        console.log('result ', result);
+        callback(null, result);
+      }
+    }
+  );
+};
+
+exports.getMarks = (data, callback) => {
+  executeQuery.queryForAll(
+    sqlQueryMap["updateMarks"],
+    [data.participant_id,data.judge_id,data.marks],
+    (err, result) => {
+      if (err) {
+        console.log('err ', err);
+        callback(err, null);
+      } else {
+        console.log('result ', result);
+        callback(null, result);
+      }
+    }
+  );
+};
+
 exports.getRegistrationProfiles = (callback) => {
   executeQuery.queryForAll(
     sqlQueryMap["getRegistrationProfiles"],

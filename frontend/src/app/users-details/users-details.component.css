@@ -1,0 +1,27 @@
+table {
+  width: 100%;
+  margin-top: -2%;
+}
+
+th.mat-sort-header-sorted {
+  color: black;
+}
+
+.header {
+  font-family: auto;
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+  background: cornsilk;
+  color: crimson;
+}
+
+.input {
+  width: 70%;
+}
+
+label {
+  font-size: medium;
+  color: #595454;
+  font-family: auto;
+}

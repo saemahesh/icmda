@@ -29,5 +29,18 @@
        <![CDATA[select * from user_tbl where id =?  ]]>
    </sql-query>
 
+    <sql-query id="insertMarks">
+       <![CDATA[insert into dec_event_marks (participant_id,judge_id,marks)
+                values (?,?,?)]]>
+    </sql-query>
+
+        <sql-query id="updateMarks">
+       <![CDATA[update dec_event_marks set marks = ? where participant_id = ? and judge_id = ?]]>
+    </sql-query>
+
+     <sql-query id="getJudgesList">
+       <![CDATA[select * from judges  ]]>
+   </sql-query>
+
 
 </sql-queries>
