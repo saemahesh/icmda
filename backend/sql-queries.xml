@@ -21,7 +21,7 @@
    </sql-query>
 
     <sql-query id="getRegistrationProfiles">
-       <![CDATA[select * from dec_event_tbl]]>
+       <![CDATA[select * from dec_event_tbl where video_link is not null]]>
    </sql-query>
 
    
