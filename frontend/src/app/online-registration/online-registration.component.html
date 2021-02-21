@@ -1,0 +1,75 @@
+<div class="hs-item image bg print">
+
+    <div class="container ">
+
+        <form [formGroup]="registrationForm"><br>
+            <div>
+                <h4 style="text-align: center;color: white;"><span style="color:red"> *</span>Make The Payment From
+                    These Numbers</h4>
+            </div>
+            <h1 style="text-align: center;color: white;">Online Registration Form</h1>
+            <div class="form-group">
+                <label style="font-size: medium;">Name</label>
+                <input type="text" class="form-control" id="name" formControlName="name">
+                <span *ngIf="submitted && f.name.errors">
+                    <span *ngIf="f.name.errors.required" style="color:red">First Name is required</span>
+                </span>
+            </div>
+            <div class="form-group">
+                <label style="font-size: medium;">Email</label>
+                <input type="email" class="form-control" id="name" formControlName="email">
+                <span *ngIf="submitted && f.email.errors">
+                    <span *ngIf="f.email.errors.required" style="color:red">Email is required</span>
+                </span>
+            </div>
+            <div class="form-group">
+                <label style="font-size: medium;">Phone Number</label>
+                <input type="text" class="form-control" id="name" formControlName="phoneNumber">
+                <span *ngIf="submitted && f.phoneNumber.errors">
+                    <span *ngIf="f.phoneNumber.errors.required" style="color:red">Phone Number is required</span>
+                </span>
+            </div>
+            <div class="form-group">
+                <label style="font-size: medium;">Country</label>
+                <input type="text" class="form-control" id="name" formControlName="country">
+                <span *ngIf="submitted && f.country.errors">
+                    <span *ngIf="f.country.errors.required" style="color:red">Country is required</span>
+                </span>
+            </div>
+            <div class="form-group">
+                <label style="font-size: medium;">Slot Type</label>
+                <select class="form-control" (change)="slotType($event)" formControlName="slotType">
+                    <option value="">Select Slot Type</option>
+                    <option value="group">Group</option>
+                    <option value="individual">Individual</option>
+                    <option value="duet">Duet</option>
+                </select>
+                <span *ngIf="submitted && f.slotType.errors">
+                    <span *ngIf="f.slotType.errors.required" style="color:red">slotType is required</span>
+                </span>
+            </div>
+            <div class="form-group">
+                <label style="font-size: medium;">Slot Time</label>
+                <select class="form-control" formControlName="slotTime">
+                    <option value="">Select Slot Time</option>
+                    <option value="group">Group</option>
+                    <option value="individual">Individual</option>
+                    <option value="duet">Duet</option>
+                </select>
+                <span *ngIf="submitted && f.slotTime.errors">
+                    <span *ngIf="f.slotTime.errors.required" style="color:red">SlotTime is required</span>
+                </span>
+            </div>
+            <div class="form-group">
+                <label style="font-size: medium;">Enter Code</label>
+                <input type="text" class="form-control" id="name" formControlName="code">
+                <span *ngIf="submitted && f.code.errors">
+                    <span *ngIf="f.code.errors.required" style="color:red">Code is required</span>
+                </span>
+            </div>
+            <div class="wrapper">
+                <button type="submit" class="btn btn-success" (click)="submitForm()">Submit</button><br><br>
+            </div>
+        </form>
+    </div>
+</div>

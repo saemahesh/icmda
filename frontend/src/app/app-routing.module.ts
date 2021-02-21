@@ -1,3 +1,4 @@
+import { OnlineRegistrationComponent } from "./online-registration/online-registration.component";
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { RegisterComponent } from './register/register.component';
@@ -78,6 +79,10 @@ const routes: Routes = [
     path:'users-details',
     component: UsersDetailsComponent
   },
+  {
+    path:'online-registration',
+    component: OnlineRegistrationComponent
+  }
 ];
 
 @NgModule({
