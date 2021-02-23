@@ -9,6 +9,7 @@ let services = require("./services/case");
 let indexRouter = require("./routes/index");
 let usersRouter = require("./routes/users");
 let caseRouter = require("./routes/case");
+let kuchipudiRouter = require("./routes/kuchipudiRegistration")
 let jwt = require("jsonwebtoken");
 let passport = require("passport");
 nodemailer = require('nodemailer'); 
@@ -49,6 +50,8 @@ app.use((req, res, next) => {
 
 app.use("/api/users", usersRouter);
 app.use("/api", caseRouter);
+app.use("/api/form", kuchipudiRouter);
+
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

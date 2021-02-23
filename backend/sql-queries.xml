@@ -30,4 +30,14 @@
    </sql-query>
 
 
+   <sql-query id="kuchipudiRegistration">
+       <![CDATA[insert into registration (name,email,slot_id,country,coupon,phone_number,creation_date,updation_date)
+                values (?,?,?,?,?,?,?,?)]]>
+   </sql-query>
+
+     <sql-query id="getAvaliableSlot">
+       <![CDATA[select id,slot_time from slot_tbl where slot_type =? and occupied = 0  ]]>
+   </sql-query>
+
+
 </sql-queries>
