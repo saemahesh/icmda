@@ -13,4 +13,7 @@ export class OnlineRegistrationService {
   getOnlineEvent(data){
     return this.http.post('http://localhost:3000/api/form/registration',data)
   }
+  sendemailsdata(data){
+    return this.http.post('http://localhost:3000/api/users/send-prize-mail',data)
+  }
 }

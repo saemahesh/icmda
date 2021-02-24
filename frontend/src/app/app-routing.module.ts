@@ -1,3 +1,4 @@
+import { SendEmailsComponent } from "./send-emails/send-emails.component";
 import { OnlineRegistrationComponent } from "./online-registration/online-registration.component";
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -82,6 +83,10 @@ const routes: Routes = [
   {
     path:'online-registration',
     component: OnlineRegistrationComponent
+  },
+  {
+    path:'send-emails',
+    component:SendEmailsComponent
   }
 ];
 

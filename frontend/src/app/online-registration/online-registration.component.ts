@@ -60,7 +60,7 @@ export class OnlineRegistrationComponent implements OnInit {
       "code": this.registrationForm.value.code
     }
     this.onlineRegistration.getOnlineEvent(data).subscribe((res:any)=>{
-      if(res.status.code==='error'){
+      if(res.status.code==='ERROR'){
         this.toastr.error(res.status.message)
       }else{
         this.toastr.success(res.status.message)
