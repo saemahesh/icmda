@@ -6,63 +6,76 @@ exports.kuchipudiRegistration = (data, callback) => {
   var coupon = "1"
   try {
     executeQuery.queryForAll(
-      sqlQueryMap["getPaymentHistoryById"],
+      sqlQueryMap["crossCheckingRegistration"],
       [data.code],
       (err, result) => {
-        console.log("getPaymentHistoryById", err, result)
-        if (result.length == 0) {
-          return callback(err, "payment is not done");
+        console.log("crossCheckingRegistration", err, result, result.length > 0)
+        if (result.length > 0) {
+          return callback(err, "code is already used");
         } else {
-          {
-            try {
-              executeQuery.queryForAll(
-                sqlQueryMap["getAvaliableSlotById"],
-                [data.slot_id],
-                (err, result) => {
-                  console.log("getAvaliableSlotById", err, result)
-                  if (result.length == 0) {
-                    return callback(err, "slot is not avaliable");
-                  } else {
-                    {
-                      // callback(err,result) register insert
-                      executeQuery.queryForAll(
-                        sqlQueryMap["kuchipudiRegistration"],
-                        // code,name,email,slot_id,country,coupon,phone_number,creation_date,updation_date
-                        [
-                          data.code,
-                          data.name,
-                          data.email,
-                          data.slot_id,
-                          data.country,
-                          coupon,
-                          data.phone_number,
-                          creationdate,
-                          updationdate
-                        ],
-                        (err, result) => {
-                          if (err) {
-                            callback(err, null);
-                          } else {
-                            callback(null, result);
-                            updateSlotTable(data.slot_id)
-                            updatePaymentHistoryById(data.code)
+          executeQuery.queryForAll(
+            sqlQueryMap["getPaymentHistoryById"],
+            [data.code],
+            (err, result) => {
+              console.log("getPaymentHistoryById", err, result)
+              if (result.length == 0) {
+                return callback(err, "payment is not done");
+              } else {
+                {
+                  try {
+                    executeQuery.queryForAll(
+                      sqlQueryMap["getAvaliableSlotById"],
+                      [data.slot_id],
+                      (err, result) => {
+                        console.log("getAvaliableSlotById", err, result)
+                        if (result.length == 0) {
+                          return callback(err, "slot is not avaliable");
+                        } else {
+                          {
+                            // callback(err,result) register insert
+                            executeQuery.queryForAll(
+                              sqlQueryMap["kuchipudiRegistration"],
+                              // code,name,email,slot_id,country,coupon,phone_number,creation_date,updation_date
+                              [
+                                data.code,
+                                data.name,
+                                data.email,
+                                data.slot_id,
+                                data.country,
+                                coupon,
+                                data.phone_number,
+                                creationdate,
+                                updationdate
+                              ],
+                              (err, result) => {
+                                if (err) {
+                                  callback(err, null);
+                                } else {
+                                  callback(null, result);
+                                  updateSlotTable(data.slot_id)
+                                  updatePaymentHistoryById(data.code)
 
+                                }
+                              }
+                            );
                           }
                         }
-                      );
+                      }
+                    );
+                  } catch (err) {
+                    if (err) {
+                      callback(err, null);
+                      console.log("Login Error", err);
                     }
                   }
+
                 }
-              );
-            } catch (err) {
-              if (err) {
-                callback(err, null);
-                console.log("Login Error", err);
               }
             }
+          );
 
-          }
         }
+
       }
     );
   } catch (err) {
