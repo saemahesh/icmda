@@ -30,6 +30,19 @@ router.post("/event-register", (req, res) => {
   });
 });
 
+router.post("/send-prize-mail", (req, res) => {
+  // console.log(' req ', req);
+  UserService.sendPrizeMail(req.body, (err, result) => {
+    if (err) {
+      res.json(err);
+    } else {
+      res.json({
+        message: 'Mail sent successfully'
+      });
+    }
+  });
+});
+
 router.post("/login", (req, res) => {
   UserService.loginFun(req.body, (err, result) => {
     if (err) {

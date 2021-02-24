@@ -585,5 +585,275 @@ mailTransporter.sendMail(mailDetails, function(err, data) {
 }); 
 };
 
+exports.sendPrizeMail = (mail_data, callback) => {
+  
+  data = mail_data;
+let mailTransporter = nodemailer.createTransport({ 
+	service: 'gmail', 
+	auth: { 
+		user: 'icmdachennai@gmail.com', 
+		pass: 'Jithyalakshmi1'
+	} 
+}); 
+let mailDetails = { 
+	from: 'icmdachennai@gmail.com', 
+	to: data.email, 
+	subject: `Congratulations, You’ve won the ${data.prize} in ICMDA Online Competitions Dec 2020-21`, 
+	html: `<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link href='https://fonts.googleapis.com/css?family=Lato:300,400|Montserrat:700' rel='stylesheet' type='text/css'>
+    <style>
+    
+  @font-face {
+      font-family: "Akkurat-Regular";
+      src:url("../font/akkurat/lineto-akkurat-regular.eot");
+      src:url("../font/akkurat/lineto-akkurat-regular.eot?#iefix") format("embedded-opentype"),
+          url("../font/akkurat/lineto-akkurat-regular.woff") format("woff");
+      font-weight: normal;
+      font-style: normal;
+  }
+  
+  .cf:before,
+  .cf:after {
+      content: " ";
+      display: table;
+  }
+  .cf:after {
+      clear: both;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  html {
+    font-size: 16px;
+    background-color: #fffffe;
+  }
+  body {
+    padding: 0 20px;
+    min-width: 300px;
+    font-family: 'Akkurat-Regular', sans-serif;
+    background-color: #fffffe;
+    color: #1a1a1a;
+    text-align: center;
+    word-wrap: break-word;
+    -webkit-font-smoothing: antialiased
+  }
+  a:link,
+  a:visited {
+    color: #00c2a8;
+  }
+  a:hover,
+  a:active {
+    color: #03a994;
+  }
+  .site-header {
+    margin: 0 auto;
+    max-width: 820px;
+  }
+  .site-header__title {
+    margin: 0;
+    font-family: Montserrat, sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.1;
+    text-transform: uppercase;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+  }
+  
+  .main-content {
+    margin: 0 auto;
+    max-width: 820px;
+  }
+  .main-content__checkmark {
+    font-size: 4.0625rem;
+    line-height: 1;
+    color: #24b663;
+  }
+  .main-content__body {
+    margin: 20px 0 0;
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+  
+  .site-footer {
+    margin: 0 auto;
+    padding: 80px 0 25px;
+    padding: 0;
+    max-width: 820px;
+  }
+  .site-footer__fineprint {
+    font-size: 0.9375rem;
+    line-height: 1.3;
+    font-weight: 300;
+  }
+  
+  
+  @media only screen and (min-width: 40em) {
+    
+    .site-header__title {
+      font-size: 6.25rem;
+    }
+    .main-content__checkmark {
+      font-size: 9.75rem;
+    }
+    .main-content__body {
+      font-size: 1.25rem;
+    }
+    .site-footer {
+      padding: 145px 0 25px;
+    }
+    .site-footer__fineprint {
+      font-size: 1.125rem;
+    }
+  }
+  
+  
+  .btn-success {
+      color: #fff;
+      background-color: #5cb85c;
+      border-color: #4cae4c;
+  }
+  .btn {
+      display: inline-block;
+      margin-bottom: 0;
+      font-weight: 400;
+      text-align: center;
+      white-space: nowrap;
+      vertical-align: middle;
+      -ms-touch-action: manipulation;
+      touch-action: manipulation;
+      cursor: pointer;
+      background-image: none;
+      border: 1px solid transparent;
+      padding: 6px 12px;
+      font-size: 14px;
+      line-height: 1.42857143;
+      border-radius: 4px;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+  }
+  
+    </style>
+    <style>
+  #customers {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #customers tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #customers tr:hover {background-color: #ddd;}
+  
+  #customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+  }
+  </style>
+  </head>
+  <body>
+    <header class="site-header" id="header">
+      <div class="row" style="background-color:black;margin-bottom:40px">
+      <img width="80%" height="100px" src="https://ucarecdn.com/7c183c4f-2843-466d-a7d6-968148e10b88/" >
+      </div>
+      <h2  data-lead-id="site-header-title" style="color:#b64f33;font-size:40px">THANK YOU!</h2>
+    </header>
+  
+    <div class="main-content">
+      <i class="fa fa-check main-content__checkmark" id="checkmark"></i>
+    <p class="main-content__body" data-lead-id="main-content-body">
+    Namaste ${data.name},
+    </p>
+
+    Congratulations, You’ve won the ${data.prize} in ICMDA Online Competitions Dec 2020-21
+    </div>
+  
+  <table id="customers" style="margin-top:10px">
+  
+    <tr>
+      <td>Registration Id</td>
+      <td>DEC2020-${data.id}</td>
+    </tr>
+    <tr>
+      
+    <tr>
+      <td>Name</td>
+      <td>${data.name}</td>
+    </tr>
+    <tr>
+      <td>Art Form</td>
+      <td>${data.artForm}</td>
+    </tr>
+  
+    <tr>
+      <td>Competition Level</td>
+      <td>${data.compLevel}</td>
+    </tr>
+    <tr>
+      <td>Participation Category</td>
+      <td>${data.cLevel}</td>
+    </tr>
+    <tr>
+    <td>Prize</td>
+    <td>${data.prize}</td>
+  </tr>
+  </table>
+
+    <p>
+      Details about Prize Distribution: 
+    </p>
+
+    <p>
+      We are going to conduct an event in Kuchipudi Kalakshetram on March 21st, 2021. 
+      All the participants are welcome to the event and collect your prizes. If anyone not able to attend the event,
+       they can get the Winning/Participation certificate and Medal via email and Courier (you need to pay for courier charges).
+    </p>
+
+    <p>
+      If anybody wants to participate in the ICMDA festival, please visit the HTTP://ICMDA.CO.IN website on 28th February to register your slot.
+      Please Join the ICMDA Telegram channel for the latest updates.
+    </p> 
+  <div>
+  Feel free to reach us if you have any queries.
+
+  Email : icmdachennai@gmail.com 
+  Phone : 9840111333 | 9884112999
+    <footer class="site-footer" id="footer" style="padding:15px">
+      <p class="site-footer__fineprint" id="fineprint">Copyright © ICMDA 2020 | All Rights Reserved</p>
+    </footer>
+  </div>
+  </body>
+  </html>
+  `}; 
+
+mailTransporter.sendMail(mailDetails, function(err, data) { 
+	if(err) { 
+		console.log('Error Occurs',err); 
+	} else { 
+		console.log('Email sent successfully'); 
+    callback(null,"Email sent successfully")
+	} 
+}); 
+};
+
 
 
