@@ -48,10 +48,10 @@ export class SendEmailsComponent implements OnInit {
       if(res.data ===null){
         this.toastr.error(res.data)
       }else{
-        this.toastr.success(res.data)
+        this.toastr.success(res.err)
         // this.participantDetailsForm.reset();
-        this.participantDetailsForm.value.name=""
-        this.participantDetailsForm.value.id=""
+        this.participantDetailsForm.value.name= null
+        this.participantDetailsForm.value.id= null
         this.submitted = false;
       }
     })
