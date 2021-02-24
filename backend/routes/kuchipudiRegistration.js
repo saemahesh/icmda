@@ -3,14 +3,17 @@ let router = express.Router();
 let kuchipudiService = require("../services/kuchipudiService");
 
 router.post("/registration", (req, res) => {
-  console.log(' req ', req);
+  // console.log(' req ', req);
   kuchipudiService.kuchipudiRegistration(req.body, (err, result) => {
-    if (err) {
-      res.json(err);
+   
+    if(result == 'payment is not done') {
+      res.send({ status:{code:"ERROR",message: result}});
+    } else if (result == 'slot is not avaliable') {
+      res.send({ status:{code:"ERROR",message: result}});
     } else {
-      res.json({
-        auth: true,
-        primary: result
+        res.json({
+        primary: result,
+        status:{code:"SUCCESS",message: "Slot is book successfully"}
       });
     }
   });

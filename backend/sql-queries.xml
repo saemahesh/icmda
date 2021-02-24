@@ -31,12 +31,33 @@
 
 
    <sql-query id="kuchipudiRegistration">
-       <![CDATA[insert into registration (name,email,slot_id,country,coupon,phone_number,creation_date,updation_date)
-                values (?,?,?,?,?,?,?,?)]]>
+       <![CDATA[insert into registration (code,name,email,slot_id,country,coupon,phone_number,creation_date,updation_date)
+                values (?,?,?,?,?,?,?,?,?)]]>
    </sql-query>
 
      <sql-query id="getAvaliableSlot">
        <![CDATA[select id,slot_time from slot_tbl where slot_type =? and occupied = 0  ]]>
+   </sql-query>
+
+        <sql-query id="getPaymentHistoryById">
+       <![CDATA[select * from payment_history where id =? and occupied = 0  ]]>
+   </sql-query>
+
+           <sql-query id="getAvaliableSlotById">
+       <![CDATA[select * from slot_tbl where id =? and occupied = 0  ]]>
+   </sql-query>
+
+           <sql-query id="updatePaymentHistoryById">
+       <![CDATA[update payment_history set occupied = 1 where id =?  ]]>
+   </sql-query>
+
+    <sql-query id="updateAvaliableSlot">
+       <![CDATA[update slot_tbl set occupied = 1 where id =?  ]]>
+   </sql-query>
+
+   <sql-query id="crossCheckingRegistration">
+       <!-- <![CDATA[select id,slot_time from slot_tbl where slot_type =? and occupied = 0  ]]> -->
+       <![CDATA[select * from registration where code =? and slot_type = ? and coupon = 1  ]]>
    </sql-query>
 
 
