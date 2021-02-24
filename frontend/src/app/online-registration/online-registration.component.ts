@@ -1,6 +1,7 @@
 import { OnlineRegistrationService } from "./online-registration.service";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: 'app-online-registration',
@@ -11,7 +12,9 @@ export class OnlineRegistrationComponent implements OnInit {
   registrationForm: FormGroup;
   submitted = false;
   slotTypevalue;
-  constructor(private fb:FormBuilder,private onlineRegistration:OnlineRegistrationService) { }
+  slotId
+  slotTimesValue:any=[]
+  constructor(private fb:FormBuilder,private onlineRegistration:OnlineRegistrationService,private toastr:ToastrService) { }
 
   ngOnInit(): void {
     this.registration();
@@ -33,12 +36,15 @@ export class OnlineRegistrationComponent implements OnInit {
   slotType(event){
     console.log(event.target.value,"event")
     this.slotTypevalue = event.target.value;
-    // const data={
-    //   'slotType': this.slotTypevalue
-    // }
+    console.log(this.slotTypevalue,"valueeee")
     this.onlineRegistration.getSlotType(this.slotTypevalue).subscribe((res:any)=>{
-      console.log(res)
+      console.log(res['primary'])
+      this.slotTimesValue=res['primary']
     })
+  }
+  slotID(event){
+    console.log(event.target.value,"event")
+    this.slotId = event.target.value
   }
   submitForm(){
     this.submitted = true;
@@ -48,14 +54,19 @@ export class OnlineRegistrationComponent implements OnInit {
     const data={
       "name": this.registrationForm.value.name,
       "email": this.registrationForm.value.email,
-      "phoneNumber": this.registrationForm.value.phoneNumber,
+      "phone_number": this.registrationForm.value.phoneNumber,
       "country": this.registrationForm.value.country,
-      "slotType": this.registrationForm.value.slotType,
-      "slotTime": this.registrationForm.value.slotTime,
+      "slot_id": this.slotId,
       "code": this.registrationForm.value.code
     }
     this.onlineRegistration.getOnlineEvent(data).subscribe((res:any)=>{
-      this.registrationForm.reset();
+      if(res.status.code==='error'){
+        this.toastr.error(res.status.message)
+      }else{
+        this.toastr.success(res.status.message)
+        this.registrationForm.reset();
+        this.submitted = false;
+      }
     })
   }
 }

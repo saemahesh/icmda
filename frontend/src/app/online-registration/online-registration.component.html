@@ -40,9 +40,10 @@
                 <label style="font-size: medium;">Slot Type</label>
                 <select class="form-control" (change)="slotType($event)" formControlName="slotType">
                     <option value="">Select Slot Type</option>
-                    <option value="group">Group</option>
-                    <option value="individual">Individual</option>
-                    <option value="duet">Duet</option>
+                    <option value="Individual">Individual - 1000I</option>
+                    <option value="Duet">Duet - 2000I</option>
+                    <option value="Group">Group - 5000I</option>
+                    <option value="Donar">Donar - 10000I</option>
                 </select>
                 <span *ngIf="submitted && f.slotType.errors">
                     <span *ngIf="f.slotType.errors.required" style="color:red">slotType is required</span>
@@ -50,11 +51,10 @@
             </div>
             <div class="form-group">
                 <label style="font-size: medium;">Slot Time</label>
-                <select class="form-control" formControlName="slotTime">
+                <select class="form-control" formControlName="slotTime" (change)="slotID($event)">
                     <option value="">Select Slot Time</option>
-                    <option value="group">Group</option>
-                    <option value="individual">Individual</option>
-                    <option value="duet">Duet</option>
+                    <option *ngFor=" let time of slotTimesValue" [value]=time.id>{{time.slot_time}}</option>
+
                 </select>
                 <span *ngIf="submitted && f.slotTime.errors">
                     <span *ngIf="f.slotTime.errors.required" style="color:red">SlotTime is required</span>
