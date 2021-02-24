@@ -56,8 +56,7 @@
    </sql-query>
 
    <sql-query id="crossCheckingRegistration">
-       <!-- <![CDATA[select id,slot_time from slot_tbl where slot_type =? and occupied = 0  ]]> -->
-       <![CDATA[select * from registration where code =? and slot_type = ? and coupon = 1  ]]>
+       <![CDATA[select * from registration where code =? and coupon = 1  ]]>
    </sql-query>
 
 
