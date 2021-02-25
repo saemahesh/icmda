@@ -45,13 +45,11 @@ export class SendEmailsComponent implements OnInit {
       "prize": this.participantDetailsForm.value.prize
     }
     this.onlineRegistration.sendemailsdata(data).subscribe((res:any)=>{
-      if(res.data ===null){
-        this.toastr.error(res.data)
+      if(res.err){
+        this.toastr.error(res.err)
       }else{
-        this.toastr.success(res.err)
-        // this.participantDetailsForm.reset();
-        this.participantDetailsForm.value.name= null
-        this.participantDetailsForm.value.id= null
+        this.toastr.success(res.data)
+        this.participantDetailsForm.reset();
         this.submitted = false;
       }
     })
