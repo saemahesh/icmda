@@ -839,13 +839,13 @@ let mailDetails = {
     </p>
 
     <p>
-      We are going to conduct an event in Kuchipudi Kalakshetram on March 21st, 2021. 
+      We are going to conduct an event in Kuchipudi Kalakshetram , Date will be mentioned in the Telegram channel.
       All the participants are welcome to the event and collect your prizes. If anyone not able to attend the event,
        they can get the Winning/Participation certificate and Medal via email and Courier (you need to pay for courier charges).
     </p>
 
     <p>
-      If anybody wants to participate in the ICMDA festival, please visit the HTTP://ICMDA.CO.IN website on 28th February to register your slot.
+      If anybody wants to participate in the ICMDA festival, please visit the HTTP://ICMDA.CO.IN website on 1st March to register your slot.
       Please Join the ICMDA Telegram channel (http://t.me/icmdachennai) for the latest updates.
     </p> 
   <div>
