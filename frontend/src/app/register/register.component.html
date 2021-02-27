@@ -1,6 +1,6 @@
 <head>
 
-  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="viewport" content="width=device-width">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="HandheldFriendly" content="true">
 </head>
@@ -8,7 +8,7 @@
 
   <div class="container ">
     <form [formGroup]="registrationForm"><br>
-      <h1 style="text-align: center;color: white;">Registration Form</h1>
+      <h1 style="text-align: center;color: white;">Member Registration Form</h1>
       <div class="form-group">
         <label style="font-size: medium;">Artist Name</label>
         <input type="text" class="form-control" id="name" formControlName="artistName">
@@ -51,12 +51,27 @@
         </div>
       </div>
       <div class="form-group">
-        <label style="font-size: medium;">Mobile Number</label>
-        <input type="text" class="form-control" id="name" formControlName="mobileNumber" maxlength="10">
-        <div *ngIf="submitted && f.mobileNumber.errors">
-          <div *ngIf="f.mobileNumber.errors.required" style="color:red">Mobile number is required</div>
-        </div>
-        <div *ngIf="f.mobileNumber.errors?.pattern" style="color:red">Provide valid mobile number
+        <div class="row show-grid">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label style="font-size: medium;">Mobile Number</label>
+              <input type="text" class="form-control" id="name" formControlName="mobileNumber"
+              placeholder="Include country code as well">
+              <div *ngIf="submitted && f.mobileNumber.errors">
+                <div *ngIf="f.mobileNumber.errors.required" style="color:red">Mobile number is required</div>
+              </div>
+             
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label style="font-size: medium;">Country</label>
+              <input type="text" class="form-control" id="name" formControlName="country">
+            </div>
+            <div *ngIf="submitted && f.country.errors">
+              <div *ngIf="f.country.errors.required" style="color:red">Country is required</div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="form-group">
@@ -79,17 +94,17 @@
           </div>
           <div class="col-md-6">
             <div class="form-group">
-              <label style="font-size: medium;">Zipcode</label>
+              <label style="font-size: medium;">Zipcode/Pincode</label>
               <input type="text" class="form-control" id="name" formControlName="zipcode" maxlength="6">
             </div>
             <div *ngIf="submitted && f.zipcode.errors">
-              <div *ngIf="f.zipcode.errors.required" style="color:red">Zipcode is required</div>
+              <div *ngIf="f.zipcode.errors.required" style="color:red">Zipcode/Pincode is required</div>
             </div>
           </div>
         </div>
       </div>
       <div class="form-group">
-        <label style="font-size:medium">Please upload your passport size photo</label><br>
+        <label style="font-size:medium">Please upload passport size photo</label><br>
         <ngx-uploadcare-widget data-crop="3:4" public-key="786c3b03d6095e0a34f3" images-only="true"
           (on-upload-complete)="yourOnUploadHandler($event)">
         </ngx-uploadcare-widget>

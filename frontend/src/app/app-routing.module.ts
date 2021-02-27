@@ -1,3 +1,4 @@
+import { OnlineRegistrationComponent } from "./online-registration/online-registration.component";
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { RegisterComponent } from './register/register.component';
@@ -11,6 +12,10 @@ import { MembersEthicsComponent } from './members-ethics/members-ethics.componen
 import { SupportUsComponent } from './support-us/support-us.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { IcmdaPageComponent } from './icmda-page/icmda-page.component';
+import { EventRegisterComponent } from './event-register/event-register.component';
+import { MusicComponent } from './music/music.component';
+import { DanceComponent } from './dance/dance.component';
+import { UsersDetailsComponent } from './users-details/users-details.component';
 
 const routes: Routes = [
   {
@@ -58,6 +63,26 @@ const routes: Routes = [
     path:'icmda',
     component:IcmdaPageComponent
   },
+  {
+    path:'competition-registration',
+    component:EventRegisterComponent
+  },
+  {
+    path:'event-guidelines-music',
+    component:MusicComponent
+  },
+  {
+    path:'guidelines',
+    component:DanceComponent
+  },
+  {
+    path:'users-details',
+    component: UsersDetailsComponent
+  },
+  {
+    path:'online-registration',
+    component: OnlineRegistrationComponent
+  }
 ];
 
 @NgModule({

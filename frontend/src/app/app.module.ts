@@ -19,6 +19,12 @@ import { MembershipComponent } from './membership/membership.component';
 import { SupportUsComponent } from './support-us/support-us.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { IcmdaPageComponent } from './icmda-page/icmda-page.component';
+import { EventRegisterComponent } from './event-register/event-register.component';
+import { MusicComponent } from './music/music.component';
+import { DanceComponent } from './dance/dance.component';
+import { UsersDetailsComponent } from './users-details/users-details.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { OnlineRegistrationComponent } from './online-registration/online-registration.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +40,12 @@ import { IcmdaPageComponent } from './icmda-page/icmda-page.component';
     MembershipComponent,
     SupportUsComponent,
     ContactUsComponent,
-    IcmdaPageComponent
+    IcmdaPageComponent,
+    EventRegisterComponent,
+    MusicComponent,
+    DanceComponent,
+    UsersDetailsComponent,
+    OnlineRegistrationComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +55,8 @@ import { IcmdaPageComponent } from './icmda-page/icmda-page.component';
     HttpClientModule,
     UcWidgetModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

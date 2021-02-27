@@ -5,14 +5,26 @@
 ]>
 <sql-queries>
 <sql-query id="register">
-       <![CDATA[insert into user_tbl (username,art_form,email,mobile,address,city,zipcode,date,profile_pic)
-                values (?,?,?,?,?,?,?,?,?)]]>
+       <![CDATA[insert into user_tbl (username,art_form,email,mobile,country,address,city,zipcode,date,profile_pic)
+                values (?,?,?,?,?,?,?,?,?,?)]]>
+   </sql-query>
+<sql-query id="eventRegister">
+       <![CDATA[insert into dec_event_tbl (name,teacher_name,teacher_mobile,teacher_email,art_category,art_form,
+                                      participation,gender,age,comp_category,identity_card_type,identity_card_number,email,
+                                      mobile,address,city,zipcode,date,profile_pic,country,amount,comp_level)
+                values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)]]>
    </sql-query>
 
 
  <sql-query id="getProfiles">
        <![CDATA[select * from user_tbl]]>
    </sql-query>
+
+    <sql-query id="getRegistrationProfiles">
+       <![CDATA[select * from dec_event_tbl]]>
+   </sql-query>
+
+   
   <sql-query id="getMember">
        <![CDATA[select * from user_tbl where id =?  ]]>
    </sql-query>
