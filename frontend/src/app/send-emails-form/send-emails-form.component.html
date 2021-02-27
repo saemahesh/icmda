@@ -28,7 +28,31 @@
         </div>
         <form [formGroup]="paymentCodeForm" *ngIf="paymentsMode"><br>
             {{paymentsMode}}
-            <h1 style="text-align: center;color: white;">Payment Details Form</h1>
+            <h1 style="text-align: center;color: white;">Kuchipudi Payment Details Form</h1>
+            <div class="form-group">
+                <label style="font-size: medium;">* Name</label> <span *ngIf="submitted && f.name.errors">
+                    <span *ngIf="f.name.errors.required" style="color:red">Name is required</span>
+                </span>
+                <input type="text" class="form-control" id="name" formControlName="name">
+
+            </div>
+            <div class="form-group">
+                <label style="font-size: medium;">* Phone Number</label> <span
+                    *ngIf="submitted && f.phoneNumber.errors">
+                    <span *ngIf="f.phoneNumber.errors.required" style="color:red">Phone Number is required</span>
+                </span>
+                <input type="text" class="form-control" id="name" formControlName="phoneNumber">
+
+            </div>
+
+            <div class="form-group">
+                <label style="font-size: medium;">* Amount</label> <span *ngIf="submitted && f.amount.errors">
+                    <span *ngIf="f.amount.errors.required" style="color:red">Amount is required</span>
+                </span>
+                <input type="text" class="form-control" id="name" formControlName="amount">
+
+            </div>
+            
             <div class="form-group">
                 <label style="font-size: medium;">Transaction Id</label> <span
                     *ngIf="submitted && f.transactionId.errors">
@@ -60,22 +84,8 @@
                 <input type="text" class="form-control" id="name" formControlName="paymentCode">
 
             </div>
-            <div class="form-group">
-                <label style="font-size: medium;">* Name</label> <span *ngIf="submitted && f.name.errors">
-                    <span *ngIf="f.name.errors.required" style="color:red">Name is required</span>
-                </span>
-                <input type="text" class="form-control" id="name" formControlName="name">
-
-            </div>
-            <div class="form-group">
-                <label style="font-size: medium;">* Phone Number</label> <span
-                    *ngIf="submitted && f.phoneNumber.errors">
-                    <span *ngIf="f.phoneNumber.errors.required" style="color:red">Phone Number is required</span>
-                </span>
-                <input type="text" class="form-control" id="name" formControlName="phoneNumber">
-
-            </div>
-            <div class="form-group">
+          
+            <div class="form-group" *ngIf="0">
                 <label style="font-size: medium;">* Occupied</label><span *ngIf="submitted && f.occupied.errors">
                     <span *ngIf="f.occupied.errors.required" style="color:red">Occupied is required</span>
                 </span>
@@ -83,13 +93,6 @@
 
             </div>
 
-            <div class="form-group">
-                <label style="font-size: medium;">* Amount</label> <span *ngIf="submitted && f.amount.errors">
-                    <span *ngIf="f.amount.errors.required" style="color:red">Amount is required</span>
-                </span>
-                <input type="text" class="form-control" id="name" formControlName="amount">
-
-            </div>
             <div class="wrapper">
                 <button type="submit" class="btn btn-success" (click)="submitForm()">Submit</button><br><br>
             </div>

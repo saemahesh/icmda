@@ -26,7 +26,7 @@ export class SendEmailsFormComponent implements OnInit {
   submitCode(){
     this.submitted = true;
     console.log(this.paymentCodes)
-    if(this.paymentCodes === 'icmda$1')  {
+    if(this.paymentCodes === 'Icmda1$')  {
       console.log(this.paymentCodes,"code")
       this.participantDetails()
       this.paymentsMode = true;
