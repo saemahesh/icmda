@@ -3,7 +3,7 @@
     <div class="container ">
 
         <form [formGroup]="participantDetailsForm"><br>
-            <h1 style="text-align: center;color: white;">Participant Details Form</h1>
+            <h1 style="text-align: center;color: white;">Send Prize Mails</h1>
             <div class="form-group">
                 <label style="font-size: medium;">Registration Id</label>
                 <input type="email" class="form-control" id="name" formControlName="regId">
@@ -26,17 +26,17 @@
                 </span>
             </div>
             <div class="form-group">
-                <label style="font-size: medium;">Category</label>
-                <input type="text" class="form-control" id="name" formControlName="category">
-                <span *ngIf="submitted && f.category.errors">
-                    <span *ngIf="f.category.errors.required" style="color:red">Category is required</span>
-                </span>
-            </div>
-            <div class="form-group">
                 <label style="font-size: medium;">Level</label>
                 <input type="text" class="form-control" id="name" formControlName="level">
                 <span *ngIf="submitted && f.level.errors">
                     <span *ngIf="f.level.errors.required" style="color:red">Level is required</span>
+                </span>
+            </div>
+            <div class="form-group">
+                <label style="font-size: medium;">Category</label>
+                <input type="text" class="form-control" id="name" formControlName="category">
+                <span *ngIf="submitted && f.category.errors">
+                    <span *ngIf="f.category.errors.required" style="color:red">Category is required</span>
                 </span>
             </div>
             <div class="form-group">

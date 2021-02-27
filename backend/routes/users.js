@@ -32,15 +32,45 @@ router.post("/event-register", (req, res) => {
 
 router.post("/send-prize-mail", (req, res) => {
   // console.log(' req ', req);
-  UserService.sendPrizeMail(req.body, (err, result) => {
+  req.body.id = req.body.id.trim();
+  req.body.name = req.body.name.trim();
+  req.body.artForm = req.body.artForm.trim();
+  req.body.category = req.body.category.trim();
+  req.body.level = req.body.level.trim();
+  req.body.prize = req.body.prize.trim();
+  let isFormValid = true;
+  Object.values(req.body).forEach(item => {
+    if(!item){
+      isFormValid = false;
+    }
+  })
+  if(!isFormValid){
+    res.send({err:'Form is invalid'});
+    return;
+  }
+  UserService.getDecEventProfile(req.body.id, (err, DecEventProfile) => {
     if (err) {
-      res.json(err);
+        res.send({err,data:null})
     } else {
-      res.json({
-        message: 'Mail sent successfully'
+      if(!DecEventProfile.length){
+        res.send({err:'User id does not exists',data:null})
+        return
+      }
+      console.log('data >> ', DecEventProfile[0].email);
+      req.body.email = DecEventProfile[0].email;
+      UserService.sendPrizeMail(req.body, (err, result) => {
+        if (err) {
+          res.json({ err: err, data: null });
+        } else {
+          res.json({
+            err: null,
+            data: result
+          });
+        }
       });
     }
-  });
+  })
+
 });
 
 router.post("/login", (req, res) => {

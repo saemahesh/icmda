@@ -169,6 +169,21 @@ exports.getRegistrationProfiles = (callback) => {
   );
 };
 
+exports.getDecEventProfile = (id,callback) => {
+  executeQuery.queryForAll(
+    sqlQueryMap["getDecEventProfile"],
+    [id],
+    (err, result) => {
+      if (err) {
+        console.log('err ', err);
+        callback(err, null);
+      } else {
+        callback(null, result);
+      }
+    }
+  );
+};
+
 
 exports.sendMail = (mail_data, callback) => {
   
@@ -598,7 +613,7 @@ let mailTransporter = nodemailer.createTransport({
 let mailDetails = { 
 	from: 'icmdachennai@gmail.com', 
 	to: data.email, 
-	subject: `Congratulations, You’ve won the ${data.prize} in ICMDA Online Competitions Dec 2020-21`, 
+	subject: `ICMDA Online Competitions Dec 2020-21 Results`, 
 	html: `<html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -775,7 +790,6 @@ let mailDetails = {
       <div class="row" style="background-color:black;margin-bottom:40px">
       <img width="80%" height="100px" src="https://ucarecdn.com/7c183c4f-2843-466d-a7d6-968148e10b88/" >
       </div>
-      <h2  data-lead-id="site-header-title" style="color:#b64f33;font-size:40px">THANK YOU!</h2>
     </header>
   
     <div class="main-content">
@@ -783,10 +797,12 @@ let mailDetails = {
     <p class="main-content__body" data-lead-id="main-content-body">
     Namaste ${data.name},
     </p>
-
-    Congratulations, You’ve won the ${data.prize} in ICMDA Online Competitions Dec 2020-21
+    <div class="main-content__body" data-lead-id="main-content-body">
+    Congratulations, You’ve won the <span style="color:red;font-weight:bold"> ${data.prize} </span> in ICMDA Online Competitions Dec 2020-21
+    </div>
     </div>
   
+    Participant Details: 
   <table id="customers" style="margin-top:10px">
   
     <tr>
@@ -805,12 +821,12 @@ let mailDetails = {
     </tr>
   
     <tr>
-      <td>Competition Level</td>
-      <td>${data.compLevel}</td>
+      <td>Category</td>
+      <td>${data.category}</td>
     </tr>
     <tr>
-      <td>Participation Category</td>
-      <td>${data.cLevel}</td>
+      <td>Level</td>
+      <td>${data.level}</td>
     </tr>
     <tr>
     <td>Prize</td>
@@ -823,14 +839,14 @@ let mailDetails = {
     </p>
 
     <p>
-      We are going to conduct an event in Kuchipudi Kalakshetram on March 21st, 2021. 
+      We are going to conduct an event in Kuchipudi Kalakshetram , Date will be mentioned in the Telegram channel.
       All the participants are welcome to the event and collect your prizes. If anyone not able to attend the event,
        they can get the Winning/Participation certificate and Medal via email and Courier (you need to pay for courier charges).
     </p>
 
     <p>
-      If anybody wants to participate in the ICMDA festival, please visit the HTTP://ICMDA.CO.IN website on 28th February to register your slot.
-      Please Join the ICMDA Telegram channel for the latest updates.
+      If anybody wants to participate in the ICMDA festival, please visit the HTTP://ICMDA.CO.IN website on 1st March to register your slot.
+      Please Join the ICMDA Telegram channel (http://t.me/icmdachennai) for the latest updates.
     </p> 
   <div>
   Feel free to reach us if you have any queries.
@@ -845,12 +861,13 @@ let mailDetails = {
   </html>
   `}; 
 
-mailTransporter.sendMail(mailDetails, function(err, data) { 
+mailTransporter.sendMail(mailDetails, function(err, respp) { 
 	if(err) { 
 		console.log('Error Occurs',err); 
+    callback(`Error! Mail not sent to id [${data.id}] >>>>>  [${data.email}]`,null)
 	} else { 
 		console.log('Email sent successfully'); 
-    callback(null,"Email sent successfully")
+    callback(null,`Email sent successfully to id  [${data.id}] >>>> [${data.email}]`)
 	} 
 }); 
 };

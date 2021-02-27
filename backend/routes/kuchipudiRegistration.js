@@ -6,14 +6,14 @@ router.post("/registration", (req, res) => {
   kuchipudiService.kuchipudiRegistration(req.body, (err, result) => {
     if (result == 'code is already used') {
       res.send({ status: { code: "ERROR", message: result } });
-    } else if (result == 'payment is not done') {
+    } else if (result == 'payment code is invalid!') {
       res.send({ status: { code: "ERROR", message: result } });
     } else if (result == 'slot is not avaliable') {
       res.send({ status: { code: "ERROR", message: result } });
     } else {
       res.json({
         primary: result,
-        status: { code: "SUCCESS", message: "Slot is book successfully" }
+        status: { code: "SUCCESS", message: "Slot is booked successfully" }
       });
     }
   });

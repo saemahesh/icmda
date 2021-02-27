@@ -24,6 +24,10 @@
        <![CDATA[select * from dec_event_tbl]]>
    </sql-query>
 
+    <sql-query id="getDecEventProfile">
+       <![CDATA[select * from dec_event_tbl where id=?]]>
+   </sql-query>
+
    
   <sql-query id="getMember">
        <![CDATA[select * from user_tbl where id =?  ]]>
