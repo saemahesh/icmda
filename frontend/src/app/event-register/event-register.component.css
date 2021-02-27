@@ -1,60 +1,71 @@
+.image {
+  height: 68em;
+  background-size: initial;
+  width: auto;
+}
 
-.image{
-    height:68em; 
-    background-size:initial;
-    width:auto;
-  }
-
-  .wrapper {
-    text-align: center;
+.wrapper {
+  text-align: center;
 }
 
 .button {
-    position: absolute;
-    top: 50%;
+  position: absolute;
+  top: 50%;
 }
-.helplines div{
-  color:#76ff76;
+.helplines div {
+  color: #76ff76;
   text-align: center;
 }
-.dob select{
-  margin-right:5px;
+.dob select {
+  margin-right: 5px;
 }
 
-.hs-item{
+.hs-item {
   height: 780px;
   background-repeat: no-repeat;
-    background-size: contain;
+  background-size: contain;
   background-image: url(https://storage.needpix.com/rsynced_images/background-2203989_1280.jpg);
 }
-form input{
+form input {
   color: black !important;
   font-weight: bold;
   background: white;
   height: 30px !important;
 }
-form{
+form {
   padding-left: 106px;
   padding-right: 106px;
   background-color: #0e1721;
   opacity: 0.8;
-  MARGIN-TOP: 0PX;
+  margin-top: 0px;
   padding-bottom: 5%;
   padding-top: 0%;
 }
 
-.swal-wide{
-  width:50% !important;
+.swal-wide {
+  width: 50% !important;
 }
 @media screen and (max-width: 767px) {
   form {
-    MARGIN-TOP: -20PX !important ;
+    margin-top: -20px !important ;
   }
 }
-label{
+label {
   color: white;
 }
-input:not([type]), input[type=text]:not(.browser-default), input[type=password]:not(.browser-default), input[type=email]:not(.browser-default), input[type=url]:not(.browser-default), input[type=time]:not(.browser-default), input[type=date]:not(.browser-default), input[type=datetime]:not(.browser-default), input[type=datetime-local]:not(.browser-default), input[type=tel]:not(.browser-default), input[type=number]:not(.browser-default), input[type=search]:not(.browser-default), textarea.materialize-textarea{
+input:not([type]),
+input[type="text"]:not(.browser-default),
+input[type="password"]:not(.browser-default),
+input[type="email"]:not(.browser-default),
+input[type="url"]:not(.browser-default),
+input[type="time"]:not(.browser-default),
+input[type="date"]:not(.browser-default),
+input[type="datetime"]:not(.browser-default),
+input[type="datetime-local"]:not(.browser-default),
+input[type="tel"]:not(.browser-default),
+input[type="number"]:not(.browser-default),
+input[type="search"]:not(.browser-default),
+textarea.materialize-textarea {
   font-size: 1.5rem;
   padding-left: 10px;
 }
@@ -63,19 +74,19 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
     width: 100%;
     margin-top: 0;
   }
-  form{
+  form {
     padding-left: 4%;
     padding-right: 7%;
     background-color: #0e1721;
     opacity: 0.8;
-    margin-top:70px;
+    margin-top: 70px;
     padding-bottom: 5%;
     padding-top: 5%;
   }
-.hs-item{
-  height: 141%;
-  background-repeat: no-repeat;
+  .hs-item {
+    height: 141%;
+    background-repeat: no-repeat;
     background-size: contain;
-  background-image: url(https://storage.needpix.com/rsynced_images/background-2203989_1280.jpg);
-}
+    background-image: url(https://storage.needpix.com/rsynced_images/background-2203989_1280.jpg);
+  }
 }

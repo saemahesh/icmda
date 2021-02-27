@@ -26,6 +26,7 @@ import { UsersDetailsComponent } from './users-details/users-details.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { OnlineRegistrationComponent } from './online-registration/online-registration.component';
 import { SendEmailsComponent } from './send-emails/send-emails.component';
+import { SendEmailsFormComponent } from './send-emails-form/send-emails-form.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { SendEmailsComponent } from './send-emails/send-emails.component';
     DanceComponent,
     UsersDetailsComponent,
     OnlineRegistrationComponent,
-    SendEmailsComponent
+    SendEmailsComponent,
+    SendEmailsFormComponent
   ],
   imports: [
     BrowserModule,

@@ -1,3 +1,4 @@
+import { SendEmailsFormComponent } from "./send-emails-form/send-emails-form.component";
 import { SendEmailsComponent } from "./send-emails/send-emails.component";
 import { OnlineRegistrationComponent } from "./online-registration/online-registration.component";
 import { NgModule } from '@angular/core';
@@ -87,6 +88,10 @@ const routes: Routes = [
   {
     path:'send-emails',
     component:SendEmailsComponent
+  },
+  {
+    path:'create-payment-code',
+    component:SendEmailsFormComponent
   }
 ];
 
