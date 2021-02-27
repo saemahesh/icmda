@@ -25,10 +25,13 @@ export class SendEmailsFormComponent implements OnInit {
   }
   submitCode(){
     this.submitted = true;
+    console.log(this.paymentCodes)
     if(this.paymentCodes === 'icmda$1')  {
-      
-      this.paymentsMode = true;
+      console.log(this.paymentCodes,"code")
       this.participantDetails()
+      this.paymentsMode = true;
+      
+     
     } else{
       return $('#code').modal({
         show: true,

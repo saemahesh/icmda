@@ -12,8 +12,8 @@
                             </label>&nbsp;&nbsp;&nbsp; <small class="text-danger"
                                 *ngIf="paymentCode.invalid && (paymentCode.touched || submitted)">Please
                                 Enter The Code</small>
-                            <input type="text" class="form-control" #paymentCode="ngModel"
-                                [(ngModel)]="model.paymentCodes" required>
+                            <input type="text" class="form-control" name="paymentCode" #paymentCode="ngModel"
+                                [(ngModel)]="paymentCodes" required>
 
 
                         </div>
@@ -27,6 +27,7 @@
             </div>
         </div>
         <form [formGroup]="paymentCodeForm" *ngIf="paymentsMode"><br>
+            {{paymentsMode}}
             <h1 style="text-align: center;color: white;">Payment Details Form</h1>
             <div class="form-group">
                 <label style="font-size: medium;">Transaction Id</label> <span
