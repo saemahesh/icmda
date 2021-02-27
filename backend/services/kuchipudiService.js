@@ -19,7 +19,7 @@ exports.kuchipudiRegistration = (data, callback) => {
             (err, result) => {
               console.log("getPaymentHistoryById", err, result)
               if (result.length == 0) {
-                return callback(err, "payment is not done");
+                return callback(err, "payment code is invalid!");
               } else {
                 {
                   try {
