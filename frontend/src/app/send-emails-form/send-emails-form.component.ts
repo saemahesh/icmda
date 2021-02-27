@@ -49,7 +49,7 @@ export class SendEmailsFormComponent implements OnInit {
     paymentDate:['',Validators.required],
     name:['',Validators.required],
     phoneNumber:['',Validators.required],
-    occupied:['',Validators.required],
+    // occupied:['',Validators.required],
     paymentCode:['',Validators.required],
     amount:['',Validators.required]
    })
@@ -64,27 +64,25 @@ export class SendEmailsFormComponent implements OnInit {
       return;
     }
     const data={
-      "paymentMode": this.paymentCodeForm.value.paymentMode,
-      "id": this.paymentCodeForm.value.transactionId,
-      "paymentDate": this.paymentCodeForm.value.paymentDate,
+      "payment_mode": this.paymentCodeForm.value.paymentMode,
+      "transaction_id": this.paymentCodeForm.value.transactionId,
+      "payment_date": this.paymentCodeForm.value.paymentDate,
       "name": this.paymentCodeForm.value.name,
-      "phoneNumber": this.paymentCodeForm.value.phoneNumber,
-      "occupied": this.paymentCodeForm.value.occupied,
-      "paymentCode": this.paymentCodeForm.value.paymentCode,
+      "phone_number": this.paymentCodeForm.value.phoneNumber,
+      // "occupied": this.paymentCodeForm.value.occupied,
+      "payment_code": this.paymentCodeForm.value.paymentCode,
       "amount":this.paymentCodeForm.value.amount
     }
-    // this.onlineRegistration.sendemailsdata(data).subscribe((res:any)=>{
-    //   if(res.data ===null){
-    //     this.toastr.error(res.err)
-    //   }else{
-    //     this.toastr.success(res.data)
-    //     // this.participantDetailsForm.reset();
-    //     this.participantDetailsForm.value.name= ''
-    //     console.log(this.participantDetailsForm.value.name,"nameeeee")
-    //     this.participantDetailsForm.value.id= ''
-    //     this.submitted = false;
-    //   }
-    // })
+    this.onlineRegistration.paymentData(data).subscribe((res:any)=>{
+      if(res.data ===null){
+        this.toastr.error(res.err)
+      }else{
+        this.toastr.success(res.data)
+        // this.participantDetailsForm.reset();
+        
+        this.submitted = false;
+      }
+    })
   }
 
 }
