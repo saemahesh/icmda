@@ -39,6 +39,11 @@
                 values (?,?,?,?,?,?,?,?,?)]]>
    </sql-query>
 
+     <sql-query id="insertPaymentHistory">
+       <![CDATA[insert into registration (name,phone_number,amount,transaction_id,payment_mode,payment_date,payment_code)
+                values (?,?,?,?,?,?,?)]]>
+   </sql-query>
+
      <sql-query id="getAvaliableSlot">
        <![CDATA[select id,slot_time from slot_tbl where slot_type =? and occupied = 0  ]]>
    </sql-query>

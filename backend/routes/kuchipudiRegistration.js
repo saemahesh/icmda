@@ -19,6 +19,16 @@ router.post("/registration", (req, res) => {
   });
 });
 
+router.post("/create-payment-code", (req, res) => {
+  kuchipudiService.insertPaymentHistory(req.body, (err, data) => {
+    if(err){
+      res.send({err})
+    }else{
+      res.send({data})
+    }
+  });
+});
+
 router.get("/getAvaliableSlot/:slotType", (req, res) => {
   var id = req.params.slotType;
   console.log('id ', id);

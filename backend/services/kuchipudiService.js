@@ -159,3 +159,22 @@ function updatePaymentHistoryById(id) {
     }
   );
 }
+
+function insertPaymentHistory(data) {
+  // return moment(date).format('YYYY-MM-DD HH:mm:ss');
+  executeQuery.queryForAll(
+    sqlQueryMap["insertPaymentHistory"],
+    [data.name,data.phone_number,data.amount,data.transaction_id,data.payment_mode,data.payment_date,data.payment_code],
+    (err, result) => {
+      if (err) {
+        callback(err, null);
+        // return err
+      } else {
+        {
+          callback(null,result)
+          return result
+        }
+      }
+    }
+  );
+}
