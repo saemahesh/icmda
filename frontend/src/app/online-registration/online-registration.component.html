@@ -67,6 +67,50 @@
                     <span *ngIf="f.code.errors.required" style="color:red">Code is required</span>
                 </span>
             </div>
+            <div class=" col-md-12 well" style="background: #343a4e;">
+                <label style="font-size: medium;">Make payment with either PhonePe / Gpay / Paypal / NetBanking
+                  <span style="color: red;">(Excluding transaction fee)</span>
+                </label><br>
+                <div class="col-md-2">
+                  <div class="form-group">
+                    <label style="font-size: medium;">Amount</label>
+                    <div style="background-color: white;font-size: 28px;font-weight: bold;padding-left: 10px;">
+                      ₹ {{amount}}
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <label style="font-size: medium;">PhonePe / GPay (India)</label>
+                    <div style="background-color: white;font-size: 16px;padding-left:10px;font-weight: bold;">
+                      9884220404
+                      <img src="../../assets/images/phonepe.png" width="37px" style="margin-left: 22px;">
+                      <img src="../../assets/images/gpay2.jpg" width="60px" style="margin-left: 22px;">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <label style="font-size: medium;">PayPal(International)</label>
+                    <div style="background-color: white;font-size: 1em;padding-left:10px;font-weight: bold;padding: 8px;">
+                      <a href="https://paypal.me/icmdaDecEvent" target="blank">https://paypal.me/icmdaDecEvent</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label style="font-size: medium;">NetBanking</label>
+                    <div
+                      style="background-color: white;font-size: 1em;padding-left:10px;font-weight: bold;padding: 8px;display:grid">
+                      <span>Account No : 20264708218 </span>
+                      <span>Name : Asha Deepa R </span>
+                      <span>IFSC : SBIN0016987 </span>
+                      <span>BANK NAME : State Bank Of India</span>
+          
+                    </div>
+                  </div>
+                </div>
+              </div>
             <div class="wrapper">
                 <button type="submit" class="btn btn-success" (click)="submitForm()">Submit</button><br><br>
             </div>
