@@ -60,6 +60,56 @@
         </select>
 
       </div>
+
+      <div class=" col-md-12 well" style="background: #343a4e;">
+        <div style="font-size: medium;"><span style="color: #00ff0f;text-decoration: underline;">Steps to get Payment Code:</span>
+          
+        </div><br>
+        <div class="row" style="color: white;">
+          Step 1)   Make payment (Excluding transaction fee)
+        </div>
+        <div class="row">
+          <div class="col-md-3">
+            <div class="form-group">
+              <label style="font-size: medium;">Amount</label>
+              <div style="background-color: white;font-size: 28px;font-weight: bold;padding-left: 10px;">
+                ₹ {{amount}}
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label style="font-size: medium;">PhonePe / GPay (India)</label>
+              <div style="background-color: white;font-size: 16px;padding-left:10px;font-weight: bold;">
+                9884220404
+                <img src="../../assets/images/phonepe.png" width="37px" style="margin-left: 22px;">
+                <img src="../../assets/images/gpay2.jpg" width="60px" style="margin-left: 22px;">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label style="font-size: medium;">NetBanking</label>
+              <div
+                style="background-color: white;font-size: 1em;padding-left:10px;font-weight: bold;padding: 8px;display:grid">
+                <span>Account No : 20264708218 </span>
+                <span>Name : Asha Deepa R </span>
+                <span>IFSC : SBIN0016987 </span>
+                <span>BANK NAME : State Bank Of India</span>
+  
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row" style="color: white;">
+          Step 2) Send the screenshot to <span style="color: #00ff0f;padding:0% 1%"> +91 9515417732 </span> whatsapp number.
+        </div>
+
+        <div class="row" style="color: white;">
+          Step 3) You will get a payment code from ICMDA.
+        </div>
+      </div>
+
       <div class="form-group">
         <label style="font-size: medium;">*Enter Payment Code</label>&nbsp;&nbsp;&nbsp; <span
           *ngIf="submitted && f.code.errors">
@@ -68,43 +118,8 @@
         <input type="text" class="form-control" id="name" formControlName="code">
 
       </div>
-      <div class=" col-md-12 well" style="background: #343a4e;">
-        <label style="font-size: medium;"><span style="color: red;text-decoration: underline;">To get Payment Code :</span>
-            Make payment <span style="color: red;">(Excluding transaction fee)</span>
-            and share the screenshot to <span style="color: red;">+91 9515417732</span> whatsapp number.
-        </label><br>
-        <div class="col-md-3">
-          <div class="form-group">
-            <label style="font-size: medium;">Amount</label>
-            <div style="background-color: white;font-size: 28px;font-weight: bold;padding-left: 10px;">
-              ₹ {{amount}}
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="form-group">
-            <label style="font-size: medium;">PhonePe / GPay (India)</label>
-            <div style="background-color: white;font-size: 16px;padding-left:10px;font-weight: bold;">
-              9884220404
-              <img src="../../assets/images/phonepe.png" width="37px" style="margin-left: 22px;">
-              <img src="../../assets/images/gpay2.jpg" width="60px" style="margin-left: 22px;">
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="form-group">
-            <label style="font-size: medium;">NetBanking</label>
-            <div
-              style="background-color: white;font-size: 1em;padding-left:10px;font-weight: bold;padding: 8px;display:grid">
-              <span>Account No : 20264708218 </span>
-              <span>Name : Asha Deepa R </span>
-              <span>IFSC : SBIN0016987 </span>
-              <span>BANK NAME : State Bank Of India</span>
 
-            </div>
-          </div>
-        </div>
-      </div>
+    
       <div class="wrapper">
         <button type="submit" class="btn btn-success" (click)="submitForm()">Submit</button><br><br>
       </div>
