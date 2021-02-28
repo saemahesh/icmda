@@ -3,10 +3,6 @@
   <div class="container ">
 
     <form [formGroup]="registrationForm"><br>
-      <div>
-        <h4 style="text-align: center;color: white;"><span style="color:red"> *</span>Make The Payment From
-          These Numbers</h4>
-      </div>
       <h1 style="text-align: center;color: white;">Kuchipudi Festival Slot Booking</h1>
       <div class="form-group">
         <label style="font-size: medium;">*Name</label>&nbsp;&nbsp;&nbsp; <span *ngIf="submitted && f.name.errors">
@@ -77,7 +73,7 @@
             Make payment <span style="color: red;">(Excluding transaction fee)</span>
             and share the screenshot to <span style="color: red;">+91 9515417732</span> whatsapp number.
         </label><br>
-        <div class="col-md-2">
+        <div class="col-md-3">
           <div class="form-group">
             <label style="font-size: medium;">Amount</label>
             <div style="background-color: white;font-size: 28px;font-weight: bold;padding-left: 10px;">

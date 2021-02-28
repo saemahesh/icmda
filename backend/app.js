@@ -13,6 +13,7 @@ let kuchipudiRouter = require("./routes/kuchipudiRegistration")
 let jwt = require("jsonwebtoken");
 let passport = require("passport");
 nodemailer = require('nodemailer'); 
+cors = require('cors'); 
 
 let passportJWT = require("passport-jwt");
 let extractJwt = passportJWT.ExtractJwt;
@@ -24,9 +25,7 @@ let parser = require("xml-js");
 let app = express();
 let async = require("async");
 
-
-
-
+// app.use(cors);
 app.use(logger("dev"));
 app.use(express.json());
 app.use(

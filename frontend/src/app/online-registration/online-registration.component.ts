@@ -71,7 +71,7 @@ export class OnlineRegistrationComponent implements OnInit {
         Swal.fire({
           icon: "success",
           title:
-            "You have successfully registered in this event",
+            "You have successfully registered in this event.Please check your email for detailed information",
           showConfirmButton: true,
         }).then((suuess) => {
           this.registrationForm.reset();

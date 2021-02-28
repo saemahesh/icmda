@@ -88,7 +88,7 @@ export class SendEmailsFormComponent implements OnInit {
         Swal.fire({
           icon: "success",
           title:
-            "You have successfully registered in this event, Your Registration ID :<br> DEC2020-" +
+            "You have successfully registered in this event, Your Registration ID :<br> " +
             res.token.insertId +
             ".<br> Please check your email for detailed information",
           showConfirmButton: true,
