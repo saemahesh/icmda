@@ -2,6 +2,7 @@ import { OnlineRegistrationService } from "./online-registration.service";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from "ngx-toastr";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-online-registration',
@@ -14,6 +15,7 @@ export class OnlineRegistrationComponent implements OnInit {
   slotTypevalue;
   slotId
   slotTimesValue:any=[]
+  amount:any;
   constructor(private fb:FormBuilder,private onlineRegistration:OnlineRegistrationService,private toastr:ToastrService) { }
 
   ngOnInit(): void {
@@ -36,15 +38,18 @@ export class OnlineRegistrationComponent implements OnInit {
   slotType(event){
     console.log(event.target.value,"event")
     this.slotTypevalue = event.target.value;
+    let type=this.slotTypevalue.split("-")
+    console.log(type)
+    this.amount =type[1]
     console.log(this.slotTypevalue,"valueeee")
-    this.onlineRegistration.getSlotType(this.slotTypevalue).subscribe((res:any)=>{
+    this.onlineRegistration.getSlotType(type[0]).subscribe((res:any)=>{
       console.log(res['primary'])
       this.slotTimesValue=res['primary']
     })
   }
   slotID(event){
     console.log(event.target.value,"event")
-    this.slotId = event.target.value
+    this.slotId = event.target.value;
   }
   submitForm(){
     this.submitted = true;
@@ -63,9 +68,17 @@ export class OnlineRegistrationComponent implements OnInit {
       if(res.status.code==='ERROR'){
         this.toastr.error(res.status.message)
       }else{
-        this.toastr.success(res.status.message)
-        this.registrationForm.reset();
+        Swal.fire({
+          icon: "success",
+          title:
+            "You have successfully registered in this event",
+          showConfirmButton: true,
+        }).then((suuess) => {
+          this.registrationForm.reset();
         this.submitted = false;
+        });
+        // this.toastr.success(res.status.message)
+        
       }
     })
   }

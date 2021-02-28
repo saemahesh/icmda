@@ -1,119 +1,125 @@
 <div class="hs-item image bg print">
 
-    <div class="container ">
+  <div class="container ">
 
-        <form [formGroup]="registrationForm"><br>
-            <div>
-                <h4 style="text-align: center;color: white;"><span style="color:red"> *</span>Make The Payment From
-                    These Numbers</h4>
-            </div>
-            <h1 style="text-align: center;color: white;">Kuchipudi Festival Slot Booking</h1>
-            <div class="form-group">
-                <label style="font-size: medium;">Name</label>
-                <input type="text" class="form-control" id="name" formControlName="name">
-                <span *ngIf="submitted && f.name.errors">
-                    <span *ngIf="f.name.errors.required" style="color:red">First Name is required</span>
-                </span>
-            </div>
-            <div class="form-group">
-                <label style="font-size: medium;">Email</label>
-                <input type="email" class="form-control" id="name" formControlName="email">
-                <span *ngIf="submitted && f.email.errors">
-                    <span *ngIf="f.email.errors.required" style="color:red">Email is required</span>
-                </span>
-            </div>
-            <div class="form-group">
-                <label style="font-size: medium;">Phone Number</label>
-                <input type="text" class="form-control" id="name" formControlName="phoneNumber">
-                <span *ngIf="submitted && f.phoneNumber.errors">
-                    <span *ngIf="f.phoneNumber.errors.required" style="color:red">Phone Number is required</span>
-                </span>
-            </div>
-            <div class="form-group">
-                <label style="font-size: medium;">Country</label>
-                <input type="text" class="form-control" id="name" formControlName="country">
-                <span *ngIf="submitted && f.country.errors">
-                    <span *ngIf="f.country.errors.required" style="color:red">Country is required</span>
-                </span>
-            </div>
-            <div class="form-group">
-                <label style="font-size: medium;">Slot Type</label>
-                <select class="form-control" (change)="slotType($event)" formControlName="slotType">
-                    <option value="">Select Slot Type</option>
-                    <option value="Individual">Individual - 1000 INR</option>
-                    <option value="Duet">Duet - 2000 INR</option>
-                    <option value="Group">Group - 5000 INR</option>
-                    <option value="Donar">Donar - 10000 INR</option>
-                </select>
-                <span *ngIf="submitted && f.slotType.errors">
-                    <span *ngIf="f.slotType.errors.required" style="color:red">slotType is required</span>
-                </span>
-            </div>
-            <div class="form-group">
-                <label style="font-size: medium;">Slot Time</label>
-                <select class="form-control" formControlName="slotTime" (change)="slotID($event)">
-                    <option value="">Select Slot Time</option>
-                    <option *ngFor=" let time of slotTimesValue" [value]=time.id>{{time.slot_time}}</option>
+    <form [formGroup]="registrationForm"><br>
+      <div>
+        <h4 style="text-align: center;color: white;"><span style="color:red"> *</span>Make The Payment From
+          These Numbers</h4>
+      </div>
+      <h1 style="text-align: center;color: white;">Kuchipudi Festival Slot Booking</h1>
+      <div class="form-group">
+        <label style="font-size: medium;">*Name</label>&nbsp;&nbsp;&nbsp; <span *ngIf="submitted && f.name.errors">
+          <span *ngIf="f.name.errors.required" style="color:red">First Name is required</span>
+        </span>
+        <input type="text" class="form-control" id="name" formControlName="name">
 
-                </select>
-                <span *ngIf="submitted && f.slotTime.errors">
-                    <span *ngIf="f.slotTime.errors.required" style="color:red">SlotTime is required</span>
-                </span>
+      </div>
+      <div class="form-group">
+        <label style="font-size: medium;">*Email</label>&nbsp;&nbsp;&nbsp; <span *ngIf="submitted && f.email.errors">
+          <span *ngIf="f.email.errors.required" style="color:red">Email is required</span>
+        </span>
+        <input type="email" class="form-control" id="name" formControlName="email">
+
+      </div>
+      <div class="form-group">
+        <label style="font-size: medium;">*Phone Number</label>&nbsp;&nbsp;&nbsp; <span
+          *ngIf="submitted && f.phoneNumber.errors">
+          <span *ngIf="f.phoneNumber.errors.required" style="color:red">Phone Number is required</span>
+        </span>
+        <input type="text" class="form-control" id="name" formControlName="phoneNumber">
+
+      </div>
+      <div class="form-group">
+        <label style="font-size: medium;">*Country</label>&nbsp;&nbsp;&nbsp; <span
+          *ngIf="submitted && f.country.errors">
+          <span *ngIf="f.country.errors.required" style="color:red">Country is required</span>
+        </span>
+        <input type="text" class="form-control" id="name" formControlName="country">
+
+      </div>
+      <div class="form-group">
+        <label style="font-size: medium;">*Slot Type</label>&nbsp;&nbsp;&nbsp; <span
+          *ngIf="submitted && f.slotType.errors">
+          <span *ngIf="f.slotType.errors.required" style="color:red">slotType is required</span>
+        </span>
+        <select class="form-control" (change)="slotType($event)" formControlName="slotType">
+          <option value="">Select Slot Type</option>
+          <option value="Individual - 1000">Individual - 1000 INR</option>
+          <option value="Duet - 2000">Duet - 2000 INR</option>
+          <option value="Group - 5000">Group - 5000 INR</option>
+          <option value="Donar - 10000">Donar - 10000 INR</option>
+        </select>
+
+      </div>
+      <div class="form-group">
+        <label style="font-size: medium;">*Slot Time</label>&nbsp;&nbsp;&nbsp; <span
+          *ngIf="submitted && f.slotTime.errors">
+          <span *ngIf="f.slotTime.errors.required" style="color:red">SlotTime is required</span>
+        </span>
+        <select class="form-control" formControlName="slotTime" (change)="slotID($event)">
+          <option value="">Select Slot Time</option>
+          <option *ngFor=" let time of slotTimesValue" [value]=time.id>{{time.slot_time}}</option>
+
+        </select>
+
+      </div>
+      <div class="form-group">
+        <label style="font-size: medium;">*Enter Payment Code</label>&nbsp;&nbsp;&nbsp; <span
+          *ngIf="submitted && f.code.errors">
+          <span *ngIf="f.code.errors.required" style="color:red">Code is required</span>
+        </span>
+        <input type="text" class="form-control" id="name" formControlName="code">
+
+      </div>
+      <div class=" col-md-12 well" style="background: #343a4e;">
+        <label style="font-size: medium;">Make payment with either PhonePe / Gpay / Paypal / NetBanking
+          <span style="color: red;">(Excluding transaction fee)</span>
+        </label><br>
+        <div class="col-md-2">
+          <div class="form-group">
+            <label style="font-size: medium;">Amount</label>
+            <div style="background-color: white;font-size: 28px;font-weight: bold;padding-left: 10px;">
+              ₹ {{amount}}
             </div>
-            <div class="form-group">
-                <label style="font-size: medium;">Enter Payment Code</label>
-                <input type="text" class="form-control" id="name" formControlName="code">
-                <span *ngIf="submitted && f.code.errors">
-                    <span *ngIf="f.code.errors.required" style="color:red">Code is required</span>
-                </span>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label style="font-size: medium;">PhonePe / GPay (India)</label>
+            <div style="background-color: white;font-size: 16px;padding-left:10px;font-weight: bold;">
+              9884220404
+              <img src="../../assets/images/phonepe.png" width="37px" style="margin-left: 22px;">
+              <img src="../../assets/images/gpay2.jpg" width="60px" style="margin-left: 22px;">
             </div>
-            <div class=" col-md-12 well" style="background: #343a4e;">
-                <label style="font-size: medium;">Make payment with either PhonePe / Gpay / Paypal / NetBanking
-                  <span style="color: red;">(Excluding transaction fee)</span>
-                </label><br>
-                <div class="col-md-2">
-                  <div class="form-group">
-                    <label style="font-size: medium;">Amount</label>
-                    <div style="background-color: white;font-size: 28px;font-weight: bold;padding-left: 10px;">
-                      ₹ {{amount}}
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-3">
-                  <div class="form-group">
-                    <label style="font-size: medium;">PhonePe / GPay (India)</label>
-                    <div style="background-color: white;font-size: 16px;padding-left:10px;font-weight: bold;">
-                      9884220404
-                      <img src="../../assets/images/phonepe.png" width="37px" style="margin-left: 22px;">
-                      <img src="../../assets/images/gpay2.jpg" width="60px" style="margin-left: 22px;">
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-3">
-                  <div class="form-group">
-                    <label style="font-size: medium;">PayPal(International)</label>
-                    <div style="background-color: white;font-size: 1em;padding-left:10px;font-weight: bold;padding: 8px;">
-                      <a href="https://paypal.me/icmdaDecEvent" target="blank">https://paypal.me/icmdaDecEvent</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="form-group">
-                    <label style="font-size: medium;">NetBanking</label>
-                    <div
-                      style="background-color: white;font-size: 1em;padding-left:10px;font-weight: bold;padding: 8px;display:grid">
-                      <span>Account No : 20264708218 </span>
-                      <span>Name : Asha Deepa R </span>
-                      <span>IFSC : SBIN0016987 </span>
-                      <span>BANK NAME : State Bank Of India</span>
-          
-                    </div>
-                  </div>
-                </div>
-              </div>
-            <div class="wrapper">
-                <button type="submit" class="btn btn-success" (click)="submitForm()">Submit</button><br><br>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label style="font-size: medium;">PayPal(International)</label>
+            <div style="background-color: white;font-size: 1em;padding-left:10px;font-weight: bold;padding: 8px;">
+              <a href="https://paypal.me/icmdaDecEvent" target="blank">https://paypal.me/icmdaDecEvent</a>
             </div>
-        </form>
-    </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label style="font-size: medium;">NetBanking</label>
+            <div
+              style="background-color: white;font-size: 1em;padding-left:10px;font-weight: bold;padding: 8px;display:grid">
+              <span>Account No : 20264708218 </span>
+              <span>Name : Asha Deepa R </span>
+              <span>IFSC : SBIN0016987 </span>
+              <span>BANK NAME : State Bank Of India</span>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="wrapper">
+        <button type="submit" class="btn btn-success" (click)="submitForm()">Submit</button><br><br>
+      </div>
+    </form>
+
+  </div>
 </div>

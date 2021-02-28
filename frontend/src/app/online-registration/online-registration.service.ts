@@ -16,4 +16,7 @@ export class OnlineRegistrationService {
   sendemailsdata(data){
     return this.http.post('http://localhost:3000/api/users/send-prize-mail',data)
   }
+  paymentData(data) {
+    return this.http.post('http://localhost:3000/api/users/create-payment-code',data)
+  }
 }
