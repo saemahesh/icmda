@@ -62,6 +62,7 @@ export class OnlineRegistrationComponent implements OnInit {
       "phone_number": this.registrationForm.value.phoneNumber,
       "country": this.registrationForm.value.country,
       "slot_id": this.slotId,
+      "slot_type": this.slotTypevalue.split("-")[0],
       "code": this.registrationForm.value.code
     }
     this.onlineRegistration.getOnlineEvent(data).subscribe((res:any)=>{

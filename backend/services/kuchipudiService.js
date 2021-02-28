@@ -15,9 +15,9 @@ exports.kuchipudiRegistration = (data, callback) => {
         } else {
           executeQuery.queryForAll(
             sqlQueryMap["getPaymentHistoryById"],
-            [data.code],
+            [data.code,data.slot_type],
             (err, result) => {
-              // console.log("getPaymentHistoryById", err, result)
+              console.log("getPaymentHistoryById", err, result)
               if (result.length == 0) {
                 return callback(err, "payment code is invalid!");
               } else {

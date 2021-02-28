@@ -49,7 +49,7 @@
    </sql-query>
 
         <sql-query id="getPaymentHistoryById">
-       <![CDATA[select * from payment_history where payment_code =? and occupied = 0  ]]>
+       <![CDATA[select * from payment_history where payment_code =? and occupied = 0 and slot_type=?  ]]>
    </sql-query>
 
            <sql-query id="getAvaliableSlotById">
