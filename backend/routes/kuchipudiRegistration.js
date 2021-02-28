@@ -21,17 +21,22 @@ router.post("/registration", (req, res) => {
 
 router.post("/create-payment-code", (req, res) => {
   kuchipudiService.insertPaymentHistory(req.body, (err, data) => {
-    if(err){
-      res.send({err})
-    }else{
-      res.send({data})
+    // console.log("error",err)
+    // console.log("data",data)
+    if(data === "Already Existed Payment Code") {
+      res.send({ status: { code: "ERROR", message: data } });
+    } else {
+      res.json({
+        primary: data,
+        status: { code: "SUCCESS", message: "Payment is booked successfully" }
+      });
     }
   });
 });
 
 router.get("/getAvaliableSlot/:slotType", (req, res) => {
   var id = req.params.slotType;
-  console.log('id ', id);
+  // console.log('id ', id);
   kuchipudiService.getAvaliableSlot(id, (err, result) => {
     if (err) {
       res.status(500);

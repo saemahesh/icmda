@@ -9,7 +9,7 @@ exports.kuchipudiRegistration = (data, callback) => {
       sqlQueryMap["crossCheckingRegistration"],
       [data.code],
       (err, result) => {
-        console.log("crossCheckingRegistration", err, result, result.length > 0)
+        // console.log("crossCheckingRegistration", err, result, result.length > 0)
         if (result.length > 0) {
           return callback(err, "code is already used");
         } else {
@@ -17,7 +17,7 @@ exports.kuchipudiRegistration = (data, callback) => {
             sqlQueryMap["getPaymentHistoryById"],
             [data.code],
             (err, result) => {
-              console.log("getPaymentHistoryById", err, result)
+              // console.log("getPaymentHistoryById", err, result)
               if (result.length == 0) {
                 return callback(err, "payment code is invalid!");
               } else {
@@ -27,7 +27,7 @@ exports.kuchipudiRegistration = (data, callback) => {
                       sqlQueryMap["getAvaliableSlotById"],
                       [data.slot_id],
                       (err, result) => {
-                        console.log("getAvaliableSlotById", err, result)
+                        // console.log("getAvaliableSlotById", err, result)
                         if (result.length == 0) {
                           return callback(err, "slot is not avaliable");
                         } else {
@@ -65,7 +65,7 @@ exports.kuchipudiRegistration = (data, callback) => {
                   } catch (err) {
                     if (err) {
                       callback(err, null);
-                      console.log("Login Error", err);
+                      // console.log("Login Error", err);
                     }
                   }
 
@@ -81,7 +81,7 @@ exports.kuchipudiRegistration = (data, callback) => {
   } catch (err) {
     if (err) {
       callback(err, null);
-      console.log("Login Error", err);
+      // console.log("Login Error", err);
     }
   }
 };
@@ -105,7 +105,7 @@ exports.getAvaliableSlot = (slotType, callback) => {
   } catch (err) {
     if (err) {
       callback(err, null);
-      console.log("Login Error", err);
+      // console.log("Login Error", err);
     }
     // eslint-disable-next-line no-console
   }
@@ -160,21 +160,34 @@ function updatePaymentHistoryById(id) {
   );
 }
 
-function insertPaymentHistory(data) {
+exports.insertPaymentHistory = (data, callback) => {
   // return moment(date).format('YYYY-MM-DD HH:mm:ss');
-  executeQuery.queryForAll(
-    sqlQueryMap["insertPaymentHistory"],
-    [data.name,data.phone_number,data.amount,data.transaction_id,data.payment_mode,data.payment_date,data.payment_code],
-    (err, result) => {
-      if (err) {
-        callback(err, null);
-        // return err
-      } else {
-        {
-          callback(null,result)
-          return result
+  // crossCheckingPaymetHistory
+  try {
+    executeQuery.queryForAll(sqlQueryMap["crossCheckingPaymetHistory"], [data.payment_code],
+      (err, result) => {
+        // console.log("crossCheckingPaymetHistory", err, result)
+        if (result.length === 0) {
+          executeQuery.queryForAll(
+            sqlQueryMap["insertPaymentHistory"],
+            [data.name, data.phone_number, data.amount, data.transaction_id, data.payment_mode, data.payment_date, data.payment_code, 0, data.slot_type],
+            (err, result) => {
+              if (err) {
+                callback(err, null);
+              } else {
+                {
+                  callback(null, result)
+                }
+              }
+            }
+          );
+        } else {
+          return callback(err, "Already Existed Payment Code");
+
         }
-      }
-    }
-  );
+      })
+  }
+  catch (err) {
+
+  }
 }
