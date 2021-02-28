@@ -40,8 +40,8 @@
    </sql-query>
 
      <sql-query id="insertPaymentHistory">
-       <![CDATA[insert into registration (name,phone_number,amount,transaction_id,payment_mode,payment_date,payment_code)
-                values (?,?,?,?,?,?,?)]]>
+       <![CDATA[insert into payment_history (name,phone_number,amount,transaction_id,payment_mode,payment_date,payment_code,occupied,slot_type)
+                values (?,?,?,?,?,?,?,?,?)]]>
    </sql-query>
 
      <sql-query id="getAvaliableSlot">
@@ -49,7 +49,7 @@
    </sql-query>
 
         <sql-query id="getPaymentHistoryById">
-       <![CDATA[select * from payment_history where id =? and occupied = 0  ]]>
+       <![CDATA[select * from payment_history where payment_code =? and occupied = 0 and slot_type=?  ]]>
    </sql-query>
 
            <sql-query id="getAvaliableSlotById">
@@ -57,7 +57,7 @@
    </sql-query>
 
            <sql-query id="updatePaymentHistoryById">
-       <![CDATA[update payment_history set occupied = 1 where id =?  ]]>
+       <![CDATA[update payment_history set occupied = 1 where payment_code =?  ]]>
    </sql-query>
 
     <sql-query id="updateAvaliableSlot">
@@ -66,6 +66,10 @@
 
    <sql-query id="crossCheckingRegistration">
        <![CDATA[select * from registration where code =? and coupon = 1  ]]>
+   </sql-query>
+
+   <sql-query id="crossCheckingPaymetHistory">
+       <![CDATA[select * from payment_history where payment_code =? ]]>
    </sql-query>
 
 

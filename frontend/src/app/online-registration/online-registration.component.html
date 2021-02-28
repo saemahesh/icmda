@@ -3,10 +3,6 @@
   <div class="container ">
 
     <form [formGroup]="registrationForm"><br>
-      <div>
-        <h4 style="text-align: center;color: white;"><span style="color:red"> *</span>Make The Payment From
-          These Numbers</h4>
-      </div>
       <h1 style="text-align: center;color: white;">Kuchipudi Festival Slot Booking</h1>
       <div class="form-group">
         <label style="font-size: medium;">*Name</label>&nbsp;&nbsp;&nbsp; <span *ngIf="submitted && f.name.errors">
@@ -48,7 +44,7 @@
           <option value="Individual - 1000">Individual - 1000 INR</option>
           <option value="Duet - 2000">Duet - 2000 INR</option>
           <option value="Group - 5000">Group - 5000 INR</option>
-          <option value="Donar - 10000">Donar - 10000 INR</option>
+          <option value="Donor - Contact Us">Donor - Contact Us</option>
         </select>
 
       </div>
@@ -73,10 +69,11 @@
 
       </div>
       <div class=" col-md-12 well" style="background: #343a4e;">
-        <label style="font-size: medium;">Make payment with either PhonePe / Gpay / Paypal / NetBanking
-          <span style="color: red;">(Excluding transaction fee)</span>
+        <label style="font-size: medium;"><span style="color: red;text-decoration: underline;">To get Payment Code :</span>
+            Make payment <span style="color: red;">(Excluding transaction fee)</span>
+            and share the screenshot to <span style="color: red;">+91 9515417732</span> whatsapp number.
         </label><br>
-        <div class="col-md-2">
+        <div class="col-md-3">
           <div class="form-group">
             <label style="font-size: medium;">Amount</label>
             <div style="background-color: white;font-size: 28px;font-weight: bold;padding-left: 10px;">
@@ -84,21 +81,13 @@
             </div>
           </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-4">
           <div class="form-group">
             <label style="font-size: medium;">PhonePe / GPay (India)</label>
             <div style="background-color: white;font-size: 16px;padding-left:10px;font-weight: bold;">
               9884220404
               <img src="../../assets/images/phonepe.png" width="37px" style="margin-left: 22px;">
               <img src="../../assets/images/gpay2.jpg" width="60px" style="margin-left: 22px;">
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="form-group">
-            <label style="font-size: medium;">PayPal(International)</label>
-            <div style="background-color: white;font-size: 1em;padding-left:10px;font-weight: bold;padding: 8px;">
-              <a href="https://paypal.me/icmdaDecEvent" target="blank">https://paypal.me/icmdaDecEvent</a>
             </div>
           </div>
         </div>

@@ -79,7 +79,7 @@ export class SendEmailsFormComponent implements OnInit {
       "phone_number": this.paymentCodeForm.value.phoneNumber,
       "payment_code": this.generateNumber,
       "amount":this.paymentCodeForm.value.amount,
-      "slotType": this.paymentCodeForm.value.slotType
+      "slot_type": this.paymentCodeForm.value.slotType
     }
     this.onlineRegistration.paymentData(data).subscribe((res:any)=>{
       if(res.data ===null){
@@ -88,7 +88,7 @@ export class SendEmailsFormComponent implements OnInit {
         Swal.fire({
           icon: "success",
           title:
-            "You have successfully registered in this event, Your Registration ID :<br> DEC2020-" +
+            "You have successfully registered in this event, Your Registration ID :<br> " +
             res.token.insertId +
             ".<br> Please check your email for detailed information",
           showConfirmButton: true,
