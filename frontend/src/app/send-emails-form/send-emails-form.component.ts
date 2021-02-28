@@ -79,7 +79,7 @@ export class SendEmailsFormComponent implements OnInit {
       "phone_number": this.paymentCodeForm.value.phoneNumber,
       "payment_code": this.generateNumber,
       "amount":this.paymentCodeForm.value.amount,
-      "slotType": this.paymentCodeForm.value.slotType
+      "slot_type": this.paymentCodeForm.value.slotType
     }
     this.onlineRegistration.paymentData(data).subscribe((res:any)=>{
       if(res.data ===null){
