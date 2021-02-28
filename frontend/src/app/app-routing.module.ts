@@ -82,7 +82,7 @@ const routes: Routes = [
     component: UsersDetailsComponent
   },
   {
-    path:'online-registration',
+    path:'kuchipudi-festival',
     component: OnlineRegistrationComponent
   },
   {

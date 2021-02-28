@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import Swal from 'sweetalert2';
 import { OnlineRegistrationService } from '../online-registration/online-registration.service';
 declare var $:any;
 @Component({
@@ -10,36 +11,34 @@ declare var $:any;
 })
 export class SendEmailsFormComponent implements OnInit {
   paymentCodeForm: FormGroup;
+  paymentCodeForm1: FormGroup;
   paymentsMode = false;
   submitted = false;
-  model: any = {};
+  submitted1 = false;
   paymentCodes:string;
+  slotTypeValue;
+  modeltoggle = true;
+  generateNumber;
   constructor(private fb:FormBuilder,private onlineRegistration:OnlineRegistrationService,private toastr:ToastrService) { }
   
   ngOnInit(): void {
-    $('#code').modal({
-      show: true,
-      backdrop: 'static'
-    });
-    
+    this.paymentCodeForm1 = this.fb.group({
+      paymentCodes:['',Validators.required]
+    })
   }
-  submitCode(){
+  get f1(){
+    return this.paymentCodeForm1.controls;
+  }
+  submitCode(e){
     this.submitted = true;
-    console.log(this.paymentCodes)
-    if(this.paymentCodes === 'Icmda1$')  {
-      console.log(this.paymentCodes,"code")
+    if(this.paymentCodeForm1.invalid){
+      return;
+      
+    }else if(this.paymentCodeForm1.value.paymentCodes === 'Icmda1$')  {
+      this.modeltoggle = false;
       this.participantDetails()
       this.paymentsMode = true;
-      
-     
-    } else{
-      return $('#code').modal({
-        show: true,
-        backdrop: 'static'
-      })
-    }
-    console.log(this.paymentCodes,"pcode")
-    
+    } 
   }
   participantDetails(){
     this.submitted = false;
@@ -50,16 +49,25 @@ export class SendEmailsFormComponent implements OnInit {
     name:['',Validators.required],
     phoneNumber:['',Validators.required],
     // occupied:['',Validators.required],
-    paymentCode:['',Validators.required],
-    amount:['',Validators.required]
+    // paymentCode:['',Validators.required],
+    amount:['',Validators.required],
+    slotType:['',Validators.required]
    })
+  }
+  Generate(){
+   let number= Math.floor((Math.random() * 999999) + 1);
+   this.generateNumber = number;
+   this.paymentCodeForm.value.paymentCode = this.generateNumber
+   console.log( this.paymentCodeForm.value.paymentCode,"number")
   }
   get f(){
     return this.paymentCodeForm.controls;
   }
-  
+  slotType(event){
+     this.slotTypeValue = event.target.value;
+  }
   submitForm(){
-    this.submitted = true;
+    this.submitted1 = true;
     if(this.paymentCodeForm.invalid){
       return;
     }
@@ -69,23 +77,32 @@ export class SendEmailsFormComponent implements OnInit {
       "payment_date": this.paymentCodeForm.value.paymentDate,
       "name": this.paymentCodeForm.value.name,
       "phone_number": this.paymentCodeForm.value.phoneNumber,
-      // "occupied": this.paymentCodeForm.value.occupied,
-      "payment_code": this.paymentCodeForm.value.paymentCode,
-      "amount":this.paymentCodeForm.value.amount
+      "payment_code": this.generateNumber,
+      "amount":this.paymentCodeForm.value.amount,
+      "slotType": this.paymentCodeForm.value.slotType
     }
     this.onlineRegistration.paymentData(data).subscribe((res:any)=>{
       if(res.data ===null){
         this.toastr.error(res.err)
       }else{
-        this.toastr.success(res.data)
-        // this.participantDetailsForm.reset();
+        Swal.fire({
+          icon: "success",
+          title:
+            "You have successfully registered in this event, Your Registration ID :<br> DEC2020-" +
+            res.token.insertId +
+            ".<br> Please check your email for detailed information",
+          showConfirmButton: true,
+        }).then((suuess) => {
+          // this.router.navigate([""]);
+          // this.registrationForm.reset();
+          this.paymentCodeForm.reset();
         
         this.submitted = false;
+        });
+        this.toastr.success(res.data)
+        
       }
     })
   }
 
 }
-// export interface Payment{
-//   paymentCodes: any;
-// }

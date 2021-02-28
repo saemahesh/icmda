@@ -1,36 +1,28 @@
 <div class="hs-item image bg print">
 
     <div class="container ">
-        <div class="modal fade" id="code" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2"
-            aria-hidden="true">
-            <div class="modal-dialog modal-lg" role="document">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <div class="form-group">
+        <div class="card" style="width: 100%; background-color: black;" *ngIf="modeltoggle">
+            <div class="card-body">
+                <form [formGroup]="paymentCodeForm1" style="margin: 0px;">
 
-                            <label for="" style="font-size: medium;" style="color: black;">* Enter Code
-                            </label>&nbsp;&nbsp;&nbsp; <small class="text-danger"
-                                *ngIf="paymentCode.invalid && (paymentCode.touched || submitted)">Please
-                                Enter The Code</small>
-                            <input type="text" class="form-control" name="paymentCode" #paymentCode="ngModel"
-                                [(ngModel)]="paymentCodes" required>
+                    <div class="form-group">
+                        <label for="" style="font-size: medium;">* Enter Code <span
+                                *ngIf="submitted && f1.paymentCodes.errors">
+                                <span *ngIf="f1.paymentCodes.errors.required" style="color:red"> is required</span>
+                            </span>
+                        </label>
+                        <input type="text" class="form-control" name="paymentCode" formControlName="paymentCodes"
+                            required>
 
-
-                        </div>
-                        <button type="button" class="btn btn-success" data-dismiss="modal"
-                            (click)="submitCode()">SUBMIT</button>
                     </div>
-                    <!-- <div class="modal-footer">
-                        
-                    </div> -->
-                </div>
+                    <button type="button" class="btn btn-success" (click)="submitCode($event)">SUBMIT</button>
+                </form>
             </div>
         </div>
         <form [formGroup]="paymentCodeForm" *ngIf="paymentsMode"><br>
-            {{paymentsMode}}
             <h1 style="text-align: center;color: white;">Kuchipudi Payment Details Form</h1>
             <div class="form-group">
-                <label style="font-size: medium;">* Name</label> <span *ngIf="submitted && f.name.errors">
+                <label style="font-size: medium;">* Name</label> <span *ngIf="submitted1 && f.name.errors">
                     <span *ngIf="f.name.errors.required" style="color:red"> is required</span>
                 </span>
                 <input type="text" class="form-control" id="name" formControlName="name">
@@ -38,7 +30,7 @@
             </div>
             <div class="form-group">
                 <label style="font-size: medium;">* Phone Number</label> <span
-                    *ngIf="submitted && f.phoneNumber.errors">
+                    *ngIf="submitted1 && f.phoneNumber.errors">
                     <span *ngIf="f.phoneNumber.errors.required" style="color:red"> is required</span>
                 </span>
                 <input type="text" class="form-control" id="name" formControlName="phoneNumber">
@@ -46,7 +38,7 @@
             </div>
 
             <div class="form-group">
-                <label style="font-size: medium;">* Amount</label> <span *ngIf="submitted && f.amount.errors">
+                <label style="font-size: medium;">* Amount</label> <span *ngIf="submitted1 && f.amount.errors">
                     <span *ngIf="f.amount.errors.required" style="color:red"> is required</span>
                 </span>
                 <input type="text" class="form-control" id="name" formControlName="amount">
@@ -55,7 +47,7 @@
 
             <div class="form-group">
                 <label style="font-size: medium;">Transaction Id</label> <span
-                    *ngIf="submitted && f.transactionId.errors">
+                    *ngIf="submitted1 && f.transactionId.errors">
                     <span *ngIf="f.transactionId.errors.required" style="color:red"> is required</span>
                 </span>
                 <input type="email" class="form-control" id="name" formControlName="transactionId">
@@ -63,7 +55,7 @@
             </div>
             <div class="form-group">
                 <label style="font-size: medium;">* Payment Mode</label> <span
-                    *ngIf="submitted && f.paymentMode.errors">
+                    *ngIf="submitted1 && f.paymentMode.errors">
                     <span *ngIf="f.paymentMode.errors.required" style="color:red"> is required</span>
                 </span>
                 <input type="text" class="form-control" id="name" formControlName="paymentMode">
@@ -71,20 +63,38 @@
             </div>
             <div class="form-group">
                 <label style="font-size: medium;">* Payment Date</label> <span
-                    *ngIf="submitted && f.paymentDate.errors">
+                    *ngIf="submitted1 && f.paymentDate.errors">
                     <span *ngIf="f.paymentDate.errors.required" style="color:red"> is required</span>
                 </span>
                 <input type="date" class="form-control" id="name" formControlName="paymentDate">
 
             </div>
             <div class="form-group">
-                <label style="font-size: medium;">* Payment Code</label><span *ngIf="submitted && f.paymentCode.errors">
-                    <span *ngIf="f.paymentCode.errors.required" style="color:red"> is required</span>
-                </span>
-                <input type="text" class="form-control" id="name" formControlName="paymentCode">
+                <div class="d-flex">
+                    <div class="col">
+                        <button class="btn btn-success" type="submit" (click)=Generate()>Code Generate</button>
+                    </div>
+                    <div class="col">
+                        <label style="font-size: medium;">* Payment Code</label>
+                        <input type="text" class="form-control" id="name" [value]="generateNumber" disabled>
+                    </div>
+                </div>
 
             </div>
+            <div class="form-group">
+                <label style="font-size: medium;">*Slot Type</label>&nbsp;&nbsp;&nbsp; <span
+                    *ngIf="submitted && f.slotType.errors">
+                    <span *ngIf="f.slotType.errors.required" style="color:red">slotType is required</span>
+                </span>
+                <select class="form-control" (change)="slotType($event)" formControlName="slotType">
+                    <option value="">Select Slot Type</option>
+                    <option value="Individual">Individual</option>
+                    <option value="Duet">Duet</option>
+                    <option value="Group">Group</option>
+                    <option value="Donar">Donar</option>
+                </select>
 
+            </div>
             <!-- <div class="form-group" *ngIf="0">
                 <label style="font-size: medium;">* Occupied</label><span *ngIf="submitted && f.occupied.errors">
                     <span *ngIf="f.occupied.errors.required" style="color:red"> is required</span>
@@ -97,5 +107,6 @@
                 <button type="submit" class="btn btn-success" (click)="submitForm()">Submit</button><br><br>
             </div>
         </form>
+
     </div>
 </div>
