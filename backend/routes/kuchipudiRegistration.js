@@ -4,17 +4,28 @@ let kuchipudiService = require("../services/kuchipudiService");
 
 router.post("/registration", (req, res) => {
   kuchipudiService.kuchipudiRegistration(req.body, (err, result) => {
-    if (result == 'code is already used') {
+    if (result == 'payment code is already used') {
       res.send({ status: { code: "ERROR", message: result } });
     } else if (result == 'payment code is invalid!') {
       res.send({ status: { code: "ERROR", message: result } });
     } else if (result == 'slot is not avaliable') {
       res.send({ status: { code: "ERROR", message: result } });
     } else {
-      res.json({
-        primary: result,
-        status: { code: "SUCCESS", message: "Slot is booked successfully" }
+      console.log('data >> ', result);
+      req.body.id = result.insertId;
+      req.body.slot_type = result.slot_type;
+      req.body.slot_time = result.slot_time;
+      kuchipudiService.sendSlotConfirmationMail(req.body, (err, result) => {
+        if (err) {
+          res.json({ err: err, data: null });
+        } else {
+          res.json({
+            primary: result,
+            status: { code: "SUCCESS", message: "Slot is booked successfully" }
+          });
+        }
       });
+
     }
   });
 });
@@ -28,7 +39,7 @@ router.post("/create-payment-code", (req, res) => {
     } else {
       res.json({
         primary: data,
-        status: { code: "SUCCESS", message: "Payment is booked successfully" }
+        status: { code: "SUCCESS", message: "Payment code is booked successfully" }
       });
     }
   });
