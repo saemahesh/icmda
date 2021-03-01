@@ -71,6 +71,8 @@
    <sql-query id="crossCheckingPaymetHistory">
        <![CDATA[select * from payment_history where payment_code =? ]]>
    </sql-query>
-
+   <sql-query id="getSlotTypes">
+       <![CDATA[SELECT DISTINCT slot_type FROM slot_tbl]]>
+   </sql-query>
 
 </sql-queries>

@@ -113,6 +113,30 @@ exports.getAvaliableSlot = (slotType, callback) => {
   }
 };
 
+
+exports.getSlotTypes = (callback) => {
+  try {
+    executeQuery.queryForAll(
+      sqlQueryMap["getSlotTypes"],
+      (err, result) => {
+        if (err) {
+          callback(err, null);
+        } else {
+          {
+            callback(err, result)
+          }
+        }
+      }
+    );
+  } catch (err) {
+    if (err) {
+      callback(err, null);
+      // console.log("Login Error", err);
+    }
+    // eslint-disable-next-line no-console
+  }
+};
+
 function getDefaultLongFormattedDate(date) {
   return moment(date).format('YYYY-MM-DD HH:mm:ss');
 }
@@ -418,6 +442,18 @@ let mailDetails = {
       <td>${data.slot_time}</td>
     </tr>
   </table>
+
+  <div style="margin:30px 0;display:grid">
+  <a target="_blank" href="https://icmda.tawk.help/article/guidelines-for-kuchipudi-festival">
+  <button type="button" class="btn btn-success" style="cursor:pointer">Click here to see the Guidelines</button>
+  </a>
+   </div>
+
+   <div style="margin:30px 0;display:grid">
+   <a target="_blank" href="https://icmda.tawk.help/category/kuchupudi-festival">
+   <button type="button" class="btn btn-success" style="cursor:pointer">Click here to know all details about Festival</button>
+   </a>
+    </div>
 
     <p>
       Details about Prize Distribution: 

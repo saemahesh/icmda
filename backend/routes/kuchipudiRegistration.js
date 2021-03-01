@@ -64,4 +64,16 @@ router.get("/getAvaliableSlot/:slotType", (req, res) => {
 });
 
 
+router.get("/getslotType", (req, res) => {
+  kuchipudiService.getSlotTypes((err, result) => {
+    if (err) {
+      res.status(500);
+      res.send({ err: "no users found", result: null });
+    } else {
+      res.send({ primary: result });
+    }
+  });
+});
+
+
 module.exports = router;

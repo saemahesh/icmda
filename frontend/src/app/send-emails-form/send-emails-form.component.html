@@ -88,10 +88,10 @@
                 </span>
                 <select class="form-control" (change)="slotType($event)" formControlName="slotType">
                     <option value="">Select Slot Type</option>
-                    <option value="Individual">Individual</option>
-                    <option value="Duet">Duet</option>
+                    <option *ngFor="let type of slotTypes">{{type.slot_type}}</option>
+                    <!-- <option value="Duet">Duet</option>
                     <option value="Group">Group</option>
-                    <option value="Donor">Donor</option>
+                    <option value="Donor">Donor</option> -->
                 </select>
 
             </div>

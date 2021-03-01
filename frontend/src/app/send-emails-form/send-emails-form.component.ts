@@ -19,9 +19,15 @@ export class SendEmailsFormComponent implements OnInit {
   slotTypeValue;
   modeltoggle = true;
   generateNumber;
+  slotTypes:any=[];
   constructor(private fb:FormBuilder,private onlineRegistration:OnlineRegistrationService,private toastr:ToastrService) { }
   
   ngOnInit(): void {
+    
+    this.onlineRegistration.getSlotTypes().subscribe((res:any)=>{
+      this.slotTypes = res['primary']
+      console.log(res,"respppppppppppppp")
+    })
     this.paymentCodeForm1 = this.fb.group({
       paymentCodes:['',Validators.required]
     })
