@@ -13,14 +13,19 @@ export class OnlineRegistrationComponent implements OnInit {
   registrationForm: FormGroup;
   submitted = false;
   slotTypevalue;
-  slotId
+  slotName;
   slotTimesValue:any=[]
   amount:any;
   typeId;
+  slotTypes:any=[]
   constructor(private fb:FormBuilder,private onlineRegistration:OnlineRegistrationService,private toastr:ToastrService) { }
 
   ngOnInit(): void {
     this.registration();
+    this.onlineRegistration.getSlotTypes().subscribe((res:any)=>{
+      this.slotTypes = res['primary']
+      console.log(res,"respppppppppppppp")
+    })
   }
   registration(){
    this.registrationForm = this.fb.group({
@@ -37,25 +42,32 @@ export class OnlineRegistrationComponent implements OnInit {
     return this.registrationForm.controls;
   }
   slotType(event){
-    this.slotId = ''
-    console.log(event.target.value,"event")
+    this.typeId = null;
+    this.registrationForm.controls.slotTime.setValue('')
     this.slotTypevalue = event.target.value;
-    let type=this.slotTypevalue.split("-")
-    console.log(type)
-    this.amount =type[1]
+    let priceMapping = {
+      'GROUP DANCE':3000,
+      'SOLO MUSIC':1000,
+      'SOLO DANCE': 1000,
+      'DUET':2000,
+      'DONOR':'Contact Us'
+    }
+    this.amount =priceMapping[this.slotTypevalue]
     console.log(this.slotTypevalue,"valueeee")
-    this.onlineRegistration.getSlotType(type[0]).subscribe((res:any)=>{
+    this.onlineRegistration.getSlotType(this.slotTypevalue).subscribe((res:any)=>{
       console.log(res['primary'])
       this.slotTimesValue=res['primary']
     })
   }
   
   slotID(event){
-    console.log(event.target.value,"event")
-    this.slotId = event.target.value;
+    this.slotName = event.target.value;
     this.slotTimesValue.filter((element)=>{
-      if(this.slotId === element.slot_time) {
+      if(this.slotName === element.slot_time) {
         this.typeId = element.id;
+        console.log(this.typeId,"iddddd")
+      }else{
+        
       }
     })
   }
