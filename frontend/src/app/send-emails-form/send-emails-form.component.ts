@@ -82,15 +82,12 @@ export class SendEmailsFormComponent implements OnInit {
       "slot_type": this.paymentCodeForm.value.slotType
     }
     this.onlineRegistration.paymentData(data).subscribe((res:any)=>{
-      if(res.data ===null){
-        this.toastr.error(res.err)
+      if(res.status.code == 'ERROR'){
+        this.toastr.error(res.status.message)
       }else{
         Swal.fire({
           icon: "success",
-          title:
-            "You have successfully registered in this event, Your Registration ID :<br> " +
-            res.token.insertId +
-            ".<br> Please check your email for detailed information",
+          title:`You have successfully created payment code : ${this.generateNumber} to Phone number : ${data.phone_number}`,
           showConfirmButton: true,
         }).then((suuess) => {
           // this.router.navigate([""]);

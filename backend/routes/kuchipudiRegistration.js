@@ -31,6 +31,11 @@ router.post("/registration", (req, res) => {
 });
 
 router.post("/create-payment-code", (req, res) => {
+  
+  if(!req.body.payment_code){
+    res.send({ status: { code: "ERROR", message: 'Form is invalid' } });
+    return;
+  }
   kuchipudiService.insertPaymentHistory(req.body, (err, data) => {
     // console.log("error",err)
     // console.log("data",data)
