@@ -16,6 +16,7 @@ export class OnlineRegistrationComponent implements OnInit {
   slotId
   slotTimesValue:any=[]
   amount:any;
+  typeId;
   constructor(private fb:FormBuilder,private onlineRegistration:OnlineRegistrationService,private toastr:ToastrService) { }
 
   ngOnInit(): void {
@@ -36,6 +37,7 @@ export class OnlineRegistrationComponent implements OnInit {
     return this.registrationForm.controls;
   }
   slotType(event){
+    this.slotId = ''
     console.log(event.target.value,"event")
     this.slotTypevalue = event.target.value;
     let type=this.slotTypevalue.split("-")
@@ -47,9 +49,15 @@ export class OnlineRegistrationComponent implements OnInit {
       this.slotTimesValue=res['primary']
     })
   }
+  
   slotID(event){
     console.log(event.target.value,"event")
     this.slotId = event.target.value;
+    this.slotTimesValue.filter((element)=>{
+      if(this.slotId === element.slot_time) {
+        this.typeId = element.id;
+      }
+    })
   }
   submitForm(){
     this.submitted = true;
@@ -61,7 +69,7 @@ export class OnlineRegistrationComponent implements OnInit {
       "email": this.registrationForm.value.email,
       "phone_number": this.registrationForm.value.phoneNumber,
       "country": this.registrationForm.value.country,
-      "slot_id": this.slotId,
+      "slot_id": this.typeId,
       "slot_type": this.slotTypevalue.split("-")[0],
       "code": this.registrationForm.value.code
     }

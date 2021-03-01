@@ -9,8 +9,7 @@
           width: max-content;
           margin-left: 60%;
           color: green;">
-            <a href="https://icmda.tawk.help/category/kuchupudi-festival"
-               style="color: red;">
+            <a href="https://icmda.tawk.help/category/kuchupudi-festival" style="color: red;">
               Click here</a>
             to know all details about Festival
             <span class="label label-default blinking">New</span>
@@ -19,8 +18,7 @@
           width: max-content;
           margin-left: 60%;
           color: green;">
-            <a href="https://icmda.tawk.help/category/kuchupudi-festival"
-               style="color: red;">
+            <a href="https://icmda.tawk.help/category/kuchupudi-festival" style="color: red;">
               Click here</a>
             to about guidelines
             <span class="label label-default blinking">New</span>
@@ -30,59 +28,40 @@
       <h1 style="text-align: center;color: white;">Kuchipudi Festival Slot Booking</h1>
       <div class="form-group">
         <label style="font-size: medium;">*Name</label>&nbsp;&nbsp;&nbsp; <span *ngIf="submitted && f.name.errors">
-          <span *ngIf="f.name.errors.required"
-                style="color:red">First Name is required</span>
+          <span *ngIf="f.name.errors.required" style="color:red">First Name is required</span>
         </span>
-        <input type="text"
-               class="form-control"
-               id="name"
-               formControlName="name">
+        <input type="text" class="form-control" id="name" formControlName="name">
 
       </div>
       <div class="form-group">
         <label style="font-size: medium;">*Email</label>&nbsp;&nbsp;&nbsp; <span *ngIf="submitted && f.email.errors">
-          <span *ngIf="f.email.errors.required"
-                style="color:red">Email is required</span>
+          <span *ngIf="f.email.errors.required" style="color:red">Email is required</span>
         </span>
-        <input type="email"
-               class="form-control"
-               id="name"
-               formControlName="email">
+        <input type="email" class="form-control" id="name" formControlName="email">
 
       </div>
       <div class="form-group">
         <label style="font-size: medium;">*Phone Number</label>&nbsp;&nbsp;&nbsp; <span
-              *ngIf="submitted && f.phoneNumber.errors">
-          <span *ngIf="f.phoneNumber.errors.required"
-                style="color:red">Phone Number is required</span>
+          *ngIf="submitted && f.phoneNumber.errors">
+          <span *ngIf="f.phoneNumber.errors.required" style="color:red">Phone Number is required</span>
         </span>
-        <input type="text"
-               class="form-control"
-               id="name"
-               formControlName="phoneNumber">
+        <input type="text" class="form-control" id="name" formControlName="phoneNumber">
 
       </div>
       <div class="form-group">
         <label style="font-size: medium;">*Country</label>&nbsp;&nbsp;&nbsp; <span
-              *ngIf="submitted && f.country.errors">
-          <span *ngIf="f.country.errors.required"
-                style="color:red">Country is required</span>
+          *ngIf="submitted && f.country.errors">
+          <span *ngIf="f.country.errors.required" style="color:red">Country is required</span>
         </span>
-        <input type="text"
-               class="form-control"
-               id="name"
-               formControlName="country">
+        <input type="text" class="form-control" id="name" formControlName="country">
 
       </div>
       <div class="form-group">
         <label style="font-size: medium;">*Slot Type</label>&nbsp;&nbsp;&nbsp; <span
-              *ngIf="submitted && f.slotType.errors">
-          <span *ngIf="f.slotType.errors.required"
-                style="color:red">slotType is required</span>
+          *ngIf="submitted && f.slotType.errors">
+          <span *ngIf="f.slotType.errors.required" style="color:red">slotType is required</span>
         </span>
-        <select class="form-control"
-                (change)="slotType($event)"
-                formControlName="slotType">
+        <select class="form-control" (change)="slotType($event)" formControlName="slotType">
           <option value="">Select Slot Type</option>
           <option value="Individual - 1000">Individual - 1000 INR</option>
           <option value="Duet - 2000">Duet - 2000 INR</option>
@@ -93,29 +72,25 @@
       </div>
       <div class="form-group">
         <label style="font-size: medium;">*Slot Time</label>&nbsp;&nbsp;&nbsp; <span
-              *ngIf="submitted && f.slotTime.errors">
-          <span *ngIf="f.slotTime.errors.required"
-                style="color:red">SlotTime is required</span>
+          *ngIf="submitted && f.slotTime.errors">
+          <span *ngIf="f.slotTime.errors.required" style="color:red">SlotTime is required</span>
         </span>
-        <select class="form-control"
-                formControlName="slotTime"
-                (change)="slotID($event)">
+        <select class="form-control" formControlName="slotTime" (change)="slotID($event)">
           <option value="">Select Slot Time</option>
-          <option *ngFor=" let time of slotTimesValue"
-                  [value]=time.id>{{time.slot_time}}</option>
+          <option *ngFor=" let time of slotTimesValue">{{time.slot_time}}</option>
 
         </select>
-
+        <span *ngIf="submitted && f.slotTime.errors">
+          <span *ngIf="f.slotTime.errors.required" style="color:red">slotTime is required</span>
+        </span>
       </div>
 
-      <div class=" col-md-12 well"
-           style="background: #343a4e;">
+      <div class=" col-md-12 well" style="background: #343a4e;">
         <div style="font-size: medium;"><span style="color: #00ff0f;text-decoration: underline;">Steps to get Payment
             Code:</span>
 
         </div><br>
-        <div class="row"
-             style="color: white;">
+        <div class="row" style="color: white;">
           Step 1) Make payment (Excluding transaction fee)
         </div>
         <div class="row">
@@ -132,12 +107,8 @@
               <label style="font-size: medium;">PhonePe / GPay (India)</label>
               <div style="background-color: white;font-size: 16px;padding-left:10px;font-weight: bold;">
                 9884220404
-                <img src="../../assets/images/phonepe.png"
-                     width="37px"
-                     style="margin-left: 22px;">
-                <img src="../../assets/images/gpay2.jpg"
-                     width="60px"
-                     style="margin-left: 22px;">
+                <img src="../../assets/images/phonepe.png" width="37px" style="margin-left: 22px;">
+                <img src="../../assets/images/gpay2.jpg" width="60px" style="margin-left: 22px;">
               </div>
             </div>
           </div>
@@ -145,7 +116,7 @@
             <div class="form-group">
               <label style="font-size: medium;">NetBanking</label>
               <div
-                   style="background-color: white;font-size: 1em;padding-left:10px;font-weight: bold;padding: 8px;display:grid">
+                style="background-color: white;font-size: 1em;padding-left:10px;font-weight: bold;padding: 8px;display:grid">
                 <span>Account No : 20264708218 </span>
                 <span>Name : Asha Deepa R </span>
                 <span>IFSC : SBIN0016987 </span>
@@ -155,36 +126,28 @@
             </div>
           </div>
         </div>
-        <div class="row"
-             style="color: white;">
+        <div class="row" style="color: white;">
           Step 2) Send the screenshot to <span style="color: #00ff0f;padding:0% 1%"> +91 9515417732 </span> whatsapp
           number.
         </div>
 
-        <div class="row"
-             style="color: white;">
+        <div class="row" style="color: white;">
           Step 3) You will get a payment code from ICMDA.
         </div>
       </div>
 
       <div class="form-group">
         <label style="font-size: medium;">*Enter Payment Code</label>&nbsp;&nbsp;&nbsp; <span
-              *ngIf="submitted && f.code.errors">
-          <span *ngIf="f.code.errors.required"
-                style="color:red">Code is required</span>
+          *ngIf="submitted && f.code.errors">
+          <span *ngIf="f.code.errors.required" style="color:red">Code is required</span>
         </span>
-        <input type="text"
-               class="form-control"
-               id="name"
-               formControlName="code">
+        <input type="text" class="form-control" id="name" formControlName="code">
 
       </div>
 
 
       <div class="wrapper">
-        <button type="submit"
-                class="btn btn-success"
-                (click)="submitForm()">Submit</button><br><br>
+        <button type="submit" class="btn btn-success" (click)="submitForm()">Submit</button><br><br>
       </div>
     </form>
 
