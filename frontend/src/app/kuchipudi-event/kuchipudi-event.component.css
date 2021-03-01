@@ -1,0 +1,23 @@
+.events {
+  background-image: url("../../assets/images/kuchipudi_festival.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  /* background-blend-mode: multiply; */
+  height: 1000px;
+}
+.helplines div {
+  color: #76ff76;
+  text-align: center;
+}
+@media screen and (max-width: 600px) {
+  .events {
+    background-image: url("../../assets/images/kuchipudi_festival.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    /* background-blend-mode: multiply; */
+    height: auto;
+    width: auto;
+  }
+}

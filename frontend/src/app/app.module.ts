@@ -27,6 +27,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { OnlineRegistrationComponent } from './online-registration/online-registration.component';
 import { SendEmailsComponent } from './send-emails/send-emails.component';
 import { SendEmailsFormComponent } from './send-emails-form/send-emails-form.component';
+import { KuchipudiEventComponent } from './kuchipudi-event/kuchipudi-event.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { SendEmailsFormComponent } from './send-emails-form/send-emails-form.com
     UsersDetailsComponent,
     OnlineRegistrationComponent,
     SendEmailsComponent,
-    SendEmailsFormComponent
+    SendEmailsFormComponent,
+    KuchipudiEventComponent
   ],
   imports: [
     BrowserModule,

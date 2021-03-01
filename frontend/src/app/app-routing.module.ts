@@ -1,3 +1,4 @@
+import { KuchipudiEventComponent } from "./kuchipudi-event/kuchipudi-event.component";
 import { SendEmailsFormComponent } from "./send-emails-form/send-emails-form.component";
 import { SendEmailsComponent } from "./send-emails/send-emails.component";
 import { OnlineRegistrationComponent } from "./online-registration/online-registration.component";
@@ -82,7 +83,7 @@ const routes: Routes = [
     component: UsersDetailsComponent
   },
   {
-    path:'kuchipudi-festival',
+    path:'kuchipudi-event-registration',
     component: OnlineRegistrationComponent
   },
   {
@@ -92,6 +93,10 @@ const routes: Routes = [
   {
     path:'create-payment-code',
     component:SendEmailsFormComponent
+  },
+  {
+    path:'kuchipudi-event',
+    component: KuchipudiEventComponent
   }
 ];
 
