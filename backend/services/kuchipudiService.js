@@ -137,6 +137,29 @@ exports.getSlotTypes = (callback) => {
   }
 };
 
+exports.getPaymentHistoryList = (callback) => {
+  try {
+    executeQuery.queryForAll(
+      sqlQueryMap["paymetHistoryList"],
+      (err, result) => {
+        if (err) {
+          callback(err, null);
+        } else {
+          {
+            callback(err, result)
+          }
+        }
+      }
+    );
+  } catch (err) {
+    if (err) {
+      callback(err, null);
+      // console.log("Login Error", err);
+    }
+    // eslint-disable-next-line no-console
+  }
+};
+
 function getDefaultLongFormattedDate(date) {
   return moment(date).format('YYYY-MM-DD HH:mm:ss');
 }
