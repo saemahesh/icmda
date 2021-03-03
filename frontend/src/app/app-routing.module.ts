@@ -1,3 +1,4 @@
+import { ViewPaymentCodesComponent } from "./view-payment-codes/view-payment-codes.component";
 import { KuchipudiEventComponent } from "./kuchipudi-event/kuchipudi-event.component";
 import { SendEmailsFormComponent } from "./send-emails-form/send-emails-form.component";
 import { SendEmailsComponent } from "./send-emails/send-emails.component";
@@ -97,6 +98,10 @@ const routes: Routes = [
   {
     path:'kuchipudi-event',
     component: KuchipudiEventComponent
+  },
+  {
+    path:'view-payment-codes',
+    component: ViewPaymentCodesComponent
   }
 ];
 

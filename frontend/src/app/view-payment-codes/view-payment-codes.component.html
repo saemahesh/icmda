@@ -1,0 +1,62 @@
+<div class="hs-item image bg print">
+
+    <div class="container ">
+        <div class="card" style="width: 100%; background-color: black;" *ngIf="modeltoggle">
+            <div class="card-body">
+                <form [formGroup]="paymentCodeForm1" style="margin: 0px;">
+
+                    <div class="form-group">
+                        <label for="" style="font-size: medium;">* Enter Code <span
+                                *ngIf="submitted && f1.paymentCodes.errors">
+                                <span *ngIf="f1.paymentCodes.errors.required" style="color:red"> is required</span>
+                            </span>
+                        </label>
+                        <input type="text" class="form-control" name="paymentCode" formControlName="paymentCodes"
+                            required>
+
+                    </div>
+                    <button type="button" class="btn btn-success" (click)="submitCode($event)">SUBMIT</button>
+                </form>
+            </div>
+        </div>
+        <div *ngIf="paymentsMode">
+            <div class="col-6 search">
+                <input type="text" [(ngModel)]="search" (keyup)="searchTable()" class="form-control"
+                    placeholder="Search..">
+            </div>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">SNO</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Phone Number</th>
+                        <th scope="col">Amount</th>
+                        <th scope="col">Transaction Id</th>
+                        <th scope="col">Payment Mode</th>
+                        <th scope="col">Payment Date</th>
+                        <th scope="col">Slot Type</th>
+                        <th scope="col">Occupied</th>
+                        <th scope="col">Payment Code</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let pay of searchField; index as i">
+                        <td>{{i+1}}</td>
+                        <td>{{pay.name}}</td>
+                        <td>{{pay.phone_number}}</td>
+                        <td>{{pay.amount}}</td>
+                        <td>{{pay.transaction_id}}</td>
+                        <td>{{pay.payment_mode}}</td>
+                        <td>{{pay.payment_date}}</td>
+                        <td>{{pay.slot_type}}</td>
+                        <td>{{pay.occupied}}</td>
+                        <td>{{pay.payment_code}}</td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
