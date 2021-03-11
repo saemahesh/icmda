@@ -23,5 +23,8 @@ export class OnlineRegistrationService {
   getSlotTypes(){
     return this.http.get(environment.apiUrl + '/form/getslotType');
   }
+  getPaymentHistoryList(){
+    return this.http.get(environment.apiUrl + '/form/getPaymentHistoryList')
+  }
 }
 

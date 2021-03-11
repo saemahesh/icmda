@@ -75,5 +75,16 @@ router.get("/getslotType", (req, res) => {
   });
 });
 
+router.get("/getPaymentHistoryList", (req, res) => {
+  kuchipudiService.getPaymentHistoryList((err, result) => {
+    if (err) {
+      res.status(500);
+      res.send({ err: "no users found", result: null });
+    } else {
+      res.send({ primary: result });
+    }
+  });
+});
+
 
 module.exports = router;

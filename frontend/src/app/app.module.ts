@@ -28,6 +28,7 @@ import { OnlineRegistrationComponent } from './online-registration/online-regist
 import { SendEmailsComponent } from './send-emails/send-emails.component';
 import { SendEmailsFormComponent } from './send-emails-form/send-emails-form.component';
 import { KuchipudiEventComponent } from './kuchipudi-event/kuchipudi-event.component';
+import { ViewPaymentCodesComponent } from './view-payment-codes/view-payment-codes.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { KuchipudiEventComponent } from './kuchipudi-event/kuchipudi-event.compo
     OnlineRegistrationComponent,
     SendEmailsComponent,
     SendEmailsFormComponent,
-    KuchipudiEventComponent
+    KuchipudiEventComponent,
+    ViewPaymentCodesComponent
   ],
   imports: [
     BrowserModule,
