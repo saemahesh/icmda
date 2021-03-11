@@ -195,7 +195,7 @@ let mailTransporter = nodemailer.createTransport({
 	service: 'gmail', 
 	auth: { 
 		user: 'icmdachennai@gmail.com', 
-		pass: 'Jithyalakshmi1'
+		pass: 'Office1#'
 	} 
 }); 
 let id_url = `https://icmda.co.in/idcard/${data.id}`
@@ -263,7 +263,7 @@ let mailTransporter = nodemailer.createTransport({
 	service: 'gmail', 
 	auth: { 
 		user: 'icmdachennai@gmail.com', 
-		pass: 'Jithyalakshmi1'
+		pass: 'Office1#'
 	} 
 }); 
 let mailDetails = { 
@@ -607,7 +607,7 @@ let mailTransporter = nodemailer.createTransport({
 	service: 'gmail', 
 	auth: { 
 		user: 'icmdachennai@gmail.com', 
-		pass: 'Jithyalakshmi1'
+		pass: 'Office1#'
 	} 
 }); 
 let mailDetails = { 
