@@ -248,7 +248,7 @@ let mailTransporter = nodemailer.createTransport({
 	service: 'gmail', 
 	auth: { 
 		user: 'icmdachennai@gmail.com', 
-		pass: 'Jithyalakshmi1'
+		pass: 'Office1#'
 	} 
 }); 
 let mailDetails = { 
