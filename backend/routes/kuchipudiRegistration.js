@@ -86,5 +86,16 @@ router.get("/getPaymentHistoryList", (req, res) => {
   });
 });
 
+router.get("/getDecemberEventById/:id", (req, res) => {
+  kuchipudiService.getDecemberEventById(req.params.id,(err, result) => {
+    if (err) {
+      res.status(500);
+      res.send({ err: "no users found", result: null });
+    } else {
+      res.send({ primary: result });
+    }
+  });
+});
+
 
 module.exports = router;

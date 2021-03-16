@@ -79,4 +79,8 @@
        <![CDATA[select * from payment_history ]]>
    </sql-query>
 
+    <sql-query id="getDecemberEventById">
+       <![CDATA[select * from dec_event_tbl where id = ?  ]]>
+   </sql-query>
+
 </sql-queries>

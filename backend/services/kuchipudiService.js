@@ -160,15 +160,36 @@ exports.getPaymentHistoryList = (callback) => {
   }
 };
 
+
+exports.getDecemberEventById = (id, callback) => {
+  try {
+    executeQuery.queryForAll(
+      sqlQueryMap["getDecemberEventById"],
+      [id],
+      (err, result) => {
+        if (err) {
+          callback(err, null);
+        } else {
+          {
+            callback(err, result)
+          }
+        }
+      }
+    );
+  } catch (err) {
+    if (err) {
+      callback(err, null);
+    }
+  }
+};
+
+// date formate
+
 function getDefaultLongFormattedDate(date) {
   return moment(date).format('YYYY-MM-DD HH:mm:ss');
 }
 
 // queriessss
-
-
-
-
 
 function updateSlotTable(id) {
   // return moment(date).format('YYYY-MM-DD HH:mm:ss');
