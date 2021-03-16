@@ -97,5 +97,18 @@ router.get("/getDecemberEventById/:id", (req, res) => {
   });
 });
 
+router.put("/updateDecemberEvent", (req, res) => {
+  kuchipudiService.updateDecemberEvent(req.body,(err, result) => {
+    if (err) {
+      res.status(500);
+      res.send({ err: "no users found", result: null });
+    } else {
+      res.send({ primary: result });
+    }
+  });
+});
+
+
+
 
 module.exports = router;

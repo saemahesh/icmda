@@ -183,6 +183,30 @@ exports.getDecemberEventById = (id, callback) => {
   }
 };
 
+
+exports.updateDecemberEvent = (data, callback) => {
+  try {
+    var attendance = data.attendance === 'no' ?  data.attendance : null
+    executeQuery.queryForAll(
+      sqlQueryMap["updateDecemberEventById"],
+      [attendance,data.delivery_address,data.id],
+      (err, result) => {
+        if (err) {
+          callback(err, null);
+        } else {
+          {
+            callback(err, result)
+          }
+        }
+      }
+    );
+  } catch (err) {
+    if (err) {
+      callback(err, null);
+    }
+  }
+};
+
 // date formate
 
 function getDefaultLongFormattedDate(date) {
