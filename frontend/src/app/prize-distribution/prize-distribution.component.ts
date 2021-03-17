@@ -16,6 +16,7 @@ export class PrizeDistributionComponent implements OnInit {
   attendence: string;
   model = new prizeDetails();
   address = false;
+  regIdmessage;
   constructor(private onlineRegistration: OnlineRegistrationService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
@@ -28,7 +29,16 @@ export class PrizeDistributionComponent implements OnInit {
       return;
     }
     this.onlineRegistration.getDetails(this.model.regId).subscribe((res: any) => {
-      this.model.name = res['primary'][0].name
+      console.log(res['primary'].length, "leljrk")
+      if (res['primary'].length > 0) {
+        this.model.name = res['primary'][0].name;
+      } else {
+        this.model.name = '';
+        this.regIdmessage = 'Please Enter Valid Registration Id';
+        this.model.regId = '';
+
+      }
+
     });
   }
   changedetails(event) {
