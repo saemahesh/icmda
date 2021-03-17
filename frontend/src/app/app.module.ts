@@ -29,6 +29,7 @@ import { SendEmailsComponent } from './send-emails/send-emails.component';
 import { SendEmailsFormComponent } from './send-emails-form/send-emails-form.component';
 import { KuchipudiEventComponent } from './kuchipudi-event/kuchipudi-event.component';
 import { ViewPaymentCodesComponent } from './view-payment-codes/view-payment-codes.component';
+import { PrizeDistributionComponent } from './prize-distribution/prize-distribution.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { ViewPaymentCodesComponent } from './view-payment-codes/view-payment-cod
     SendEmailsComponent,
     SendEmailsFormComponent,
     KuchipudiEventComponent,
-    ViewPaymentCodesComponent
+    ViewPaymentCodesComponent,
+    PrizeDistributionComponent
   ],
   imports: [
     BrowserModule,
