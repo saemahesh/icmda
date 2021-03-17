@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import Swal from 'sweetalert2';
 import { OnlineRegistrationService } from '../online-registration/online-registration.service';
@@ -31,15 +32,15 @@ export class PrizeDistributionComponent implements OnInit {
     });
   }
   changedetails(event) {
-    this.attendence = event.target.value;
-    if (this.attendence === 'no') {
-      this.address = true;
-    } else {
-      this.address = false;
-    }
+    this.address = event.target.value === 'no' ? true : false;
+    // if (this.attendence === 'no') {
+    //   this.address = true;
+    // } else {
+    //   this.address = false;
+    // }
   }
 
-  submit(prizeForm) {
+  submit(prizeForm: NgForm) {
     this.submitted = true;
     if (prizeForm.invalid) {
       return;
@@ -61,9 +62,9 @@ export class PrizeDistributionComponent implements OnInit {
 
           prizeForm.reset();
           this.submitted = false;
-          this.model.regId = '';
-          this.model.attendence = '';
-          this.model.deliveryaddress = ''
+          this.model.regId = undefined;
+          this.model.attendence = undefined;
+          this.model.deliveryaddress = undefined
           window.location.reload()
         });
 

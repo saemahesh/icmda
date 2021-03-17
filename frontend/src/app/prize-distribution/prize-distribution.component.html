@@ -32,8 +32,10 @@
                     style="color:red"> is
                     required</span>
                 <select class="form-control" name="attendence" [(ngModel)]="model.attendence" #attendencedata="ngModel"
-                    (change)="changedetails($event)" required>
-                    <option value="">Select attending the festival to collect prize/certificate</option>
+                    (change)="changedetails($event)"
+                    placeholder="Select attending the festival to collect prize/certificate" required>
+                    <option value="" selected>Select attending the festival to collect prize/certificate
+                    </option>
                     <option value="yes">Yes</option>
                     <option value="no">No</option>
                 </select>
