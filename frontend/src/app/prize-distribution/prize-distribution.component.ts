@@ -36,6 +36,7 @@ export class PrizeDistributionComponent implements OnInit {
         this.model.name = '';
         this.regIdmessage = 'Please Enter Valid Registration Id';
         this.model.regId = '';
+        this.toastr.error('Please Enter Valid Id')
 
       }
 
