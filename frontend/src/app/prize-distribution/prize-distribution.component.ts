@@ -11,12 +11,13 @@ import { prizeDetails } from './prize-distribution';
   styleUrls: ['./prize-distribution.component.css']
 })
 export class PrizeDistributionComponent implements OnInit {
-  paymentsMode = false;
+  submitted1 = false;
   submitted = false;
   attendence: string;
   model = new prizeDetails();
   address = false;
   regIdmessage;
+  getdetailsShow = false;
   constructor(private onlineRegistration: OnlineRegistrationService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
@@ -32,6 +33,7 @@ export class PrizeDistributionComponent implements OnInit {
       console.log(res['primary'].length, "leljrk")
       if (res['primary'].length > 0) {
         this.model.name = res['primary'][0].name;
+        this.getdetailsShow = true;
       } else {
         this.model.name = '';
         this.regIdmessage = 'Please Enter Valid Registration Id';
@@ -44,11 +46,6 @@ export class PrizeDistributionComponent implements OnInit {
   }
   changedetails(event) {
     this.address = event.target.value === 'no' ? true : false;
-    // if (this.attendence === 'no') {
-    //   this.address = true;
-    // } else {
-    //   this.address = false;
-    // }
   }
 
   submit(prizeForm: NgForm) {
@@ -58,8 +55,9 @@ export class PrizeDistributionComponent implements OnInit {
     }
     const data = {
       'id': this.model.regId,
-      'attendence': this.attendence,
-      'delivery_address': this.model.deliveryaddress
+      'attendence': this.model.attendence,
+      'delivery_address': this.model.deliveryaddress,
+      'certificate_name': this.model.certificate_name
     };
     this.onlineRegistration.updateEvents(data).subscribe((res: any) => {
       if (!res) {
