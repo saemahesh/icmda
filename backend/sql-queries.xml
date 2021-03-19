@@ -88,7 +88,7 @@
        <![CDATA[select * from dec_event_tbl where id = ?  ]]>
    </sql-query>
        <sql-query id="updateDecemberEventById">
-       <![CDATA[ update  dec_event_tbl set attendance = ?,delivery_address = ? where id = ?  ]]>
+       <![CDATA[ update  dec_event_tbl set attendance = ?,delivery_address = ?,certificate_name = ? where id = ?  ]]>
    </sql-query>
 
 </sql-queries>
