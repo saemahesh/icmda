@@ -186,10 +186,9 @@ exports.getDecemberEventById = (id, callback) => {
 
 exports.updateDecemberEvent = (data, callback) => {
   try {
-    var attendance = data.attendance === 'no' ?  data.attendance : null
     executeQuery.queryForAll(
       sqlQueryMap["updateDecemberEventById"],
-      [attendance,data.delivery_address,data.certificate_name,data.id],
+      [data.attendance,data.delivery_address,data.certificate_name,data.id],
       (err, result) => {
         if (err) {
           callback(err, null);

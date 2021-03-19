@@ -55,7 +55,7 @@ export class PrizeDistributionComponent implements OnInit {
     }
     const data = {
       'id': this.model.regId,
-      'attendence': this.model.attendence,
+      'attendance': this.model.attendence,
       'delivery_address': this.model.deliveryaddress,
       'certificate_name': this.model.certificate_name
     };
