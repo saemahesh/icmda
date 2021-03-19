@@ -7,24 +7,30 @@ import { environment } from "src/environments/environment";
 })
 export class OnlineRegistrationService {
 
-  constructor(private http:HttpClient) { }
-  getSlotType(id:any){
-    return this.http.get(environment.apiUrl + '/form/getAvaliableSlot/'+ id)
+  constructor(private http: HttpClient) { }
+  getSlotType(id: any) {
+    return this.http.get(environment.apiUrl + '/form/getAvaliableSlot/' + id)
   }
-  getOnlineEvent(data){
-    return this.http.post(environment.apiUrl +'/form/registration',data)
+  getOnlineEvent(data) {
+    return this.http.post(environment.apiUrl + '/form/registration', data)
   }
-  sendemailsdata(data){
-    return this.http.post(environment.baseUrl+'/send-prize-mail',data)
+  sendemailsdata(data) {
+    return this.http.post(environment.baseUrl + '/send-prize-mail', data)
   }
   paymentData(data) {
-    return this.http.post(environment.apiUrl+'/form/create-payment-code',data)
+    return this.http.post(environment.apiUrl + '/form/create-payment-code', data)
   }
-  getSlotTypes(){
+  getSlotTypes() {
     return this.http.get(environment.apiUrl + '/form/getslotType');
   }
-  getPaymentHistoryList(){
+  getPaymentHistoryList() {
     return this.http.get(environment.apiUrl + '/form/getPaymentHistoryList')
+  }
+  getDetails(data) {
+    return this.http.get(environment.apiUrl + '/form/getDecemberEventById/' + data);
+  }
+  updateEvents(data) {
+    return this.http.put(environment.apiUrl + '/form/updateDecemberEvent', data);
   }
 }
 

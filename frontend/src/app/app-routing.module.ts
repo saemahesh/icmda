@@ -1,3 +1,4 @@
+import { PrizeDistributionComponent } from "./prize-distribution/prize-distribution.component";
 import { ViewPaymentCodesComponent } from "./view-payment-codes/view-payment-codes.component";
 import { KuchipudiEventComponent } from "./kuchipudi-event/kuchipudi-event.component";
 import { SendEmailsFormComponent } from "./send-emails-form/send-emails-form.component";
@@ -23,85 +24,89 @@ import { UsersDetailsComponent } from './users-details/users-details.component';
 
 const routes: Routes = [
   {
-    path:'',
-    component : HomeComponent
+    path: '',
+    component: HomeComponent
   },
   {
-    path:'register',
-    component:RegisterComponent
+    path: 'register',
+    component: RegisterComponent
   }
   ,
   {
-    path:'dashboard',
-    component:DashboardComponent
+    path: 'dashboard',
+    component: DashboardComponent
   }
   ,
   {
-    path:'idcard/:id',
-    component:IdcardComponent
+    path: 'idcard/:id',
+    component: IdcardComponent
   },
   {
-    path:'committee-members',
-    component:CommitteeMembersComponent
+    path: 'committee-members',
+    component: CommitteeMembersComponent
   },
   {
-    path:'activities',
-    component:ActivitiesComponent
+    path: 'activities',
+    component: ActivitiesComponent
   },
   {
-    path:'membership',
-    component:MembershipComponent
+    path: 'membership',
+    component: MembershipComponent
   },
   {
-    path:'members-ethics',
-    component:MembersEthicsComponent
+    path: 'members-ethics',
+    component: MembersEthicsComponent
   },
   {
-    path:'support-us',
-    component:SupportUsComponent
-  },  {
-    path:'contact-us',
-    component:ContactUsComponent
+    path: 'support-us',
+    component: SupportUsComponent
+  }, {
+    path: 'contact-us',
+    component: ContactUsComponent
   },
   {
-    path:'icmda',
-    component:IcmdaPageComponent
+    path: 'icmda',
+    component: IcmdaPageComponent
   },
   {
-    path:'competition-registration',
-    component:EventRegisterComponent
+    path: 'competition-registration',
+    component: EventRegisterComponent
   },
   {
-    path:'event-guidelines-music',
-    component:MusicComponent
+    path: 'event-guidelines-music',
+    component: MusicComponent
   },
   {
-    path:'guidelines',
-    component:DanceComponent
+    path: 'guidelines',
+    component: DanceComponent
   },
   {
-    path:'users-details',
+    path: 'users-details',
     component: UsersDetailsComponent
   },
   {
-    path:'kuchipudi-event-registration',
+    path: 'kuchipudi-event-registration',
     component: OnlineRegistrationComponent
   },
   {
-    path:'send-emails',
-    component:SendEmailsComponent
+    path: 'send-emails',
+    component: SendEmailsComponent
   },
   {
-    path:'create-payment-code',
-    component:SendEmailsFormComponent
+    path: 'create-payment-code',
+    component: SendEmailsFormComponent
   },
   {
-    path:'kuchipudi-event',
+    path: 'kuchipudi-event',
     component: KuchipudiEventComponent
   },
   {
-    path:'view-payment-codes',
+    path: 'view-payment-codes',
     component: ViewPaymentCodesComponent
+  },
+  {
+    path: 'prize-distribution',
+    component: PrizeDistributionComponent
   }
 ];
 
