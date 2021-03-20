@@ -4,22 +4,20 @@
 
     <form [formGroup]="registrationForm"><br>
       <div class="row">
-        <div style="width: max-content;" class="col-md-6 col-xs-12" >
+        <div style="width: max-content;" class="col-md-6 col-xs-12">
           <h4 style="color: green;font-weight: bold;">
-            <a href="https://icmda.tawk.help/category/kuchupudi-festival"
-               style="color: red;">
+            <a href="https://icmda.tawk.help/category/kuchupudi-festival" style="color: red;">
               Click here</a>
             to know about Festival(on 4th April)
           </h4>
         </div>
-        <div  style="width: max-content;" class="col-md-6 col-xs-12">
+        <div style="width: max-content;" class="col-md-6 col-xs-12">
           <h4 style="color: green;font-weight: bold">
-            <a href="https://icmda.tawk.help/article/guidelines-for-kuchipudi-festival"
-               style="color: red;">
+            <a href="https://icmda.tawk.help/article/guidelines-for-kuchipudi-festival" style="color: red;">
               Click here</a>
             to check guidelines
           </h4>
-        </div>        
+        </div>
       </div>
       <h1 style="text-align: center;color: white;">Kuchipudi Festival Slot Booking</h1>
       <div class="form-group">
@@ -70,7 +68,7 @@
         </span>
         <select class="form-control" formControlName="slotTime" (change)="slotID($event)" required>
           <option value="">Select Slot Time</option>
-          <option *ngFor=" let time of slotTimesValue">{{time.slot_time}}</option>
+          <option *ngFor=" let time of slotTimesValue" [value]="time.id">{{time.slot_time}}</option>
 
         </select>
         <!-- <span *ngIf="submitted && f.slotTime.errors">
