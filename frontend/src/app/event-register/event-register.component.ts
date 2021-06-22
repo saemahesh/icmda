@@ -18,6 +18,13 @@ export class EventRegisterComponent implements OnInit {
   groupName: boolean = false;
   CompType: any;
   gender: any;
+  selectArtFormCategory: any = false;
+  openArtForm: any = true;
+  musicSubCat: any = [
+    { id: 1, cat: 'Vocal' },
+    { id: 2, cat: 'Instruments' },
+    { id: 3, cat: 'Rythm' }
+  ];
   showLevelSelection: any;
   showCountrySelection: any;
   registrationForm: FormGroup;
@@ -35,20 +42,23 @@ export class EventRegisterComponent implements OnInit {
   ];
   compCat = [{ id: 1, name: "Solo" }];
   competitionLevel = [];
-  dayModel:any;
-  yearModel:any;
-  monthModel:any;
-  day:any;
-  month:any;
-  year:any;
+  dayModel: any;
+  yearModel: any;
+  monthModel: any;
+  day: any;
+  month: any;
+  year: any;
   // identityType = [
   //   { name: "Aadhar Card" },
   //   { name: "Pan card" },
   //   { name: "Voter Card" },
   //   { name: "Others" },
   // ];
-  allList = [
-    { id: 1, cat_id: 1, name: "VOCAL" },
+  allDanceList = [
+    { id: 21, cat_id: 2, name: "BHARATHANATYAM" },
+    { id: 22, cat_id: 2, name: "KUCHIPUDI" }
+  ];
+  allInstrumentList = [
     { id: 2, cat_id: 1, name: "VEENA" },
     { id: 3, cat_id: 1, name: "VIOLIN" },
     { id: 4, cat_id: 1, name: "GUITAR" },
@@ -58,6 +68,8 @@ export class EventRegisterComponent implements OnInit {
     { id: 8, cat_id: 1, name: "CLARINATE" },
     { id: 9, cat_id: 1, name: "GOTTU VADYAM" },
     { id: 10, cat_id: 1, name: "KEYBOARD" },
+  ];
+  allRythmList =[
     { id: 11, cat_id: 1, name: "THAMBOORA" },
     { id: 12, cat_id: 1, name: "SITHAR / CARNATIC" },
     { id: 13, cat_id: 1, name: "MRIDHANGAM" },
@@ -69,15 +81,13 @@ export class EventRegisterComponent implements OnInit {
     { id: 19, cat_id: 1, name: "KONNAKOL" },
     { id: 20, cat_id: 1, name: "DRUMS SPADS" },
     { id: 21, cat_id: 1, name: "JALATHARAGAM" },
-    { id: 22, cat_id: 1, name: "KAZOO" },
-    { id: 21, cat_id: 2, name: "BHARATHANATYAM" },
-    { id: 22, cat_id: 2, name: "KUCHIPUDI" }
+    { id: 22, cat_id: 1, name: "KAZOO" }
   ];
-    // { id: 25, cat_id: 1, name: "SANGEETHOPANYAM" },
-    // { id: 26, cat_id: 1, name: "NAARASANKEERTANAM" },
-    // { id: 27, cat_id: 1, name: "HARIKATHA" },
-    // { id: 28, cat_id: 1, name: "VILLUPAATU" },
-    // { id: 29, cat_id: 1, name: "PRAVACHANAMS" },
+  // { id: 25, cat_id: 1, name: "SANGEETHOPANYAM" },
+  // { id: 26, cat_id: 1, name: "NAARASANKEERTANAM" },
+  // { id: 27, cat_id: 1, name: "HARIKATHA" },
+  // { id: 28, cat_id: 1, name: "VILLUPAATU" },
+  // { id: 29, cat_id: 1, name: "PRAVACHANAMS" },
   countryList = [
     { id: 1, name: "India" },
     { id: 2, name: "USA" },
@@ -96,17 +106,18 @@ export class EventRegisterComponent implements OnInit {
     { id: 7, name: "Special Category (no age limit)" }
   ];
   showLevel1 = [
-      { id: 1, name: "Sub-Junior (5 - 8 yrs)" },
-      { id: 8, name: "Sub-Junior Progressive (5 - 8 yrs)" },
-      { id: 2, name: "Junior (9 - 12 yrs)" },
-      { id: 9, name: "Junior Progressive (9 - 12 yrs)" },
-      { id: 3, name: "Senior (13 - 16 yrs)" },
-      { id: 4, name: "Super Senior (17 - 20 yrs)" },
-      { id: 5, name: "Open Category for Gold Medal (above 20 yrs)" },
-      { id: 6, name: "Prodigy Category (below 15 yrs)" },
-      { id: 7, name: "Special Category (no age limit)" }
+    { id: 1, name: "Sub-Junior (5 - 8 yrs)" },
+    { id: 8, name: "Sub-Junior Progressive (5 - 8 yrs)" },
+    { id: 2, name: "Junior (9 - 12 yrs)" },
+    { id: 9, name: "Junior Progressive (9 - 12 yrs)" },
+    { id: 3, name: "Senior (13 - 16 yrs)" },
+    { id: 4, name: "Super Senior (17 - 20 yrs)" },
+    { id: 5, name: "Open Category for Gold Medal (above 20 yrs)" },
+    { id: 6, name: "Prodigy Category (below 15 yrs)" },
+    { id: 7, name: "Special Category (no age limit)" }
   ];
   genderList = [{ name: "Male" }, { name: "Female" }, { name: "Others" }];
+  artSub: number;
 
   constructor(
     private fb: FormBuilder,
@@ -125,12 +136,13 @@ export class EventRegisterComponent implements OnInit {
       compType: ["Solo", Validators.required],
       artCategory: ["", Validators.required],
       artForm: ["", Validators.required],
+      artSubCategory: ["", Validators.required],
       gender: ["", Validators.required],
       age: ["", Validators.required],
       compLevel: ["", Validators.required],
       cLevel: ["", Validators.required],
       email: ["", Validators.required],
-      mobileNumber: ["",Validators.required],
+      mobileNumber: ["", Validators.required],
       address: ["", Validators.required],
       country: ["", Validators.required],
       city: ["", Validators.required],
@@ -140,13 +152,32 @@ export class EventRegisterComponent implements OnInit {
     });
   }
 
-  get f() {
+  get f() { 
     return this.registrationForm.controls;
   }
 
   submitForm() {
     console.log("ccoomminng", this.registrationForm);
     console.log("ffff", this.selectedValue);
+
+    if(this.selectedCat){
+      const artCat = this.artCategory.filter((x:any)=>x.id == this.selectedCat)[0].cat;
+      this.registrationForm.get('artCategory').setValue(artCat);
+    }
+    if(this.artSub){
+      const artSubcat = this.musicSubCat.filter((x:any)=>x.id == this.artSub)[0].cat;
+      this.registrationForm.get('artSubCategory').setValue(artSubcat)
+    }
+
+    if(this.registrationForm.value['artCategory'] == 'Dance'){
+      this.registrationForm.controls['artSubCategory'].setErrors(null);
+      this.registrationForm.value['artSubCategory'] = this.registrationForm.value['artForm'];
+    }
+
+    if(this.registrationForm.value['artSubCategory'] == 'Vocal'){
+      this.registrationForm.controls['artForm'].setErrors(null);
+      this.registrationForm.value['artForm'] = this.registrationForm.value['artSubCategory']
+    }
 
     this.submitted = true;
     if (this.registrationForm.invalid || !this.selectedValue) {
@@ -193,12 +224,12 @@ export class EventRegisterComponent implements OnInit {
     );
   }
   //2015-06-11
-  loadDOBData(){
-    let dayarr=[]
-    for(let i=1;i<=31;i++){
+  loadDOBData() {
+    let dayarr = []
+    for (let i = 1; i <= 31; i++) {
       dayarr.push(i)
     }
-    this.dayModel=dayarr;
+    this.dayModel = dayarr;
 
     this.competitionLevel = [
       { name: "State" },
@@ -206,25 +237,25 @@ export class EventRegisterComponent implements OnInit {
       { name: "International" },
     ];
 
-    let yeararr=[];
-    for(let j=2020;j>=1950;j--){
+    let yeararr = [];
+    for (let j = 2020; j >= 1950; j--) {
       yeararr.push(j);
     }
-    this.yearModel=yeararr;
-    this.monthModel=[
-    { name: "JAN" },
-    { name: "FEB" },
-    { name: "MAR" },
-    { name: "APR" },
-    { name: "MAY" },
-    { name: "JUNE" },
-    { name: "JULY" },
-    { name: "AUG" },
-    { name: "SEPT" },
-    {  name: "OCT" },
-    {  name: "NOV" },
-    {  name: "DEC" }
-  ]
+    this.yearModel = yeararr;
+    this.monthModel = [
+      { name: "JAN" },
+      { name: "FEB" },
+      { name: "MAR" },
+      { name: "APR" },
+      { name: "MAY" },
+      { name: "JUNE" },
+      { name: "JULY" },
+      { name: "AUG" },
+      { name: "SEPT" },
+      { name: "OCT" },
+      { name: "NOV" },
+      { name: "DEC" }
+    ]
   }
   daychnage(dayParam) {
     this.day = dayParam
@@ -232,32 +263,32 @@ export class EventRegisterComponent implements OnInit {
 
   }
   monthChange(monthParam) {
-    
+
     this.month = monthParam
     this.age = this.year + '-' + this.month + '-' + this.day;
 
   }
   yearChange(yearParam) {
     this.year = yearParam;
-  
-  
-    this.age  = this.year + '-' + this.month + '-' + this.day;
+
+
+    this.age = this.year + '-' + this.month + '-' + this.day;
     // this.dobChange(new Date(newDob))
-  
-}
+
+  }
   dobChange(value) {
-    console.log("llll",value)
+    console.log("llll", value)
     if (value) {
       let currentYear = moment();
       let getYear = moment(value, "YYYY");
       let diff = currentYear.diff(getYear, "years");
       let age: any = Number(diff);
-      console.log("llll",age)
+      console.log("llll", age)
 
       // if (!age) {
       //   this.competitionLevel = [];
       // } else if (age >= 18) {
-    
+
       // } else {
       //   this.competitionLevel = [{ name: "State" }];
       // }
@@ -267,19 +298,43 @@ export class EventRegisterComponent implements OnInit {
     this.selectedValue = event.cdnUrl;
   }
   onChangeCat(cat_id: number) {
+    this.diffCat = [];
+    if(this.artCategory.filter((x:any) => x.id == cat_id)[0].cat == 'Music'){
+      this.selectArtFormCategory = true;
+      this.openArtForm = false;
+    } else {
+      this.selectArtFormCategory = false;
+      this.diffCat = this.allDanceList;
+      this.openArtForm = true;
+    }
+    this.musicSubCat = this.musicSubCat;
     this.selectedCat = cat_id;
-    this.diffCat = this.allList.filter((item) => {
-      return item.cat_id === Number(cat_id);
-    });
+  }
+
+  changeArtSubCat(cat_id:number){
+    if(cat_id != 1){
+      this.openArtForm = true;
+    } else{
+      this.openArtForm = false;
+      this.diffCat = [];
+    }
+    if(cat_id == 1){
+      this.diffCat = [{id:1, cat_id:1, name:'VOCAL' }];
+    } else if(cat_id == 2){
+      this.diffCat = this.allInstrumentList;
+    } else if(cat_id = 3){
+      this.diffCat = this.allRythmList;
+    }
+    this.artSub = cat_id;
   }
 
   onChangePatCat(cat_id: number) {
-      if (Number(cat_id) === 1) {
-          this.patCat = this.showLevel1;
-      }
-      if (Number(cat_id) === 2) {
-          this.patCat = this.showLevel;
-      }
+    if (Number(cat_id) === 1) {
+      this.patCat = this.showLevel1;
+    }
+    if (Number(cat_id) === 2) {
+      this.patCat = this.showLevel;
+    }
   }
 
   onChangeCompLevel(ff) {

@@ -6,8 +6,7 @@
 ">
   <marquee behavior="scroll" onmouseover="this.stop();" onmouseout="this.start();" direction="left" scrollamount="7"
     style="color:red;font-size: large;font-weight: bold;">
-    Prize distribution event will be conducted at Kuchipudi Kalakshetram on 4th April .
-    <a href="/kuchipudi-event" target="blank">Click here</a>.
+    Prize distribution event will be conducted at Kuchipudi Kalakshetram on 21st March .
   </marquee>
   <div class="row helplines">
     <div class="col-md-6 col-xs-12">
@@ -46,7 +45,7 @@
   <h5 style="text-align: center;color: white;margin-top:20px;color:#46ff25">( State, National, International - Levels )
   </h5>
 
-  <div style="display: none;">
+  <div>
     <div class="col-md-12">
       <div class="form-group">
         <label style="font-size: medium;">Participant Name<span style="color: red;">*</span> <span
@@ -97,15 +96,27 @@
           </select>
         </div>
       </div>
-
-
     </div>
-    <div class="col-md-6">
 
+    <div class="col-md-6" *ngIf="selectArtFormCategory">
+      <div class="form-group">
+        <label style="font-size: medium;">Art Sub-Category<span style="color: red;">*</span> <span
+            *ngIf="submitted && f.artSubCategory.errors">
+          </span><span *ngIf="f.artSubCategory.errors?.required" style="color:red">Required</span></label>
+        <div class="form-group">
+          <select class="form-control" id="power" formControlName="artSubCategory" (change)="changeArtSubCat($event.target.value)">
+            <option value="" disabled selected>Select your choice</option>
+            <option *ngFor="let music of musicSubCat" value="{{music.id}}">{{music.cat}}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6" *ngIf="openArtForm">
       <div class="form-group">
         <label style="font-size: medium;">Art Form<span style="color: red;">*</span> <span
             *ngIf="submitted && f.artForm.errors">
-            <span *ngIf="f.artForm.errors.required" style="color:red">Required</span>
+            <span *ngIf="f.artForm.errors?.required" style="color:red">Required</span>
           </span></label>
         <div class="form-group">
           <select class="form-control" id="power" formControlName="artForm">
@@ -113,7 +124,6 @@
             <option *ngFor="let music of diffCat">{{music.name}}</option>
           </select>
         </div>
-
       </div>
     </div>
     <div class="col-md-6">
@@ -456,7 +466,7 @@
     alt=""> -->
 
 
-  <!-- <div class="wrapper">
+  <div class="wrapper">
         <button type="submit" class="btn btn-success" (click)="submitForm()">Submit</button>
-      </div> -->
+      </div>
 </form>
