@@ -31,6 +31,7 @@ import { KuchipudiEventComponent } from './kuchipudi-event/kuchipudi-event.compo
 import { ViewPaymentCodesComponent } from './view-payment-codes/view-payment-codes.component';
 import { PrizeDistributionComponent } from './prize-distribution/prize-distribution.component';
 import { UpdateOnlineCompetitionComponent } from './update-online-competition/update-online-competition.component';
+import { OnlineCompetitions2021Component } from './online-competitions2021/online-competitions2021.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { UpdateOnlineCompetitionComponent } from './update-online-competition/up
     KuchipudiEventComponent,
     ViewPaymentCodesComponent,
     PrizeDistributionComponent,
-    UpdateOnlineCompetitionComponent
+    UpdateOnlineCompetitionComponent,
+    OnlineCompetitions2021Component
   ],
   imports: [
     BrowserModule,
