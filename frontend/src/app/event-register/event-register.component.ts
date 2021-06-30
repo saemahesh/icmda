@@ -118,7 +118,7 @@ export class EventRegisterComponent implements OnInit {
   ];
   genderList = [{ name: "Male" }, { name: "Female" }, { name: "Others" }];
   artSub: number;
-
+  displayForm: boolean = true;
   constructor(
     private fb: FormBuilder,
     private router: Router,
@@ -126,8 +126,19 @@ export class EventRegisterComponent implements OnInit {
     private eventservice: EventRegisterService
   ) { }
   ngOnInit() {
+    var path = window.location.pathname;
+    if(path == '/competition-registration') {
+      this.displayForm = false;
+    }
     this.buildForm();
     this.loadDOBData();
+     if(path == '/online-competition-results-2021/update'){
+      this.getIdData();
+    }
+  }
+
+  getIdData(){
+    this.registrationForm.get('name').setValue('Shivani');
   }
 
   buildForm() {
@@ -160,14 +171,14 @@ export class EventRegisterComponent implements OnInit {
     console.log("ccoomminng", this.registrationForm);
     console.log("ffff", this.selectedValue);
 
-    if(this.selectedCat){
-      const artCat = this.artCategory.filter((x:any)=>x.id == this.selectedCat)[0].cat;
-      this.registrationForm.get('artCategory').setValue(artCat);
-    }
-    if(this.artSub){
-      const artSubcat = this.musicSubCat.filter((x:any)=>x.id == this.artSub)[0].cat;
-      this.registrationForm.get('artSubCategory').setValue(artSubcat)
-    }
+    // if(this.selectedCat){
+    //   const artCat = this.artCategory.filter((x:any)=>x.id == this.selectedCat)[0].cat;
+    //   this.registrationForm.get('artCategory').setValue(artCat);
+    // }
+    // if(this.artSub){
+    //   const artSubcat = this.musicSubCat.filter((x:any)=>x.id == this.artSub)[0].cat;
+    //   this.registrationForm.get('artSubCategory').setValue(artSubcat)
+    // }
 
     if(this.registrationForm.value['artCategory'] == 'Dance'){
       this.registrationForm.controls['artSubCategory'].setErrors(null);

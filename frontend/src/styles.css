@@ -13,6 +13,17 @@
     width: 72%;
   }
 }
+
+.slicknav_menu {
+  display : none
+}
+
+@media screen and (max-width: 768px){
+  .slicknav_menu{
+    display: block;
+  }
+}
+
 .carousel-inner > .item > img {
   height: 450px;
 }

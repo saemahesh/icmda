@@ -21,6 +21,8 @@ import { EventRegisterComponent } from './event-register/event-register.componen
 import { MusicComponent } from './music/music.component';
 import { DanceComponent } from './dance/dance.component';
 import { UsersDetailsComponent } from './users-details/users-details.component';
+import { UpdateOnlineCompetitionComponent } from "./update-online-competition/update-online-competition.component";
+import { OnlineCompetitions2021Component } from "./online-competitions2021/online-competitions2021.component";
 
 const routes: Routes = [
   {
@@ -71,6 +73,18 @@ const routes: Routes = [
   {
     path: 'competition-registration',
     component: EventRegisterComponent
+  },
+  {
+    path: 'online-competition-results-2021/register',
+    component: EventRegisterComponent
+  },
+  {
+    path: 'online-competition-results-2021/update',
+    component: EventRegisterComponent
+  },
+  {
+    path : 'online-competition-results-2021',
+    component : OnlineCompetitions2021Component
   },
   {
     path: 'event-guidelines-music',
