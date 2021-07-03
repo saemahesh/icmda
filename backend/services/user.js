@@ -73,9 +73,13 @@ exports.eventRegister = (data, callback) => {
     case "9":
         data.formValues.cLevel = "Junior Progressive";
         break;
-  }*/
-
+  }
   console.log(data.formValues.artCategory,data.formValues.cLevel)
+  */
+ if (data.formValues.artCategory == "Dance"){
+  data.formValues.artSubCategory = null;
+ }
+  
   executeQuery.queryForAll(
     sqlQueryMap["eventRegister"],   
     [
