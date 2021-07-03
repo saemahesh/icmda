@@ -109,6 +109,17 @@ router.get("/getRegistrationProfiles", (req, res) => {
   });
 });
 
+//July2021 Competition Registeration
+router.post("/getNewRegistrationProfiles", (req, res) => {
+  UserService.getNewRegistrationProfiles(req.body, (err, result) => {
+    if (err) {
+      res.status(500);
+      res.send({ err: "no users found", result: null });
+    } else {
+      res.send(result);
+    }
+  });
+});
 
 router.get("/getProfiles", (req, res) => {
   UserService.getProfiles(req.body, (err, result) => {

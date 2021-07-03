@@ -39,7 +39,7 @@ exports.eventRegister = (data, callback) => {
   let today = moment().toDate();
   console.log('data ', data);
   // var data = ;
-  
+  /*
   if(data.formValues.artCategory==1){
     data.formValues.artCategory="Music"
   }if(data.formValues.artCategory==2){
@@ -73,24 +73,27 @@ exports.eventRegister = (data, callback) => {
     case "9":
         data.formValues.cLevel = "Junior Progressive";
         break;
-  }
+  }*/
 
   console.log(data.formValues.artCategory,data.formValues.cLevel)
   executeQuery.queryForAll(
     sqlQueryMap["eventRegister"],   
     [
      data.formValues.name,
+     data.amount,
      data.formValues.teacherName,
      data.formValues.teacherNumber,
      '',
      data.formValues.artCategory,
-     data.formValues.artForm,
-     data.formValues.compType,
+     data.formValues.artSubCategory,
+     data.formValues.artForm,  
+     data.formValues.participationCategory,   
+    //  data.formValues.compType,
      data.formValues.gender,
      data.formValues.age,
-     data.formValues.compLevel,
-     '',
-     '',
+    //  data.formValues.compLevel,
+    //  '',
+    //  '',
      data.formValues.email,
      data.formValues.mobileNumber,
      data.formValues.address,
@@ -98,9 +101,9 @@ exports.eventRegister = (data, callback) => {
      data.formValues.zipcode,
      today,
      data.imageUrl,
-     data.formValues.country,
-     data.amount,
-     data.formValues.cLevel     
+     data.formValues.country
+    //  data.amount,
+    //  data.formValues.cLevel     
     ],
     (err, result) => {
       console.log(err, result)
@@ -169,6 +172,22 @@ exports.getRegistrationProfiles = (callback) => {
   );
 };
 
+//July2021 Competition Registeration
+exports.getNewRegistrationProfiles = (data, callback) => {
+  executeQuery.queryForAll(
+    sqlQueryMap["getNewRegistrationProfiles"],
+    [data.id, data.email],
+    (err, result) => {
+      if (err) {
+        console.log('err ', err);
+        callback(err, null);
+      } else {
+        callback(null, result);
+      }
+    }
+  );
+};
+
 exports.getDecEventProfile = (id,callback) => {
   executeQuery.queryForAll(
     sqlQueryMap["getDecEventProfile"],
@@ -195,7 +214,7 @@ let mailTransporter = nodemailer.createTransport({
 	service: 'gmail', 
 	auth: { 
 		user: 'icmdachennai@gmail.com', 
-		pass: 'Office1#'
+		pass: 'IcmdaChennai1$'
 	} 
 }); 
 let id_url = `https://icmda.co.in/idcard/${data.id}`
@@ -263,7 +282,7 @@ let mailTransporter = nodemailer.createTransport({
 	service: 'gmail', 
 	auth: { 
 		user: 'icmdachennai@gmail.com', 
-		pass: 'Office1#'
+		pass: 'IcmdaChennai1$'
 	} 
 }); 
 let mailDetails = { 
@@ -607,7 +626,7 @@ let mailTransporter = nodemailer.createTransport({
 	service: 'gmail', 
 	auth: { 
 		user: 'icmdachennai@gmail.com', 
-		pass: 'Office1#'
+		pass: 'IcmdaChennai1$'
 	} 
 }); 
 let mailDetails = { 
