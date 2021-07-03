@@ -292,7 +292,7 @@ let mailTransporter = nodemailer.createTransport({
 let mailDetails = { 
 	from: 'icmdachennai@gmail.com', 
 	to: data.email, 
-	subject: `Thanks ${data.name} for registering to the Dec 2020 online competition.`, 
+	subject: `Thanks ${data.name} for registering to the July 2021 online competition.`, 
 	html: `<html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -474,14 +474,14 @@ let mailDetails = {
   
     <div class="main-content">
       <i class="fa fa-check main-content__checkmark" id="checkmark"></i>
-    <p class="main-content__body" data-lead-id="main-content-body">Thanks ${data.name} for registering to the DEC2020 online competition. Your participation details are mentioned below.</p>
+    <p class="main-content__body" data-lead-id="main-content-body">Thanks ${data.name} for registering to the JULY2021 online competition. Your participation details are mentioned below.</p>
     </div>
   
   <table id="customers" style="margin-top:10px">
   
     <tr>
       <td>Registration Id</td>
-      <td>DEC2020-${data.id}</td>
+      <td>JULY2021-${data.id}</td>
     </tr>
     <tr>
       
@@ -495,7 +495,7 @@ let mailDetails = {
     </tr>
     <tr>
       <td>Competition Type</td>
-      <td>${data.compType}</td>
+      <td>Solo</td>
     </tr>
     <tr>
       <td>Art Category</td>
@@ -515,11 +515,11 @@ let mailDetails = {
     </tr>
     <tr>
       <td>Competition Level</td>
-      <td>${data.compLevel}</td>
+      <td>International</td>
     </tr>
     <tr>
       <td>Participation Category</td>
-      <td>${data.cLevel}</td>
+      <td>${data.participationCategory}</td>
     </tr>
     <tr>
       <td>Email</td>
