@@ -30,6 +30,21 @@ router.post("/event-register", (req, res) => {
   });
 });
 
+//Update Registeration
+router.put("/event-register", (req, res) => {
+  // console.log('Update ',req.body);
+  UserService.updateEventRegister(req.body, (err, result) => {
+    if (err) {
+      res.json(err);
+    } else {
+      res.json({
+        auth: true,
+        token: result
+      });
+    }
+  });
+});
+
 router.post("/send-prize-mail", (req, res) => {
   // console.log(' req ', req);
   req.body.id = req.body.id.trim();
@@ -109,6 +124,17 @@ router.get("/getRegistrationProfiles", (req, res) => {
   });
 });
 
+//July2021 Competition Registeration
+router.post("/getNewRegistrationProfiles", (req, res) => {
+  UserService.getNewRegistrationProfiles(req.body, (err, result) => {
+    if (err) {
+      res.status(500);
+      res.send({ err: "no users found", result: null });
+    } else {
+      res.send(result);
+    }
+  });
+});
 
 router.get("/getProfiles", (req, res) => {
   UserService.getProfiles(req.body, (err, result) => {
