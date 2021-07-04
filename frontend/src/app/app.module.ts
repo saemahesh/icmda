@@ -1,10 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule} from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './register/register.component';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { UcWidgetModule } from 'ngx-uploadcare-widget';
 import { IdcardComponent } from './idcard/idcard.component';
@@ -68,11 +68,11 @@ import { OnlineCompetitions2021Component } from './online-competitions2021/onlin
     ReactiveFormsModule,
     HttpClientModule,
     UcWidgetModule,
+    NgbModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    NgbModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

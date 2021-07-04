@@ -48,6 +48,7 @@ export class EventRegisterComponent implements OnInit {
   day: any;
   month: any;
   year: any;
+  addressWidth: number = 8;
   // identityType = [
   //   { name: "Aadhar Card" },
   //   { name: "Pan card" },
@@ -69,7 +70,7 @@ export class EventRegisterComponent implements OnInit {
     { id: 9, cat_id: 1, name: "GOTTU VADYAM" },
     { id: 10, cat_id: 1, name: "KEYBOARD" },
   ];
-  allRythmList =[
+  allRythmList = [
     { id: 11, cat_id: 1, name: "THAMBOORA" },
     { id: 12, cat_id: 1, name: "SITHAR / CARNATIC" },
     { id: 13, cat_id: 1, name: "MRIDHANGAM" },
@@ -127,31 +128,31 @@ export class EventRegisterComponent implements OnInit {
   ) { }
   ngOnInit() {
     var path = window.location.pathname;
-    if(path == '/competition-registration') {
+    if (path == '/competition-registration') {
       this.displayForm = false;
     }
     this.buildForm();
     this.loadDOBData();
-     if(path == '/online-competition-results-2021/update'){
+    if (path == '/online-competition-results-2021/update') {
       this.getIdData();
     }
   }
 
-  getIdData(){
+  getIdData() {
     this.registrationForm.get('name').setValue('Shivani');
   }
 
   buildForm() {
     this.registrationForm = this.fb.group({
       name: ["", Validators.required],
-      compType: ["Solo", Validators.required],
+      // compType: ["Solo", Validators.required],
       artCategory: ["", Validators.required],
       artForm: ["", Validators.required],
       artSubCategory: ["", Validators.required],
       gender: ["", Validators.required],
       age: ["", Validators.required],
-      compLevel: ["", Validators.required],
-      cLevel: ["", Validators.required],
+      // compLevel: ["", Validators.required],
+      participationCategory: ["", Validators.required],
       email: ["", Validators.required],
       mobileNumber: ["", Validators.required],
       address: ["", Validators.required],
@@ -163,7 +164,7 @@ export class EventRegisterComponent implements OnInit {
     });
   }
 
-  get f() { 
+  get f() {
     return this.registrationForm.controls;
   }
 
@@ -180,12 +181,12 @@ export class EventRegisterComponent implements OnInit {
     //   this.registrationForm.get('artSubCategory').setValue(artSubcat)
     // }
 
-    if(this.registrationForm.value['artCategory'] == 'Dance'){
+    if (this.registrationForm.value['artCategory'] == 'Dance') {
       this.registrationForm.controls['artSubCategory'].setErrors(null);
       this.registrationForm.value['artSubCategory'] = this.registrationForm.value['artForm'];
     }
 
-    if(this.registrationForm.value['artSubCategory'] == 'Vocal'){
+    if (this.registrationForm.value['artSubCategory'] == 'Vocal') {
       this.registrationForm.controls['artForm'].setErrors(null);
       this.registrationForm.value['artForm'] = this.registrationForm.value['artSubCategory']
     }
@@ -310,7 +311,7 @@ export class EventRegisterComponent implements OnInit {
   }
   onChangeCat(cat_id: number) {
     this.diffCat = [];
-    if(this.artCategory.filter((x:any) => x.id == cat_id)[0].cat == 'Music'){
+    if (this.artCategory.filter((x: any) => x.cat == cat_id)[0].cat == 'Music') {
       this.selectArtFormCategory = true;
       this.openArtForm = false;
     } else {
@@ -322,34 +323,38 @@ export class EventRegisterComponent implements OnInit {
     this.selectedCat = cat_id;
   }
 
-  changeArtSubCat(cat_id:number){
-    if(cat_id != 1){
+  changeArtSubCat(cat_id: any) {
+    if (cat_id != 'Vocal') {
       this.openArtForm = true;
-    } else{
+    } else {
       this.openArtForm = false;
       this.diffCat = [];
     }
-    if(cat_id == 1){
-      this.diffCat = [{id:1, cat_id:1, name:'VOCAL' }];
-    } else if(cat_id == 2){
+    if (cat_id == 'Vocal') {
+      this.addressWidth = 8;
+      this.diffCat = [{ id: 1, cat_id: 1, name: 'VOCAL' }];
+    } else if (cat_id == 'Instruments') {
+      this.addressWidth = 12;
       this.diffCat = this.allInstrumentList;
-    } else if(cat_id = 3){
+    } else if (cat_id = 'Rythm') {
+      this.addressWidth = 12;
       this.diffCat = this.allRythmList;
     }
     this.artSub = cat_id;
   }
 
-  onChangePatCat(cat_id: number) {
-    if (Number(cat_id) === 1) {
+  onChangePatCat(cat_id: any) {
+    if (cat_id === 'Music') {
       this.patCat = this.showLevel1;
     }
-    if (Number(cat_id) === 2) {
+    if (cat_id === 'Dance') {
       this.patCat = this.showLevel;
     }
   }
 
   onChangeCompLevel(ff) {
-    this.showLevelSelection = ff;
+    var patCat = this.patCat.filter((x: any) => x.name == ff);
+    this.showLevelSelection = patCat[0].id;
     this.calculateAmountToPay();
   }
   countryChange(countryValue) {
