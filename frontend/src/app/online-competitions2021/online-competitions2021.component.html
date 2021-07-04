@@ -1,24 +1,42 @@
 <div class="hs-item image bg print">
-    <div class="container ">
+    <div class="container">
         <form>
             <div style="text-align: center;color: white;">
-            <h1>Online Competition Results 2021</h1><br>
-            <div class="row">
-            <div class="col-lg-6">
-                        <button type="button" (click)="goNavigate('register')"  class="btn btn-primary">Register</button>&nbsp;
-            </div>
-            <div class="col-lg-6">
-                        <button type="button" (click)="goNavigate('update')"  class="btn btn-primary">Update Application</button>&nbsp;
-            </div>
-            <div class="col-lg-6">
-                        <button type="button"  class="btn btn-primary">Submit Video & Payment Receipt</button>&nbsp;
-            </div>
-            <div class="col-lg-6">
-                        <button type="button"   class="btn btn-primary">Check Results</button>&nbsp;
-            </div>
-            </div>
+                <h1>Online Competition Results 2021</h1><br>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <button type="button" (click)="goNavigate('register')" class="btn btn-primary">Register</button>&nbsp;
+                    </div>
+                    <div class="col-lg-6">
+                        <button type="button" (click)="open(mymodal)" class="btn
+                            btn-primary">Update Application</button>&nbsp;
+                    </div>
+                    <div class="col-lg-6">
+                        <button type="button" class="btn btn-primary">Submit
+                            Video & Payment Receipt</button>&nbsp;
+                    </div>
+                    <div class="col-lg-6">
+                        <button type="button" class="btn btn-primary">Check
+                            Results</button>&nbsp;
+                    </div>
+                </div>
             </div>
             <br>
         </form>
     </div>
 </div>
+<ng-template #mymodal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Enter Registration ID & Email
+        </h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        Here I am!
+    </div>
+    <div class="modal-footer">
+        <button type="button" style="width: auto;" class="btn btn-outline-dark" (click)="modal.close('Save click')">Submit</button>
+    </div>
+</ng-template>
