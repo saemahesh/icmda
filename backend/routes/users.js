@@ -30,6 +30,21 @@ router.post("/event-register", (req, res) => {
   });
 });
 
+//Update Registeration
+router.put("/event-register", (req, res) => {
+  // console.log('Update ',req.body);
+  UserService.updateEventRegister(req.body, (err, result) => {
+    if (err) {
+      res.json(err);
+    } else {
+      res.json({
+        auth: true,
+        token: result
+      });
+    }
+  });
+});
+
 router.post("/send-prize-mail", (req, res) => {
   // console.log(' req ', req);
   req.body.id = req.body.id.trim();

@@ -16,9 +16,16 @@
    </sql-query> -->
     <sql-query id="eventRegister">
     <![CDATA[INSERT INTO season2_competition_tbl (name,amount,teacher_name,teacher_mobile,teacher_email,
-                                                        art_category,art_sub_category,art_form,participation_category,gender,age,email,
-                                                        mobile,address,city,zipcode,date,profile_pic,country)
+                                                art_category,art_sub_category,art_form,participation_category,gender,age,email,
+                                                mobile,address,city,zipcode,date,profile_pic,country)
                     VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)]]>;
+    </sql-query>
+    <sql-query id="updateEventRegister">
+    <![CDATA[UPDATE season2_competition_tbl 
+            SET name = ?, amount = ?, teacher_name = ?, teacher_mobile = ?, teacher_email = ?, art_category = ?,
+                art_sub_category = ?, art_form = ?, participation_category = ?, gender = ?, age = ?,
+                mobile = ?, address = ?, city = ?, zipcode = ?, date = ?, profile_pic = ?, country = ?
+                where id = ? and email = ? ]]>;
     </sql-query>
  <sql-query id="getProfiles">
        <![CDATA[select * from user_tbl]]>
