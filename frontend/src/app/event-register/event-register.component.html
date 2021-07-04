@@ -249,14 +249,14 @@
         <div class="col-md-4">
 
             <div class="form-group">
-                <label style="font-size: medium;">Email<span style="color: red;">*</span>
+                <label style="font-size: medium;">Email
+          {{f.email.errors.email}}aa{{submitted}}aa<span style="color: red;">*</span>
           <span
-            *ngIf="submitted && f.email.errors" class="invalid-feedback">
-            <span *ngIf="f.email.errors.required" style="color:red">
-              Required
-            </span>
-            <span *ngIf="f.email.errors.pattern" style="color:red">Invalid Email</span>
-          </span></label>
+            *ngIf="submitted && f.email.errors">
+            <span *ngIf="f.email.errors.required" style="color:red">Required</span>
+            <span *ngIf="f.email.errors.email" style="color: red;">Invalid Email</span>
+          </span>
+        </label>
                 <input type="text" class="form-control" id="name" formControlName="email">
 
             </div>
@@ -264,7 +264,8 @@
         <div class="col-md-4">
 
             <div class="form-group">
-                <label style="font-size: medium;">Mobile Number<span style="color:
+                <label style="font-size: medium;">WhatsApp Mobile Number<span
+            style="color:
             red;">*</span><span
             *ngIf="submitted && f.mobileNumber.errors">
             <span *ngIf="f.mobileNumber.errors.required" style="color:red">Required</span>
@@ -479,7 +480,7 @@
     <!-- <img style="display:block;margin:auto;"
     src="https://kajabi-storefronts-production.global.ssl.fastly.net/kajabi-storefronts-production/themes/1839383/settings_images/ud7uGH32S5KtFpKVYqjL_registerclosed3.png"
     alt=""> -->
-    <div class="wrapper">
+    <div class="wrapper" *ngIf="displayForm">
         <button type="submit" class="btn btn-success" (click)="submitForm()">Submit</button>
     </div>
 </form>

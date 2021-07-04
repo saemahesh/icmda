@@ -153,7 +153,7 @@ export class EventRegisterComponent implements OnInit {
       age: ["", Validators.required],
       // compLevel: ["", Validators.required],
       participationCategory: ["", Validators.required],
-      email: ["", Validators.required],
+      email: ["", [Validators.required, Validators.email]],
       mobileNumber: ["", Validators.required],
       address: ["", Validators.required],
       country: ["", Validators.required],
@@ -214,7 +214,7 @@ export class EventRegisterComponent implements OnInit {
           Swal.fire({
             icon: "success",
             title:
-              "You have successfully registered in this event, Your Registration ID :<br> DEC2020-" +
+              "You have successfully registered in this event, Your Registration ID :<br> JUN2021-" +
               res.token.insertId +
               ".<br> Please check your email for detailed information",
             showConfirmButton: true,
