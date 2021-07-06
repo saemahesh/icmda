@@ -121,6 +121,7 @@ export class EventRegisterComponent implements OnInit {
   artSub: number;
   displayForm: boolean = true;
   type: any;
+  updateId: any;
   constructor(
     private fb: FormBuilder,
     private router: Router,
@@ -145,6 +146,7 @@ export class EventRegisterComponent implements OnInit {
   getIdData() {
     if (history.state.data) {
       var obj = history.state.data;
+      this.updateId = obj.id;
       this.registrationForm.patchValue(obj);
       var date = obj.age.split('-')
       console.log(date, obj);
@@ -258,13 +260,14 @@ export class EventRegisterComponent implements OnInit {
         }
       );
     } else if (this.type == 'update') {
+      object.formValues['id'] = this.updateId;
       this.eventservice.putUdateEvent(object).subscribe((res: any) => {
-        if (res?.token?.affectedRows == 1) {
+        if (res?.token == 1) {
           Swal.fire({
             icon: "success",
             title:
               "You have successfully Updated your Event, Your Registration ID :<br> JUN2021-" +
-              res.token.insertId +
+              this.updateId +
               ".<br> Please check your email for detailed information",
             showConfirmButton: true,
           }).then((suuess) => {
