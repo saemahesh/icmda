@@ -15,7 +15,7 @@ export class EventRegisterService {
   }
 
   putUdateEvent(reqObj) {
-    return this.httpClient.put(environment.baseUrl + '/event-register', reqObj);
+    return this.httpClient.put(environment.baseUrl + '/event-update', reqObj);
   }
 
 }
