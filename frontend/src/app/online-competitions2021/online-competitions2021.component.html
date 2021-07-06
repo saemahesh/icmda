@@ -5,19 +5,21 @@
                 <h1>Online Competition Results 2021</h1><br>
                 <div class="row">
                     <div class="col-lg-6">
-                        <button type="button" (click)="goNavigate('register')" class="btn btn-primary">Register</button>&nbsp;
+                        <button type="button" (click)="goNavigate('register')" class="btn
+              btn-primary">Register</button>&nbsp;
                     </div>
                     <div class="col-lg-6">
                         <button type="button" (click)="open(mymodal)" class="btn
-                            btn-primary">Update Application</button>&nbsp;
+              btn-primary">Update Application</button>&nbsp;
                     </div>
                     <div class="col-lg-6">
-                        <button type="button" class="btn btn-primary">Submit
-                            Video & Payment Receipt</button>&nbsp;
+                        <button type="button" style="padding-left:1%" class="btn
+              btn-primary">Submit
+              Video & Payment Receipt</button>&nbsp;
                     </div>
                     <div class="col-lg-6">
                         <button type="button" class="btn btn-primary">Check
-                            Results</button>&nbsp;
+              Results</button>&nbsp;
                     </div>
                 </div>
             </div>
@@ -27,26 +29,31 @@
 </div>
 <ng-template #mymodal>
     <div class="modal-header">
-       <h4 class="modal-title pull-left">Modal</h4>
-       <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-          <span aria-hidden="true">×</span>
-       </button>
+        <h4 class="modal-title pull-left">Enter your ID & Email</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="close()">
+      <span aria-hidden="true">×</span>
+    </button>
     </div>
     <div class="modal-body">
         <div class="form-group">
             <h5 style="font-size: medium;">Registration ID
                 <span style="color: red;">*</span>
+                <span *ngIf="submitted && id == undefined" style="color:red">Required</span>
             </h5>
-            <input type="text" class="form-control" id="regId" />
+            <input type="text" [(ngModel)]="id" class="form-control" id="regId" />
         </div>
         <div class="form-group">
             <h5 style="font-size: medium;">Email ID
                 <span style="color: red;">*</span>
+                <span *ngIf="submitted && email == undefined" style="color:red">Required</span>
             </h5>
-            <input type="text" class="form-control" id="email" />
+            <input type="text" [(ngModel)]="email" class="form-control" id="email" />
         </div>
     </div>
     <div class="modal-footer">
-       <button type="button" class="btn btn-default" (click)="modalRef.hide()">Close</button>
+        <div class="row">
+            <button type="button" style="width:auto" class="btn btn-default" (click)="close()">Close</button>
+            <button type="button" style="width:auto" class="btn btn-default" (click)="submit()">Submit</button>
+        </div>
     </div>
- </ng-template>
+</ng-template>

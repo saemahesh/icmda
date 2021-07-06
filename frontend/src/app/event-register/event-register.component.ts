@@ -120,6 +120,7 @@ export class EventRegisterComponent implements OnInit {
   genderList = [{ name: "Male" }, { name: "Female" }, { name: "Others" }];
   artSub: number;
   displayForm: boolean = true;
+  type: any;
   constructor(
     private fb: FormBuilder,
     private router: Router,
@@ -127,19 +128,41 @@ export class EventRegisterComponent implements OnInit {
     private eventservice: EventRegisterService
   ) { }
   ngOnInit() {
+    this.type = 'add';
     var path = window.location.pathname;
     if (path == '/competition-registration') {
       this.displayForm = false;
+      this.type = 'add';
     }
     this.buildForm();
     this.loadDOBData();
     if (path == '/online-competition-results-2021/update') {
       this.getIdData();
+      this.type = 'update';
     }
   }
 
   getIdData() {
-    this.registrationForm.get('name').setValue('Shivani');
+    if (history.state.data) {
+      var obj = history.state.data;
+      this.registrationForm.patchValue(obj);
+      var date = obj.age.split('-')
+      console.log(date, obj);
+      this.registrationForm.get('age').setValue(date[0]);
+      this.month = date[1];
+      this.day = date[2];
+      this.age = obj.age;
+      this.onChangeCat(obj.artCategory);
+      this.onChangePatCat(obj.artCategory);
+      this.countryChange(obj.country);
+      this.selectedValue = obj.imageUrl;
+      this.amount = obj.amount;
+      if (obj.artCategory == 'Music' && obj.artSubCategory !== 'Vocal') {
+        this.changeArtSubCat(obj.artSubCategory);
+      }
+    } else {
+      this.router.navigate(['/online-competition-results-2021']);
+    }
   }
 
   buildForm() {
@@ -204,36 +227,53 @@ export class EventRegisterComponent implements OnInit {
     };
     object.formValues.age = this.age;
     console.log(object);
-
-    this.eventservice.postEventDetails(object).subscribe(
-      (res) => {
-        this.submitted = false;
-        if (res.code === "ER_DUP_ENTRY") {
-          this.toastrService.error("Email already exists");
-        } else if (res.token.affectedRows === 1) {
+    if (this.type == 'add') {
+      this.eventservice.postEventDetails(object).subscribe(
+        (res) => {
+          this.submitted = false;
+          if (res.code === "ER_DUP_ENTRY") {
+            this.toastrService.error("Email already exists");
+          } else if (res.token.affectedRows === 1) {
+            Swal.fire({
+              icon: "success",
+              title:
+                "You have successfully registered in this event, Your Registration ID :<br> JUN2021-" +
+                res.token.insertId +
+                ".<br> Please check your email for detailed information",
+              showConfirmButton: true,
+            }).then((suuess) => {
+              this.router.navigate([""]);
+              this.registrationForm.reset();
+            });
+          } else {
+            this.toastrService.error("Something went wrong, Please try again");
+          }
+        },
+        (error) => {
+          if (error.code === "ER_DUP_ENTRY") {
+            this.toastrService.error("Email already exists");
+            console.log("Erororor", error);
+          }
+          this.toastrService.error(error.code);
+        }
+      );
+    } else if (this.type == 'update') {
+      this.eventservice.putUdateEvent(object).subscribe((res: any) => {
+        if (res?.token?.affectedRows == 1) {
           Swal.fire({
             icon: "success",
             title:
-              "You have successfully registered in this event, Your Registration ID :<br> JUN2021-" +
+              "You have successfully Updated your Event, Your Registration ID :<br> JUN2021-" +
               res.token.insertId +
               ".<br> Please check your email for detailed information",
             showConfirmButton: true,
           }).then((suuess) => {
             this.router.navigate([""]);
-            this.registrationForm.reset();
           });
-        } else {
-          this.toastrService.error("Something went wrong, Please try again");
         }
-      },
-      (error) => {
-        if (error.code === "ER_DUP_ENTRY") {
-          this.toastrService.error("Email already exists");
-          console.log("Erororor", error);
-        }
-        this.toastrService.error(error.code);
-      }
-    );
+      })
+    }
+
   }
   //2015-06-11
   loadDOBData() {

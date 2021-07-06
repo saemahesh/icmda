@@ -19,10 +19,13 @@
     display: none
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
     .slicknav_menu {
         display: block;
     }
+    .modal.show .modal-dialog {
+      position :fixed;
+	}
 }
 
 .carousel-inner>.item>img {
@@ -42,6 +45,9 @@
     background: transparent;
 }
 
+.modal.show .modal-dialog {
+      margin-top: 7%;
+}
 
 /* input:not([type]), input[type=text]:not(.browser-default), input[type=password]:not(.browser-default), input[type=email]:not(.browser-default), input[type=url]:not(.browser-default), input[type=time]:not(.browser-default), input[type=date]:not(.browser-default), input[type=datetime]:not(.browser-default), input[type=datetime-local]:not(.browser-default), input[type=tel]:not(.browser-default), input[type=number]:not(.browser-default), input[type=search]:not(.browser-default), textarea.materialize-textarea{
     font-size: 2rem;

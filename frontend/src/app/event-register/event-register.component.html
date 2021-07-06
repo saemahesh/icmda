@@ -71,10 +71,13 @@
                 <div class="form-inline dob" style="display: flex;">
                     <select class="form-control" id="sel2" (change)="daychnage($event.target.value)">
             <option value="" disabled selected>Day</option>
-            <option *ngFor="let dMdl of dayModel" value="{{dMdl}}">{{dMdl}}</option>
+            <option *ngIf="type === 'update'" selected>{{day}}</option>
+            <option *ngFor="let dMdl of dayModel"
+              value="{{dMdl}}">{{dMdl}}</option>
           </select>
                     <select class="form-control" id="sel1" (change)="monthChange($event.target.value)">
             <option value="" disabled selected>Month</option>
+            <option *ngIf="type === 'update'" selected>{{month}}</option>
             <option *ngFor="let mnMdl of monthModel" value="{{mnMdl.name}}">{{mnMdl.name}}</option>
           </select>
 
@@ -250,7 +253,7 @@
 
             <div class="form-group">
                 <label style="font-size: medium;">Email
-          {{f.email.errors.email}}aa{{submitted}}aa<span style="color: red;">*</span>
+          <span style="color: red;">*</span>
           <span
             *ngIf="submitted && f.email.errors">
             <span *ngIf="f.email.errors.required" style="color:red">Required</span>
@@ -371,11 +374,13 @@
   </div> -->
         <div class="col-md-6">
             <div class="form-group">
-                <label style="font-size:medium">Please upload passport size photo<span
-            style="color: red;">*</span><span
-            *ngIf="!selectedValue && submitted" style="color:red">Required</span>
+                <label style="font-size:medium">Please upload passport size photo
+          <span style="color: red;">*</span>
+          <span *ngIf="!selectedValue && submitted" style="color:red">Required</span>
         </label><br>
-                <ngx-uploadcare-widget (on-upload-complete)="yourOnUploadHandler($event)" data-crop="3:4" public-key="786c3b03d6095e0a34f3" images-only="true" (on-upload-complete)="yourOnUploadHandler($event)">
+                <ngx-uploadcare-widget *ngIf="type == 'add'" (on-upload-complete)="yourOnUploadHandler($event)" data-crop="3:4" public-key="786c3b03d6095e0a34f3" images-only="true" (on-upload-complete)="yourOnUploadHandler($event)">
+                </ngx-uploadcare-widget>
+                <ngx-uploadcare-widget *ngIf="type == 'update'" value="{{selectedValue}}" (on-upload-complete)="yourOnUploadHandler($event)" data-crop="3:4" public-key="786c3b03d6095e0a34f3" images-only="true" (on-upload-complete)="yourOnUploadHandler($event)">
                 </ngx-uploadcare-widget>
             </div>
         </div>
@@ -481,6 +486,7 @@
     src="https://kajabi-storefronts-production.global.ssl.fastly.net/kajabi-storefronts-production/themes/1839383/settings_images/ud7uGH32S5KtFpKVYqjL_registerclosed3.png"
     alt=""> -->
     <div class="wrapper" *ngIf="displayForm">
-        <button type="submit" class="btn btn-success" (click)="submitForm()">Submit</button>
+        <button *ngIf="type == 'add'" type="submit" class="btn btn-success" (click)="submitForm()">Submit</button>
+        <button *ngIf="type == 'update'" type="submit" class="btn btn-success" (click)="submitForm()">Update</button>
     </div>
 </form>

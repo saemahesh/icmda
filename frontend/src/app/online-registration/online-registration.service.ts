@@ -32,5 +32,8 @@ export class OnlineRegistrationService {
   updateEvents(data) {
     return this.http.put(environment.apiUrl + '/form/updateDecemberEvent', data);
   }
+  getEventDetails(reqObj) {
+    return this.http.post(environment.baseUrl + '/getNewRegistrationProfiles', reqObj);
+  }
 }
 
