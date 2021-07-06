@@ -36,7 +36,12 @@
    </sql-query>
 
    <sql-query id="getNewRegistrationProfiles">
-       <![CDATA[select * from season2_competition_tbl where id = ? and email = ?]]>
+       <![CDATA[SELECT id, name, video_link as videoLink,amount_paid as amountPaid, amount,
+                    art_category as artCategory, art_form as artForm, art_sub_category as artSubCategory,participation_category as participationCategory,
+                    gender, age, email, mobile as mobileNumber, address, country, city, zipcode,
+                    teacher_name as teacherName, teacher_mobile as teacherNumber, teacher_email as teacherEmail,
+                    profile_pic as imageUrl
+	                FROM season2_competition_tbl where id = ? and email = ?;]]>]
    </sql-query>
 
     <sql-query id="getDecEventProfile">
