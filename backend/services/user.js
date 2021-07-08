@@ -105,7 +105,9 @@ exports.eventRegister = (data, callback) => {
      data.formValues.zipcode,
      today,
      data.imageUrl,
-     data.formValues.country
+     data.formValues.country,
+     data.formValues.payment_receipt,
+     data.formValues.transaction_id
     //  data.amount,
     //  data.formValues.cLevel     
     ],
@@ -155,6 +157,8 @@ exports.updateEventRegister = (data, callback) => {
      today,
      data.imageUrl,
      data.formValues.country,
+     data.formValues.payment_receipt,
+     data.formValues.transaction_id,
     //  data.amount,
     //  data.formValues.cLevel
     data.formValues.id,
@@ -165,8 +169,10 @@ exports.updateEventRegister = (data, callback) => {
       if (err) {
         callback(err, null);
       } else {
-        this.sendEventUpdateMail(data)
-       console.log("Successfully Updated", result.changedRows)
+        if (result.changedRows > 0 ){
+          this.sendEventUpdateMail(data);
+        }        
+        console.log("Updated Rows", result.changedRows);    
         callback(null, result.changedRows);
       }
     }

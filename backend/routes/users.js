@@ -37,9 +37,16 @@ router.put("/event-update", (req, res) => {
         if (err) {
             res.json(err);
         } else {
+          let status;
+          if (result > 0){
+            status = "Successfully Updated"
+          }else{
+            status = "Not Updated"
+          }
             res.json({
                 auth: true,
-                token: result
+                token: result,
+                status: status
             });
         }
     });

@@ -17,14 +17,15 @@
     <sql-query id="eventRegister">
     <![CDATA[INSERT INTO season2_competition_tbl (name,amount,teacher_name,teacher_mobile,teacher_email,
                                                 art_category,art_sub_category,art_form,participation_category,gender,age,email,
-                                                mobile,address,city,zipcode,date,profile_pic,country)
-                    VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)]]>;
+                                                mobile,address,city,zipcode,date,profile_pic,country,payment_receipt,transaction_id)
+                    VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)]]>;
     </sql-query>
     <sql-query id="updateEventRegister">
     <![CDATA[UPDATE season2_competition_tbl 
             SET name = ?, amount = ?, teacher_name = ?, teacher_mobile = ?, teacher_email = ?, art_category = ?,
                 art_sub_category = ?, art_form = ?, participation_category = ?, gender = ?, age = ?,
-                mobile = ?, address = ?, city = ?, zipcode = ?, date = ?, profile_pic = ?, country = ?
+                mobile = ?, address = ?, city = ?, zipcode = ?, date = ?, profile_pic = ?, country = ?, 
+                payment_receipt = ?, transaction_id = ?
                 where id = ? and email = ? ]]>;
     </sql-query>
  <sql-query id="getProfiles">
@@ -40,7 +41,7 @@
                     art_category as artCategory, art_form as artForm, art_sub_category as artSubCategory,participation_category as participationCategory,
                     gender, age, email, mobile as mobileNumber, address, country, city, zipcode,
                     teacher_name as teacherName, teacher_mobile as teacherNumber, teacher_email as teacherEmail,
-                    profile_pic as imageUrl
+                    profile_pic as imageUrl, payment_receipt, transaction_id
 	                FROM season2_competition_tbl where id = ? and email = ?;]]>]
    </sql-query>
 
