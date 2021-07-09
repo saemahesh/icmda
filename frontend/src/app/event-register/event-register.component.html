@@ -352,7 +352,22 @@
 
             </div>
         </div>
-        <div class="col-md-{{addressWidth}}">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label style="font-size: medium;">Transaction ID <span
+            style="color: red;">*</span>
+          <span
+            *ngIf="submitted && f.transaction_id.errors">
+            <span *ngIf="f.transaction_id.errors.required" style="color:red">Required</span>
+            <span *ngIf="f.transaction_id.errors.minlength" style="color: red;">Enter
+              atleast 10 digits</span>
+          </span>
+        </label>
+                <input type="text" class="form-control" id="name" formControlName="transaction_id" maxlength="10">
+
+            </div>
+        </div>
+        <div class="col-md-12">
             <div class="form-group">
                 <label style="font-size: medium;">Address<span style="color: red;">*</span>
           <span
@@ -372,7 +387,7 @@
     
     </div>
   </div> -->
-        <div class="col-md-6">
+        <div class="col-md-3">
             <div class="form-group">
                 <label style="font-size:medium">Please upload passport size photo
           <span style="color: red;">*</span>
@@ -381,6 +396,18 @@
                 <ngx-uploadcare-widget *ngIf="type == 'add'" (on-upload-complete)="yourOnUploadHandler($event)" data-crop="3:4" public-key="786c3b03d6095e0a34f3" images-only="true" (on-upload-complete)="yourOnUploadHandler($event)">
                 </ngx-uploadcare-widget>
                 <ngx-uploadcare-widget *ngIf="type == 'update'" value="{{selectedValue}}" (on-upload-complete)="yourOnUploadHandler($event)" data-crop="3:4" public-key="786c3b03d6095e0a34f3" images-only="true" (on-upload-complete)="yourOnUploadHandler($event)">
+                </ngx-uploadcare-widget>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label style="font-size:medium">Please upload payment receipt
+          <span style="color: red;">*</span>
+          <span *ngIf="!selectedValue && submitted" style="color:red">Required</span>
+        </label><br>
+                <ngx-uploadcare-widget *ngIf="type == 'add'" (on-upload-complete)="yourOnUploadReceipt($event)" data-crop="3:4" public-key="786c3b03d6095e0a34f3" images-only="true">
+                </ngx-uploadcare-widget>
+                <ngx-uploadcare-widget *ngIf="type == 'update'" value="{{payment_receipt}}" (on-upload-complete)="yourOnUploadReceipt($event)" data-crop="3:4" public-key="786c3b03d6095e0a34f3" images-only="true">
                 </ngx-uploadcare-widget>
             </div>
         </div>

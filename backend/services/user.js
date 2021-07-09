@@ -5,285 +5,277 @@ let moment = require("moment");
 let _ = require("lodash");
 
 exports.register = (data, callback) => {
-  let today = moment().toDate();
-  console.log('data ', data);
-  // var data = ;
-  executeQuery.queryForAll(
-    sqlQueryMap["register"],
-    [
-     data.formValues.artistName,
-     data.formValues.artForm,
-     data.formValues.email,
-     data.formValues.mobileNumber,
-     data.formValues.country,
-     data.formValues.address,
-     data.formValues.city,
-     data.formValues.zipcode,
-     today,
-     data.imageUrl
-      
-    ],
-    (err, result) => {
-      if (err) {
-        callback(err, null);
-      } else {
-        data.formValues.id = result.insertId;
-        this.sendMail(data)
-       console.log('result ', result.insertId)
-        callback(null, result);
-      }
-    }
-  );
+    let today = moment().toDate();
+    console.log('data ', data);
+    // var data = ;
+    executeQuery.queryForAll(
+        sqlQueryMap["register"], [
+            data.formValues.artistName,
+            data.formValues.artForm,
+            data.formValues.email,
+            data.formValues.mobileNumber,
+            data.formValues.country,
+            data.formValues.address,
+            data.formValues.city,
+            data.formValues.zipcode,
+            today,
+            data.imageUrl
+
+        ],
+        (err, result) => {
+            if (err) {
+                callback(err, null);
+            } else {
+                data.formValues.id = result.insertId;
+                this.sendMail(data)
+                console.log('result ', result.insertId)
+                callback(null, result);
+            }
+        }
+    );
 };
 exports.eventRegister = (data, callback) => {
-  let today = moment().toDate();
-  console.log('data ', data);
-  // var data = ;
-  /*
-  if(data.formValues.artCategory==1){
-    data.formValues.artCategory="Music"
-  }if(data.formValues.artCategory==2){
-    data.formValues.artCategory="Dance"
-  }
-  switch (data.formValues.cLevel) {
-    case "1":
-      data.formValues.cLevel = "Sub-Junior";
-      break;
-    case "2":
-      data.formValues.cLevel = "Junior";
-      break;
-    case "3":
-      data.formValues.cLevel = "Senior";
-      break;
-    case "4":
-      data.formValues.cLevel = "Super Senior";
-      break;
-    case "5":
-      data.formValues.cLevel = "Open Category for Gold Medal";
-      break;
-    case "6":
-      data.formValues.cLevel = "Prodigy Category";
-      break;
-    case "7":
-      data.formValues.cLevel = "Special Category";
-      break;
-    case "8":
-        data.formValues.cLevel = "Sub-Junior Progressive";
-        break;
-    case "9":
-        data.formValues.cLevel = "Junior Progressive";
-        break;
-  }
-  console.log(data.formValues.artCategory,data.formValues.cLevel)
-  */
- if (data.formValues.artCategory == "Dance"){
-  data.formValues.artSubCategory = null;
- }
-  
-  executeQuery.queryForAll(
-    sqlQueryMap["eventRegister"],   
-    [
-     data.formValues.name,
-     data.amount,
-     data.formValues.teacherName,
-     data.formValues.teacherNumber,
-     '',
-     data.formValues.artCategory,
-     data.formValues.artSubCategory,
-     data.formValues.artForm,  
-     data.formValues.participationCategory,   
-    //  data.formValues.compType,
-     data.formValues.gender,
-     data.formValues.age,
-    //  data.formValues.compLevel,
-    //  '',
-    //  '',
-     data.formValues.email,
-     data.formValues.mobileNumber,
-     data.formValues.address,
-     data.formValues.city,
-     data.formValues.zipcode,
-     today,
-     data.imageUrl,
-     data.formValues.country,
-     data.formValues.payment_receipt,
-     data.formValues.transaction_id
-    //  data.amount,
-    //  data.formValues.cLevel     
-    ],
-    (err, result) => {
-      console.log(err, result)
-      if (err) {
-        callback(err, null);
-      } else {
-        data.formValues.id = result.insertId;
-        this.sendEventMail(data)
-       console.log('result ', result.insertId)
-        callback(null, result);
-      }
+    let today = moment().toDate();
+    console.log('data ', data);
+    // var data = ;
+    /*
+    if(data.formValues.artCategory==1){
+      data.formValues.artCategory="Music"
+    }if(data.formValues.artCategory==2){
+      data.formValues.artCategory="Dance"
     }
-  );
+    switch (data.formValues.cLevel) {
+      case "1":
+        data.formValues.cLevel = "Sub-Junior";
+        break;
+      case "2":
+        data.formValues.cLevel = "Junior";
+        break;
+      case "3":
+        data.formValues.cLevel = "Senior";
+        break;
+      case "4":
+        data.formValues.cLevel = "Super Senior";
+        break;
+      case "5":
+        data.formValues.cLevel = "Open Category for Gold Medal";
+        break;
+      case "6":
+        data.formValues.cLevel = "Prodigy Category";
+        break;
+      case "7":
+        data.formValues.cLevel = "Special Category";
+        break;
+      case "8":
+          data.formValues.cLevel = "Sub-Junior Progressive";
+          break;
+      case "9":
+          data.formValues.cLevel = "Junior Progressive";
+          break;
+    }
+    console.log(data.formValues.artCategory,data.formValues.cLevel)
+    */
+    if (data.formValues.artCategory == "Dance") {
+        data.formValues.artSubCategory = null;
+    }
+
+    executeQuery.queryForAll(
+        sqlQueryMap["eventRegister"], [
+            data.formValues.name,
+            data.amount,
+            data.formValues.teacherName,
+            data.formValues.teacherNumber,
+            '',
+            data.formValues.artCategory,
+            data.formValues.artSubCategory,
+            data.formValues.artForm,
+            data.formValues.participationCategory,
+            //  data.formValues.compType,
+            data.formValues.gender,
+            data.formValues.age,
+            //  data.formValues.compLevel,
+            //  '',
+            //  '',
+            data.formValues.email,
+            data.formValues.mobileNumber,
+            data.formValues.address,
+            data.formValues.city,
+            data.formValues.zipcode,
+            today,
+            data.imageUrl,
+            data.formValues.country,
+            data.payment_receipt,
+            data.formValues.transaction_id
+            //  data.amount,
+            //  data.formValues.cLevel     
+        ],
+        (err, result) => {
+            console.log(err, result)
+            if (err) {
+                callback(err, null);
+            } else {
+                data.formValues.id = result.insertId;
+                this.sendEventMail(data)
+                console.log('result ', result.insertId)
+                callback(null, result);
+            }
+        }
+    );
 };
 
 //Update Event_register
 exports.updateEventRegister = (data, callback) => {
-  let today = moment().toDate();
-  console.log('data ', data);
- if (data.formValues.artCategory == "Dance"){
-  data.formValues.artSubCategory = null;
- }  
-  executeQuery.queryForAll(
-    sqlQueryMap["updateEventRegister"],   
-    [
-     data.formValues.name,
-     data.amount,
-     data.formValues.teacherName,
-     data.formValues.teacherNumber,
-     '',
-     data.formValues.artCategory,
-     data.formValues.artSubCategory,
-     data.formValues.artForm,  
-     data.formValues.participationCategory,   
-    //  data.formValues.compType,
-     data.formValues.gender,
-     data.formValues.age,
-    //  data.formValues.compLevel,
-    //  '',
-    //  '',
-     data.formValues.mobileNumber,
-     data.formValues.address,
-     data.formValues.city,
-     data.formValues.zipcode,
-     today,
-     data.imageUrl,
-     data.formValues.country,
-     data.formValues.payment_receipt,
-     data.formValues.transaction_id,
-    //  data.amount,
-    //  data.formValues.cLevel
-    data.formValues.id,
-    data.formValues.email,     
-    ],
-    (err, result) => {
-      console.log(err, result)
-      if (err) {
-        callback(err, null);
-      } else {
-        if (result.changedRows > 0 ){
-          this.sendEventUpdateMail(data);
-        }        
-        console.log("Updated Rows", result.changedRows);    
-        callback(null, result.changedRows);
-      }
+    let today = moment().toDate();
+    console.log('data ', data);
+    if (data.formValues.artCategory == "Dance") {
+        data.formValues.artSubCategory = null;
     }
-  );
+    executeQuery.queryForAll(
+        sqlQueryMap["updateEventRegister"], [
+            data.formValues.name,
+            data.amount,
+            data.formValues.teacherName,
+            data.formValues.teacherNumber,
+            '',
+            data.formValues.artCategory,
+            data.formValues.artSubCategory,
+            data.formValues.artForm,
+            data.formValues.participationCategory,
+            //  data.formValues.compType,
+            data.formValues.gender,
+            data.formValues.age,
+            //  data.formValues.compLevel,
+            //  '',
+            //  '',
+            data.formValues.mobileNumber,
+            data.formValues.address,
+            data.formValues.city,
+            data.formValues.zipcode,
+            today,
+            data.imageUrl,
+            data.formValues.country,
+            data.payment_receipt,
+            data.formValues.transaction_id,
+            //  data.amount,
+            //  data.formValues.cLevel
+            data.formValues.id,
+            data.formValues.email,
+        ],
+        (err, result) => {
+            console.log(err, result)
+            if (err) {
+                callback(err, null);
+            } else {
+                if (result.changedRows > 0) {
+                    this.sendEventUpdateMail(data);
+                }
+                console.log("Updated Rows", result.changedRows);
+                callback(null, result.changedRows);
+            }
+        }
+    );
 };
 
 exports.getMember = (id, callback) => {
-  try {
-    executeQuery.queryForAll(
-      sqlQueryMap["getMember"],
-      [id],
-      (err, result) => {
+    try {
+        executeQuery.queryForAll(
+            sqlQueryMap["getMember"], [id],
+            (err, result) => {
+                if (err) {
+                    callback(err, null);
+                } else {
+                    {
+                        callback(err, result)
+                    }
+                }
+            }
+        );
+    } catch (err) {
         if (err) {
-          callback(err, null);
-        } else {
-          {
-            callback(err,result)
-          }
+            callback(err, null);
+            console.log("Login Error", err);
         }
-      }
-    );
-  } catch (err) {
-    if (err) {
-      callback(err, null);
-      console.log("Login Error", err);
+        // eslint-disable-next-line no-console
     }
-    // eslint-disable-next-line no-console
-  }
 };
 
 exports.getProfiles = (addUser, callback) => {
-  executeQuery.queryForAll(
-    sqlQueryMap["getProfiles"],
-    [],
-    (err, result) => {
-      if (err) {
-        console.log('err ', err);
-        callback(err, null);
-      } else {
-        callback(null, result);
-      }
-    }
-  );
+    executeQuery.queryForAll(
+        sqlQueryMap["getProfiles"], [],
+        (err, result) => {
+            if (err) {
+                console.log('err ', err);
+                callback(err, null);
+            } else {
+                callback(null, result);
+            }
+        }
+    );
 };
 
 exports.getRegistrationProfiles = (callback) => {
-  executeQuery.queryForAll(
-    sqlQueryMap["getRegistrationProfiles"],
-    [],
-    (err, result) => {
-      if (err) {
-        console.log('err ', err);
-        callback(err, null);
-      } else {
-        callback(null, result);
-      }
-    }
-  );
+    executeQuery.queryForAll(
+        sqlQueryMap["getRegistrationProfiles"], [],
+        (err, result) => {
+            if (err) {
+                console.log('err ', err);
+                callback(err, null);
+            } else {
+                callback(null, result);
+            }
+        }
+    );
 };
 
 //July2021 Competition Registeration
 exports.getNewRegistrationProfiles = (data, callback) => {
-  executeQuery.queryForAll(
-    sqlQueryMap["getNewRegistrationProfiles"],
-    [data.id, data.email],
-    (err, result) => {
-      if (err) {
-        console.log('err ', err);
-        callback(err, null);
-      } else {
-        callback(null, result);
-      }
-    }
-  );
+    executeQuery.queryForAll(
+        sqlQueryMap["getNewRegistrationProfiles"], [data.id, data.email],
+        (err, result) => {
+            if (err) {
+                console.log('err ', err);
+                callback(err, null);
+            } else {
+                callback(null, result);
+            }
+        }
+    );
 };
 
-exports.getDecEventProfile = (id,callback) => {
-  executeQuery.queryForAll(
-    sqlQueryMap["getDecEventProfile"],
-    [id],
-    (err, result) => {
-      if (err) {
-        console.log('err ', err);
-        callback(err, null);
-      } else {
-        callback(null, result);
-      }
-    }
-  );
+exports.getDecEventProfile = (id, callback) => {
+    executeQuery.queryForAll(
+        sqlQueryMap["getDecEventProfile"], [id],
+        (err, result) => {
+            if (err) {
+                console.log('err ', err);
+                callback(err, null);
+            } else {
+                callback(null, result);
+            }
+        }
+    );
 };
 
 
 exports.sendMail = (mail_data, callback) => {
-  
-  data = mail_data.formValues;
-  data.profile_pic = mail_data.imageUrl;
+
+    data = mail_data.formValues;
+    data.profile_pic = mail_data.imageUrl;
 
 
-let mailTransporter = nodemailer.createTransport({ 
-	service: 'gmail', 
-	auth: { 
-		user: 'icmdachennai@gmail.com', 
-		pass: 'IcmdaChennai1$'
-	} 
-}); 
-let id_url = `https://icmda.co.in/idcard/${data.id}`
-let mailDetails = { 
-	from: 'icmdachennai@gmail.com', 
-	to: data.email, 
-	subject: `Thanks ${data.artistName} for registering as a member at ICMDA`, 
-	html: `<html lang="en">
+    let mailTransporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: 'icmdachennai@gmail.com',
+            pass: 'IcmdaChennai1$'
+        }
+    });
+    let id_url = `https://icmda.co.in/idcard/${data.id}`
+    let mailDetails = {
+        from: 'icmdachennai@gmail.com',
+        to: data.email,
+        subject: `Thanks ${data.artistName} for registering as a member at ICMDA`,
+        html: `<html lang="en">
 <head>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -314,43 +306,44 @@ let mailDetails = {
 		<p class="site-footer__fineprint" id="fineprint">Copyright © ICMDA 2021 | All Rights Reserved</p>
 	</footer>
 </body>
-</html>`}; 
+</html>`
+    };
 
-// <div style="margin:30px 0">
-// <a target="_blank" href="${id_url}">
-// <button type="button" class="btn btn-success" style="background:lightgreen">Click here to download your ID card</button>
-// </a>
-// </div>
+    // <div style="margin:30px 0">
+    // <a target="_blank" href="${id_url}">
+    // <button type="button" class="btn btn-success" style="background:lightgreen">Click here to download your ID card</button>
+    // </a>
+    // </div>
 
-mailTransporter.sendMail(mailDetails, function(err, data) { 
-	if(err) { 
-		console.log('Error Occurs',err); 
-	} else { 
-		console.log('Email sent successfully'); 
-	} 
-}); 
+    mailTransporter.sendMail(mailDetails, function(err, data) {
+        if (err) {
+            console.log('Error Occurs', err);
+        } else {
+            console.log('Email sent successfully');
+        }
+    });
 };
 
 exports.sendEventMail = (mail_data, callback) => {
-  
-  data = mail_data.formValues;
-  data.imageUrl = mail_data.imageUrl;
-  data.amount = mail_data.amount;
-  data.guidelines_url = 'http://icmda.co.in/guidelines';
+
+    data = mail_data.formValues;
+    data.imageUrl = mail_data.imageUrl;
+    data.amount = mail_data.amount;
+    data.guidelines_url = 'http://icmda.co.in/guidelines';
 
 
-let mailTransporter = nodemailer.createTransport({ 
-	service: 'gmail', 
-	auth: { 
-		user: 'icmdachennai@gmail.com', 
-		pass: 'IcmdaChennai1$'
-	} 
-}); 
-let mailDetails = { 
-	from: 'icmdachennai@gmail.com', 
-	to: data.email, 
-	subject: `Thanks ${data.name} for registering to the July 2021 online competition.`, 
-	html: `<html lang="en">
+    let mailTransporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: 'icmdachennai@gmail.com',
+            pass: 'IcmdaChennai1$'
+        }
+    });
+    let mailDetails = {
+        from: 'icmdachennai@gmail.com',
+        to: data.email,
+        subject: `Thanks ${data.name} for registering to the July 2021 online competition.`,
+        html: `<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -669,38 +662,39 @@ let mailDetails = {
     </footer>
   </body>
   </html>
-  `}; 
+  `
+    };
 
-mailTransporter.sendMail(mailDetails, function(err, data) { 
-	if(err) { 
-		console.log('Error Occurs',err); 
-	} else { 
-		console.log('Email sent successfully'); 
-	} 
-}); 
+    mailTransporter.sendMail(mailDetails, function(err, data) {
+        if (err) {
+            console.log('Error Occurs', err);
+        } else {
+            console.log('Email sent successfully');
+        }
+    });
 };
 
 //Update Email
 exports.sendEventUpdateMail = (mail_data, callback) => {
-  
-  data = mail_data.formValues;
-  data.imageUrl = mail_data.imageUrl;
-  data.amount = mail_data.amount;
-  data.guidelines_url = 'http://icmda.co.in/guidelines';
+
+    data = mail_data.formValues;
+    data.imageUrl = mail_data.imageUrl;
+    data.amount = mail_data.amount;
+    data.guidelines_url = 'http://icmda.co.in/guidelines';
 
 
-let mailTransporter = nodemailer.createTransport({ 
-	service: 'gmail', 
-	auth: { 
-		user: 'icmdachennai@gmail.com', 
-		pass: 'IcmdaChennai1$'
-	} 
-}); 
-let mailDetails = { 
-	from: 'icmdachennai@gmail.com', 
-	to: data.email, 
-	subject: `Thanks ${data.name} for updating your registeration to the July 2021 online competition.`, 
-	html: `<html lang="en">
+    let mailTransporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: 'icmdachennai@gmail.com',
+            pass: 'IcmdaChennai1$'
+        }
+    });
+    let mailDetails = {
+        from: 'icmdachennai@gmail.com',
+        to: data.email,
+        subject: `Thanks ${data.name} for updating your registeration to the July 2021 online competition.`,
+        html: `<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -1019,32 +1013,33 @@ let mailDetails = {
     </footer>
   </body>
   </html>
-  `}; 
+  `
+    };
 
-mailTransporter.sendMail(mailDetails, function(err, data) { 
-	if(err) { 
-		console.log('Error Occurs',err); 
-	} else { 
-		console.log('Email sent successfully'); 
-	} 
-}); 
+    mailTransporter.sendMail(mailDetails, function(err, data) {
+        if (err) {
+            console.log('Error Occurs', err);
+        } else {
+            console.log('Email sent successfully');
+        }
+    });
 };
 
 exports.sendPrizeMail = (mail_data, callback) => {
-  
-  data = mail_data;
-let mailTransporter = nodemailer.createTransport({ 
-	service: 'gmail', 
-	auth: { 
-		user: 'icmdachennai@gmail.com', 
-		pass: 'IcmdaChennai1$'
-	} 
-}); 
-let mailDetails = { 
-	from: 'icmdachennai@gmail.com', 
-	to: data.email, 
-	subject: `ICMDA Online Competitions Dec 2020-21 Results`, 
-	html: `<html lang="en">
+
+    data = mail_data;
+    let mailTransporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: 'icmdachennai@gmail.com',
+            pass: 'IcmdaChennai1$'
+        }
+    });
+    let mailDetails = {
+        from: 'icmdachennai@gmail.com',
+        to: data.email,
+        subject: `ICMDA Online Competitions Dec 2020-21 Results`,
+        html: `<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -1289,18 +1284,16 @@ let mailDetails = {
   </div>
   </body>
   </html>
-  `}; 
+  `
+    };
 
-mailTransporter.sendMail(mailDetails, function(err, respp) { 
-	if(err) { 
-		console.log('Error Occurs',err); 
-    callback(`Error! Mail not sent to id [${data.id}] >>>>>  [${data.email}]`,null)
-	} else { 
-		console.log('Email sent successfully'); 
-    callback(null,`Email sent successfully to id  [${data.id}] >>>> [${data.email}]`)
-	} 
-}); 
+    mailTransporter.sendMail(mailDetails, function(err, respp) {
+        if (err) {
+            console.log('Error Occurs', err);
+            callback(`Error! Mail not sent to id [${data.id}] >>>>>  [${data.email}]`, null)
+        } else {
+            console.log('Email sent successfully');
+            callback(null, `Email sent successfully to id  [${data.id}] >>>> [${data.email}]`)
+        }
+    });
 };
-
-
-

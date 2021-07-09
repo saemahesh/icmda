@@ -30,6 +30,7 @@ export class EventRegisterComponent implements OnInit {
   registrationForm: FormGroup;
   submitted = false;
   selectedValue: any;
+  payment_receipt: any;
   age: any;
   compLevel: any;
   amount: any;
@@ -48,7 +49,6 @@ export class EventRegisterComponent implements OnInit {
   day: any;
   month: any;
   year: any;
-  addressWidth: number = 8;
   // identityType = [
   //   { name: "Aadhar Card" },
   //   { name: "Pan card" },
@@ -158,6 +158,7 @@ export class EventRegisterComponent implements OnInit {
       this.onChangePatCat(obj.artCategory);
       this.countryChange(obj.country);
       this.selectedValue = obj.imageUrl;
+      this.payment_receipt = obj.payment_receipt;
       this.amount = obj.amount;
       if (obj.artCategory == 'Music' && obj.artSubCategory !== 'Vocal') {
         this.changeArtSubCat(obj.artSubCategory);
@@ -185,7 +186,8 @@ export class EventRegisterComponent implements OnInit {
       city: ["", Validators.required],
       zipcode: ["", Validators.required],
       teacherName: ["", Validators.required],
-      teacherNumber: ["", Validators.required]
+      teacherNumber: ["", Validators.required],
+      transaction_id: ["", [Validators.required, Validators.minLength(8)]],
     });
   }
 
@@ -217,13 +219,14 @@ export class EventRegisterComponent implements OnInit {
     }
 
     this.submitted = true;
-    if (this.registrationForm.invalid || !this.selectedValue) {
+    if (this.registrationForm.invalid || !this.selectedValue || !this.payment_receipt) {
       this.toastrService.error("Please fill all required fields");
       return;
     }
 
     const object = {
       imageUrl: this.selectedValue,
+      payment_receipt: this.payment_receipt,
       formValues: this.registrationForm.value,
       amount: this.amount,
     };
@@ -352,6 +355,9 @@ export class EventRegisterComponent implements OnInit {
   yourOnUploadHandler(event) {
     this.selectedValue = event.cdnUrl;
   }
+  yourOnUploadReceipt(event) {
+    this.payment_receipt = event.cdnUrl;
+  }
   onChangeCat(cat_id: number) {
     this.diffCat = [];
     if (this.artCategory.filter((x: any) => x.cat == cat_id)[0].cat == 'Music') {
@@ -374,13 +380,10 @@ export class EventRegisterComponent implements OnInit {
       this.diffCat = [];
     }
     if (cat_id == 'Vocal') {
-      this.addressWidth = 8;
       this.diffCat = [{ id: 1, cat_id: 1, name: 'VOCAL' }];
     } else if (cat_id == 'Instruments') {
-      this.addressWidth = 12;
       this.diffCat = this.allInstrumentList;
     } else if (cat_id = 'Rythm') {
-      this.addressWidth = 12;
       this.diffCat = this.allRythmList;
     }
     this.artSub = cat_id;
