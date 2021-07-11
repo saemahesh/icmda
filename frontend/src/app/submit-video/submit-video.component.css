@@ -1,0 +1,54 @@
+.hs-item {
+    /* width: auto; */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(https://storage.needpix.com/rsynced_images/background-2203989_1280.jpg);
+}
+
+form {
+    padding-top: 1%;
+    padding-left: 106px;
+    padding-right: 106px;
+    padding-bottom: 8%;
+    background-color: black;
+    opacity: 0.8;
+    margin-top: 70px;
+}
+
+label {
+    color: white;
+}
+
+button {
+    background-color: antiquewhite;
+    color: indigo;
+    padding: 8px 20px;
+    font-weight: bold;
+    font-size: 13px;
+    float: right;
+}
+
+input {
+    background: white !important;
+    color: black !important;
+}
+
+@media screen and (max-width: 600px) {
+    .container .hs-item {
+        width: 100%;
+        margin-top: 0;
+    }
+    form {
+        padding-left: 4%;
+        padding-right: 7%;
+        background-color: black;
+        opacity: 0.8;
+        margin-top: 35%;
+        margin-bottom: 13%;
+    }
+    .hs-item {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-image: url(https://storage.needpix.com/rsynced_images/background-2203989_1280.jpg);
+    }
+}

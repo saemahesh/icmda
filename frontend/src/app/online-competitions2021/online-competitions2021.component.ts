@@ -13,6 +13,7 @@ export class OnlineCompetitions2021Component implements OnInit {
   submitted: boolean = false;
   id: any;
   email: any;
+  modalType: any;
   constructor(private router: Router, private modalService: BsModalService, private onlineService: OnlineRegistrationService, private toastr: ToastrService) { }
   modalRef: BsModalRef;
   ngOnInit(): void {
@@ -26,7 +27,8 @@ export class OnlineCompetitions2021Component implements OnInit {
     }
   }
 
-  open(content) {
+  open(content, modalType) {
+    this.modalType = modalType;
     this.id = undefined;
     this.email = undefined;
     this.submitted = false;
@@ -49,7 +51,12 @@ export class OnlineCompetitions2021Component implements OnInit {
           this.toastr.error("Registration ID or Email not Found", 'Error')
         } else if (res.length > 0) {
           this.close();
-          this.router.navigate(['/online-competition-results-2021/update'], { state: { data: res[0] } });
+          if (this.modalType == 'updateEvent') {
+            this.router.navigate(['/online-competition-results-2021/update'], { state: { data: res[0] } });
+          } else if (this.modalType == 'submitVideo') {
+            this.router.navigate(['/submit-video'], { state: { data: res[0] } });
+            console.log('submitVideo');
+          }
         }
       })
     }
