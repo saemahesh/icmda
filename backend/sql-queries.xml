@@ -45,6 +45,11 @@
 	                FROM season2_competition_tbl where id = ? and email = ?;]]>]
    </sql-query>
 
+    <sql-query id="submitVideo">
+    <![CDATA[UPDATE season2_competition_tbl 
+            SET video_link = ? where id = ? and email = ? ]]>;
+    </sql-query>
+
     <sql-query id="getDecEventProfile">
        <![CDATA[select * from dec_event_tbl where id=?]]>
    </sql-query>

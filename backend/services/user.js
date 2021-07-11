@@ -242,6 +242,22 @@ exports.getNewRegistrationProfiles = (data, callback) => {
     );
 };
 
+//Submit Video
+exports.submitVideo = (data, callback) => {
+  executeQuery.queryForAll(
+      sqlQueryMap["submitVideo"], [data.videoLink, data.id, data.email],
+      (err, result) => {
+          if (err) {
+              console.log('err ', err);
+              callback(err, null);
+          } else {
+              callback(null, result);
+          }
+      }
+  );
+};
+
+
 exports.getDecEventProfile = (id, callback) => {
     executeQuery.queryForAll(
         sqlQueryMap["getDecEventProfile"], [id],

@@ -38,15 +38,37 @@ router.put("/event-update", (req, res) => {
             res.json(err);
         } else {
           let status;
-          if (result > 0){
+          if (result.changedRows > 0){
             status = "Successfully Updated"
           }else{
-            status = "Not Updated"
+            status = "Could Not Update"
           }
             res.json({
                 auth: true,
                 token: result,
                 status: status
+            });
+        }
+    });
+});
+
+//Upload Video Link
+router.put("/submit-video", (req, res) => {
+    // console.log(' req ', req);
+    UserService.submitVideo(req.body, (err, result) => {
+        if (err) {
+            res.json(err);
+        } else {
+            let video;
+            if (result.changedRows > 0){
+                video = "Successfully Uploaded"
+            }else{
+                video = "Could Not Upload"
+            }
+            res.json({
+                auth: true,
+                token: result,
+                status: video
             });
         }
     });
