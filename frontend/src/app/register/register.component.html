@@ -1,117 +1,422 @@
-<head>
+<!-- <head>
 
-  <meta name="viewport" content="width=device-width">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="HandheldFriendly" content="true">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
 </head>
 <div class="hs-item image bg print">
 
-  <div class="container ">
-    <form [formGroup]="registrationForm"><br>
-      <h1 style="text-align: center;color: white;">Member Registration Form</h1>
-      <div class="form-group">
-        <label style="font-size: medium;">Artist Name</label>
-        <input type="text" class="form-control" id="name" formControlName="artistName">
-        <div *ngIf="submitted && f.artistName.errors">
-          <div *ngIf="f.artistName.errors.required" style="color:red">First Name is required</div>
-        </div>
-      </div>
-      <div class="form-group">
-        <label style="font-size: medium;">Art Category</label>
-        <div class="form-group">
-          <select class="form-control" id="power" formControlName="artForm" (change)="onChangeCat($event.target.value)">
-            <option value="" disabled selected>Select your choice</option>
-            <option *ngFor="let ac of artCategory" value="{{ac.id}}">{{ac.cat}}</option>
-          </select>
-        </div>
-        <div *ngIf="submitted && f.artForm.errors">
-          <div *ngIf="f.artForm.errors.required" style="color:red">Art Form is required</div>
-        </div>
-      </div>
-      <div class="form-group">
-        <label style="font-size: medium;">Art Form</label>
-        <div class="form-group">
-          <select class="form-control" id="power" formControlName="artForm">
-            <option value="" disabled selected>Select your choice</option>
-            <option *ngFor="let music of diffCat">{{music.name}}</option>
-          </select>
-        </div>
-        <div *ngIf="submitted && f.artForm.errors">
-          <div *ngIf="f.artForm.errors.required" style="color:red">Art Form is required</div>
-        </div>
-      </div>
-      <div class="form-group">
-        <label style="font-size: medium;">Email</label>
-        <input type="text" class="form-control" id="name" formControlName="email">
-        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-          <div *ngIf="f.email.errors.required" style="color:red">
-            Email is required
-          </div>
-          <div *ngIf="f.email.errors.pattern" style="color:red">Email must be a valid email address</div>
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="row show-grid">
-          <div class="col-md-6">
-            <div class="form-group">
-              <label style="font-size: medium;">Mobile Number</label>
-              <input type="text" class="form-control" id="name" formControlName="mobileNumber"
-              placeholder="Include country code as well">
-              <div *ngIf="submitted && f.mobileNumber.errors">
-                <div *ngIf="f.mobileNumber.errors.required" style="color:red">Mobile number is required</div>
-              </div>
-             
+    <div class="container">
+        <form [formGroup]="registrationForm"><br>
+            <h1 style="text-align: center;color: white;">Member Registration Form</h1>
+            <div class="col-md-6">
+                <label style="font-size: medium;">Membership Type
+                    <span *ngIf="submitted && f.memberType.errors?.required" style="color:red">&nbsp;
+                        Required</span></label>
+                <select class="form-control" id="power" formControlName="memberType"
+                    (change)="onChangeCat($event.target.value)">
+                    <option value="" disabled selected>Select your choice</option>
+                    <option *ngFor="let ac of memberType" value="{{ac.name}}">{{ac.name}}</option>
+                </select>
             </div>
-          </div>
-          <div class="col-md-6">
-            <div class="form-group">
-              <label style="font-size: medium;">Country</label>
-              <input type="text" class="form-control" id="name" formControlName="country">
+            <div class="col-md-6">
+                <label style="font-size: medium;">Member Name
+                    <span *ngIf="submitted && f.artistName.errors?.required" style="color:red">&nbsp;
+                        Required</span></label>
+                <input type="text" class="form-control" id="name" formControlName="artistName">
             </div>
-            <div *ngIf="submitted && f.country.errors">
-              <div *ngIf="f.country.errors.required" style="color:red">Country is required</div>
+            <div class="col-md-6">
+                <label style="font-size: medium;">Art Category
+                    <span *ngIf="submitted && f.artCategory.errors?.required" style="color:red">&nbsp;
+                        Required</span></label>
+                <select class="form-control" id="power" formControlName="artCategory"
+                    (change)="onChangeCat($event.target.value)">
+                    <option value="" disabled selected>Select your choice</option>
+                    <option *ngFor="let ac of artCategory" value="{{ac.cat}}">{{ac.cat}}</option>
+                </select>
             </div>
-          </div>
+            <div class="col-md-6" *ngIf="selectArtFormCategory">
+                <div class="form-group">
+                    <label style="font-size: medium;">Art Sub-Category
+                        <span *ngIf="submitted && f.artSubCategory.errors?.required" style="color:red">&nbsp;
+                            Required</span></label>
+                    <div class="form-group">
+                        <select class="form-control" id="power" formControlName="artSubCategory"
+                            (change)="changeArtSubCat($event.target.value)">
+                            <option value="" disabled selected>Select your choice</option>
+                            <option *ngFor="let music of musicSubCat" value="{{music.cat}}">{{music.cat}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label style="font-size: medium;">Art Form
+                        <span *ngIf="submitted && f.artForm.errors?.required" style="color:red">&nbsp;
+                            Required</span></label>
+                    <div class="form-group">
+                        <select class="form-control" id="power" formControlName="artForm">
+                            <option value="" disabled selected>Select your choice</option>
+                            <option *ngFor="let music of diffCat">{{music.name}}</option>
+                        </select>
+                    </div>
+                    <div *ngIf="submitted && f.artForm.errors">
+                        <div *ngIf="f.artForm.errors.required" style="color:red">Art Form is required
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label style="font-size: medium;">Email
+                        <span *ngIf="submitted && f.email.errors?.required" style="color:red">&nbsp;
+                            Required</span></label>
+                    <input type="text" class="form-control" id="name" formControlName="email">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="form-group">
+                        <label style="font-size: medium;">Mobile Number
+                            <span *ngIf="submitted && f.mobileNumber.errors?.required" style="color:red">&nbsp;
+                                Required</span></label>
+                        <input type="text" class="form-control" id="name" formControlName="mobileNumber">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label style="font-size: medium;">Country <span *ngIf="submitted && f.country.errors?.required"
+                            style="color:red">&nbsp;
+                            Required</span></label>
+                    <input type="text" class="form-control" id="name" formControlName="country">
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label style="font-size: medium;">Address
+                        <span *ngIf="submitted && f.address.errors?.required" style="color:red">&nbsp;
+                            Required</span></label>
+                    <input type="text" class="form-control" id="name" formControlName="address">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label style="font-size: medium;">City
+                        <span *ngIf="submitted && f.city.errors?.required" style="color:red">&nbsp;
+                            Required</span></label>
+                    <input type="text" class="form-control" id="name" formControlName="city">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label style="font-size: medium;">Zipcode/Pincode
+                        <span *ngIf="submitted && f.zipcode.errors?.required" style="color:red">&nbsp;
+                            Required</span></label>
+                    <input type="text" class="form-control" id="name" formControlName="zipcode" maxlength="6">
+                </div>
+            </div> 
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label style="font-size:medium">Please upload passport size photo
+                        <span *ngIf="submitted && selectedValue" style="color:red">&nbsp;
+                            Required</span> </label><br>
+                    <ngx-uploadcare-widget data-crop="3:4" public-key="786c3b03d6095e0a34f3" images-only="true"
+                        (on-upload-complete)="yourOnUploadHandler($event)">
+                    </ngx-uploadcare-widget>
+                </div>
+            </div>
+            <div class="col-md-12 well" style="background: #343a4e;">
+                <label style="font-size: medium;">Make payment with either PhonePe / Gpay
+                    / Paypal / NetBanking
+                    <span style="color: red;">(Excluding transaction fee)</span>
+                </label><br>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label style="font-size: medium;">Amount</label>
+                        <div style="background-color: white;font-size: 28px;font-weight:
+                bold;padding-left: 10px;">
+                            ₹
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label style="font-size: medium;">PhonePe / GPay (India)</label>
+                        <div style="background-color: white;font-size:
+                16px;padding-left:10px;font-weight: bold;">
+                            9884220404
+                            <img src="../../assets/images/phonepe.png" width="37px" style="margin-left: 22px;">
+                            <img src="../../assets/images/gpay2.jpg" width="60px" style="margin-left: 22px;">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label style="font-size: medium;">PayPal(International)</label>
+                        <div style="background-color: white;font-size:
+                1em;padding-left:10px;font-weight: bold;padding: 8px;">
+                            <a href="https://paypal.me/icmdaDecEvent" target="blank">https://paypal.me/icmdaDecEvent</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label style="font-size: medium;">NetBanking</label>
+                        <div style="background-color: white;font-size:
+                1em;padding-left:10px;font-weight: bold;padding: 8px;display:grid">
+                            <span>Account No : 20264708218 </span>
+                            <span>Name : Asha Deepa R </span>
+                            <span>IFSC : SBIN0016987 </span>
+                            <span>BANK NAME : State Bank Of India</span>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="wrapper">
+                <button type="submit" class="btn btn-success" (click)="submitForm()">Submit</button><br><br>
+            </div>
+        </form>
+    </div>
+</div> -->
+<form class="hs-item" [formGroup]="registrationForm">
+    <div class="container">
+        <h1 style="text-align: center;color: white;">Member Registration Form</h1>
+        <div class="row">
+            <div class="col-md-6">
+                <label style="font-size: medium;">Membership Type
+                    <span *ngIf="submitted && f.memberType.errors?.required" style="color:red">&nbsp;
+                        Required</span></label>
+                <select class="form-control" id="power" formControlName="memberType"
+                    (change)="onMemberTypeSelect($event.target.value)">
+                    <option value="" disabled selected>Select your choice</option>
+                    <option *ngFor="let ac of memberType" value="{{ac.name}}">{{ac.name}}</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label style="font-size: medium;">Member Name
+                    <span *ngIf="submitted && f.artistName.errors?.required" style="color:red">&nbsp;
+                        Required</span></label>
+                <input type="text" class="form-control" id="name" formControlName="artistName">
+            </div>
+            <div class="col-md-6">
+                <label style="font-size: medium;">Art Category
+                    <span *ngIf="submitted && f.artCategory.errors?.required" style="color:red">&nbsp;
+                        Required</span></label>
+                <select class="form-control" id="power" formControlName="artCategory"
+                    (change)="onChangeCat($event.target.value)">
+                    <option value="" disabled selected>Select your choice</option>
+                    <option *ngFor="let ac of artCategory" value="{{ac.cat}}">{{ac.cat}}</option>
+                </select>
+            </div>
+            <div class="col-md-6" *ngIf="selectArtFormCategory">
+                <div class="form-group">
+                    <label style="font-size: medium;">Art Sub-Category
+                        <span *ngIf="submitted && f.artSubCategory.errors?.required" style="color:red">&nbsp;
+                            Required</span></label>
+                    <div class="form-group">
+                        <select class="form-control" id="power" formControlName="artSubCategory"
+                            (change)="changeArtSubCat($event.target.value)">
+                            <option value="" disabled selected>Select your choice</option>
+                            <option *ngFor="let music of musicSubCat" value="{{music.cat}}">{{music.cat}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label style="font-size: medium;">Art Form
+                        <span *ngIf="submitted && f.artForm.errors?.required" style="color:red">&nbsp;
+                            Required</span></label>
+                    <div class="form-group">
+                        <select class="form-control" id="power" formControlName="artForm">
+                            <option value="" disabled selected>Select your choice</option>
+                            <option *ngFor="let music of diffCat">{{music.name}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label style="font-size: medium;">Email
+                        <span *ngIf="submitted && f.email.errors?.required" style="color:red">&nbsp;
+                            Required</span></label>
+                    <input type="text" class="form-control" id="name" formControlName="email">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="form-group">
+                        <label style="font-size: medium;">Mobile Number
+                            <span *ngIf="submitted && f.mobileNumber.errors?.required" style="color:red">&nbsp;
+                                Required</span></label>
+                        <input type="text" class="form-control" id="name" formControlName="mobileNumber">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label style="font-size: medium;">Country <span *ngIf="submitted && f.country.errors?.required"
+                            style="color:red">&nbsp;
+                            Required</span></label>
+                    <input type="text" class="form-control" id="name" formControlName="country">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label style="font-size: medium;">City
+                        <span *ngIf="submitted && f.city.errors?.required" style="color:red">&nbsp;
+                            Required</span></label>
+                    <input type="text" class="form-control" id="name" formControlName="city">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label style="font-size: medium;">Zipcode/Pincode
+                        <span *ngIf="submitted && f.zipcode.errors?.required" style="color:red">&nbsp;
+                            Required</span></label>
+                    <input type="text" class="form-control" id="name" formControlName="zipcode" maxlength="6">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label style="font-size: medium;">Aadhar Number
+                        <span *ngIf="submitted && f.aadharNo.errors?.required" style="color:red">&nbsp;
+                            Required</span></label>
+                    <input type="text" class="form-control" id="name" formControlName="aadharNo" maxlength="12">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label style="font-size: medium;">Membership Plan
+                        <span *ngIf="submitted && f.membershipType.errors?.required" style="color:red">&nbsp;
+                            Required</span></label>
+                    <select class="form-control" id="membershipType" formControlName="membershipType"
+                        (change)="membershipType($event.target.value)">
+                        <option value="" disabled selected>Choose Membership Plan</option>
+                        <option *ngFor="let type of memberShipTypes" value="{{type.type}}">{{type.type}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-6" *ngIf="memberTypeValue">
+                <label style="font-size: medium;">Video 1 </label>
+                <textarea type="text" class="form-control" id="video1" formControlName="video1"></textarea>
+            </div>
+            <div class="col-md-6" *ngIf="memberTypeValue">
+                <label style="font-size: medium;">Video 2</label>
+                <textarea type="text" class="form-control" id="video2" formControlName="video1"></textarea>
+            </div>
+            <div class="col-md-6" *ngIf="memberTypeValue">
+                <label style="font-size: medium;">Video 3</label>
+                <textarea type="text" class="form-control" id="video3" formControlName="video1"></textarea>
+            </div>
+            <div class="col-md-6" *ngIf="memberTypeValue">
+                <label style="font-size: medium;">Video 4</label>
+                <textarea type="text" class="form-control" id="video4" formControlName="video1"></textarea>
+            </div>
+
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label style="font-size: medium;">Address
+                        <span *ngIf="submitted && f.address.errors?.required" style="color:red">&nbsp;
+                            Required</span></label>
+                    <textarea type="text" class="form-control" id="name" formControlName="address"></textarea>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label style="font-size: medium;">Date of Birth(age)
+                        <span *ngIf="submitted && age == undefined" style="color:
+                red;">&nbsp; Required</span>
+                    </label>
+                    <div class="form-inline dob" style="display: flex;">
+                        <select class="form-control" id="sel2" (change)="daychnage($event.target.value)">
+                            <option value="" disabled selected>Day</option>
+                            <option *ngFor="let dMdl of dayModel" value="{{dMdl}}">{{dMdl}}</option>
+                        </select>
+                        <select class="form-control" id="sel1" (change)="monthChange($event.target.value)">
+                            <option value="" disabled selected>Month</option>
+                            <option *ngFor="let mnMdl of monthModel" value="{{mnMdl.name}}">{{mnMdl.name}}</option>
+                        </select>
+
+                        <select class="form-control" id="sel3" (change)="yearChange($event.target.value)">
+                            <option value="" disabled selected>Year</option>
+                            <option *ngFor="let yMdl of yearModel" value="{{yMdl}}">{{yMdl}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label style="font-size:medium">Please upload passport size photo
+                        <span *ngIf="submitted && selectedValue" style="color:red">&nbsp;
+                            Required</span> </label><br>
+                    <ngx-uploadcare-widget data-crop="3:4" public-key="786c3b03d6095e0a34f3" images-only="true"
+                        (on-upload-complete)="yourOnUploadHandler($event)">
+                    </ngx-uploadcare-widget>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label style="font-size:medium">Please upload your certificate </label><br>
+                    <ngx-uploadcare-widget data-crop="3:4" public-key="786c3b03d6095e0a34f3" images-only="true"
+                        (on-upload-complete)="yourOnCertificateUploadHandler($event)">
+                    </ngx-uploadcare-widget>
+                </div>
+            </div>
+            <div class="col-md-12 well" style="background: #343a4e;">
+                <label style="font-size: medium;">Make payment with either PhonePe / Gpay
+                    / Paypal / NetBanking
+                    <span style="color: red;">(Excluding transaction fee)</span>
+                </label><br>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label style="font-size: medium;">Amount</label>
+                        <div style="background-color: white;font-size: 28px;font-weight:
+                bold;padding-left: 10px;">
+                            ₹ {{amount}}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label style="font-size: medium;">PhonePe / GPay (India)</label>
+                        <div style="background-color: white;font-size:
+                16px;padding-left:10px;font-weight: bold;">
+                            9884220404
+                            <img src="../../assets/images/phonepe.png" width="37px" style="margin-left: 22px;">
+                            <img src="../../assets/images/gpay2.jpg" width="60px" style="margin-left: 22px;">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label style="font-size: medium;">PayPal(International)</label>
+                        <div style="background-color: white;font-size:
+                1em;padding-left:10px;font-weight: bold;padding: 8px;">
+                            <a href="https://paypal.me/icmdaDecEvent" target="blank">https://paypal.me/icmdaDecEvent</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label style="font-size: medium;">NetBanking</label>
+                        <div style="background-color: white;font-size:
+                1em;padding-left:10px;font-weight: bold;padding: 8px;display:grid">
+                            <span>Account No : 20264708218 </span>
+                            <span>Name : Asha Deepa R </span>
+                            <span>IFSC : SBIN0016987 </span>
+                            <span>BANK NAME : State Bank Of India</span>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="form-group">
-        <label style="font-size: medium;">Address</label>
-        <input type="text" class="form-control" id="name" formControlName="address">
-        <div *ngIf="submitted && f.address.errors">
-          <div *ngIf="f.address.errors.required" style="color:red">Address is required</div>
+        <div class="wrapper">
+            <button type="submit" class="btn btn-success" (click)="submitForm()">Submit</button><br><br>
         </div>
-      </div>
-      <div class="form-group">
-        <div class="row show-grid">
-          <div class="col-md-6">
-            <div class="form-group">
-              <label style="font-size: medium;">City</label>
-              <input type="text" class="form-control" id="name" formControlName="city">
-            </div>
-            <div *ngIf="submitted && f.city.errors">
-              <div *ngIf="f.city.errors.required" style="color:red">City is required</div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="form-group">
-              <label style="font-size: medium;">Zipcode/Pincode</label>
-              <input type="text" class="form-control" id="name" formControlName="zipcode" maxlength="6">
-            </div>
-            <div *ngIf="submitted && f.zipcode.errors">
-              <div *ngIf="f.zipcode.errors.required" style="color:red">Zipcode/Pincode is required</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="form-group">
-        <label style="font-size:medium">Please upload passport size photo</label><br>
-        <ngx-uploadcare-widget data-crop="3:4" public-key="786c3b03d6095e0a34f3" images-only="true"
-          (on-upload-complete)="yourOnUploadHandler($event)">
-        </ngx-uploadcare-widget>
-      </div>
-      <div class="wrapper">
-        <button type="submit" class="btn btn-success" (click)="submitForm()">Submit</button><br><br>
-      </div>
-    </form>
-  </div>
-</div>
+    </div>
+</form>
