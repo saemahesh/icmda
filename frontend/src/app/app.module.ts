@@ -34,6 +34,7 @@ import { UpdateOnlineCompetitionComponent } from './update-online-competition/up
 import { OnlineCompetitions2021Component } from './online-competitions2021/online-competitions2021.component';
 import { ModalModule, BsModalService } from 'ngx-bootstrap/modal';
 import { SubmitVideoComponent } from './submit-video/submit-video.component';
+import { UploadWinningsComponent } from './upload-winnings/upload-winnings.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { SubmitVideoComponent } from './submit-video/submit-video.component';
     PrizeDistributionComponent,
     UpdateOnlineCompetitionComponent,
     OnlineCompetitions2021Component,
-    SubmitVideoComponent
+    SubmitVideoComponent,
+    UploadWinningsComponent
   ],
   imports: [
     BrowserModule,

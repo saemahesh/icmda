@@ -1,0 +1,41 @@
+<div class="hs-item image bg print">
+    <div class="container">
+        <form [formGroup]="winningsForm">
+            <div style="text-align: center;color: white;">
+                <h1>Upload Your Winnings</h1><br>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label style="font-size: medium; float: left;">Member Name
+                                <span *ngIf="submitted && f.id.errors?.required" style="color:red">&nbsp;
+                                    Required</span></label>
+                            <input type="text" class="form-control" id="id" formControlName="id">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                       <div class="form-group">
+                        <label style="font-size: medium; float: left;">Member Name
+                            <span *ngIf="submitted && f.name.errors?.required" style="color:red">&nbsp;
+                                Required</span></label>
+                        <input type="text" class="form-control" id="name" formControlName="name">
+                       </div>
+                    </div>
+                    <div class="col-md-6" >
+                        <div class="form-group" style="float: left;">
+                            <label style="font-size:medium">Please upload passport size photo
+                                <span *ngIf="submitted && !winningUrl" style="color:red">&nbsp;
+                                    Required</span> </label><br>
+                            <ngx-uploadcare-widget data-crop="3:4" public-key="786c3b03d6095e0a34f3" images-only="true"
+                                (on-upload-complete)="yourOnUploadHandler($event)">
+                            </ngx-uploadcare-widget>
+                        </div>
+                    </div>
+                </div>
+                <div class="wrapper">
+                    <button type="submit" class="btn btn-success" (click)="submitForm()">Submit</button><br><br>
+                </div>
+            </div>
+            <br>
+        </form>
+    </div>
+</div>

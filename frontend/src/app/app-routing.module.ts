@@ -24,6 +24,7 @@ import { UsersDetailsComponent } from './users-details/users-details.component';
 import { UpdateOnlineCompetitionComponent } from "./update-online-competition/update-online-competition.component";
 import { OnlineCompetitions2021Component } from "./online-competitions2021/online-competitions2021.component";
 import { SubmitVideoComponent } from "./submit-video/submit-video.component";
+import { UploadWinningsComponent } from "./upload-winnings/upload-winnings.component";
 
 const routes: Routes = [
   {
@@ -86,6 +87,10 @@ const routes: Routes = [
   {
     path: 'online-competition-results-2021',
     component: OnlineCompetitions2021Component
+  },
+  {
+    path: 'upload-your-winnings',
+    component: UploadWinningsComponent
   },
   {
     path: 'submit-video',
