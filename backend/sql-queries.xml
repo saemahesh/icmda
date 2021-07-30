@@ -50,6 +50,10 @@
             SET video_link = ? where id = ? and email = ? ]]>;
     </sql-query>
 
+    <sql-query id="insertWinners">
+    <![CDATA[INSERT INTO winners_tbl (user_id, user_name, winning_url) VALUES (?,?,?);]]>;
+    </sql-query>
+
     <sql-query id="getDecEventProfile">
        <![CDATA[select * from dec_event_tbl where id=?]]>
    </sql-query>

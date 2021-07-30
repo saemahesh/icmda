@@ -257,6 +257,22 @@ exports.submitVideo = (data, callback) => {
   );
 };
 
+//Insert Winners
+exports.uploadWinnings = (data, callback)=>{
+    executeQuery.queryForAll(
+      sqlQueryMap['insertWinners'],
+      [
+        data.id, data.name, data.winningurl
+      ], (err,result) =>{
+          if (err) {
+            console.log('err ', err);
+            callback(err, null);
+          } else{
+            callback(null, result);
+          }
+      }
+    )
+}
 
 exports.getDecEventProfile = (id, callback) => {
     executeQuery.queryForAll(

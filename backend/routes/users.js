@@ -74,6 +74,23 @@ router.put("/submit-video", (req, res) => {
     });
 });
 
+//Upload Winners
+router.post("/upload-winnings", (req, res) => {
+    // console.log(' req ', req);
+    UserService.uploadWinnings(req.body, (err, result) => {
+        if (err) {
+            res.json(err);
+        } else {
+            res.json({
+                auth: true,
+                token: result,
+                message: "success"
+            });
+        }
+    });
+});
+
+
 router.post("/send-prize-mail", (req, res) => {
     // console.log(' req ', req);
     req.body.id = req.body.id.trim();
