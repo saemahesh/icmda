@@ -4,11 +4,16 @@
 <!ATTLIST sql-query id CDATA #REQUIRED>
 ]>
 <sql-queries>
-<sql-query id="register">
+<!-- <sql-query id="register">
        <![CDATA[insert into user_tbl (username,art_form,email,mobile,country,address,city,zipcode,date,profile_pic)
                 values (?,?,?,?,?,?,?,?,?,?)]]>
+   </sql-query> -->
+    <sql-query id="register">
+       <![CDATA[insert into user_tbl (username,art_form,email,mobile,country,address,city,zipcode,date,profile_pic,
+                certificateUrl,memberType,artCategory,artSubCategory,aadharNo,membershipType,video1,video2,video3,video4,age)
+                values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);]]>
    </sql-query>
-<!-- <sql-query id="eventRegister">
+<!--<sql-query id="eventRegister">
        <![CDATA[insert into dec_event_tbl (name,teacher_name,teacher_mobile,teacher_email,art_category,art_form,
                                       participation,gender,age,comp_category,identity_card_type,identity_card_number,email,
                                       mobile,address,city,zipcode,date,profile_pic,country,amount,comp_level)
@@ -28,7 +33,7 @@
                 payment_receipt = ?, transaction_id = ?
                 where id = ? and email = ? ]]>;
     </sql-query>
- <sql-query id="getProfiles">
+    <sql-query id="getProfiles">
        <![CDATA[select * from user_tbl]]>
    </sql-query>
 

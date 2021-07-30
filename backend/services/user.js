@@ -8,6 +8,9 @@ exports.register = (data, callback) => {
     let today = moment().toDate();
     console.log('data ', data);
     // var data = ;
+    if (data.formValues.artCategory == "Dance") {
+      data.formValues.artSubCategory = null;
+  }
     executeQuery.queryForAll(
         sqlQueryMap["register"], [
             data.formValues.artistName,
@@ -19,8 +22,18 @@ exports.register = (data, callback) => {
             data.formValues.city,
             data.formValues.zipcode,
             today,
-            data.imageUrl
-
+            data.imageUrl,
+            data.certificateUrl,
+            data.formValues.memberType,
+            data.formValues.artCategory,
+            data.formValues.artSubCategory,
+            data.formValues.aadharNo,
+            data.formValues.membershipType,
+            data.formValues.video1,
+            data.formValues.video2,
+            data.formValues.video3,
+            data.formValues.video4,
+            data.formValues.age
         ],
         (err, result) => {
             if (err) {
