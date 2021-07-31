@@ -6,7 +6,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label style="font-size: medium; float: left;">Member Name
+                            <label style="font-size: medium; float: left;">Participant Id
                                 <span *ngIf="submitted && f.id.errors?.required" style="color:red">&nbsp;
                                     Required</span></label>
                             <input type="text" class="form-control" id="id" formControlName="id">
@@ -14,7 +14,7 @@
                     </div>
                     <div class="col-md-6">
                        <div class="form-group">
-                        <label style="font-size: medium; float: left;">Member Name
+                        <label style="font-size: medium; float: left;">Participant Name
                             <span *ngIf="submitted && f.name.errors?.required" style="color:red">&nbsp;
                                 Required</span></label>
                         <input type="text" class="form-control" id="name" formControlName="name">
@@ -22,7 +22,7 @@
                     </div>
                     <div class="col-md-6" >
                         <div class="form-group" style="float: left;">
-                            <label style="font-size:medium">Please upload passport size photo
+                            <label style="font-size:medium">Please upload photo with certificate & medal
                                 <span *ngIf="submitted && !winningUrl" style="color:red">&nbsp;
                                     Required</span> </label><br>
                             <ngx-uploadcare-widget data-crop="3:4" public-key="786c3b03d6095e0a34f3" images-only="true"
