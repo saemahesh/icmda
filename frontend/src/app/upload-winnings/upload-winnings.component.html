@@ -2,9 +2,17 @@
     <div class="container">
         <form [formGroup]="winningsForm">
             <div style="text-align: center;color: white;">
-                <h1>Upload Your Winnings</h1><br>
+                <h1>UPLOAD WINNER PHOTOS</h1><br>
+                <marquee behavior="scroll" onmouseover="this.stop();" onmouseout="this.start();" direction="left" scrollamount="7" style="color:red;font-size: large;font-weight: bold;">
+                    Upload your photo along with Certificate & Medal (Plain Green background is preffered) 
+                </marquee>
+                
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-12" style="float: left;">
+                        <b style="float: left;">Example : &nbsp;&nbsp;&nbsp;&nbsp;</b>
+                        <img style="float: left;" width="120" height="150" src="https://lh3.googleusercontent.com/proxy/GRPFVwFIIr8nRkbiBKw_f1BScxavhnNtE9s9JZoylaTVI_m8N9wz4yDUrpy1-00-0JFgrsl_Dy1Nxlwa1M0yeNBb6IVKCxmzexsGCNDTxrTRbiPOinbbEiWTatzr0u2ghUOXmihSnEzhZw" alt="">
+                    </div>
+                    <div class="col-md-12">
                         <div class="form-group">
                             <label style="font-size: medium; float: left;">Participant Id
                                 <span *ngIf="submitted && f.id.errors?.required" style="color:red">&nbsp;
@@ -12,7 +20,7 @@
                             <input type="text" class="form-control" id="id" formControlName="id">
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                        <div class="form-group">
                         <label style="font-size: medium; float: left;">Participant Name
                             <span *ngIf="submitted && f.name.errors?.required" style="color:red">&nbsp;
@@ -20,14 +28,16 @@
                         <input type="text" class="form-control" id="name" formControlName="name">
                        </div>
                     </div>
-                    <div class="col-md-6" >
-                        <div class="form-group" style="float: left;">
-                            <label style="font-size:medium">Please upload photo with certificate & medal
+                    <div class="col-md-12" >
+                        <div class="form-group" >
+                            <label style="font-size:medium; float: left;text-align: left;">Please upload your photo with certificate & medal (Plain Green background is preferred) &nbsp;&nbsp;&nbsp;
                                 <span *ngIf="submitted && !winningUrl" style="color:red">&nbsp;
-                                    Required</span> </label><br>
-                            <ngx-uploadcare-widget data-crop="3:4" public-key="786c3b03d6095e0a34f3" images-only="true"
+                                    Required</span> </label>
+                            <div style="float: left;">
+                                <ngx-uploadcare-widget style="float: left;" data-crop="3:4" public-key="786c3b03d6095e0a34f3" images-only="true"
                                 (on-upload-complete)="yourOnUploadHandler($event)">
                             </ngx-uploadcare-widget>
+                            </div>
                         </div>
                     </div>
                 </div>

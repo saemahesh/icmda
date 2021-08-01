@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import Swal from 'sweetalert2';
 import { UploadWinningsService } from './upload-winnings.service';
 
 @Component({
@@ -46,10 +47,14 @@ export class UploadWinningsComponent implements OnInit {
     this.uploadService.postUploadWinnings(object).subscribe((res: any) => {
       if(res?.message){
         if(res.message == 'success'){
-          this.toastrService.success('Yours Winnings are uploaded Sucessfully!', 'Success');
-          this.submitted = false;
-          this.winningsForm.reset();
-          window.location.reload();
+          Swal.fire({
+            icon: "success",
+            title:"You have successfully submitted your photo",
+            showConfirmButton: true,
+          }).then((suuess) => {
+            this.winningsForm.reset();
+            window.location.reload();
+          });
         } else if(res.message == 'Not Found'){
           this.toastrService.error('Sorry! Your ID not found', 'Error')
         } else {
