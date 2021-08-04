@@ -66,7 +66,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <div class="form-group">
-                        <label style="font-size: medium;">Mobile Number
+                        <label style="font-size: medium;">Whatsapp Mobile Number (Including Country Code)
                             <span *ngIf="submitted && f.mobileNumber.errors?.required" style="color:red">&nbsp;
                                 Required</span></label>
                         <input type="text" class="form-control" id="name" formControlName="mobileNumber">
@@ -99,9 +99,7 @@
             </div>
             <div class="col-md-6">
                 <div class="form-group">
-                    <label style="font-size: medium;">Aadhar Number
-                        <span *ngIf="submitted && f.aadharNo.errors?.required" style="color:red">&nbsp;
-                            Required</span></label>
+                    <label style="font-size: medium;">Aadhar Number</label>
                     <input type="text" class="form-control" id="name" formControlName="aadharNo" maxlength="12">
                 </div>
             </div>
@@ -134,12 +132,18 @@
                 <textarea type="text" class="form-control" id="video4" formControlName="video1"></textarea>
             </div>
 
-            <div class="col-md-12">
+            <div class="col-md-6">
                 <div class="form-group">
                     <label style="font-size: medium;">Address
                         <span *ngIf="submitted && f.address.errors?.required" style="color:red">&nbsp;
                             Required</span></label>
                     <textarea type="text" class="form-control" id="name" formControlName="address"></textarea>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label style="font-size: medium;">About Yourself</label>
+                    <textarea type="text" class="form-control" id="name" formControlName="aboutYourSelf"></textarea>
                 </div>
             </div>
             <div class="col-md-4">
@@ -180,6 +184,16 @@
                     <label style="font-size:medium">Please upload your certificate </label><br>
                     <ngx-uploadcare-widget data-crop="3:4" public-key="786c3b03d6095e0a34f3" images-only="true"
                         (on-upload-complete)="yourOnCertificateUploadHandler($event)">
+                    </ngx-uploadcare-widget>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label style="font-size:medium">Please upload your payment receipt
+                        <span *ngIf="submitted && !paymentreceipt" style="color:red">&nbsp;
+                            Required</span>  </label><br>
+                    <ngx-uploadcare-widget data-crop="3:4" public-key="786c3b03d6095e0a34f3" images-only="true"
+                        (on-upload-complete)="yourOnPaymentReceipt($event)">
                     </ngx-uploadcare-widget>
                 </div>
             </div>

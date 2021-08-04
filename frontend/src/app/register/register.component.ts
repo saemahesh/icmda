@@ -59,6 +59,7 @@ export class RegisterComponent implements OnInit {
   submitted = false;
   selectedValue: any;
   certificateSelected: any;
+  paymentreceipt: any;
   memberTypeValue: boolean = false;
   day: any;
   age: string;
@@ -87,8 +88,9 @@ export class RegisterComponent implements OnInit {
       city: ['', Validators.required],
       zipcode: ['', Validators.required],
       artSubCategory: ["", Validators.required],
-      aadharNo: ["", [Validators.required]],
+      aadharNo: [""],
       membershipType: ["", Validators.required],
+      aboutYourSelf: [""],
       video1: [""],
       video2: [""],
       video3: [""],
@@ -115,12 +117,13 @@ export class RegisterComponent implements OnInit {
     if (this.day && this.month && this.year) {
       this.age = this.day + '-' + this.month + '-' +  this.year;
     }
-    if (this.registrationForm.invalid || !this.selectedValue) {
+    if (this.registrationForm.invalid || !this.selectedValue || !this.certificateSelected) {
       return;
     }
     const object = {
       imageUrl: this.selectedValue,
       certificateUrl : this.certificateSelected,
+      paymentReceipt : this.paymentreceipt,
       formValues: this.registrationForm.value
     }
     object.formValues['age'] = this.age;
@@ -158,6 +161,10 @@ export class RegisterComponent implements OnInit {
 
   yourOnCertificateUploadHandler(event) {
     this.certificateSelected = event.cdnUrl;
+  }
+
+  yourOnPaymentReceipt(event){
+    this.paymentreceipt = event.cdnUrl;
   }
 
   onChangeCat(cat_id: number) {

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import Swal from 'sweetalert2';
 import { UploadWinningsService } from './upload-winnings.service';
 
 @Component({
@@ -14,6 +16,7 @@ export class UploadWinningsComponent implements OnInit {
   submitted: boolean = false;
   constructor(private readonly fb: FormBuilder,
               private readonly uploadService: UploadWinningsService,
+              private router: Router,
               private toastrService: ToastrService) { }
 
   ngOnInit(): void {
@@ -43,12 +46,19 @@ export class UploadWinningsComponent implements OnInit {
     }
     this.uploadService.postUploadWinnings(object).subscribe((res: any) => {
       if(res?.message){
-        if(res.message == 'Success'){
-          this.toastrService.success('Yours Winnings are uploaded Sucessfully!', 'Success');
+        if(res.message == 'success'){
+          Swal.fire({
+            icon: "success",
+            title:"You have successfully submitted your photo",
+            showConfirmButton: true,
+          }).then((suuess) => {
+            this.winningsForm.reset();
+            window.location.reload();
+          });
         } else if(res.message == 'Not Found'){
-          this.toastrService.success('Sorry! Your ID not found', 'Error')
+          this.toastrService.error('Sorry! Your ID not found', 'Error')
         } else {
-          this.toastrService.success('Something Went Wrong!')
+          this.toastrService.error('Something Went Wrong!')
         }
       }
     })
