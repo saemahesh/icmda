@@ -10,8 +10,8 @@
    </sql-query> -->
     <sql-query id="register">
        <![CDATA[insert into user_tbl (username,art_form,email,mobile,country,address,city,zipcode,date,profile_pic,
-                certificateUrl,memberType,artCategory,artSubCategory,aadharNo,membershipType,video1,video2,video3,video4,age)
-                values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);]]>
+                certificateUrl,memberType,artCategory,artSubCategory,aadharNo,membershipType,video1,video2,video3,video4,age,aboutYourself)
+                values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);]]>
    </sql-query>
 <!--<sql-query id="eventRegister">
        <![CDATA[insert into dec_event_tbl (name,teacher_name,teacher_mobile,teacher_email,art_category,art_form,

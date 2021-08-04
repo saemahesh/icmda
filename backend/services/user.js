@@ -33,7 +33,8 @@ exports.register = (data, callback) => {
             data.formValues.video2,
             data.formValues.video3,
             data.formValues.video4,
-            data.formValues.age
+            data.formValues.age,
+            data.formValues.aboutYourself
         ],
         (err, result) => {
             if (err) {
