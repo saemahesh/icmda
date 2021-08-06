@@ -117,7 +117,7 @@ export class RegisterComponent implements OnInit {
     if (this.day && this.month && this.year) {
       this.age = this.day + '-' + this.month + '-' +  this.year;
     }
-    if (this.registrationForm.invalid || !this.selectedValue || !this.certificateSelected) {
+    if (this.registrationForm.invalid || !this.selectedValue || !this.paymentreceipt) {
       return;
     }
     const object = {
