@@ -657,6 +657,16 @@ exports.sendEventMail = (mail_data, callback) => {
       <td>Amount to pay</td>
       <td>${data.amount} INR (Excluding transaction fee)</td>
     </tr>
+
+    <tr>
+      <td>Transaction ID</td>
+      <td>${data.transaction_id}</td>
+    </tr>
+
+    <tr>
+      <td>Receipt</td>
+      <td><img src="${data.payment_receipt}" width="120px" height="150px"></td>
+    </tr>
   </table>
   
      <div style="margin:30px 0;display:grid">
@@ -1007,6 +1017,16 @@ exports.sendEventUpdateMail = (mail_data, callback) => {
     <tr>
       <td>Amount to pay</td>
       <td>${data.amount} INR (Excluding transaction fee)</td>
+    </tr>
+
+    <tr>
+      <td>Transaction ID</td>
+      <td>${data.transaction_id}</td>
+    </tr>
+
+    <tr>
+      <td>Receipt</td>
+      <td><img src="${data.payment_receipt}" width="120px" height="150px"></td>
     </tr>
   </table>
   
