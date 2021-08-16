@@ -243,6 +243,8 @@ exports.getRegistrationProfiles = (callback) => {
 
 //July2021 Competition Registeration
 exports.getNewRegistrationProfiles = (data, callback) => {
+  let newId = data.id.split('-');
+  data.id = newId[1];
     executeQuery.queryForAll(
         sqlQueryMap["getNewRegistrationProfiles"], [data.id, data.email],
         (err, result) => {
@@ -250,6 +252,7 @@ exports.getNewRegistrationProfiles = (data, callback) => {
                 console.log('err ', err);
                 callback(err, null);
             } else {
+                console.log('result ', result);
                 callback(null, result);
             }
         }
