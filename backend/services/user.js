@@ -378,6 +378,7 @@ exports.sendEventMail = (mail_data, callback) => {
     data = mail_data.formValues;
     data.imageUrl = mail_data.imageUrl;
     data.amount = mail_data.amount;
+    data.payment_receipt = mail_data.payment_receipt;
     data.guidelines_url = 'http://icmda.co.in/guidelines';
 
 
@@ -739,6 +740,7 @@ exports.sendEventUpdateMail = (mail_data, callback) => {
     data = mail_data.formValues;
     data.imageUrl = mail_data.imageUrl;
     data.amount = mail_data.amount;
+    data.payment_receipt = mail_data.payment_receipt;
     data.guidelines_url = 'http://icmda.co.in/guidelines';
 
 
