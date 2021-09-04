@@ -1,0 +1,80 @@
+.hs-item {
+    /* width: auto; */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(https://storage.needpix.com/rsynced_images/background-2203989_1280.jpg);
+}
+
+form {
+    padding-top: 1%;
+    padding-left: 106px;
+    padding-right: 106px;
+    background-color: black;
+    opacity: 0.8;
+    margin-top: 70px;
+}
+
+label {
+    color: white;
+}
+
+button {
+    background-color: antiquewhite;
+    color: indigo;
+    padding: 8px 20px;
+    font-weight: bold;
+    font-size: 13px;
+    width: 100%;
+}
+
+input:not([type]),
+input[type="text"]:not(.browser-default),
+input[type="password"]:not(.browser-default),
+input[type="email"]:not(.browser-default),
+
+/* input[type="url"]:not(.browser-default), */
+
+textarea.materialize-textarea {
+    font-size: 1.5rem;
+    padding-left: 10px;
+}
+
+input {
+    background: white !important;
+    color: black !important;
+}
+
+.details {
+    margin: 10px 0px;
+    padding: 15px 15px 0px 15px;
+}
+
+.prize {
+    margin-bottom: 0px !important;
+}
+
+@media screen and (max-width: 600px) {
+    .container .hs-item {
+        width: 100%;
+        margin-top: 0;
+    }
+    form {
+        padding-left: 4%;
+        padding-right: 7%;
+        background-color: black;
+        opacity: 0.8;
+        margin-top: 35%;
+        margin-bottom: 13%;
+    }
+    .hs-item {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-image: url(https://storage.needpix.com/rsynced_images/background-2203989_1280.jpg);
+    }
+}
+
+.close {
+    width: auto;
+    background: black;
+}
+

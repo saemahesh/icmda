@@ -1,0 +1,77 @@
+<div class="hs-item image bg print">
+
+    <div class="container">
+
+        <form #prizeForm="ngForm"><br>
+            <!-- <marquee behavior="scroll" onmouseover="this.stop();" onmouseout="this.start();" direction="left" scrollamount="7" style="color:red;font-size: large;font-weight: bold;">
+                Prize distribution event will be conducted at Kuchipudi Kalakshetram on 4th April .
+                <a href="/kuchipudi-event" target="blank">Click here</a> to know more about it.
+            </marquee> -->
+            <h1 style="text-align: center;color: white;">Prize Distribution</h1>
+            <div class="row prize">
+                <div class="col">
+                    <div class="form-group">
+                        <!-- <span *ngIf="regIdmessage">{{regIdmessage}}</span> -->
+                        <label style="font-size: medium;">* Reg Id</label> <span *ngIf="regid.invalid && (regid.touched ||
+                            prizeForm.submitted)" style="color:red"> is
+                            required</span>
+                        <input type="text" class="form-control" name="regId" [(ngModel)]="model.regId" #regid="ngModel" required>
+
+                    </div>
+                </div>
+                <div class="col details">
+                    <button type="submit" class="btn btn-success" (click)="getDetails()">Get Details</button>
+                </div>
+
+            </div>
+            <div *ngIf="getdetailsShow">
+                <div class="form-group">
+                    <label style="font-size: medium;">* Name</label>
+                    <input type="text" class="form-control" id="regId" name="name" [(ngModel)]="model.name" #regname="ngModel" required disabled>
+
+                </div>
+                <div class="form-group">
+                    <label style="font-size: medium;">* Name On Certificate</label>
+                    <span *ngIf="regcertificate_name.invalid &&
+                        (regcertificate_name.touched || prizeForm.submitted)" style="color:red"> is
+                        required</span>
+                    <input type="text" class="form-control" id="regId" name="certificate_name" [(ngModel)]="model.certificate_name" #regcertificate_name="ngModel" required>
+
+                </div>
+                <div class="form-group">
+                    <label style="font-size: medium;">* Are you attending the
+                        festival to collect prize/certificate
+                        ?</label> <span *ngIf="attendencedata.invalid && (attendencedata.touched
+                        || prizeForm.submitted)" style="color:red"> is
+                        required</span>
+                    <select class="form-control" name="attendence" [(ngModel)]="model.attendence" #attendencedata="ngModel" (change)="changedetails($event)" placeholder="Select attending the festival to collect
+                        prize/certificate" required>
+                        <option value="" selected>Select attending the festival
+                            to collect prize/certificate
+                        </option>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+
+                </div>
+                <div *ngIf="address">
+                    <div class="form-group">
+                        <label style="font-size: medium;">* Enter Delivery
+                            address to receive prize/certificate</label>
+                        <span *ngIf="regaddress.invalid && (regaddress.touched
+                            || prizeForm.submitted)" style="color:red">
+                            is
+                            required</span>
+                        <textarea type="text" class="form-control" name="deliveryaddress" rows="6" [(ngModel)]="model.deliveryaddress" #regaddress="ngModel" required></textarea>
+
+                    </div>
+                </div>
+
+                <div class="wrapper">
+                    <button type="submit" class="btn btn-success" (click)="submit(prizeForm)">Submit</button><br><br>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>

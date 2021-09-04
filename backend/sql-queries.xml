@@ -4,19 +4,36 @@
 <!ATTLIST sql-query id CDATA #REQUIRED>
 ]>
 <sql-queries>
-<sql-query id="register">
+<!-- <sql-query id="register">
        <![CDATA[insert into user_tbl (username,art_form,email,mobile,country,address,city,zipcode,date,profile_pic)
                 values (?,?,?,?,?,?,?,?,?,?)]]>
+   </sql-query> -->
+    <sql-query id="register">
+       <![CDATA[insert into user_tbl (username,art_form,email,mobile,country,address,city,zipcode,date,profile_pic,
+                certificateUrl,memberType,artCategory,artSubCategory,aadharNo,membershipType,video1,video2,video3,video4,age,aboutYourself)
+                values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);]]>
    </sql-query>
-<sql-query id="eventRegister">
+<!--<sql-query id="eventRegister">
        <![CDATA[insert into dec_event_tbl (name,teacher_name,teacher_mobile,teacher_email,art_category,art_form,
                                       participation,gender,age,comp_category,identity_card_type,identity_card_number,email,
                                       mobile,address,city,zipcode,date,profile_pic,country,amount,comp_level)
                 values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)]]>
-   </sql-query>
-
-
- <sql-query id="getProfiles">
+   </sql-query> -->
+    <sql-query id="eventRegister">
+    <![CDATA[INSERT INTO season2_competition_tbl (name,amount,teacher_name,teacher_mobile,teacher_email,
+                                                art_category,art_sub_category,art_form,participation_category,gender,age,email,
+                                                mobile,address,city,zipcode,date,profile_pic,country,payment_receipt,transaction_id)
+                    VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)]]>;
+    </sql-query>
+    <sql-query id="updateEventRegister">
+    <![CDATA[UPDATE season2_competition_tbl 
+            SET name = ?, amount = ?, teacher_name = ?, teacher_mobile = ?, teacher_email = ?, art_category = ?,
+                art_sub_category = ?, art_form = ?, participation_category = ?, gender = ?, age = ?,
+                mobile = ?, address = ?, city = ?, zipcode = ?, date = ?, profile_pic = ?, country = ?, 
+                payment_receipt = ?, transaction_id = ?
+                where id = ? and email = ? ]]>;
+    </sql-query>
+    <sql-query id="getProfiles">
        <![CDATA[select * from user_tbl]]>
    </sql-query>
 
@@ -24,10 +41,89 @@
        <![CDATA[select * from dec_event_tbl]]>
    </sql-query>
 
+   <sql-query id="getNewRegistrationProfiles">
+       <![CDATA[SELECT id, name, video_link as videoLink,amount_paid as amountPaid, amount,
+                    art_category as artCategory, art_form as artForm, art_sub_category as artSubCategory,participation_category as participationCategory,
+                    gender, age, email, mobile as mobileNumber, address, country, city, zipcode,
+                    teacher_name as teacherName, teacher_mobile as teacherNumber, teacher_email as teacherEmail,
+                    profile_pic as imageUrl, payment_receipt, transaction_id
+	                FROM season2_competition_tbl where id = ? and email = ?;]]>]
+   </sql-query>
+
+    <sql-query id="submitVideo">
+    <![CDATA[UPDATE season2_competition_tbl 
+            SET video_link = ? where id = ? and email = ? ]]>;
+    </sql-query>
+
+    <sql-query id="insertWinners">
+    <![CDATA[INSERT INTO winners_tbl (user_id, user_name, winning_url) VALUES (?,?,?);]]>;
+    </sql-query>
+
+    <sql-query id="getDecEventProfile">
+       <![CDATA[select * from dec_event_tbl where id=?]]>
+   </sql-query>
+
    
   <sql-query id="getMember">
        <![CDATA[select * from user_tbl where id =?  ]]>
    </sql-query>
 
+
+   <sql-query id="kuchipudiRegistration">
+       <![CDATA[insert into registration (code,name,email,slot_id,country,coupon,phone_number,creation_date,updation_date)
+                values (?,?,?,?,?,?,?,?,?)]]>
+   </sql-query>
+
+     <sql-query id="insertPaymentHistory">
+       <![CDATA[insert into payment_history (name,phone_number,amount,transaction_id,payment_mode,payment_date,payment_code,occupied,slot_type)
+                values (?,?,?,?,?,?,?,?,?)]]>
+   </sql-query>
+
+     <sql-query id="getAvaliableSlot">
+       <![CDATA[select id,slot_time from slot_tbl where slot_type =? and occupied = 0  ]]>
+   </sql-query>
+
+        <sql-query id="getPaymentHistoryById">
+       <![CDATA[select * from payment_history where payment_code =? and occupied = 0 and slot_type=?  ]]>
+   </sql-query>
+
+           <sql-query id="getAvaliableSlotById">
+       <![CDATA[select * from slot_tbl where id =? and occupied = 0  ]]>
+   </sql-query>
+
+           <sql-query id="updatePaymentHistoryById">
+       <![CDATA[update payment_history set occupied = 1 where payment_code =?  ]]>
+   </sql-query>
+
+    <sql-query id="updateAvaliableSlot">
+       <![CDATA[update slot_tbl set occupied = 1 where id =?  ]]>
+   </sql-query>
+
+   <sql-query id="crossCheckingRegistration">
+       <![CDATA[select * from registration where code =? and coupon = 1  ]]>
+   </sql-query>
+
+   <sql-query id="crossCheckingPaymetHistory">
+       <![CDATA[select * from payment_history where payment_code =? ]]>
+   </sql-query>
+   <sql-query id="getSlotTypes">
+       <![CDATA[SELECT DISTINCT slot_type FROM slot_tbl]]>
+   </sql-query>
+
+      <sql-query id="paymetHistoryList">
+       <![CDATA[select * from payment_history ]]>
+   </sql-query>
+
+    <sql-query id="getDecemberEventById">
+       <![CDATA[select * from dec_event_tbl where id = ?  ]]>
+   </sql-query>
+
+
+    <sql-query id="getDecemberEventById">
+       <![CDATA[select * from dec_event_tbl where id = ?  ]]>
+   </sql-query>
+       <sql-query id="updateDecemberEventById">
+       <![CDATA[ update  dec_event_tbl set attendance = ?,delivery_address = ?,certificate_name = ? where id = ?  ]]>
+   </sql-query>
 
 </sql-queries>

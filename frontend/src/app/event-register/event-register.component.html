@@ -1,77 +1,121 @@
-<form [formGroup]="registrationForm" style="
-    background-image: url(https://www.milapfest.com/wp-content/uploads/2013/09/22.veena_1.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-blend-mode: multiply;
-">
-  <marquee behavior="scroll" onmouseover="this.stop();" onmouseout="this.start();" direction="left" scrollamount="7"
-    style="color:red;font-size: large;font-weight: bold;">
-    Prize distribution event will be conducted at Kuchipudi Kalakshetram on 4th April.
-  </marquee>
-  <div class="row helplines">
-    <div class="col-md-6 col-xs-12">
-      HelpLine (Telugu) : +91 9515417732
+<form [formGroup]="registrationForm" style="background-image:
+  url(https://www.milapfest.com/wp-content/uploads/2013/09/22.veena_1.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-blend-mode: multiply;">
+    <!-- <marquee behavior="scroll" onmouseover="this.stop();" onmouseout="this.start();" direction="left" scrollamount="7" style="color:red;font-size: large;font-weight: bold;">
+        Prize distribution event will be conducted at Kuchipudi Kalakshetram on 21st March .
+    </marquee> -->
+    <div class="row helplines">
+        <div class="col-md-6 col-xs-12">
+            HelpLine (Telugu) : +91 9515417732
+        </div>
+        <div class="col-md-6 col-xs-12">
+            HelpLine (Other Languages) : +91 9840111333
+        </div>
     </div>
-    <div class="col-md-6 col-xs-12">
-      HelpLine (Other Languages) : +91 9840111333
-    </div>
-  </div>
-  <div class="row helplines" style="display: none;">
-    <div class="col-md-6 col-xs-12">
-      <label style="font-size: smaller;"> <a href="https://www.youtube.com/watch?v=qj1plV1fRF8" target="blank"
+    <div class="row helplines" style="display: none;">
+        <div class="col-md-6 col-xs-12">
+            <label style="font-size: smaller;"> <a
+          href="https://www.youtube.com/watch?v=qj1plV1fRF8" target="blank"
           style="color: red;">Click here</a> to know how to register</label>
+        </div>
+        <div class="col-md-6 col-xs-12">
+            <label style="font-size: smaller;"> <a
+          href="https://www.youtube.com/watch?v=_pcqR9A3Ut0" target="blank"
+          style="color: red;">Click here</a> to know how to send video & payment
+        receipt</label>
+        </div>
     </div>
-    <div class="col-md-6 col-xs-12">
-      <label style="font-size: smaller;"> <a href="https://www.youtube.com/watch?v=_pcqR9A3Ut0" target="blank"
-          style="color: red;">Click here</a> to know how to send video & payment receipt</label>
-    </div>
-  </div>
 
-  <div class="row helplines">
-    <div class="col-md-6 col-xs-12">
-      <label style="font-size: medium;"> <a href="/guidelines" target="blank" style="color: red;">Click here</a> for
+    <div class="row helplines">
+        <div class="col-md-6 col-xs-12">
+            <label style="font-size: medium;"> <a href="/guidelines" target="blank"
+          style="color: red;">Click here</a> for
         Guidelines</label>
-    </div>
-    <div class="col-md-6 col-xs-12">
-      <label style="font-size: medium;"> <a href="http://t.me/s/icmdachennai" target="blank" style="color: red;">Click
+        </div>
+        <div class="col-md-6 col-xs-12">
+            <label style="font-size: medium;"> <a href="http://t.me/s/icmdachennai"
+          target="blank" style="color: red;">Click
           here</a> to Join our Telegram channel for latest updates
         <span class="label label-default blinking">New</span>
       </label>
+        </div>
     </div>
-  </div>
 
 
-  <h1 style="text-align: center;color: white;margin-top:20px">Online Competition Dec 2020-21 Results</h1>
-  <h5 style="text-align: center;color: white;margin-top:20px;color:#46ff25">( State, National, International - Levels )
-  </h5>
+    <h1 style="text-align: center;color: white;margin-top:20px">Online Competition Dec 2020-21 Results</h1>
+    <h5 style="text-align: center;color: white;margin-top:20px;color:#46ff25">( State, National, International - Levels )
+    </h5>
 
-  <div style="display: none;">
-    <div class="col-md-12">
-      <div class="form-group">
-        <label style="font-size: medium;">Participant Name<span style="color: red;">*</span> <span
+    <div *ngIf="displayForm">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label style="font-size: medium;">Participant Name<span style="color:
+            red;">*</span> <span
             *ngIf="submitted && f.name.errors">
             <span *ngIf="f.name.errors.required" style="color:red">Required</span>
           </span></label>
-        <input type="text" class="form-control" id="name" formControlName="name">
+                <input type="text" class="form-control" id="name" formControlName="name">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label style="font-size: medium;">Date of Birth(age)<span
+            style="color:
+            red;">*</span> <span
+            *ngIf="submitted && f.age.errors" class="invalid-feedback">
+            <span *ngIf="f.age.errors.required" style="color:red">
+              Required</span> </span>
+        </label>
+                <div class="form-inline dob" style="display: flex;">
+                    <select class="form-control" id="sel2" (change)="daychnage($event.target.value)">
+            <option value="" disabled selected>Day</option>
+            <option *ngIf="type === 'update'" selected>{{day}}</option>
+            <option *ngFor="let dMdl of dayModel"
+              value="{{dMdl}}">{{dMdl}}</option>
+          </select>
+                    <select class="form-control" id="sel1" (change)="monthChange($event.target.value)">
+            <option value="" disabled selected>Month</option>
+            <option *ngIf="type === 'update'" selected>{{month}}</option>
+            <option *ngFor="let mnMdl of monthModel" value="{{mnMdl.name}}">{{mnMdl.name}}</option>
+          </select>
 
-      </div>
-    </div>
-    <div class="col-md-12">
-      <div class="form-group">
-        <label style="font-size: medium;">Competition Type<span style="color: red;">*</span> <span
+                    <select class="form-control" id="sel3" (change)="yearChange($event.target.value)" formControlName="age">
+            <option value="" disabled selected>Year</option>
+            <option *ngFor="let yMdl of yearModel" value="{{yMdl}}">{{yMdl}}</option>
+          </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <!-- <div class="col-md-6">
+                <div class="form-group">
+                    <label style="font-size: medium;">Participant Name<span style="color:
+              red;">*</span> <span
+              *ngIf="submitted && f.name.errors">
+              <span *ngIf="f.name.errors.required" style="color:red">Required</span>
+            </span></label>
+                    <input type="text" class="form-control" id="name" formControlName="name">
+                </div>
+            </div> -->
+        </div>
+        <!-- <div class="col-md-12">
+            <div class="form-group">
+                <label style="font-size: medium;">Competition Type<span style="color: red;">*</span> <span
             *ngIf="submitted && f.compType.errors">
             <span *ngIf="f.compType.errors.required" style="color:red">Required</span>
           </span></label>
-        <div class="form-group">
-          <select class="form-control" id="competition" formControlName="compType">
+                <div class="form-group">
+                    <select class="form-control" id="competition" formControlName="compType">
             <option value="" disabled selected>Select your choice</option>
             <option *ngFor="let ac of compCat" value="{{ac.name}}">{{ac.name}}</option>
           </select>
-        </div>
+                </div>
 
-      </div>
-    </div>
-    <!-- <div class="col-md-12">
+            </div>
+        </div> -->
+        <!-- <div class="col-md-12">
     <div class="form-group" *ngIf="showGroup">
       <label style="font-size: medium;">Group Name<span style="color: red;">*</span></label>
       <input type="text" class="form-control" id="name" formControlName="groupName">
@@ -82,136 +126,105 @@
       </span>
     </div>
   </div> -->
-    <div class="col-md-6">
-      <div class="form-group">
-        <label style="font-size: medium;">Art Category<span style="color: red;">*</span> <span
+        <div class="col-md-6">
+            <div class="form-group">
+                <label style="font-size: medium;">Art Category<span style="color: red;">*</span>
+          <span
             *ngIf="submitted && f.artCategory.errors">
             <span *ngIf="f.artCategory.errors.required" style="color:red">Required</span>
           </span></label>
-        <div class="form-group">
-          <select class="form-control" id="power" formControlName="artCategory"
-            (change)="onChangeCat($event.target.value)" (change)="onChangePatCat($event.target.value)">
+                <div class="form-group">
+                    <select class="form-control" id="power" formControlName="artCategory" (change)="onChangeCat($event.target.value)" (change)="onChangePatCat($event.target.value)">
             <option value="" disabled selected>Select your choice</option>
-            <option *ngFor="let ac of artCategory" value="{{ac.id}}">{{ac.cat}}</option>
+            <option *ngFor="let ac of artCategory" value="{{ac.cat}}">{{ac.cat}}</option>
           </select>
+                </div>
+            </div>
         </div>
-      </div>
 
+        <div class="col-md-6" *ngIf="selectArtFormCategory">
+            <div class="form-group">
+                <label style="font-size: medium;">Art Sub-Category<span style="color:
+            red;">*</span> <span
+            *ngIf="submitted && f.artSubCategory.errors">
+          </span><span *ngIf="f.artSubCategory.errors?.required"
+            style="color:red">Required</span></label>
+                <div class="form-group">
+                    <select class="form-control" id="power" formControlName="artSubCategory" (change)="changeArtSubCat($event.target.value)">
+            <option value="" disabled selected>Select your choice</option>
+            <option *ngFor="let music of musicSubCat" value="{{music.cat}}">{{music.cat}}</option>
+          </select>
+                </div>
+            </div>
+        </div>
 
-    </div>
-    <div class="col-md-6">
-
-      <div class="form-group">
-        <label style="font-size: medium;">Art Form<span style="color: red;">*</span> <span
+        <div class="col-md-6" *ngIf="openArtForm">
+            <div class="form-group">
+                <label style="font-size: medium;">Art Form<span style="color: red;">*</span>
+          <span
             *ngIf="submitted && f.artForm.errors">
-            <span *ngIf="f.artForm.errors.required" style="color:red">Required</span>
+            <span *ngIf="f.artForm.errors?.required" style="color:red">Required</span>
           </span></label>
-        <div class="form-group">
-          <select class="form-control" id="power" formControlName="artForm">
+                <div class="form-group">
+                    <select class="form-control" id="power" formControlName="artForm">
             <option value="" disabled selected>Select your choice</option>
             <option *ngFor="let music of diffCat">{{music.name}}</option>
           </select>
+                </div>
+            </div>
         </div>
-
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="form-group">
-        <label style="font-size: medium;">Gender<span style="color: red;">*</span> <span
+        <div class="col-md-6">
+            <div class="form-group">
+                <label style="font-size: medium;">Gender<span style="color: red;">*</span>
+          <span
             *ngIf="submitted && f.gender.errors">
             <span *ngIf="f.gender.errors.required" style="color:red">Required</span>
           </span></label>
-        <div class="form-group">
-          <select class="form-control" id="power" formControlName="gender">
+                <div class="form-group">
+                    <select class="form-control" id="power" formControlName="gender">
             <option value="" disabled selected>Select your choice</option>
             <option *ngFor="let ac of genderList" value="{{ac.name}}">{{ac.name}}</option>
           </select>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label style="font-size: medium;">Participation Category<span
+            style="color: red;">*</span> <span
+            *ngIf="submitted && f.participationCategory.errors">
+            <span *ngIf="f.participationCategory.errors.required"
+              style="color:red">Required</span>
+          </span></label>
+                <div class="form-group">
+                    <select class="form-control" id="power" formControlName="participationCategory" (change)="onChangeCompLevel($event.target.value)">
+            <option value="" disabled selected>Select your choice</option>
+            {{showLevel}}
+            <option *ngFor="let sl of patCat" value="{{sl.name}}">{{sl.name}}</option>
+          </select>
+                </div>
+            </div>
+
+
         </div>
 
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="form-group">
-        <label style="font-size: medium;">Date of Birth(age)<span style="color: red;">*</span> <span
-            *ngIf="submitted && f.age.errors" class="invalid-feedback">
-            <span *ngIf="f.age.errors.required" style="color:red">
-              Required</span> </span>
-        </label>
-        <div class="form-inline dob" style="display: flex;">
-          <select class="form-control" id="sel2" (change)="daychnage($event.target.value)">
-            <option value="" disabled selected>Day</option>
-            <option *ngFor="let dMdl of dayModel" value="{{dMdl}}">{{dMdl}}</option>
-          </select>
-          <select class="form-control" id="sel1" (change)="monthChange($event.target.value)">
-            <option value="" disabled selected>Month</option>
-            <option *ngFor="let mnMdl of monthModel" value="{{mnMdl.name}}">{{mnMdl.name}}</option>
-          </select>
-
-          <select class="form-control" id="sel3" (change)="yearChange($event.target.value)" formControlName="age">
-            <option value="" disabled selected>Year</option>
-            <option *ngFor="let yMdl of yearModel" value="{{yMdl}}">{{yMdl}}</option>
-
-          </select>
-        </div>
-        <!-- <div class="container">
-<div class="row">
-        <select class="form-control"  id="dob"  formControlName="age">
-          <option value="" disabled selected>Day</option>
-          <option *ngFor="let level of competitionLevel" value="{{level.name}}"*ngFor="let level of competitionLevel" value="{{level.name}}">{{level.name}}</option>
-        </select>
-      </div>
-      <div class="row">
-
-        <select class="form-control"  id="dob"  formControlName="age">
-          <option value="" disabled selected>Month</option>
-          <option *ngFor="let level of competitionLevel" value="{{level.name}}">{{level.name}}</option>
-        </select>
-      </div>
-      <div class="row">
-
-        <select class="form-control"  id="dob"  formControlName="age">
-          <option value="" disabled selected>Year</option>
-          <option *ngFor="let level of competitionLevel" value="{{level.name}}">{{level.name}}</option>
-        </select>
-      </div> -->
-        <!-- <input type="date" class="form-control" id="dob"  formControlName="age"
-      (change)="dobChange($event.target.value)" style="color: white;"> -->
-        <!-- </div> -->
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="form-group">
-        <label style="font-size: medium;">Competition Level<span style="color: red;">*</span> <span
+        <!-- <div class="col-md-6">
+            <div class="form-group">
+                <label style="font-size: medium;">Competition Level<span style="color: red;">*</span> <span
             *ngIf="submitted && f.compLevel.errors">
             <span *ngIf="f.compLevel.errors.required" style="color:red">Required</span>
           </span></label>
-        <div class="form-group">
-          <select class="form-control" id="level" formControlName="compLevel">
+                <div class="form-group">
+                    <select class="form-control" id="level" formControlName="compLevel">
             <option value="" disabled selected>Select your choice</option>
             <option *ngFor="let level of competitionLevel" value="{{level.name}}">{{level.name}}</option>
           </select>
-        </div>
+                </div>
 
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="form-group">
-        <label style="font-size: medium;">Participation Category<span style="color: red;">*</span> <span
-            *ngIf="submitted && f.cLevel.errors">
-            <span *ngIf="f.cLevel.errors.required" style="color:red">Required</span>
-          </span></label>
-        <div class="form-group">
-          <select class="form-control" id="power" formControlName="cLevel"
-            (change)="onChangeCompLevel($event.target.value)">
-            <option value="" disabled selected>Select your choice</option> {{showLevel}}
-            <option *ngFor="let sl of patCat" value="{{sl.id}}">{{sl.name}}</option>
-          </select>
-        </div>
-      </div>
-
-
-    </div>
-    <!-- <div class="col-md-6">
+            </div>
+        </div> -->
+        <!-- <div class="col-md-6">
     <div class="form-group">
       <label style="font-size: medium;">Identity Type<span style="color: red;">*</span> <span *ngIf="submitted && f.identityType.errors">
         <span *ngIf="f.identityType.errors.required" style="color:red">Required</span>
@@ -225,7 +238,7 @@
      
     </div>
   </div> -->
-    <!-- <div class="col-md-6">
+        <!-- <div class="col-md-6">
     <div class="form-group">
       <label style="font-size: medium;">Identity Card Number<span style="color: red;">*</span><span *ngIf="submitted && f.identityNumber.errors" class="invalid-feedback">
         <span *ngIf="f.identityNumber.errors.required" style="color:red">
@@ -236,67 +249,62 @@
       
     </div>
   </div> -->
-    <div class="col-md-4">
+        <div class="col-md-4">
 
-      <div class="form-group">
-        <label style="font-size: medium;">Email<span style="color: red;">*</span> <span
-            *ngIf="submitted && f.email.errors" class="invalid-feedback">
-            <span *ngIf="f.email.errors.required" style="color:red">
-              Required
-            </span>
-            <span *ngIf="f.email.errors.pattern" style="color:red">Invalid Email</span>
-          </span></label>
-        <input type="text" class="form-control" id="name" formControlName="email">
+            <div class="form-group">
+                <label style="font-size: medium;">Email
+          <span style="color: red;">*</span>
+          <span
+            *ngIf="submitted && f.email.errors">
+            <span *ngIf="f.email.errors.required" style="color:red">Required</span>
+            <span *ngIf="f.email.errors.email" style="color: red;">Invalid Email</span>
+          </span>
+        </label>
+                <input type="text" class="form-control" id="name" formControlName="email">
 
-      </div>
-    </div>
-    <div class="col-md-4">
+            </div>
+        </div>
+        <div class="col-md-4">
 
-      <div class="form-group">
-        <label style="font-size: medium;">Mobile Number<span style="color: red;">*</span><span
+            <div class="form-group">
+                <label style="font-size: medium;">WhatsApp Mobile Number<span
+            style="color:
+            red;">*</span><span
             *ngIf="submitted && f.mobileNumber.errors">
             <span *ngIf="f.mobileNumber.errors.required" style="color:red">Required</span>
           </span>
         </label>
-        <input type="number" class="form-control" id="name" formControlName="mobileNumber" maxlength="20">
+                <input type="number" class="form-control" id="name" formControlName="mobileNumber" maxlength="20">
 
-      </div>
-    </div>
+            </div>
+        </div>
 
 
-    <div class="col-md-4">
-      <div class="form-group">
-        <label style="font-size: medium;">Country<span style="color: red;">*</span> <span
+        <div class="col-md-4">
+            <div class="form-group">
+                <label style="font-size: medium;">Country<span style="color: red;">*</span>
+          <span
             *ngIf="submitted && f.country.errors">
             <span *ngIf="f.country.errors.required" style="color:red">Required</span>
           </span></label>
-        <input type="text" class="form-control" id="name" (change)="countryChange($event.target.value)"
-          formControlName="country">
+                <input type="text" class="form-control" id="name" (change)="countryChange($event.target.value)" formControlName="country">
 
-      </div>
-    </div>
+            </div>
+        </div>
 
-    <div class="col-md-4">
-      <div class="form-group">
-        <label style="font-size: medium;">City<span style="color: red;">*</span> <span
+        <div class="col-md-4">
+            <div class="form-group">
+                <label style="font-size: medium;">City<span style="color: red;">*</span>
+          <span
             *ngIf="submitted && f.city.errors">
             <span *ngIf="f.city.errors.required" style="color:red">Required</span>
           </span></label>
-        <input type="text" class="form-control" style="padding-top: 4%;" id="name" formControlName="city">
-      </div>
-    </div>
+                <input type="text" class="form-control" id="name" formControlName="city">
+            </div>
+        </div>
 
-    <div class="col-md-8">
-      <div class="form-group">
-        <label style="font-size: medium;">Address<span style="color: red;">*</span> <span
-            *ngIf="submitted && f.address.errors">
-            <span *ngIf="f.address.errors.required" style="color:red">Required</span>
-          </span></label>
-        <textarea type="text" class="form-control" id="name" formControlName="address">
-      </textarea>
-      </div>
-    </div>
-    <!-- <div class="col-md-4">
+
+        <!-- <div class="col-md-4">
         <div class="form-group">
           <label style="font-size: medium;">Country<span style="color: red;">*</span></label>
           <div class="form-group">
@@ -311,39 +319,66 @@
           <span *ngIf="f.country.errors.required" style="color:red">Country is required</span>
         </span>
       </div> -->
-
-
-    <div class="col-md-4">
-      <div class="form-group">
-        <label style="font-size: medium;">Zipcode/ PinCode<span style="color: red;">*</span> <span
+        <div class="col-md-4">
+            <div class="form-group">
+                <label style="font-size: medium;">Zipcode/ PinCode<span style="color:
+            red;">*</span> <span
             *ngIf="submitted && f.zipcode.errors">
             <span *ngIf="f.zipcode.errors.required" style="color:red">Required</span>
           </span></label>
-        <input type="text" class="form-control" id="name" formControlName="zipcode" maxlength="20">
-      </div>
+                <input type="text" class="form-control" id="name" formControlName="zipcode" maxlength="20">
+            </div>
 
-    </div>
-    <div class="col-md-4">
-      <div class="form-group">
-        <label style="font-size: medium;">Teacher/School Name<span style="color: red;">*</span> <span
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label style="font-size: medium;">Teacher/School Name<span style="color:
+            red;">*</span> <span
             *ngIf="submitted && f.teacherName.errors">
             <span *ngIf="f.teacherName.errors.required" style="color:red">Required</span>
           </span></label>
-        <input type="text" class="form-control" id="name" formControlName="teacherName" maxlength="50">
+                <input type="text" class="form-control" id="name" formControlName="teacherName" maxlength="50">
 
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="form-group">
-        <label style="font-size: medium;">Teacher/School Mobile Number<span style="color: red;">*</span> <span
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label style="font-size: medium;">Teacher/School Mobile Number<span
+            style="color: red;">*</span> <span
             *ngIf="submitted && f.teacherNumber.errors">
             <span *ngIf="f.teacherNumber.errors.required" style="color:red">Required</span>
           </span></label>
-        <input type="number" class="form-control" id="name" formControlName="teacherNumber" maxlength="20">
+                <input type="number" class="form-control" id="name" formControlName="teacherNumber" maxlength="20">
 
-      </div>
-    </div>
-    <!-- <div class="col-md-4">
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label style="font-size: medium;">Transaction ID <span
+            style="color: red;">*</span>
+          <span
+            *ngIf="submitted && f.transaction_id.errors">
+            <span *ngIf="f.transaction_id.errors.required" style="color:red">Required</span>
+            <span *ngIf="f.transaction_id.errors.minlength" style="color: red;">Enter
+              atleast 10 digits</span>
+          </span>
+        </label>
+                <input type="text" class="form-control" id="name" formControlName="transaction_id" maxlength="10">
+
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                <label style="font-size: medium;">Address<span style="color: red;">*</span>
+          <span
+            *ngIf="submitted && f.address.errors">
+            <span *ngIf="f.address.errors.required" style="color:red">Required</span>
+          </span></label>
+                <textarea type="text" class="form-control" id="name" formControlName="address">
+        </textarea>
+            </div>
+        </div>
+        <!-- <div class="col-md-4">
     <div class="form-group">
       <label style="font-size: medium;">Teacher Email<span style="color: red;">*</span>  <span *ngIf="submitted && f.teacherEmail.errors">
         <span *ngIf="f.teacherEmail.errors.required" style="color:red">Required</span>
@@ -352,110 +387,133 @@
     
     </div>
   </div> -->
-    <div class="col-md-6">
-      <div class="form-group">
-        <label style="font-size:medium">Please upload passport size photo<span style="color: red;">*</span><span
-            *ngIf="!selectedValue && submitted" style="color:red">Required</span>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label style="font-size:medium">Please upload passport size photo
+          <span style="color: red;">*</span>
+          <span *ngIf="!selectedValue && submitted" style="color:red">Required</span>
         </label><br>
-        <ngx-uploadcare-widget (on-upload-complete)="yourOnUploadHandler($event)" data-crop="3:4"
-          public-key="786c3b03d6095e0a34f3" images-only="true" (on-upload-complete)="yourOnUploadHandler($event)">
-        </ngx-uploadcare-widget>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="form-group">
-        <label style="color: red;font-size:17px;font-weight: bold;">Please e-mail us, your video link & payment receipt
-          to below e-mail address. If payment receipt is not valid, then you are not allowed to participate in
+                <ngx-uploadcare-widget *ngIf="type == 'add'" (on-upload-complete)="yourOnUploadHandler($event)" data-crop="3:4" public-key="786c3b03d6095e0a34f3" images-only="true" (on-upload-complete)="yourOnUploadHandler($event)">
+                </ngx-uploadcare-widget>
+                <ngx-uploadcare-widget *ngIf="type == 'update'" value="{{selectedValue}}" (on-upload-complete)="yourOnUploadHandler($event)" data-crop="3:4" public-key="786c3b03d6095e0a34f3" images-only="true" (on-upload-complete)="yourOnUploadHandler($event)">
+                </ngx-uploadcare-widget>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label style="font-size:medium">Please upload payment receipt
+          <span style="color: red;">*</span>
+          <span *ngIf="!selectedValue && submitted" style="color:red">Required</span>
+        </label><br>
+                <ngx-uploadcare-widget *ngIf="type == 'add'" (on-upload-complete)="yourOnUploadReceipt($event)" data-crop="3:4" public-key="786c3b03d6095e0a34f3" images-only="true">
+                </ngx-uploadcare-widget>
+                <ngx-uploadcare-widget *ngIf="type == 'update'" value="{{payment_receipt}}" (on-upload-complete)="yourOnUploadReceipt($event)" data-crop="3:4" public-key="786c3b03d6095e0a34f3" images-only="true">
+                </ngx-uploadcare-widget>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label style="color: red;font-size:17px;font-weight: bold;">Please
+          e-mail us, your video link & payment receipt
+          to below e-mail address. If payment receipt is not valid, then you are
+          not allowed to participate in
           competition</label><br>
-        <input type="email" disabled class="form-control" id="name" value="videos@icmda.co.in"
-          style="background-color: white;color: black;font-size: 10px4;font-weight: bold;">
-      </div>
-    </div>
-    <div class=" col-md-12 well" style="background: #343a4e;">
-      <label style="font-size: medium;">Make payment with either PhonePe / Gpay / Paypal / NetBanking
+                <input type="email" disabled class="form-control" id="name" value="videos@icmda.co.in" style="background-color: white;color:
+          black;font-size: 10px4;font-weight: bold;">
+            </div>
+        </div>
+        <div class="col-md-12 well" style="background: #343a4e;">
+            <label style="font-size: medium;">Make payment with either PhonePe / Gpay
+        / Paypal / NetBanking
         <span style="color: red;">(Excluding transaction fee)</span>
       </label><br>
-      <div class="col-md-2">
-        <div class="form-group">
-          <label style="font-size: medium;">Amount</label>
-          <div style="background-color: white;font-size: 28px;font-weight: bold;padding-left: 10px;">
-            ₹ {{amount}}
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="form-group">
-          <label style="font-size: medium;">PhonePe / GPay (India)</label>
-          <div style="background-color: white;font-size: 16px;padding-left:10px;font-weight: bold;">
-            9884220404
-            <img src="../../assets/images/phonepe.png" width="37px" style="margin-left: 22px;">
-            <img src="../../assets/images/gpay2.jpg" width="60px" style="margin-left: 22px;">
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="form-group">
-          <label style="font-size: medium;">PayPal(International)</label>
-          <div style="background-color: white;font-size: 1em;padding-left:10px;font-weight: bold;padding: 8px;">
-            <a href="https://paypal.me/icmdaDecEvent" target="blank">https://paypal.me/icmdaDecEvent</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="form-group">
-          <label style="font-size: medium;">NetBanking</label>
-          <div
-            style="background-color: white;font-size: 1em;padding-left:10px;font-weight: bold;padding: 8px;display:grid">
-            <span>Account No : 20264708218 </span>
-            <span>Name : Asha Deepa R </span>
-            <span>IFSC : SBIN0016987 </span>
-            <span>BANK NAME : State Bank Of India</span>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label style="font-size: medium;">Amount</label>
+                    <div style="background-color: white;font-size: 28px;font-weight:
+            bold;padding-left: 10px;">
+                        ₹ {{amount}}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label style="font-size: medium;">PhonePe / GPay (India)</label>
+                    <div style="background-color: white;font-size:
+            16px;padding-left:10px;font-weight: bold;">
+                        9884220404
+                        <img src="../../assets/images/phonepe.png" width="37px" style="margin-left: 22px;">
+                        <img src="../../assets/images/gpay2.jpg" width="60px" style="margin-left: 22px;">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label style="font-size: medium;">PayPal(International)</label>
+                    <div style="background-color: white;font-size:
+            1em;padding-left:10px;font-weight: bold;padding: 8px;">
+                        <a href="https://paypal.me/icmdaDecEvent" target="blank">https://paypal.me/icmdaDecEvent</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label style="font-size: medium;">NetBanking</label>
+                    <div style="background-color: white;font-size:
+            1em;padding-left:10px;font-weight: bold;padding: 8px;display:grid">
+                        <span>Account No : 20264708218 </span>
+                        <span>Name : Asha Deepa R </span>
+                        <span>IFSC : SBIN0016987 </span>
+                        <span>BANK NAME : State Bank Of India</span>
 
-          </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
-  <div class="row helplines">
-    <div class="col-md-6 col-xs-12">
-      <label style="font-size: medium;"> <a
+    <div class="row helplines">
+        <div class="col-md-6 col-xs-12">
+            <label style="font-size: medium;"> <a
           href="https://docs.google.com/spreadsheets/d/1njNPciTPFuihoj6Wh5jn07ujG4pmZZ4SRBlfmY-54J4/edit#gid=0"
           target="blank" style="color: red;">Click here</a> For Vocal Results</label>
-    </div>
-    <div class="col-md-6 col-xs-12">
-      <label style="font-size: medium;"> <a
+        </div>
+        <div class="col-md-6 col-xs-12">
+            <label style="font-size: medium;"> <a
           href="https://docs.google.com/spreadsheets/d/1t82-6oyHkyksma7QFKP1sV5kj5bGqoeu_2rac8-gFbs/edit#gid=0"
-          target="blank" style="color: red;">Click here</a> For Instruments Results</label>
-    </div>
+          target="blank" style="color: red;">Click here</a> For Instruments
+        Results</label>
+        </div>
 
-    <div class="col-md-6 col-xs-12">
-      <label style="font-size: medium;"> <a
+        <div class="col-md-6 col-xs-12">
+            <label style="font-size: medium;"> <a
           href="https://docs.google.com/spreadsheets/d/1pxVG78ca5MoVdeDLRF9DY3oMipuQm4x-9mobL0O0Q6I/edit#gid=0"
-          target="blank" style="color: red;">Click here</a> For BharataNatyam Results
+          target="blank" style="color: red;">Click here</a> For BharataNatyam
+        Results
       </label>
-    </div>
-    <div class="col-md-6 col-xs-12">
-      <label style="font-size: medium;"> <a
+        </div>
+        <div class="col-md-6 col-xs-12">
+            <label style="font-size: medium;"> <a
           href="https://docs.google.com/spreadsheets/d/1d8c5MbxY9LA0UcU1JP3-TpUaJdvrLHQO5h7yLo0EP44/edit#gid=0"
-          target="blank" style="color: red;">Click here</a> For  Rhythm Results</label>
-    </div>
-    <div class="col-md-6 col-xs-12">
-      <label style="font-size: medium;"> <a
+          target="blank" style="color: red;">Click here</a> For Rhythm Results</label>
+        </div>
+        <div class="col-md-6 col-xs-12">
+            <label style="font-size: medium;"> <a
           href="https://docs.google.com/spreadsheets/d/1ekQfpVvwYci0NfgfoTI9geGr8Aun9kN6sQM7O0Afad4/edit#gid=0"
-          target="blank" style="color: red;">Click here</a> For Kuchipudi Results</label>
-    </div>
-    <div class="col-md-6 col-xs-12">
-      <label style="font-size: medium;"> <a
+          target="blank" style="color: red;">Click here</a> For Kuchipudi
+        Results</label>
+        </div>
+        <div class="col-md-6 col-xs-12">
+            <label style="font-size: medium;"> <a
           href="https://docs.google.com/spreadsheets/d/1SLASR_QlJ1GZVg0LwUcRBb8ZEXoFsa8U-jC2l66AICk/edit?usp=sharing"
-          target="blank" style="color: red;">Click here</a> For 2nd List Results for Kuchipudi & Singapore </label>
+          target="blank" style="color: red;">Click here</a> For 2nd List Results
+        for Kuchipudi & Singapore </label>
+        </div>
     </div>
-  </div>
-  <!-- <img style="display:block;margin:auto;"
+    <!-- <img style="display:block;margin:auto;"
     src="https://kajabi-storefronts-production.global.ssl.fastly.net/kajabi-storefronts-production/themes/1839383/settings_images/ud7uGH32S5KtFpKVYqjL_registerclosed3.png"
     alt=""> -->
-
-
-  <!-- <div class="wrapper">
-        <button type="submit" class="btn btn-success" (click)="submitForm()">Submit</button>
-      </div> -->
+    <div class="wrapper" *ngIf="displayForm">
+        <button *ngIf="type == 'add'" type="submit" class="btn btn-success" (click)="submitForm()">Submit</button>
+        <button *ngIf="type == 'update'" type="submit" class="btn btn-success" (click)="submitForm()">Update</button>
+    </div>
 </form>

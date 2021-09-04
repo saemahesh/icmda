@@ -1,0 +1,61 @@
+<div class="hs-item image bg print">
+    <div class="container">
+        <form>
+            <div style="text-align: center;color: white;">
+                <h1>Online Competition Results 2021</h1><br>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <button type="button" (click)="goNavigate('register')" class="btn
+                            btn-primary">Register</button>&nbsp;
+                    </div>
+                    <div class="col-lg-6">
+                        <button type="button" (click)="open(mymodal,
+                            'updateEvent')" class="btn
+                            btn-primary">Update Application</button>&nbsp;
+                    </div>
+                    <div class="col-lg-6">
+                        <button type="button" (click)="open(mymodal,
+                            'submitVideo')" class="btn
+                            btn-primary">Submit
+                            Video </button>&nbsp;
+                    </div>
+                    <div class="col-lg-6">
+                        <button type="button" class="btn btn-primary">Check
+                            Results</button>&nbsp;
+                    </div>
+                </div>
+            </div>
+            <br>
+        </form>
+    </div>
+</div>
+<ng-template #mymodal>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Enter your ID & Email</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="close()">
+            <span aria-hidden="true">×</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="form-group">
+            <h5 style="font-size: medium;">Registration ID
+                <span style="color: red;">*</span>
+                <span *ngIf="submitted && id == undefined" style="color:red">Required</span>
+            </h5>
+            <input type="text" [(ngModel)]="id" class="form-control" id="regId" />
+        </div>
+        <div class="form-group">
+            <h5 style="font-size: medium;">Email ID
+                <span style="color: red;">*</span>
+                <span *ngIf="submitted && email == undefined" style="color:red">Required</span>
+            </h5>
+            <input type="text" [(ngModel)]="email" class="form-control" id="email" />
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div class="row">
+            <button type="button" style="width:auto" class="btn btn-default" (click)="close()">Close</button>
+            <button type="button" style="width:auto" class="btn btn-default" (click)="submit()">Submit</button>
+        </div>
+    </div>
+</ng-template>
