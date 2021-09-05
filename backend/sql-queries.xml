@@ -68,6 +68,29 @@
        <![CDATA[select * from user_tbl where id =?  ]]>
    </sql-query>
 
+     <sql-query id="getDetailsByEmailId">
+       <![CDATA[select * from season2_competition_tbl where email =?; ]]>
+   </sql-query>
+
+    <sql-query id="getDetailsByFilter">
+       <![CDATA[select * from user_tbl where memberType = ? and city = ? and country = ? and art_form = ?;  ]]>
+   </sql-query>
+
+   <sql-query id="updateDetails">
+       <![CDATA[UPDATE season2_competition_tbl 
+            SET teacher_id = ? where id = ?;  ]]>
+   </sql-query>
+
+    <sql-query id="getMemberDetails">
+       <![CDATA[Select s.name as studentName, s.mobile as studentMobile, s.email as studentEmail
+                from season2_competition_tbl s where id = ?;  ]]>
+   </sql-query>
+
+    <sql-query id="getMembersDetails">
+       <![CDATA[Select s.name as studentName, s.mobile as studentMobile, s.email as studentEmail, 
+                t.username as teacherName, t.mobile as teacherMobile, t.email as teacherEmail 
+                from season2_competition_tbl s inner join user_tbl t on t.id = s.teacher_id where s.id =?;  ]]>
+   </sql-query>
 
    <sql-query id="kuchipudiRegistration">
        <![CDATA[insert into registration (code,name,email,slot_id,country,coupon,phone_number,creation_date,updation_date)
