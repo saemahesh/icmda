@@ -335,10 +335,10 @@ exports.updateDetails = (data, callback) => {
                 }
               }
             });
-            console.log("FInal Respond Sending");
-            callback(null, "Changes Updated");
+            // console.log("FInal Respond Sending");
+            callback(null, "Changes updated successfully");
           }; // asyncParallel closing
-          console.log("FInal Respond Sending");
+          // console.log("FInal Respond Sending");
           callback(null, "No Changes");
         }
       }
