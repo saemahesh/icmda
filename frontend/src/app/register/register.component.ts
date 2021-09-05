@@ -251,4 +251,8 @@ export class RegisterComponent implements OnInit {
       this.amount = 5000;
     }
   }
+
+  memberBenefits(){
+    this.router.navigate(['/member-benefits']);
+  }
 }

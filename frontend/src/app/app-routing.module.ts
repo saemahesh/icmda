@@ -25,6 +25,7 @@ import { UpdateOnlineCompetitionComponent } from "./update-online-competition/up
 import { OnlineCompetitions2021Component } from "./online-competitions2021/online-competitions2021.component";
 import { SubmitVideoComponent } from "./submit-video/submit-video.component";
 import { UploadWinningsComponent } from "./upload-winnings/upload-winnings.component";
+import { MembershipBenefitsComponent } from "./membership-benefits/membership-benefits.component";
 
 const routes: Routes = [
   {
@@ -60,6 +61,10 @@ const routes: Routes = [
   {
     path: 'members-ethics',
     component: MembersEthicsComponent
+  },
+  {
+    path: 'member-benefits',
+    component: MembershipBenefitsComponent
   },
   {
     path: 'support-us',
