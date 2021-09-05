@@ -213,6 +213,19 @@ exports.getMember = (id, callback) => {
     }
 };
 
+//getTable Details
+exports.getTableDetails = (tableName, callback) => {
+  executeQuery.queryForAll(`Select * from ${tableName};`, [], (err, result) => {
+    if (err) {
+      // console.log("ERr", err);
+      callback(err, null);
+    } else {
+      // console.log("result", result);
+      callback(null, result);
+    }
+  });
+};
+
 exports.getProfiles = (addUser, callback) => {
     executeQuery.queryForAll(
         sqlQueryMap["getProfiles"], [],

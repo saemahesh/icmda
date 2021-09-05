@@ -157,6 +157,20 @@ router.get("/get-member/:id", (req, res) => {
     });
 });
 
+//Table Details
+router.get("/getTableDetails/:table", (req, res) => {
+    var tableName = req.params.table;
+    console.log('tableName ', tableName);
+    UserService.getTableDetails(tableName,(err, result) => {
+        if (err) {
+            res.status(500);
+            res.send({ err: "no users found", result: null });
+        } else {
+            res.send(result);
+        }
+    });
+});
+
 router.get("/getRegistrationProfiles", (req, res) => {
     var id = req.params.id;
     console.log('id ', id);
