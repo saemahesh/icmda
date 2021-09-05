@@ -37,7 +37,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css" rel="stylesheet" />
     <style>
         .main-menu li a {
-            /* margin-left: 50px; */
+             margin-left: 15px;;
         }
         
         a {
@@ -75,55 +75,63 @@
 
     <body>
         <header class="header-section clearfix">
-            <a href="/" class="site-logo">
-                <img width="350px" src="./assets/images/new logo.png" alt="">
-            </a>
-
-            <ul class="main-menu menu">
-                <li><a href="/">Home</a></li>
-                <li><a href="#">Organization</a>
-                    <ul class="sub-menu">
-                        <li><a href="/icmda">ICMDA</a></li>
-                        <li><a href="/committee-members">Committee Members</a></li>
-                        <li><a href="/activities">Activities</a></li>
-                        <li><a href="/membership">Membership</a></li>
-                        <li><a href="/members-ethics">Members Ethics</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">Events <span class="label label-default
-                                blinking">New</span> </a>
-                    <ul class="sub-menu" style="width: 320px;">
-                        <!-- <li><a href="/kuchipudi-event">Kuchipudi Festival
+            <div class="row">
+                <div class="col-md-3">
+                    <a href="/" class="site-logo">
+                        <img width="350px" src="./assets/images/new logo.png" alt="">
+                    </a>
+                </div>
+                <div class="col-md-9">
+                    <ul class="main-menu menu">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="#">Organization</a>
+                            <ul class="sub-menu">
+                                <li><a href="/icmda">ICMDA</a></li>
+                                <li><a href="/committee-members">Committee Members</a></li>
+                                <li><a href="/activities">Activities</a></li>
+                                <li><a href="/membership">Membership</a></li>
+                                <li><a href="/members-ethics">Members Ethics</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Events <span class="label label-default
+                                        blinking">New</span> </a>
+                            <ul class="sub-menu" style="width: 320px;">
+                                <!-- <li><a href="/kuchipudi-event">Kuchipudi Festival
+                                            <span class="label label-default blinking">New</span></a>
+                                </li>
+                                <li><a href="/kuchipudi-event-registration">Kuchipudi
+                                            Festival Registration <span
+                                                class="label label-default blinking">New</span></a></li> -->
+                                <li><a href="/competition-registration">Online
+                                            Competition 2020 Results</a>
+                                </li>
+                                <!-- <li><a href="/online-competition-results-2021">Online
+                                            Competition 2021
+                                            </a>
+                                </li> -->
+                                <li><a href="/upload-your-winnings">Upload Winner Photos
                                     <span class="label label-default blinking">New</span></a>
                         </li>
-                        <li><a href="/kuchipudi-event-registration">Kuchipudi
-                                    Festival Registration <span
-                                        class="label label-default blinking">New</span></a></li> -->
-                        <li><a href="/competition-registration">Online
-                                    Competition 2020 Results</a>
+                                <!-- <li><a href="/prize-distribution">Prize Distribution</a></li> -->
+                            </ul>
                         </li>
-                        <!-- <li><a href="/online-competition-results-2021">Online
-                                    Competition 2021
-                                    </a>
-                        </li> -->
-                        <li><a href="/upload-your-winnings">Upload Winner Photos
-                            <span class="label label-default blinking">New</span></a>
-                </li>
-                        <!-- <li><a href="/prize-distribution">Prize Distribution</a></li> -->
+                        <!-- <li><a href="/support-us">Support Us</a></li> <span>|</span> -->
+                        <!-- <li><a href="/support-us">Support Us</a></li> <span>|</span> -->
+                        <li><a href="/register" class="register">Member Register</a></li>
+                        <li><a href="/find-teacher" class="register">Find Teacher</a></li>
+                        <!-- <li><a href="/dashboard">Dashboard</a></li> -->
+                        <li><a href="/contact-us">Contact</a></li>
+                        <li>
+                            <a href="https://icmda.tawk.help/" target="_blank">FAQ
+                                    <span class="label label-default blinking">New</span></a>
+                        </li>
+        
+        
                     </ul>
-                </li>
-                <!-- <li><a href="/support-us">Support Us</a></li> <span>|</span> -->
-                <!-- <li><a href="/support-us">Support Us</a></li> <span>|</span> -->
-                <li><a href="/register" class="register">Member Register</a></li>
-                <!-- <li><a href="/dashboard">Dashboard</a></li> -->
-                <li><a href="/contact-us">Contact</a></li>
-                <li>
-                    <a href="https://icmda.tawk.help/" target="_blank">FAQ
-                            <span class="label label-default blinking">New</span></a>
-                </li>
-
-
-            </ul>
+                </div>
+                
+            </div>
+            
             <div class="slicknav_menu" id="slicknav_menu">
                 <a onclick="openNavPop()" aria-haspopup="true" style="margin-top: -20%;" role="button" tabindex="0" class="slicknav_btn slicknav_collapsed">
                     <span class="slicknav_menutxt">MENU</span>
@@ -164,6 +172,7 @@
                                                 Members</a></li>
                                     <li><a href="/activities">Activities</a></li>
                                     <li><a href="/membership">Membership</a></li>
+                                    <li><a href="/find-teacher">Find Teacher</a></li>
                                     <li><a href="/members-ethics">Members
                                                 Ethics</a></li>
                                     <li><a href="/register">Member

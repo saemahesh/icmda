@@ -26,6 +26,7 @@ export class OnlineCompetitions2021Component implements OnInit {
       this.router.navigate(['/online-competition-results-2021/update'])
     }
   }
+  
 
   open(content, modalType) {
     this.modalType = modalType;

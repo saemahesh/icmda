@@ -25,6 +25,7 @@ import { UpdateOnlineCompetitionComponent } from "./update-online-competition/up
 import { OnlineCompetitions2021Component } from "./online-competitions2021/online-competitions2021.component";
 import { SubmitVideoComponent } from "./submit-video/submit-video.component";
 import { UploadWinningsComponent } from "./upload-winnings/upload-winnings.component";
+import { FindTeacherComponent } from "./find-teacher/find-teacher.component";
 
 const routes: Routes = [
   {
@@ -56,6 +57,10 @@ const routes: Routes = [
   {
     path: 'membership',
     component: MembershipComponent
+  },
+  {
+    path: 'find-teacher',
+    component: FindTeacherComponent
   },
   {
     path: 'members-ethics',
