@@ -9,6 +9,11 @@
     width: 270px;
 }
 
+.header-section{
+    padding-right: 0px;
+    padding-left: inherit;
+}
+
 @media screen and (max-width: 600px) {
     .site-logo img {
         width: 72%;

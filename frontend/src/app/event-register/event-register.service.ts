@@ -22,4 +22,5 @@ export class EventRegisterService {
     return this.httpClient.put(environment.baseUrl + '/submit-video', reqObj);
   }
 
+
 }

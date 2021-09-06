@@ -13,5 +13,9 @@ export class RegisterService {
   postUserDetails(reqObj: any):Observable<any>{
     return this.httpClient.post(environment.baseUrl + '/register', reqObj)
   }
+
+  getMusicDirectoryDetails(){
+    return this.httpClient.get(environment.baseUrl+'/getTableDetails/season2_competition_tbl')
+  }
  
 }

@@ -36,6 +36,7 @@ import { ModalModule, BsModalService } from 'ngx-bootstrap/modal';
 import { SubmitVideoComponent } from './submit-video/submit-video.component';
 import { UploadWinningsComponent } from './upload-winnings/upload-winnings.component';
 import { MembershipBenefitsComponent } from './membership-benefits/membership-benefits.component';
+import { MusicDirectoryComponent } from './music-directory/music-directory.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import { MembershipBenefitsComponent } from './membership-benefits/membership-be
     OnlineCompetitions2021Component,
     SubmitVideoComponent,
     UploadWinningsComponent,
-    MembershipBenefitsComponent
+    MembershipBenefitsComponent,
+    MusicDirectoryComponent
   ],
   imports: [
     BrowserModule,

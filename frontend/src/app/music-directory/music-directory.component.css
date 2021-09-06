@@ -1,0 +1,22 @@
+.table-layout{
+    padding: 1% 7%;
+    background-image: url(https://storage.needpix.com/rsynced_images/background-2203989_1280.jpg);
+}
+h3{
+    color: aliceblue; background-color: black;    padding: 1% 1%; 
+    margin-top: 3px !important;
+    margin-bottom: auto !important;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even){background-color: #f2f2f2}
