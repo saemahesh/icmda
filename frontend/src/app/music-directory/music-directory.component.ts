@@ -7,12 +7,13 @@ import { RegisterService } from '../register/register.service';
   styleUrls: ['./music-directory.component.css']
 })
 export class MusicDirectoryComponent implements OnInit {
+  data: Object;
 
   constructor(private service: RegisterService) { }
 
   ngOnInit(): void {
     this.service.getMusicDirectoryDetails().subscribe((res)=>{
-      console.log(res)
+      this.data = res;
     })
   }
 

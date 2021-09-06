@@ -15,7 +15,7 @@ export class RegisterService {
   }
 
   getMusicDirectoryDetails(){
-    return this.httpClient.get(environment.baseUrl+'/getTableDetails/season2_competition_tbl')
+    return this.httpClient.get(environment.baseUrl+'/getTableDetails/directory')
   }
  
 }

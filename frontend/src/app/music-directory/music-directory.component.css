@@ -20,3 +20,16 @@ table {
   }
   
   tr:nth-child(even){background-color: #f2f2f2}
+
+  .card {
+    margin-left: 5%;
+    background: #e0fff6;
+    padding: 15px;
+}
+.card i{
+    color:#066c74
+}
+.name {
+    color: #0c8244;
+    font-size: 15px;
+}

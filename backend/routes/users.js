@@ -161,10 +161,10 @@ router.get("/get-member/:id", (req, res) => {
 router.get("/getTableDetails/:table", (req, res) => {
     var tableName = req.params.table;
     console.log('tableName ', tableName);
-    UserService.getTableDetails(tableName,(err, result) => {
+    UserService.getTableDetails(tableName, (err, result) => {
         if (err) {
             res.status(500);
-            res.send({ err: "no users found", result: null });
+            res.send({ err: err, result: null });
         } else {
             res.send(result);
         }
