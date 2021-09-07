@@ -215,7 +215,7 @@ exports.getMember = (id, callback) => {
 
 //getTable Details
 exports.getTableDetails = (tableName, callback) => {
-  executeQuery.queryForAll(`Select * from ${tableName};`, [], (err, result) => {
+  executeQuery.queryForAll(`Select name,type,category,address from ${tableName};`, [], (err, result) => {
     if (err) {
       // console.log("ERr", err);
       callback(err, null);
