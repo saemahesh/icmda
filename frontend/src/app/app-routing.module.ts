@@ -89,7 +89,7 @@ const routes: Routes = [
     component: OnlineCompetitions2021Component
   },
   {
-    path: 'upload-your-winnings',
+    path: 'upload-winner-photos',
     component: UploadWinningsComponent
   },
   {
