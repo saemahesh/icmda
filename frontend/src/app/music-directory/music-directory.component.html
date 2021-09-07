@@ -2,6 +2,11 @@
     <div style=" text-align: center;color:#08192d">
         <h3> Musicians Directory</h3>
     </div>
+    <div>
+      <form style="margin-top:15px">
+        <input type="text" name="search" placeholder="Search.." (keyup)="search($event)">
+      </form>
+    </div>
     <div class="row" style="padding:1%">
       <div class="col-md-5 col-sm-12 card" *ngFor="let item of data">
           <div class="row">
