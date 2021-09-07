@@ -144,10 +144,50 @@ router.post("/login", (req, res) => {
         }
     });
 });
+
 router.get("/get-member/:id", (req, res) => {
     var id = req.params.id;
     console.log('id ', id);
     UserService.getMember(id, (err, result) => {
+        if (err) {
+            res.status(500);
+            res.send({ err: "no users found", result: null });
+        } else {
+            res.send(result);
+        }
+    });
+});
+
+//Get Member Details With Email-id
+router.get("/get-details/:email", (req, res) => {
+    var emailId = req.params.email;
+    console.log('email ', emailId);
+    UserService.getDetailsByEmailId(emailId, (err, result) => {
+        if (err) {
+            res.status(500);
+            res.send({ err: "no users found", result: null });
+        } else {
+            res.send(result);
+        }
+    });
+});
+
+//Get members with filters
+router.post("/get-details", (req, res) => {
+    UserService.getDetailsByFilters(req.body, (err, result) => {
+        if (err) {
+            res.status(500);
+            res.send({ err: "no users found", result: null });
+        } else {
+            res.send(result);
+        }
+    });
+});
+
+//Update members details 
+router.put("/get-details", (req, res) => {
+    // console.log("HI");
+    UserService.updateDetails(req.body, (err, result) => {
         if (err) {
             res.status(500);
             res.send({ err: "no users found", result: null });

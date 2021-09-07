@@ -1,0 +1,85 @@
+<!-- <div class="container bg-blue">
+    <div class="container-content" id="bar">
+        <h2 class="header-content">Find Your teacher</h2>
+        <div class="content" *ngIf="!noCheckList">
+            Are you a member? Please register as a member to access this page. <br>
+            If you are already a member please <button (click)="openPopup(mymodal)">Click Here</button>
+        </div>
+        <div  *ngIf="noCheckList">
+            <div class="col-md-3">
+                Art Form
+                <select class="form-control" id="power">
+                    <option value="" disabled selected>Select your choice</option>
+                    <option>name</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                Column
+            </div>
+            <div class="col-md-3">
+                Column
+            </div>
+            <div class="col-md-3">
+                Column
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<ng-template #mymodal>
+    <div class="modal-container">
+        <div class="modal-header">
+            <label> Enter Your Details</label>
+            <button type="button" class="close pull-right" aria-label="Close" (click)="close()">
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                <p>E-mail <span style="color: red;">*</span> <span *ngIf="!email && login" style="color: red;">&nbsp;
+                        Required</span></p>
+                <input type="text" class="form-control" [(ngModel)]="email" />
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" style="width:auto" class="btn btn-default" (click)="logIn()">Log In</button>
+        </div>
+    </div>
+</ng-template>
+<div class="hs-item">
+    <div class="container">
+        <h1 style="text-align: center;color: white;">Find Your Teacher</h1>
+        <div class="content" *ngIf="!noCheckList">
+            Are you a member? Please register as a member to access this page. <br>
+            If you are already a member please <button (click)="openPopup(mymodal)">Click Here</button>
+        </div>
+        <div *ngIf="noCheckList">
+            <form [formGroup]="filterGroup">
+                <div class="row">
+                    <div class="col-md-3">
+                        <label style="font-size: medium;">Art Form
+                            <span *ngIf="submitted && f.artForm.errors?.required" style="color:red">&nbsp;Required</span></label>
+                        <select class="form-control" id="power" formControlName="artForm">
+                            <option value="" disabled selected>Select your choice</option>
+                            <option *ngFor="let form of artForm" value="{{form.name}}">{{form.name}}</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label style="font-size: medium;">City
+                            <span *ngIf="submitted && f.city.errors?.required" style="color:red">&nbsp;Required</span></label>
+                        <input type="text" class="form-control" id="name" formControlName="city">
+                    </div>
+                    <div class="col-md-3">
+                        <label style="font-size: medium;">Country
+                            <span *ngIf="submitted && f.country.errors?.required" style="color:red">&nbsp;Required</span></label>
+                        <input type="text" class="form-control" formControlName="country">
+                    </div>
+                    <div class="col-md-3">
+                        <br>
+                        <button type="submit" class="btn btn-success" (click)="submitFilter()">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
