@@ -200,7 +200,7 @@ exports.getMember = (id, callback) => {
           callback(err, null);
         } else {
           {
-            callback(err, result)
+            callback(null, result)
           }
         }
       }
@@ -223,7 +223,11 @@ exports.getDetailsByEmailId = (emailId, callback) => {
         if (err) {
           callback(err, null);
         } else {
-          callback(err, result[0])
+          if (result.length > 0) {
+            callback(null, result[0])
+          } else {
+            callback(null, "No Details Found");
+          }          
         }
       }
     );
@@ -251,7 +255,7 @@ exports.getDetailsByFilters = (data, callback) => {
         if (err) {
           callback(err, null);
         } else {
-          callback(err, result)
+          callback(null, result)
         }
       }
     );
