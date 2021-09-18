@@ -14,4 +14,11 @@ export class RegisterService {
     return this.httpClient.post(environment.baseUrl + '/register', reqObj)
   }
  
+  getMemberDetails(emailId : any){
+    return this.httpClient.get(environment.baseUrl +'/get-details/' + emailId)
+  }
+
+  getTeacherFilter(reqObj: any){
+    return this.httpClient.post(environment.baseUrl + '/get-details', reqObj)
+  }
 }

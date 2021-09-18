@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { RegisterService } from '../register/register.service';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-find-teacher',
@@ -10,11 +12,11 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 export class FindTeacherComponent implements OnInit {
   public email: string;
   public noCheckList: boolean = true;
-  public login : boolean = false;
+  public login: boolean = false;
   public filterGroup: FormGroup;
   public submitted: boolean = false;
-  public teachersList : Array<object> = [];
-  public artForm : Array<object> = [
+  public teachersList: Array<object> = [];
+  public artForm: Array<object> = [
     { id: 21, cat_id: 2, name: "BHARATHANATYAM" },
     { id: 22, cat_id: 2, name: "KUCHIPUDI" },
     { id: 2, cat_id: 1, name: "VEENA" },
@@ -39,17 +41,18 @@ export class FindTeacherComponent implements OnInit {
     { id: 21, cat_id: 1, name: "JALATHARAGAM" },
     { id: 22, cat_id: 1, name: "KAZOO" }
   ]
-  constructor(private modalService: BsModalService, private fb : FormBuilder) { }
+  constructor(private modalService: BsModalService, private fb: FormBuilder,
+    private regService: RegisterService) { }
 
   ngOnInit(): void {
     this.buildForm();
   }
 
-  buildForm(){
+  buildForm() {
     this.filterGroup = this.fb.group({
-      artForm : ['', Validators.required],
-      city:['', Validators.required],
-      country:['', Validators.required]
+      artForm: ['', Validators.required],
+      city: ['', Validators.required],
+      country: ['', Validators.required]
     })
   }
 
@@ -57,12 +60,19 @@ export class FindTeacherComponent implements OnInit {
     return this.filterGroup.controls;
   }
 
-  submitFilter(){
-    this.submitted =true;
-    if(this.filterGroup.invalid){
+  submitFilter() {
+    this.submitted = true;
+    if (this.filterGroup.invalid) {
       return;
     }
-    console.log(this.filterGroup.value)
+    console.log(this.filterGroup.value);
+    this.regService.getTeacherFilter(this.filterGroup.value).subscribe((res:any)=>{
+      console.log(res);
+      if(res?.length > 0){
+        this.teachersList =  res;
+      }
+    })
+
   }
 
   openPopup(popup) {
@@ -70,11 +80,21 @@ export class FindTeacherComponent implements OnInit {
     this.modalService.show(popup);
   }
 
-  logIn(){
+  logIn() {
     this.login = true;
-    if(this.email){
-      this.modalService.hide();
-    this.noCheckList = false;
+    if (this.email) {
+      this.regService.getMemberDetails(this.email).subscribe((res: any) => {
+        if (res?.status == 'success') {
+          this.modalService.hide();
+          this.noCheckList = false;
+        } else if(res?.status == 'error'){
+          Swal.fire({
+            icon: "error",
+            title: res?.message,
+            showConfirmButton: true,
+          })
+        }
+      })
     }
   }
 
