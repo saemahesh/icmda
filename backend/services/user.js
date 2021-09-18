@@ -224,9 +224,19 @@ exports.getDetailsByEmailId = (emailId, callback) => {
           callback(err, null);
         } else {
           if (result.length > 0) {
-            callback(null, result[0])
+            let respo = {
+              result : result[0],
+              message : "Details Found",
+              status: "success"
+            };
+            callback(null, respo);
           } else {
-            callback(null, "No Details Found");
+            respo = {
+              result : result[0],
+              message : "Details Not Found",
+              status: "error"
+            };
+            callback(null, respo);
           }          
         }
       }
