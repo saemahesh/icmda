@@ -303,7 +303,7 @@ exports.updateDetails = (data, callback) => {
     }
     executeQuery.queryForAll(
       sqlQueryMap["updateDetails"],
-      [data.teacher_id, data.student_id],
+      [data.teacher_id, data.student_id, 'Student'],
       (err, result) => {
         if (err) {
           callback(err, null);
@@ -315,7 +315,7 @@ exports.updateDetails = (data, callback) => {
                 executeQuery.queryForAll(
                   sqlQueryMap["getMemberDetails"],
                   [
-                    data.student_id
+                    data.student_id, 'Student'
                   ],
                   (err, mailDetails) => {
                     if (err) {
@@ -331,7 +331,7 @@ exports.updateDetails = (data, callback) => {
                 executeQuery.queryForAll(
                   sqlQueryMap["getMembersDetails"],
                   [
-                    data.student_id
+                    data.student_id, 'Student'
                   ],
                   (err, member_Details) => {
                     if (err) {
