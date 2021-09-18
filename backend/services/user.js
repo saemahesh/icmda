@@ -218,7 +218,7 @@ exports.getMember = (id, callback) => {
 exports.getDetailsByEmailId = (emailId, callback) => {
   try {
     executeQuery.queryForAll(
-      sqlQueryMap["getDetailsByEmailId"], [emailId],
+      sqlQueryMap["getDetailsByEmailId"], [emailId, "Student"],
       (err, result) => {
         if (err) {
           callback(err, null);

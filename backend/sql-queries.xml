@@ -69,7 +69,7 @@
    </sql-query>
 
      <sql-query id="getDetailsByEmailId">
-       <![CDATA[select * from season2_competition_tbl where email =?; ]]>
+       <![CDATA[select * from user_tbl where email =? and memberType = ? ; ]]>
    </sql-query>
 
     <sql-query id="getDetailsByFilter">
