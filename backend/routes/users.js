@@ -167,11 +167,7 @@ router.get("/get-details/:email", (req, res) => {
             res.status(500);
             res.send({ err: "no users found", result: null });
         } else {
-            res.json({
-                details: result.result,
-                message: result.message,
-                status: result.status
-            });
+            res.send(result);
         }
     });
 });

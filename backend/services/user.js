@@ -225,15 +225,15 @@ exports.getDetailsByEmailId = (emailId, callback) => {
         } else {
           if (result.length > 0) {
             let respo = {
-              result : result[0],
+              details : result[0],
               message : "Details Found",
               status: "success"
             };
             callback(null, respo);
           } else {
             respo = {
-              result : result[0],
-              message : "Details Not Found",
+              details : result[0],
+              message : "Invalid Email",
               status: "error"
             };
             callback(null, respo);
@@ -265,7 +265,23 @@ exports.getDetailsByFilters = (data, callback) => {
         if (err) {
           callback(err, null);
         } else {
-          callback(null, result)
+          console.log(result);
+          // callback(null, result)
+          if (result.length > 0) {
+            let respo = {
+              details : result,
+              message : "Details Found",
+              status: "success"
+            };
+            callback(null, respo);
+          } else {
+            respo = {
+              details : result,
+              message : "Details Not Found",
+              status: "error"
+            };
+            callback(null, respo);
+          }          
         }
       }
     );
@@ -293,6 +309,7 @@ exports.updateDetails = (data, callback) => {
           callback(err, null);
         } else {
           if (result.changedRows > 0) {
+            let respo = {};
             async.parallel({
               disconnectMail: (studentDetails) => {
                 executeQuery.queryForAll(
@@ -329,7 +346,7 @@ exports.updateDetails = (data, callback) => {
             }, function (asyncErr, asyncResult) {
               if (asyncErr) {
                 // console.log("Error in Async", asyncErr);
-                callback(asyncErr,null);
+                callback(asyncErr, null);
               } else {
                 if (data.teacher_id == null) {
                   // console.log("Result in Async", asyncResult.disconnectMail);
@@ -348,22 +365,31 @@ exports.updateDetails = (data, callback) => {
                   exports.sendConnectMail(data);
                 }
               }
-            });
+            }); // asyncParallel closing
             // console.log("FInal Respond Sending");
-            callback(null, "Changes updated successfully");
-          }; // asyncParallel closing
+            respo = {
+              message: "Successfully Updated",
+              status: "success"
+            }
+            callback(null, respo);
+          } else {
+            respo = {
+              message: "Failed to Update",
+              status: "error"
+            }
+            callback(null, respo);
+          }
           // console.log("FInal Respond Sending");
-          callback(null, "No Changes");
         }
       }
-  );
-} catch (err) {
-  if (err) {
-    callback(err, null);
-    console.log("Member Not Found", err);
+    );
+  } catch (err) {
+    if (err) {
+      callback(err, null);
+      console.log("Member Not Found", err);
+    }
+    // eslint-disable-next-line no-console
   }
-  // eslint-disable-next-line no-console
-}
 };
 
 exports.getProfiles = (addUser, callback) => {
