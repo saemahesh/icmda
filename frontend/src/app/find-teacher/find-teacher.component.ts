@@ -68,8 +68,14 @@ export class FindTeacherComponent implements OnInit {
     console.log(this.filterGroup.value);
     this.regService.getTeacherFilter(this.filterGroup.value).subscribe((res:any)=>{
       console.log(res);
-      if(res?.length > 0){
+      if(res?.status == '"success"'){
         this.teachersList =  res;
+      } else if(res?.status == 'error') {
+        Swal.fire({
+          icon: "error",
+          title: res?.message,
+          showConfirmButton: true,
+        })
       }
     })
 
