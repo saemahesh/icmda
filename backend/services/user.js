@@ -233,7 +233,7 @@ exports.getDetailsByEmailId = (emailId, callback) => {
           } else {
             respo = {
               result : result[0],
-              message : "Details Not Found",
+              message : "Invalid Email",
               status: "error"
             };
             callback(null, respo);
