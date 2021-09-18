@@ -223,7 +223,7 @@ exports.getDetailsByEmailId = (emailId, callback) => {
         if (err) {
           callback(err, null);
         } else {
-          callback(err, result)
+          callback(err, result[0])
         }
       }
     );
