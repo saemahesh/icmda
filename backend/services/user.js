@@ -277,7 +277,7 @@ exports.getDetailsByFilters = (data, callback) => {
           } else {
             respo = {
               details : result,
-              message : "Details Not Found",
+              message : "No Teachers Available",
               status: "error"
             };
             callback(null, respo);
