@@ -218,7 +218,7 @@ exports.getMember = (id, callback) => {
 exports.getDetailsByEmailId = (emailId, callback) => {
   try {
     executeQuery.queryForAll(
-      sqlQueryMap["getDetailsByEmailId"], [emailId],
+      sqlQueryMap["getDetailsByEmailId"], [emailId, "Student"],
       (err, result) => {
         if (err) {
           callback(err, null);
@@ -277,7 +277,7 @@ exports.getDetailsByFilters = (data, callback) => {
           } else {
             respo = {
               details : result,
-              message : "Details Not Found",
+              message : "No Teachers Available",
               status: "error"
             };
             callback(null, respo);
@@ -303,7 +303,7 @@ exports.updateDetails = (data, callback) => {
     }
     executeQuery.queryForAll(
       sqlQueryMap["updateDetails"],
-      [data.teacher_id, data.student_id],
+      [data.teacher_id, data.student_id, 'Student'],
       (err, result) => {
         if (err) {
           callback(err, null);
@@ -315,7 +315,7 @@ exports.updateDetails = (data, callback) => {
                 executeQuery.queryForAll(
                   sqlQueryMap["getMemberDetails"],
                   [
-                    data.student_id
+                    data.student_id, 'Student'
                   ],
                   (err, mailDetails) => {
                     if (err) {
@@ -331,7 +331,7 @@ exports.updateDetails = (data, callback) => {
                 executeQuery.queryForAll(
                   sqlQueryMap["getMembersDetails"],
                   [
-                    data.student_id
+                    data.student_id, 'Student'
                   ],
                   (err, member_Details) => {
                     if (err) {
