@@ -55,10 +55,11 @@
         </div>
         <div *ngIf="!noCheckList">
             <form [formGroup]="filterGroup">
-                <div class="row">
+                <div class="row" style="margin-left: 8%;">
                     <div class="col-md-3">
                         <label style="font-size: medium;">Art Form
-                            <span *ngIf="submitted && f.artForm.errors?.required" style="color:red">&nbsp;Required</span></label>
+                            <span *ngIf="submitted && f.artForm.errors?.required"
+                                style="color:red">&nbsp;Required</span></label>
                         <select class="form-control" id="power" formControlName="artForm">
                             <option value="" disabled selected>Select your choice</option>
                             <option *ngFor="let form of artForm" value="{{form.name}}">{{form.name}}</option>
@@ -66,12 +67,14 @@
                     </div>
                     <div class="col-md-3">
                         <label style="font-size: medium;">City
-                            <span *ngIf="submitted && f.city.errors?.required" style="color:red">&nbsp;Required</span></label>
+                            <span *ngIf="submitted && f.city.errors?.required"
+                                style="color:red">&nbsp;Required</span></label>
                         <input type="text" class="form-control" id="name" formControlName="city">
                     </div>
                     <div class="col-md-3">
                         <label style="font-size: medium;">Country
-                            <span *ngIf="submitted && f.country.errors?.required" style="color:red">&nbsp;Required</span></label>
+                            <span *ngIf="submitted && f.country.errors?.required"
+                                style="color:red">&nbsp;Required</span></label>
                         <input type="text" class="form-control" formControlName="country">
                     </div>
                     <div class="col-md-3">
@@ -79,7 +82,111 @@
                         <button type="submit" class="btn btn-success" (click)="submitFilter()">Submit</button>
                     </div>
                 </div>
+                <div class="row" style="padding:1%">
+                    <div class="col-md-5 col-sm-12 card" *ngFor="let item of teachersList">
+                        <div class="row" (click)="openDetails(item)">
+                            <div class="col-md-3">
+                                <img src="{{item.profile_pic}}" alt="Avatar" style="width:100px;">
+                            </div>
+                            <div class="col-md-9">
+                                <div>
+                                    <label style="color: black;font-weight: bold;"
+                                        class="name">{{item.username}}</label>
+                                </div>
+                                <div>
+                                    <i>Category</i>&nbsp;&nbsp; <label
+                                        class="label label-primary">{{item.artCategory}}</label>
+                                    <br>
+                                    <i>ArtForm</i> &nbsp;&nbsp; <label
+                                        class="label label-primary">{{item.art_form}}</label>
+                                    <br>
+                                    <i>Address</i> &nbsp;&nbsp; {{item.address}}
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </form>
         </div>
+    </div>
+</div>
+<!-- <ng-template #newModal>
+    <div class="modal-container" style="width:80%">
+        <div class="modal-header" style="width:80%">
+            <label style="color: black;"> Teacher Details</label>
+            <button type="button" class="close pull-right" aria-label="Close" (click)="close()">
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>
+        <div class="modal-body" style="width:80%">
+            
+        </div>
+        <div class="modal-footer" style="width:80%">
+            <p *ngIf="showText" style="color: red;">Please disconnect your current teacher to connect with another teacher.</p>
+            <button *ngIf="!showText" type="button" style="width:auto; background-color: green; color:white" class="btn btn-default" (click)="logIn()">{{buttonValue}}</button>
+        </div>
+    </div>
+</ng-template> -->
+
+
+<div class="overlay" *ngIf="popup">
+    <div class="popup">
+        <h2>Teacher Deatils</h2>
+        <a class="close" (click)="popup = false">&times;</a>
+        <hr>
+        <div class="content">
+            <div class="row">
+                <div class="col-md-3">
+                    <img src="{{teacherData.profile_pic}}" alt="Avatar" style="width:100px;">
+                </div>
+                <div class="col-md-9">
+                    <label *ngIf="teacherData?.username"><strong>Name :</strong>
+                        <span style="font-size: small;">&nbsp;{{teacherData?.username}}</span>
+                    </label><br>
+                    <label *ngIf="teacherData?.artCategory"><strong>Art Category :</strong>
+                        <span style="font-size: small;"> &nbsp;{{teacherData?.artCategory}}</span>
+                    </label><br>
+                    <label *ngIf="teacherData?.art_form"><strong>Art Form :</strong>
+                        <span style="font-size: small;">&nbsp;{{teacherData?.art_form}}</span>
+                    </label><br>
+                    <label *ngIf="teacherData?.artCategory"><strong>ArtCategory :</strong>
+                        <span style="font-size: small;">&nbsp;{{teacherData?.artCategory}}</span>
+                    </label><br>
+                    <label *ngIf="teacherData?.artSubCategory"><strong>Art Sub-Category :</strong>
+                        <span style="font-size: small;">&nbsp;{{teacherData?.artSubCategory}}</span>
+                    </label><br>
+                    <label *ngIf="teacherData?.city"><strong>City :</strong>
+                        <span style="font-size: small;">&nbsp;{{teacherData?.city}}</span>
+                    </label><br>
+                    <label *ngIf="teacherData?.country"><strong>Country :</strong>
+                        <span style="font-size: small;">&nbsp;{{teacherData?.country}}</span>
+                    </label><br>
+                    <label *ngIf="teacherData?.email"><strong>Email :</strong>
+                        <span style="font-size: small;">&nbsp;{{teacherData?.email}}</span>
+                    </label><br>
+                    <label *ngIf="teacherData?.mobile"><strong>Mobile :</strong>
+                        <span style="font-size: small;">&nbsp;{{teacherData?.mobile}}</span>
+                    </label><br>
+                </div>
+            </div>
+            <div class="row">
+                <label *ngIf="teacherData?.video1 != ''"><strong>Video 1 :</strong>
+                    <span style="font-size: small;">&nbsp;{{teacherData?.video1}}</span>
+                </label><br>
+                <label *ngIf="teacherData?.video2 != ''"><strong>Video 2 :</strong>
+                    <span style="font-size: small;">&nbsp;{{teacherData?.video2}}</span>
+                </label><br>
+                <label *ngIf="teacherData?.video3 != ''"><strong>Video 3 :</strong>
+                    <span style="font-size: small;">&nbsp;{{teacherData?.video3}}</span>
+                </label><br>
+                <label *ngIf="teacherData?.video4 != ''"><strong>Video 4 :</strong>
+                    <span style="font-size: small;">&nbsp;{{teacherData?.video4}}</span>
+                </label>
+            </div>
+        </div>
+        <hr>
+        <p *ngIf="showText" style="color: red;">Please disconnect your current teacher to connect with another teacher.</p>
+        <button *ngIf="!showText" type="button" style="width:auto ;background-color: green; color:white" class="btn btn-default" (click)="connect()">{{buttonValue}}</button>
     </div>
 </div>

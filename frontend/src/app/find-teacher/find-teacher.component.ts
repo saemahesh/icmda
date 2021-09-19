@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { RegisterService } from '../register/register.service';
@@ -10,6 +10,7 @@ import Swal from 'sweetalert2'
   styleUrls: ['./find-teacher.component.css']
 })
 export class FindTeacherComponent implements OnInit {
+  public popup: boolean = false;
   public email: string;
   public noCheckList: boolean = true;
   public login: boolean = false;
@@ -41,6 +42,10 @@ export class FindTeacherComponent implements OnInit {
     { id: 21, cat_id: 1, name: "JALATHARAGAM" },
     { id: 22, cat_id: 1, name: "KAZOO" }
   ]
+  studentDetails: object;
+  buttonValue: string;
+  showText: boolean = false;
+  teacherData: any;
   constructor(private modalService: BsModalService, private fb: FormBuilder,
     private regService: RegisterService) { }
 
@@ -65,12 +70,12 @@ export class FindTeacherComponent implements OnInit {
     if (this.filterGroup.invalid) {
       return;
     }
-    console.log(this.filterGroup.value);
     this.regService.getTeacherFilter(this.filterGroup.value).subscribe((res:any)=>{
       console.log(res);
-      if(res?.status == '"success"'){
+      if(res.status == 'success'){
         this.teachersList =  res?.details;
-      } else if(res?.status == 'error') {
+      } else if(res.status == 'error') {
+        this.teachersList = [];
         Swal.fire({
           icon: "error",
           title: res?.message,
@@ -86,11 +91,41 @@ export class FindTeacherComponent implements OnInit {
     this.modalService.show(popup);
   }
 
+  connect(){
+    const reqObj ={
+      "teacher_id": this.teacherData['id'],
+      "student_id": this.studentDetails['id'],
+      "status": this.buttonValue
+    }
+    this.regService.connectTeacher(reqObj).subscribe((res:any)=>{
+     if(res){
+       this.popup = false;
+     }
+    })
+  }
+
+  openDetails(teacherData){
+    this.teacherData = teacherData;
+    if(!this.studentDetails['teacher_id']){
+      this.buttonValue = 'Connect';
+      this.showText = false;
+    } else {
+      if(this.studentDetails['teacher_id'] == teacherData['id']){
+        this.buttonValue = 'Disconnect';
+        this.showText = false;
+      } else {
+        this.showText = true;
+      }
+    }
+    this.popup = true;
+  }
+
   logIn() {
     this.login = true;
     if (this.email) {
       this.regService.getMemberDetails(this.email).subscribe((res: any) => {
         if (res?.status == 'success') {
+          this.studentDetails = res.details;
           this.modalService.hide();
           this.noCheckList = false;
         } else if(res?.status == 'error'){

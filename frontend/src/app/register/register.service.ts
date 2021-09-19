@@ -21,4 +21,7 @@ export class RegisterService {
   getTeacherFilter(reqObj: any){
     return this.httpClient.post(environment.baseUrl + '/get-details', reqObj)
   }
+  connectTeacher(reqObj:any){
+    return this.httpClient.put(environment.baseUrl + '/get-details', reqObj)
+  }
 }
