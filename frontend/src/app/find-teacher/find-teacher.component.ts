@@ -46,9 +46,9 @@ export class FindTeacherComponent implements OnInit {
   buttonValue: string;
   showText: boolean = false;
   teacherData: any;
-  allTeachersList: any =[];
-  countriesList: any =[];
-  allCityList: any =[];
+  allTeachersList: any = [];
+  countriesList: any = [];
+  allCityList: any = [];
   constructor(private modalService: BsModalService, private fb: FormBuilder,
     private regService: RegisterService) { }
 
@@ -73,11 +73,11 @@ export class FindTeacherComponent implements OnInit {
     if (this.filterGroup.invalid) {
       return;
     }
-    this.regService.getTeacherFilter(this.filterGroup.value).subscribe((res:any)=>{
+    this.regService.getTeacherFilter(this.filterGroup.value).subscribe((res: any) => {
       console.log(res);
-      if(res.status == 'success'){
-        this.teachersList =  res?.details;
-      } else if(res.status == 'error') {
+      if (res.status == 'success') {
+        this.teachersList = res?.details;
+      } else if (res.status == 'error') {
         this.teachersList = [];
         Swal.fire({
           icon: "error",
@@ -94,27 +94,39 @@ export class FindTeacherComponent implements OnInit {
     this.modalService.show(popup);
   }
 
-  connect(){
-    const reqObj ={
+  connect() {
+    const reqObj = {
       "teacher_id": this.teacherData['id'],
       "student_id": this.studentDetails['id'],
       "status": this.buttonValue
     }
-    this.regService.connectTeacher(reqObj).subscribe((res:any)=>{
-     if(res){
-       this.submitFilter();
-       this.popup = false;
-     }
+    this.regService.connectTeacher(reqObj).subscribe((res: any) => {
+      if (res.status == 'success') {
+        this.logIn();
+        this.submitFilter();
+        this.popup = false;
+        Swal.fire({
+          icon: "success",
+          title: res?.message,
+          showConfirmButton: true,
+        })
+      } else {
+        Swal.fire({
+          icon: "error",
+          title: res?.message,
+          showConfirmButton: true,
+        })
+      }
     })
   }
 
-  openDetails(teacherData){
+  openDetails(teacherData) {
     this.teacherData = teacherData;
-    if(!this.studentDetails['teacher_id']){
+    if (!this.studentDetails['teacher_id']) {
       this.buttonValue = 'Connect';
       this.showText = false;
     } else {
-      if(this.studentDetails['teacher_id'] == teacherData['id']){
+      if (this.studentDetails['teacher_id'] == teacherData['id']) {
         this.buttonValue = 'Disconnect';
         this.showText = false;
       } else {
@@ -133,7 +145,7 @@ export class FindTeacherComponent implements OnInit {
           this.studentDetails = res.details;
           this.modalService.hide();
           this.noCheckList = false;
-        } else if(res?.status == 'error'){
+        } else if (res?.status == 'error') {
           Swal.fire({
             icon: "error",
             title: res?.message,
@@ -144,17 +156,17 @@ export class FindTeacherComponent implements OnInit {
     }
   }
 
-  getAllTeachers(){
-    this.regService.getTeacherFilter({}).subscribe((res)=>{
+  getAllTeachers() {
+    this.regService.getTeacherFilter({}).subscribe((res) => {
       console.log(res);
       this.allTeachersList = res['details'];
       this.countriesList = [...new Map(res['details'].map(item => [item['country'].toLowerCase(), item])).values()]
     })
   }
 
-  countrySelect(event){
-    let cityList = this.allTeachersList.filter((res)=>res.country.toLowerCase() == event.target.value.toLowerCase());
-    this.allCityList =  [...new Map(cityList.map(item => [item['city'].toLowerCase(), item])).values()]
+  countrySelect(event) {
+    let cityList = this.allTeachersList.filter((res) => res.country.toLowerCase() == event.target.value.toLowerCase());
+    this.allCityList = [...new Map(cityList.map(item => [item['city'].toLowerCase(), item])).values()]
   }
 
   close() {
