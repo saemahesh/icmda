@@ -253,38 +253,67 @@ exports.getDetailsByEmailId = (emailId, callback) => {
 //Get member details with filter
 exports.getDetailsByFilters = (data, callback) => {
   try {
+    let val = Object.keys(data).length;
     data.teacher = "Teacher";
-    executeQuery.queryForAll(
-      sqlQueryMap["getDetailsByFilter"], [
-        data.teacher,
-        data.city,
-        data.country,
-        data.artForm
-      ],
-      (err, result) => {
-        if (err) {
-          callback(err, null);
-        } else {
-          console.log(result);
-          // callback(null, result)
-          if (result.length > 0) {
-            let respo = {
-              details : result,
-              message : "Details Found",
-              status: "success"
-            };
-            callback(null, respo);
+    if (val === 0) {
+      executeQuery.queryForAll(
+        sqlQueryMap["getDetailsWithoutFilter"], [
+          data.teacher,
+        ], (queryErr, queryResult) => {
+          if (queryErr) {
+            callback(queryErr, null);
           } else {
-            respo = {
-              details : result,
-              message : "No Teachers Available",
-              status: "error"
-            };
-            callback(null, respo);
-          }          
+            // callback(null, result)
+            if (queryResult.length > 0) {
+              let respo = {
+                details: queryResult,
+                message: "Details Found",
+                status: "success"
+              };
+              callback(null, respo);
+            } else {
+              respo = {
+                details: result,
+                message: "No Teachers Available",
+                status: "error"
+              };
+              callback(null, respo);
+            }
+          }
+        });
+    } else {
+      executeQuery.queryForAll(
+        sqlQueryMap["getDetailsByFilter"], [
+          data.teacher,
+          data.city,
+          data.country,
+          data.artForm
+        ],
+        (err, result) => {
+          if (err) {
+            callback(err, null);
+          } else {
+            // console.log(result);
+            // callback(null, result)
+            if (result.length > 0) {
+              let respo = {
+                details: result,
+                message: "Details Found",
+                status: "success"
+              };
+              callback(null, respo);
+            } else {
+              respo = {
+                details: result,
+                message: "No Teachers Available",
+                status: "error"
+              };
+              callback(null, respo);
+            }
+          }
         }
-      }
-    );
+      );
+    }
   } catch (err) {
     if (err) {
       callback(err, null);

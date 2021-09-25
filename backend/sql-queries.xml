@@ -76,6 +76,10 @@
        <![CDATA[select * from user_tbl where memberType = ? and city = ? and country = ? and art_form = ?;  ]]>
    </sql-query>
 
+   <sql-query id="getDetailsWithoutFilter">
+       <![CDATA[select * from user_tbl where memberType = ?;  ]]>
+   </sql-query>
+
    <sql-query id="updateDetails">
        <![CDATA[UPDATE user_tbl 
             SET teacher_id = ? where id = ? and memberType = ?;  ]]>
