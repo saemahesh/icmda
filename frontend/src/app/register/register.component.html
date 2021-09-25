@@ -99,12 +99,6 @@
             </div>
             <div class="col-md-6">
                 <div class="form-group">
-                    <label style="font-size: medium;">Aadhar Number</label>
-                    <input type="text" class="form-control" id="name" formControlName="aadharNo" maxlength="12">
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
                     <label style="font-size: medium;">Membership Plan
                         <span *ngIf="submitted && f.membershipType.errors?.required" style="color:red">&nbsp;
                             Required</span></label>
@@ -121,15 +115,15 @@
             </div>
             <div class="col-md-6" *ngIf="memberTypeValue">
                 <label style="font-size: medium;">Video 2</label>
-                <textarea type="text" class="form-control" id="video2" formControlName="video1"></textarea>
+                <textarea type="text" class="form-control" id="video2" formControlName="video2"></textarea>
             </div>
             <div class="col-md-6" *ngIf="memberTypeValue">
                 <label style="font-size: medium;">Video 3</label>
-                <textarea type="text" class="form-control" id="video3" formControlName="video1"></textarea>
+                <textarea type="text" class="form-control" id="video3" formControlName="video3"></textarea>
             </div>
             <div class="col-md-6" *ngIf="memberTypeValue">
                 <label style="font-size: medium;">Video 4</label>
-                <textarea type="text" class="form-control" id="video4" formControlName="video1"></textarea>
+                <textarea type="text" class="form-control" id="video4" formControlName="video4"></textarea>
             </div>
 
             <div class="col-md-6">

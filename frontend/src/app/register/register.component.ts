@@ -88,7 +88,6 @@ export class RegisterComponent implements OnInit {
       city: ['', Validators.required],
       zipcode: ['', Validators.required],
       artSubCategory: ["", Validators.required],
-      aadharNo: [""],
       membershipType: ["", Validators.required],
       aboutYourSelf: [""],
       video1: [""],

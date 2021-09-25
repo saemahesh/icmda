@@ -168,10 +168,10 @@
             </div>
             <div class="row">
                 <label *ngIf="teacherData?.video1 != ''">
-                    <iframe  src="https://www.youtube.com/embed/Vr6lbBUk1e4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe  src="{{teacherData?.video1}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </label><br>
                 <label *ngIf="teacherData?.video2 != ''">
-                        <iframe  src="https://www.youtube.com/embed/Vr6lbBUk1e4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>   
+                        <iframe  src="{{teacherData?.video2}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>   
                 </label><br>
                 <label *ngIf="teacherData?.video3 != ''"><strong>Video 3 :</strong>
                     <span style="font-size: small;">&nbsp;{{teacherData?.video3}}</span>
