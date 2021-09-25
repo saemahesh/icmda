@@ -93,7 +93,7 @@
     <sql-query id="getMembersDetails">
        <![CDATA[Select s.username as studentName, s.mobile as studentMobile, s.email as studentEmail, 
                 t.username as teacherName, t.mobile as teacherMobile, t.email as teacherEmail 
-                from user_tbl s inner join user_tbl t on t.id = s.teacher_id where s.id =? and memberType = ?;  ]]>
+                from user_tbl s inner join user_tbl t on t.id = s.teacher_id where s.id =? and s.memberType = ?;  ]]>
    </sql-query>
 
    <sql-query id="kuchipudiRegistration">
