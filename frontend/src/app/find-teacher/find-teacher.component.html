@@ -148,46 +148,30 @@
         <div class="content">
             <div class="row">
                 <div class="col-md-3">
-                    <img src="{{teacherData.profile_pic}}" alt="Avatar" style="width:100px;">
+                    <img src="{{teacherData.profile_pic}}" alt="Avatar" style="width:200px;">
                 </div>
                 <div class="col-md-9">
                     <div style="float: left;">
                     <label *ngIf="teacherData?.username"><strong>Name :</strong>
                         <span style="font-size: small;">&nbsp;{{teacherData?.username}}</span>
-                    </label><br>
-                    <label *ngIf="teacherData?.artCategory"><strong>Art Category :</strong>
-                        <span style="font-size: small;"> &nbsp;{{teacherData?.artCategory}}</span>
-                    </label><br>
+                    </label>
+                    <br>
                     <label *ngIf="teacherData?.art_form"><strong>Art Form :</strong>
                         <span style="font-size: small;">&nbsp;{{teacherData?.art_form}}</span>
-                    </label><br>
-                    <label *ngIf="teacherData?.artCategory"><strong>ArtCategory :</strong>
-                        <span style="font-size: small;">&nbsp;{{teacherData?.artCategory}}</span>
-                    </label><br>
-                    <label *ngIf="teacherData?.artSubCategory"><strong>Art Sub-Category :</strong>
-                        <span style="font-size: small;">&nbsp;{{teacherData?.artSubCategory}}</span>
-                    </label><br>
-                    <label *ngIf="teacherData?.city"><strong>City :</strong>
-                        <span style="font-size: small;">&nbsp;{{teacherData?.city}}</span>
-                    </label><br>
-                    <label *ngIf="teacherData?.country"><strong>Country :</strong>
-                        <span style="font-size: small;">&nbsp;{{teacherData?.country}}</span>
-                    </label><br>
-                    <label *ngIf="teacherData?.email"><strong>Email :</strong>
-                        <span style="font-size: small;">&nbsp;{{teacherData?.email}}</span>
-                    </label><br>
-                    <label *ngIf="teacherData?.mobile"><strong>Mobile :</strong>
-                        <span style="font-size: small;">&nbsp;{{teacherData?.mobile}}</span>
-                    </label><br>
+                    </label>
+                    <br>
+                    <label *ngIf="teacherData?.aboutYourself"><strong>About Me :</strong>
+                        <span style="font-size: small;">&nbsp;{{teacherData?.aboutYourself}}</span>
+                    </label>
                 </div>
                 </div>
             </div>
             <div class="row">
-                <label *ngIf="teacherData?.video1 != ''"><strong>Video 1 :</strong>
-                    <span style="font-size: small;">&nbsp;{{teacherData?.video1}}</span>
+                <label *ngIf="teacherData?.video1 != ''">
+                    <iframe  src="https://www.youtube.com/embed/Vr6lbBUk1e4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </label><br>
-                <label *ngIf="teacherData?.video2 != ''"><strong>Video 2 :</strong>
-                    <span style="font-size: small;">&nbsp;{{teacherData?.video2}}</span>
+                <label *ngIf="teacherData?.video2 != ''">
+                        <iframe  src="https://www.youtube.com/embed/Vr6lbBUk1e4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>   
                 </label><br>
                 <label *ngIf="teacherData?.video3 != ''"><strong>Video 3 :</strong>
                     <span style="font-size: small;">&nbsp;{{teacherData?.video3}}</span>
