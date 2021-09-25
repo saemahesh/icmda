@@ -66,17 +66,27 @@
                         </select>
                     </div>
                     <div class="col-md-3">
-                        <label style="font-size: medium;">City
-                            <span *ngIf="submitted && f.city.errors?.required"
-                                style="color:red">&nbsp;Required</span></label>
-                        <input type="text" class="form-control" id="name" formControlName="city">
-                    </div>
-                    <div class="col-md-3">
                         <label style="font-size: medium;">Country
                             <span *ngIf="submitted && f.country.errors?.required"
                                 style="color:red">&nbsp;Required</span></label>
-                        <input type="text" class="form-control" formControlName="country">
+                        <select class="form-control" id="power" formControlName="country"
+                            (change)="countrySelect($event)">
+                            <option value="" disabled selected>Select your choice</option>
+                            <option *ngFor="let form of countriesList" value="{{form.country}}">{{form.country | titlecase}}
+                            </option>
+                        </select>
                     </div>
+                    <div class="col-md-3">
+                        <label style="font-size: medium;">City
+                            <span *ngIf="submitted && f.city.errors?.required"
+                                style="color:red">&nbsp;Required</span></label>
+                                <select class="form-control" id="power" formControlName="city">
+                            <option value="" disabled selected>Select your choice</option>
+                            <option *ngFor="let form of allCityList" value="{{form.city}}">{{form.city | titlecase}}
+                            </option>
+                        </select>
+                    </div>
+
                     <div class="col-md-3">
                         <br>
                         <button type="submit" class="btn btn-success" (click)="submitFilter()">Submit</button>
@@ -141,6 +151,7 @@
                     <img src="{{teacherData.profile_pic}}" alt="Avatar" style="width:100px;">
                 </div>
                 <div class="col-md-9">
+                    <div style="float: left;">
                     <label *ngIf="teacherData?.username"><strong>Name :</strong>
                         <span style="font-size: small;">&nbsp;{{teacherData?.username}}</span>
                     </label><br>
@@ -169,6 +180,7 @@
                         <span style="font-size: small;">&nbsp;{{teacherData?.mobile}}</span>
                     </label><br>
                 </div>
+                </div>
             </div>
             <div class="row">
                 <label *ngIf="teacherData?.video1 != ''"><strong>Video 1 :</strong>
@@ -186,7 +198,9 @@
             </div>
         </div>
         <hr>
-        <p *ngIf="showText" style="color: red;">Please disconnect your current teacher to connect with another teacher.</p>
-        <button *ngIf="!showText" type="button" style="width:auto ;background-color: green; color:white" class="btn btn-default" (click)="connect()">{{buttonValue}}</button>
+        <p *ngIf="showText" style="color: red;">Please disconnect your current teacher to connect with another teacher.
+        </p>
+        <button *ngIf="!showText" type="button" style="width:auto ;background-color: green; color:white"
+            class="btn btn-default" (click)="connect()">{{buttonValue}}</button>
     </div>
 </div>

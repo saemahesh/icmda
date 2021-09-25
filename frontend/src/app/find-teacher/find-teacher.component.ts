@@ -46,6 +46,9 @@ export class FindTeacherComponent implements OnInit {
   buttonValue: string;
   showText: boolean = false;
   teacherData: any;
+  allTeachersList: any =[];
+  countriesList: any =[];
+  allCityList: any =[];
   constructor(private modalService: BsModalService, private fb: FormBuilder,
     private regService: RegisterService) { }
 
@@ -99,6 +102,7 @@ export class FindTeacherComponent implements OnInit {
     }
     this.regService.connectTeacher(reqObj).subscribe((res:any)=>{
      if(res){
+       this.submitFilter();
        this.popup = false;
      }
     })
@@ -125,6 +129,7 @@ export class FindTeacherComponent implements OnInit {
     if (this.email) {
       this.regService.getMemberDetails(this.email).subscribe((res: any) => {
         if (res?.status == 'success') {
+          this.getAllTeachers();
           this.studentDetails = res.details;
           this.modalService.hide();
           this.noCheckList = false;
@@ -137,6 +142,19 @@ export class FindTeacherComponent implements OnInit {
         }
       })
     }
+  }
+
+  getAllTeachers(){
+    this.regService.getTeacherFilter({}).subscribe((res)=>{
+      console.log(res);
+      this.allTeachersList = res['details'];
+      this.countriesList = [...new Map(res['details'].map(item => [item['country'].toLowerCase(), item])).values()]
+    })
+  }
+
+  countrySelect(event){
+    let cityList = this.allTeachersList.filter((res)=>res.country.toLowerCase() == event.target.value.toLowerCase());
+    this.allCityList =  [...new Map(cityList.map(item => [item['city'].toLowerCase(), item])).values()]
   }
 
   close() {
