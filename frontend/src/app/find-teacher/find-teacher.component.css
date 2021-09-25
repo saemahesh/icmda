@@ -41,9 +41,13 @@ input[type="text"]:not(.browser-default),
 input[type="password"]:not(.browser-default),
 input[type="email"]:not(.browser-default),
 
-label {
-    color: black;
+.popup label {
+    color: rgb(58, 207, 182);
     font-size: medium;
+    float: left;
+}
+.popup label span{
+    color: black;
 }
 .close {
     background-color: black;
