@@ -1777,7 +1777,7 @@ a:active {
 
   <div class="main-content">
     <i class="fa fa-check main-content__checkmark" id="checkmark"></i>
-  <p class="main-content__body" data-lead-id="main-content-body">Thanks ${data.studentName} for connecting with ${data.teacherName} for the JULY2021 online competition. Your connection details are mentioned below.</p>
+  <p class="main-content__body" data-lead-id="main-content-body">Thanks ${data.studentName} for connecting with ${data.teacherName}. Details are mentioned below.</p>
   </div>
 
 <table id="customers" style="margin-top:10px">
@@ -1808,20 +1808,6 @@ a:active {
     <td>${data.teacherEmail}</td>
   </tr>
 </table>
-
-<div class=" col-md-12 well" style=" border: 5px solid #5db29f;  padding: 10px;">
-      <label style="font-size:medium;background: #33626d;color: white;padding: 5px;">Make payment with either PhonePe / Gpay/ Paypal / NetBanking 
-      <span style="color: red;">(Excluding transaction fee)</span>
-      </label><br>
-      <div class="col-md-4">
-        <div class="form-group">
-          <label style="font-size: medium;">PhonePe / GPay (India)</label>
-          <div style="background-color: white;font-size: 20px;padding-left:10px;font-weight: bold;">
-            9884220404
-          </div>
-        </div>
-      </div>
-    </div>
 
 Feel free to reach us if you have any queries.
 
@@ -2041,7 +2027,7 @@ a:active {
 
   <div class="main-content">
     <i class="fa fa-check main-content__checkmark" id="checkmark"></i>
-  <p class="main-content__body" data-lead-id="main-content-body"> ${data.studentName} disconnected with teacher. Your details are mentioned below.</p>
+  <p class="main-content__body" data-lead-id="main-content-body"> ${data.studentName} disconnected with teacher. Details are mentioned below.</p>
   </div>
 
 <table id="customers" style="margin-top:10px">
