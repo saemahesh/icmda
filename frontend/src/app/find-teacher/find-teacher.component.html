@@ -51,7 +51,7 @@
         <h1 style="text-align: center;color: white;">Find Your Teacher</h1>
         <div class="content" *ngIf="noCheckList">
             Are you a member? Please register as a member to access this page. <br>
-            If you are already a member please <button (click)="openPopup(mymodal)">Click Here</button>
+            If you are already a member please <button (click)="openPopup(mymodal)">Login Here</button>
         </div>
         <div *ngIf="!noCheckList">
             <form [formGroup]="filterGroup">
@@ -100,7 +100,7 @@
                             </div>
                             <div class="col-md-9">
                                 <div>
-                                    <label style="color: black;font-weight: bold;"
+                                    <label style="color: black;font-weight: bold;font-size: initial;"
                                         class="name">{{item.username}}</label>
                                 </div>
                                 <div>
@@ -149,42 +149,45 @@
             <div class="row">
                 <div class="col-md-3">
                     <img src="{{teacherData.profile_pic}}" alt="Avatar" style="width:200px;">
+                    <p *ngIf="showText" style="color: red;">Please disconnect your current teacher to connect with another teacher.
+                    </p>
+                    <button *ngIf="!showText" type="button" style="margin-top:10px;width:auto ;background-color: green; color:white"
+                        class="btn btn-default" (click)="connect()">{{buttonValue}}
+                    </button>
+    
                 </div>
+              
                 <div class="col-md-9">
                     <div style="float: left;">
-                    <label *ngIf="teacherData?.username"><strong>Name :</strong>
+                    <p *ngIf="teacherData?.username"><strong>Name :</strong>
                         <span style="font-size: small;">&nbsp;{{teacherData?.username}}</span>
-                    </label>
+                    </p>
                     <br>
-                    <label *ngIf="teacherData?.art_form"><strong>Art Form :</strong>
+                    <p *ngIf="teacherData?.art_form"><strong>Art Form :</strong>
                         <span style="font-size: small;">&nbsp;{{teacherData?.art_form}}</span>
-                    </label>
+                    </p>
                     <br>
-                    <label *ngIf="teacherData?.aboutYourself"><strong>About Me :</strong>
+                    <p *ngIf="teacherData?.aboutYourself"><strong>About Me :</strong>
                         <span style="font-size: small;">&nbsp;{{teacherData?.aboutYourself}}</span>
-                    </label>
+                    </p>
+                    <div class="row">
+                        <label *ngIf="teacherData?.video1 != ''"><strong>Please checkout my video 1 : </strong>
+                            <a href="{{teacherData?.video1}}" target="_blank">Play Now</a>
+                        </label><br>
+                        <label *ngIf="teacherData?.video2 != ''"><strong>Please checkout my video 2 : </strong>
+                            <a href="{{teacherData?.video2}}" target="_blank">Play Now</a>
+                        </label><br>
+                        <label *ngIf="teacherData?.video3 != ''"><strong>Please checkout my video 3 : </strong>
+                            <a href="{{teacherData?.video3}}" target="_blank">Play Now</a>
+                        </label><br>
+                        <label *ngIf="teacherData?.video4 != ''"><strong>Please checkout my video 4 : </strong>
+                            <a href="{{teacherData?.video4}}" target="_blank">Play Now</a>
+                        </label><br>
+                    </div>
                 </div>
                 </div>
             </div>
-            <div class="row">
-                <label *ngIf="teacherData?.video1 != ''">
-                    <iframe  src="{{teacherData?.video1}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </label><br>
-                <label *ngIf="teacherData?.video2 != ''">
-                        <iframe  src="{{teacherData?.video2}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>   
-                </label><br>
-                <label *ngIf="teacherData?.video3 != ''"><strong>Video 3 :</strong>
-                    <span style="font-size: small;">&nbsp;{{teacherData?.video3}}</span>
-                </label><br>
-                <label *ngIf="teacherData?.video4 != ''"><strong>Video 4 :</strong>
-                    <span style="font-size: small;">&nbsp;{{teacherData?.video4}}</span>
-                </label>
-            </div>
-        </div>
-        <hr>
-        <p *ngIf="showText" style="color: red;">Please disconnect your current teacher to connect with another teacher.
-        </p>
-        <button *ngIf="!showText" type="button" style="width:auto ;background-color: green; color:white"
-            class="btn btn-default" (click)="connect()">{{buttonValue}}</button>
+           
+        </div>       
     </div>
 </div>

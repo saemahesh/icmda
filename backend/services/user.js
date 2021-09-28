@@ -397,13 +397,13 @@ exports.updateDetails = (data, callback) => {
             }); // asyncParallel closing
             // console.log("FInal Respond Sending");
             respo = {
-              message: "Successfully Updated",
+              message: "Success. Please check the mail for more information.",
               status: "success"
             }
             callback(null, respo);
           } else {
             respo = {
-              message: "Failed to Update",
+              message: "Failed to Update. Please try again.",
               status: "error"
             }
             callback(null, respo);
@@ -1595,7 +1595,7 @@ exports.sendConnectMail = (mail_data, callback) => {
     from: 'icmdachennai@gmail.com',
     to: data.studentEmail,
     cc: data.teacherEmail,
-    subject: `Thanks ${data.studentName} for connecting yourself with ${data.teacherName} for the July 2021 online competition.`,
+    subject: `Thanks ${data.studentName} for connecting yourself with Teacher ${data.teacherName}.`,
     html: `<html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -1783,10 +1783,6 @@ a:active {
 <table id="customers" style="margin-top:10px">
 
   <tr>
-    <td>Registration Id</td>
-    <td>JULY2021-${data.student_id}</td>
-  </tr>
-  <tr>
   <tr>
     <td>Name</td>
     <td>${data.studentName}</td>
@@ -1813,13 +1809,7 @@ a:active {
   </tr>
 </table>
 
-   <div style="margin:30px 0;display:grid">
-   <a target="_blank" href="${data.guidelines_url}">
-   <button type="button" class="btn btn-success" style="cursor:pointer">Click here to see the Guidelines</button>
-   </a>
-    </div>
-
-<div class=" col-md-12 well" style=" border: 5px solid #5db29f;  padding: 10px;"> 
+<div class=" col-md-12 well" style=" border: 5px solid #5db29f;  padding: 10px;">
       <label style="font-size:medium;background: #33626d;color: white;padding: 5px;">Make payment with either PhonePe / Gpay/ Paypal / NetBanking 
       <span style="color: red;">(Excluding transaction fee)</span>
       </label><br>
@@ -1828,33 +1818,10 @@ a:active {
           <label style="font-size: medium;">PhonePe / GPay (India)</label>
           <div style="background-color: white;font-size: 20px;padding-left:10px;font-weight: bold;">
             9884220404
-
           </div>
         </div>
       </div>
-      <div class="col-md-4">
-        <div class="form-group">
-          <label style="font-size: medium;">PayPal (International)</label>
-          <div style="background-color: white;font-size: 1em;padding-left:10px;font-weight: bold;padding: 8px;">
-            <a href="https://paypal.me/icmdaDecEvent" target="blank">https://paypal.me/icmdaDecEvent</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-      <div class="form-group">
-        <label style="font-size: medium;">NetBanking</label>
-        <div style="background-color: white;font-size: 1em;padding-left:10px;font-weight: bold;padding: 8px;display:grid">
-         <span>Account No : 20264708218 </span>
-         <span>Name : Asha Deepa R </span>
-         <span>IFSC       : SBIN0016987 </span>
-         <span>BANK NAME  : State Bank Of India</span>
-        </div>
-      </div>
     </div>
-    </div>
-
-<p style="color:red;margin-top:10px"> Important Note: Please e-mail your video link along with payment receipt to the <strong style="color:black">videos@icmda.co.in</strong> email. If payment receipt is not valid, then you are not allowed to participate in competition
-</p>
 
 Feel free to reach us if you have any queries.
 
@@ -1892,7 +1859,7 @@ exports.sendDisconnectMail = (mail_data, callback) => {
   let mailDetails = {
     from: 'icmdachennai@gmail.com',
     to: data.studentEmail,
-    subject: `${data.studentName} disconnected with the teacher for the July 2021 online competition.`,
+    subject: `${data.studentName} disconnected with the teacher.`,
     html: `<html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -2074,15 +2041,10 @@ a:active {
 
   <div class="main-content">
     <i class="fa fa-check main-content__checkmark" id="checkmark"></i>
-  <p class="main-content__body" data-lead-id="main-content-body"> ${data.studentName} disconnected with teacher for the JULY2021 online competition. Please connect yourself with a teacher as soon as possible. Your details are mentioned below.</p>
+  <p class="main-content__body" data-lead-id="main-content-body"> ${data.studentName} disconnected with teacher. Your details are mentioned below.</p>
   </div>
 
 <table id="customers" style="margin-top:10px">
-
-  <tr>
-    <td>Registration Id</td>
-    <td>JULY2021-${data.student_id}</td>
-  </tr>
   <tr>
   <tr>
     <td>Name</td>
@@ -2097,49 +2059,6 @@ a:active {
     <td>${data.studentMobile}</td>
   </tr>
 </table>
-
-   <div style="margin:30px 0;display:grid">
-   <a target="_blank" href="${data.guidelines_url}">
-   <button type="button" class="btn btn-success" style="cursor:pointer">Click here to see the Guidelines</button>
-   </a>
-    </div>
-
-<div class=" col-md-12 well" style=" border: 5px solid #5db29f;  padding: 10px;"> 
-      <label style="font-size:medium;background: #33626d;color: white;padding: 5px;">Make payment with either PhonePe / Gpay/ Paypal / NetBanking 
-      <span style="color: red;">(Excluding transaction fee)</span>
-      </label><br>
-      <div class="col-md-4">
-        <div class="form-group">
-          <label style="font-size: medium;">PhonePe / GPay (India)</label>
-          <div style="background-color: white;font-size: 20px;padding-left:10px;font-weight: bold;">
-            9884220404
-
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="form-group">
-          <label style="font-size: medium;">PayPal (International)</label>
-          <div style="background-color: white;font-size: 1em;padding-left:10px;font-weight: bold;padding: 8px;">
-            <a href="https://paypal.me/icmdaDecEvent" target="blank">https://paypal.me/icmdaDecEvent</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-      <div class="form-group">
-        <label style="font-size: medium;">NetBanking</label>
-        <div style="background-color: white;font-size: 1em;padding-left:10px;font-weight: bold;padding: 8px;display:grid">
-         <span>Account No : 20264708218 </span>
-         <span>Name : Asha Deepa R </span>
-         <span>IFSC       : SBIN0016987 </span>
-         <span>BANK NAME  : State Bank Of India</span>
-        </div>
-      </div>
-    </div>
-    </div>
-
-<p style="color:red;margin-top:10px"> Important Note: Please e-mail your video link along with payment receipt to the <strong style="color:black">videos@icmda.co.in</strong> email. If payment receipt is not valid, then you are not allowed to participate in competition
-</p>
 
 Feel free to reach us if you have any queries.
 
