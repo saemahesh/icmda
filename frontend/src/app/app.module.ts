@@ -36,6 +36,8 @@ import { ModalModule, BsModalService } from 'ngx-bootstrap/modal';
 import { SubmitVideoComponent } from './submit-video/submit-video.component';
 import { UploadWinningsComponent } from './upload-winnings/upload-winnings.component';
 import { FindTeacherComponent } from './find-teacher/find-teacher.component';
+import { MembershipBenefitsComponent } from './membership-benefits/membership-benefits.component';
+import { MusicDirectoryComponent } from './music-directory/music-directory.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +68,9 @@ import { FindTeacherComponent } from './find-teacher/find-teacher.component';
     OnlineCompetitions2021Component,
     SubmitVideoComponent,
     UploadWinningsComponent,
-    FindTeacherComponent
+    FindTeacherComponent,
+    MembershipBenefitsComponent,
+    MusicDirectoryComponent
   ],
   imports: [
     BrowserModule,

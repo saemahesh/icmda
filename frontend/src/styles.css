@@ -9,6 +9,19 @@
     width: 270px;
 }
 
+.header-section {
+    padding-right: 0px;
+    padding-left: inherit;
+}
+
+del {
+    color: red;
+}
+
+.member-notification marquee {
+    color: #03a84e
+}
+
 @media screen and (max-width: 600px) {
     .site-logo img {
         width: 72%;
@@ -24,8 +37,8 @@
         display: block;
     }
     .modal.show .modal-dialog {
-      position :fixed;
-	}
+        position: fixed;
+    }
 }
 
 .carousel-inner>.item>img {
@@ -46,8 +59,13 @@
 }
 
 .modal.show .modal-dialog {
-      margin-top: 7%;
+    margin-top: 7%;
 }
+
+.main-menu li a {
+    margin-left: 30px;
+}
+
 
 /* input:not([type]), input[type=text]:not(.browser-default), input[type=password]:not(.browser-default), input[type=email]:not(.browser-default), input[type=url]:not(.browser-default), input[type=time]:not(.browser-default), input[type=date]:not(.browser-default), input[type=datetime]:not(.browser-default), input[type=datetime-local]:not(.browser-default), input[type=tel]:not(.browser-default), input[type=number]:not(.browser-default), input[type=search]:not(.browser-default), textarea.materialize-textarea{
     font-size: 2rem;

@@ -191,6 +191,18 @@ router.put("/get-details", (req, res) => {
         if (err) {
             res.status(500);
             res.send({ err: "no users found", result: null });
+        }
+    });
+});
+
+//Table Details
+router.get("/getTableDetails/:table", (req, res) => {
+    let tableName = req.params.table;
+    console.log('tableName ', tableName);
+    UserService.getTableDetails(tableName, (err, result) => {
+        if (err) {
+            res.status(500);
+            res.send({ err: err, result: null });
         } else {
             res.send(result);
         }

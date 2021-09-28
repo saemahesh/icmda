@@ -49,6 +49,7 @@ exports.register = (data, callback) => {
     }
   );
 };
+
 exports.eventRegister = (data, callback) => {
   let today = moment().toDate();
   console.log('data ', data);
@@ -84,8 +85,8 @@ exports.eventRegister = (data, callback) => {
     case "8":
         data.formValues.cLevel = "Sub-Junior Progressive";
         break;
-    case "9":
-        data.formValues.cLevel = "Junior Progressive";
+      case "2":
+        data.formValues.cLevel = "Junior";
         break;
   }
   console.log(data.formValues.artCategory,data.formValues.cLevel)
@@ -134,8 +135,51 @@ exports.eventRegister = (data, callback) => {
         console.log('result ', result.insertId)
         callback(null, result);
       }
-    }
-  );
+    })
+    executeQuery.queryForAll(
+        sqlQueryMap["updateEventRegister"], [
+            data.formValues.name,
+            data.amount,
+            data.formValues.teacherName,
+            data.formValues.teacherNumber,
+            '',
+            data.formValues.artCategory,
+            data.formValues.artSubCategory,
+            data.formValues.artForm,
+            data.formValues.participationCategory,
+            //  data.formValues.compType,
+            data.formValues.gender,
+            data.formValues.age,
+            //  data.formValues.compLevel,
+            //  '',
+            //  '',
+            data.formValues.mobileNumber,
+            data.formValues.address,
+            data.formValues.city,
+            data.formValues.zipcode,
+            today,
+            data.imageUrl,
+            data.formValues.country,
+            data.payment_receipt,
+            data.formValues.transaction_id,
+            //  data.amount,
+            //  data.formValues.cLevel
+            data.formValues.id,
+            data.formValues.email,
+        ],
+        (err, result) => {
+            console.log(err, result)
+            if (err) {
+                callback(err, null);
+            } else {
+                if (result.changedRows > 0) {
+                    this.sendEventUpdateMail(data);
+                }
+                console.log("Updated Rows", result.changedRows);
+                callback(null, result.changedRows);
+            }
+        }
+    );
 };
 
 //Update Event_register
@@ -192,7 +236,7 @@ exports.updateEventRegister = (data, callback) => {
 };
 
 exports.getMember = (id, callback) => {
-  try {
+
     executeQuery.queryForAll(
       sqlQueryMap["getMember"], [id],
       (err, result) => {
@@ -203,15 +247,21 @@ exports.getMember = (id, callback) => {
             callback(null, result)
           }
         }
-      }
-    );
-  } catch (err) {
+        // eslint-disable-next-line no-console
+    })
+};
+
+//getTable Details
+exports.getTableDetails = (tableName, callback) => {
+  executeQuery.queryForAll(`Select name,type,category,address from ${tableName};`, [], (err, result) => {
     if (err) {
+      // console.log("ERr", err);
       callback(err, null);
-      console.log("Login Error", err);
+    } else {
+      // console.log("result", result);
+      callback(null, result);
     }
-    // eslint-disable-next-line no-console
-  }
+  });
 };
 
 //Get member details by email id
@@ -422,20 +472,53 @@ exports.updateDetails = (data, callback) => {
 };
 
 exports.getProfiles = (addUser, callback) => {
-  executeQuery.queryForAll(
-    sqlQueryMap["getProfiles"], [],
-    (err, result) => {
-      if (err) {
-        console.log('err ', err);
-        callback(err, null);
-      } else {
-        callback(null, result);
-      }
-    }
-  );
+    executeQuery.queryForAll(
+        sqlQueryMap["getProfiles"], [],
+        (err, result) => {
+            if (err) {
+                console.log('err ', err);
+                callback(err, null);
+            } else {
+                callback(null, result);
+            }
+        }
+    );
 };
 
 exports.getRegistrationProfiles = (callback) => {
+    executeQuery.queryForAll(
+        sqlQueryMap["getRegistrationProfiles"], [],
+        (err, result) => {
+            if (err) {
+                console.log('err ', err);
+                callback(err, null);
+            } else {
+                callback(null, result);
+            }
+        }
+    );
+};
+
+//July2021 Competition Registeration
+exports.getNewRegistrationProfiles = (data, callback) => {
+  let newId = data.id.split('-');
+  data.id = newId[1];
+    executeQuery.queryForAll(
+        sqlQueryMap["getNewRegistrationProfiles"], [data.id, data.email],
+        (err, result) => {
+            if (err) {
+                console.log('err ', err);
+                callback(err, null);
+            } else {
+                console.log('result ', result);
+                callback(null, result);
+            }
+        }
+    );
+};
+
+//Submit Video
+exports.submitVideo = (data, callback) => {
   executeQuery.queryForAll(
     sqlQueryMap["getRegistrationProfiles"], [],
     (err, result) => {
@@ -508,9 +591,39 @@ exports.getDecEventProfile = (id, callback) => {
         callback(err, null);
       } else {
         callback(null, result);
+      }}
+  )
+};
+
+//Insert Winners
+exports.uploadWinnings = (data, callback)=>{
+    executeQuery.queryForAll(
+      sqlQueryMap['insertWinners'],
+      [
+        data.id, data.name, data.winningurl
+      ], (err,result) =>{
+          if (err) {
+            console.log('err ', err);
+            callback(err, null);
+          } else{
+            callback(null, result);
+          }
       }
-    }
-  );
+    )
+}
+
+exports.getDecEventProfile = (id, callback) => {
+    executeQuery.queryForAll(
+        sqlQueryMap["getDecEventProfile"], [id],
+        (err, result) => {
+            if (err) {
+                console.log('err ', err);
+                callback(err, null);
+            } else {
+                callback(null, result);
+            }
+        }
+    );
 };
 
 
@@ -564,21 +677,21 @@ exports.sendMail = (mail_data, callback) => {
 	</footer>
 </body>
 </html>`
-  };
+    };
 
-  // <div style="margin:30px 0">
-  // <a target="_blank" href="${id_url}">
-  // <button type="button" class="btn btn-success" style="background:lightgreen">Click here to download your ID card</button>
-  // </a>
-  // </div>
+    // <div style="margin:30px 0">
+    // <a target="_blank" href="${id_url}">
+    // <button type="button" class="btn btn-success" style="background:lightgreen">Click here to download your ID card</button>
+    // </a>
+    // </div>
 
-  mailTransporter.sendMail(mailDetails, function (err, data) {
-    if (err) {
-      console.log('Error Occurs', err);
-    } else {
-      console.log('Email sent successfully');
-    }
-  });
+    mailTransporter.sendMail(mailDetails, function(err, data) {
+        if (err) {
+            console.log('Error Occurs', err);
+        } else {
+            console.log('Email sent successfully');
+        }
+    });
 };
 
 exports.sendEventMail = (mail_data, callback) => {
@@ -951,6 +1064,11 @@ exports.sendEventUpdateMail = (mail_data, callback) => {
   data.payment_receipt = mail_data.payment_receipt;
   data.guidelines_url = 'http://icmda.co.in/guidelines';
 
+    data = mail_data.formValues;
+    data.imageUrl = mail_data.imageUrl;
+    data.amount = mail_data.amount;
+    data.payment_receipt = mail_data.payment_receipt;
+    data.guidelines_url = 'http://icmda.co.in/guidelines';
 
   let mailTransporter = nodemailer.createTransport({
     service: 'gmail',

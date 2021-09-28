@@ -153,4 +153,61 @@
        <![CDATA[ update  dec_event_tbl set attendance = ?,delivery_address = ?,certificate_name = ? where id = ?  ]]>
    </sql-query>
 
+   <sql-query id="kuchipudiRegistration">
+       <![CDATA[insert into registration (code,name,email,slot_id,country,coupon,phone_number,creation_date,updation_date)
+                values (?,?,?,?,?,?,?,?,?)]]>
+   </sql-query>
+
+     <sql-query id="insertPaymentHistory">
+       <![CDATA[insert into payment_history (name,phone_number,amount,transaction_id,payment_mode,payment_date,payment_code,occupied,slot_type)
+                values (?,?,?,?,?,?,?,?,?)]]>
+   </sql-query>
+
+     <sql-query id="getAvaliableSlot">
+       <![CDATA[select id,slot_time from slot_tbl where slot_type =? and occupied = 0  ]]>
+   </sql-query>
+
+        <sql-query id="getPaymentHistoryById">
+       <![CDATA[select * from payment_history where payment_code =? and occupied = 0 and slot_type=?  ]]>
+   </sql-query>
+
+           <sql-query id="getAvaliableSlotById">
+       <![CDATA[select * from slot_tbl where id =? and occupied = 0  ]]>
+   </sql-query>
+
+           <sql-query id="updatePaymentHistoryById">
+       <![CDATA[update payment_history set occupied = 1 where payment_code =?  ]]>
+   </sql-query>
+
+    <sql-query id="updateAvaliableSlot">
+       <![CDATA[update slot_tbl set occupied = 1 where id =?  ]]>
+   </sql-query>
+
+   <sql-query id="crossCheckingRegistration">
+       <![CDATA[select * from registration where code =? and coupon = 1  ]]>
+   </sql-query>
+
+   <sql-query id="crossCheckingPaymetHistory">
+       <![CDATA[select * from payment_history where payment_code =? ]]>
+   </sql-query>
+   <sql-query id="getSlotTypes">
+       <![CDATA[SELECT DISTINCT slot_type FROM slot_tbl]]>
+   </sql-query>
+
+      <sql-query id="paymetHistoryList">
+       <![CDATA[select * from payment_history ]]>
+   </sql-query>
+
+    <sql-query id="getDecemberEventById">
+       <![CDATA[select * from dec_event_tbl where id = ?  ]]>
+   </sql-query>
+
+
+    <sql-query id="getDecemberEventById">
+       <![CDATA[select * from dec_event_tbl where id = ?  ]]>
+   </sql-query>
+       <sql-query id="updateDecemberEventById">
+       <![CDATA[ update  dec_event_tbl set attendance = ?,delivery_address = ?,certificate_name = ? where id = ?  ]]>
+   </sql-query>
+
 </sql-queries>
