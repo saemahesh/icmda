@@ -1818,8 +1818,7 @@ Phone : 9840111333 | 9884112999
   </footer>
 </body>
 </html>
-`
-  };
+`};
 
   mailTransporter.sendMail(mailDetails, function (err, data) {
     if (err) {
