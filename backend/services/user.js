@@ -1023,7 +1023,7 @@ exports.sendEventMail = (mail_data, callback) => {
           <label style="font-size: medium;">NetBanking</label>
           <div style="background-color: white;font-size: 1em;padding-left:10px;font-weight: bold;padding: 8px;display:grid">
            <span>Account No : 40465698803 </span>
-           <span>Name : ICMDA </span>
+           <span>Name : INTERNATIONAL CARNATIC MUSICIANS & DANCERS ASSOCIATION </span>
            <span>IFSC       : SBIN0016987 </span>
            <span>BANK NAME  : State Bank Of India</span>
           </div>
@@ -1390,7 +1390,7 @@ exports.sendEventUpdateMail = (mail_data, callback) => {
           <label style="font-size: medium;">NetBanking</label>
           <div style="background-color: white;font-size: 1em;padding-left:10px;font-weight: bold;padding: 8px;display:grid">
            <span>Account No : 40465698803 </span>
-           <span>Name : ICMDA </span>
+           <span>Name : INTERNATIONAL CARNATIC MUSICIANS & DANCERS ASSOCIATION </span>
            <span>IFSC       : SBIN0016987 </span>
            <span>BANK NAME  : State Bank Of India</span>
           </div>
