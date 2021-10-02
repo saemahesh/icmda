@@ -1,0 +1,34 @@
+<div class="table-layout">
+    <div style=" text-align: center;color:#08192d">
+        <h3> Musicians Directory</h3>
+    </div>
+    <div>
+      <form style="margin-top:15px">
+        <input type="text" name="search" placeholder="Search.." (keyup)="search($event)">
+      </form>
+    </div>
+    <div class="row" style="padding:1%">
+      <div class="col-md-5 col-sm-12 card" *ngFor="let item of data">
+          <div class="row">
+              <div class="col-md-3">
+                  <img src="https://cahsi.utep.edu/wp-content/uploads/kisspng-computer-icons-user-clip-art-user-5abf13db5624e4.1771742215224718993529.png"
+                       alt="Avatar"
+                       style="width:100px;">
+              </div>
+              <div class="col-md-9">
+                  <div>
+                      <label style="font-weight: bold;" class="name" >{{item.name}}</label>
+                  </div>
+                  <div>
+                      <i>Category</i>&nbsp;&nbsp; <label class="label label-primary">{{item.category}}</label>
+                      <br>
+                     <i>ArtForm</i> &nbsp;&nbsp;  <label class="label label-primary">{{item.type}}</label>
+                     <br>
+                     <i>Address</i> &nbsp;&nbsp; {{item.address}}
+                  </div>
+                  
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

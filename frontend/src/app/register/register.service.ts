@@ -13,5 +13,19 @@ export class RegisterService {
   postUserDetails(reqObj: any):Observable<any>{
     return this.httpClient.post(environment.baseUrl + '/register', reqObj)
   }
+
+  getMusicDirectoryDetails(){
+    return this.httpClient.get(environment.baseUrl+'/getTableDetails/directory')
+  }
  
+  getMemberDetails(emailId : any){
+    return this.httpClient.get(environment.baseUrl +'/get-details/' + emailId)
+  }
+
+  getTeacherFilter(reqObj: any){
+    return this.httpClient.post(environment.baseUrl + '/get-details', reqObj)
+  }
+  connectTeacher(reqObj:any){
+    return this.httpClient.put(environment.baseUrl + '/get-details', reqObj)
+  }
 }

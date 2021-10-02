@@ -1,0 +1,193 @@
+<!-- <div class="container bg-blue">
+    <div class="container-content" id="bar">
+        <h2 class="header-content">Find Your teacher</h2>
+        <div class="content" *ngIf="!noCheckList">
+            Are you a member? Please register as a member to access this page. <br>
+            If you are already a member please <button (click)="openPopup(mymodal)">Click Here</button>
+        </div>
+        <div  *ngIf="noCheckList">
+            <div class="col-md-3">
+                Art Form
+                <select class="form-control" id="power">
+                    <option value="" disabled selected>Select your choice</option>
+                    <option>name</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                Column
+            </div>
+            <div class="col-md-3">
+                Column
+            </div>
+            <div class="col-md-3">
+                Column
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<ng-template #mymodal>
+    <div class="modal-container">
+        <div class="modal-header">
+            <label style="color: black; font-size: inherit;"> Enter Your Details</label>
+            <button type="button" class="close pull-right" aria-label="Close" (click)="close()">
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                <p>E-mail <span style="color: red;">*</span> <span *ngIf="!email && login" style="color: red;">&nbsp;
+                        Required</span></p>
+                <input type="text" class="form-control" [(ngModel)]="email" />
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" style="width:auto" class="btn btn-default" (click)="logIn()">Log In</button>
+        </div>
+    </div>
+</ng-template>
+<div class="hs-item">
+    <div class="container">
+        <h1 style="text-align: center;color: white;">Find Your Teacher</h1>
+        <div class="content" *ngIf="noCheckList">
+            Are you a member? Please register as a member to access this page. <br>
+            If you are already a member please <button (click)="openPopup(mymodal)">Login Here</button>
+        </div>
+        <div *ngIf="!noCheckList">
+            <form [formGroup]="filterGroup">
+                <div class="row" style="margin-left: 8%;">
+                    <div class="col-md-3">
+                        <label style="font-size: medium;">Art Form
+                            <span *ngIf="submitted && f.artForm.errors?.required"
+                                style="color:red">&nbsp;Required</span></label>
+                        <select class="form-control" id="power" formControlName="artForm">
+                            <option value="" disabled selected>Select your choice</option>
+                            <option *ngFor="let form of artForm" value="{{form.name}}">{{form.name}}</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label style="font-size: medium;">Country
+                            <span *ngIf="submitted && f.country.errors?.required"
+                                style="color:red">&nbsp;Required</span></label>
+                        <select class="form-control" id="power" formControlName="country"
+                            (change)="countrySelect($event)">
+                            <option value="" disabled selected>Select your choice</option>
+                            <option *ngFor="let form of countriesList" value="{{form.country}}">{{form.country | titlecase}}
+                            </option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label style="font-size: medium;">City
+                            <span *ngIf="submitted && f.city.errors?.required"
+                                style="color:red">&nbsp;Required</span></label>
+                                <select class="form-control" id="power" formControlName="city">
+                            <option value="" disabled selected>Select your choice</option>
+                            <option *ngFor="let form of allCityList" value="{{form.city}}">{{form.city | titlecase}}
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-3">
+                        <br>
+                        <button type="submit" class="btn btn-success" (click)="submitFilter()">Submit</button>
+                    </div>
+                </div>
+                <div class="row" style="padding:1%">
+                    <div class="col-md-5 col-sm-12 card" *ngFor="let item of teachersList">
+                        <div class="row" (click)="openDetails(item)">
+                            <div class="col-md-3">
+                                <img src="{{item.profile_pic}}" alt="Avatar" style="width:100px;">
+                            </div>
+                            <div class="col-md-9">
+                                <div>
+                                    <label style="color: black;font-weight: bold;font-size: initial;"
+                                        class="name">{{item.username}}</label>
+                                </div>
+                                <div>
+                                    <i>Category</i>&nbsp;&nbsp; <label
+                                        class="label label-primary">{{item.artCategory}}</label>
+                                    <br>
+                                    <i>ArtForm</i> &nbsp;&nbsp; <label
+                                        class="label label-primary">{{item.art_form}}</label>
+                                    <br>
+                                    <i>Address</i> &nbsp;&nbsp; {{item.address}}
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- <ng-template #newModal>
+    <div class="modal-container" style="width:80%">
+        <div class="modal-header" style="width:80%">
+            <label style="color: black;"> Teacher Details</label>
+            <button type="button" class="close pull-right" aria-label="Close" (click)="close()">
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>
+        <div class="modal-body" style="width:80%">
+            
+        </div>
+        <div class="modal-footer" style="width:80%">
+            <p *ngIf="showText" style="color: red;">Please disconnect your current teacher to connect with another teacher.</p>
+            <button *ngIf="!showText" type="button" style="width:auto; background-color: green; color:white" class="btn btn-default" (click)="logIn()">{{buttonValue}}</button>
+        </div>
+    </div>
+</ng-template> -->
+
+
+<div class="overlay" *ngIf="popup">
+    <div class="popup">
+        <h2>Teacher Deatils</h2>
+        <a class="close" (click)="popup = false">&times;</a>
+        <hr>
+        <div class="content">
+            <div class="row">
+                <div class="col-md-3">
+                    <img src="{{teacherData.profile_pic}}" alt="Avatar" style="width:200px;">
+                    <p *ngIf="showText" style="color: red;">Please disconnect your current teacher to connect with another teacher.
+                    </p>
+                    <button *ngIf="!showText" type="button" style="margin-top:10px;width:auto ;background-color: green; color:white"
+                        class="btn btn-default" (click)="connect()">{{buttonValue}}
+                    </button>
+    
+                </div>
+              
+                <div class="col-md-9">
+                    <div style="float: left;">
+                    <p *ngIf="teacherData?.username"><strong>Name :</strong>
+                        <span style="font-size: small;">&nbsp;{{teacherData?.username}}</span>
+                    </p>
+                    <br>
+                    <p *ngIf="teacherData?.art_form"><strong>Art Form :</strong>
+                        <span style="font-size: small;">&nbsp;{{teacherData?.art_form}}</span>
+                    </p>
+                    <br>
+                    <p *ngIf="teacherData?.aboutYourself"><strong>About Me :</strong>
+                        <span style="font-size: small;">&nbsp;{{teacherData?.aboutYourself}}</span>
+                    </p>
+                    <div class="row">
+                        <label *ngIf="teacherData?.video1 != ''"><strong>Please checkout my video 1 : </strong>
+                            <a href="{{teacherData?.video1}}" target="_blank">Play Now</a>
+                        </label><br>
+                        <label *ngIf="teacherData?.video2 != ''"><strong>Please checkout my video 2 : </strong>
+                            <a href="{{teacherData?.video2}}" target="_blank">Play Now</a>
+                        </label><br>
+                        <label *ngIf="teacherData?.video3 != ''"><strong>Please checkout my video 3 : </strong>
+                            <a href="{{teacherData?.video3}}" target="_blank">Play Now</a>
+                        </label><br>
+                        <label *ngIf="teacherData?.video4 != ''"><strong>Please checkout my video 4 : </strong>
+                            <a href="{{teacherData?.video4}}" target="_blank">Play Now</a>
+                        </label><br>
+                    </div>
+                </div>
+                </div>
+            </div>
+           
+        </div>       
+    </div>
+</div>

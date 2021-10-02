@@ -35,6 +35,9 @@ import { OnlineCompetitions2021Component } from './online-competitions2021/onlin
 import { ModalModule, BsModalService } from 'ngx-bootstrap/modal';
 import { SubmitVideoComponent } from './submit-video/submit-video.component';
 import { UploadWinningsComponent } from './upload-winnings/upload-winnings.component';
+import { FindTeacherComponent } from './find-teacher/find-teacher.component';
+import { MembershipBenefitsComponent } from './membership-benefits/membership-benefits.component';
+import { MusicDirectoryComponent } from './music-directory/music-directory.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +67,10 @@ import { UploadWinningsComponent } from './upload-winnings/upload-winnings.compo
     UpdateOnlineCompetitionComponent,
     OnlineCompetitions2021Component,
     SubmitVideoComponent,
-    UploadWinningsComponent
+    UploadWinningsComponent,
+    FindTeacherComponent,
+    MembershipBenefitsComponent,
+    MusicDirectoryComponent
   ],
   imports: [
     BrowserModule,

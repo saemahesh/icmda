@@ -1,6 +1,12 @@
 <form class="hs-item" [formGroup]="registrationForm">
     <div class="container">
         <h1 style="text-align: center;color: white;">Member Registration Form</h1>
+            <h6 class="blinking">(Note: Anual membership with benefits at <del>3000</del> 1000 INR <i>* Opening Offer </i>)</h6>
+            <h6 class="blinking">(Note: Lifetime membership with benefits at <del>15000</del> 5000 INR <i>* Opening Offer </i>)</h6>    
+        <h4 style="text-align: center;color: rgb(245 240 206)">To checkout the benefits for being a member, please 
+            <button class="btn btn-success" (click)="memberBenefits()">Click Here</button>
+            <br><br>
+        </h4>
         <div class="row">
             <div class="col-md-6">
                 <label style="font-size: medium;">Membership Type
@@ -99,12 +105,6 @@
             </div>
             <div class="col-md-6">
                 <div class="form-group">
-                    <label style="font-size: medium;">Aadhar Number</label>
-                    <input type="text" class="form-control" id="name" formControlName="aadharNo" maxlength="12">
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
                     <label style="font-size: medium;">Membership Plan
                         <span *ngIf="submitted && f.membershipType.errors?.required" style="color:red">&nbsp;
                             Required</span></label>
@@ -121,15 +121,15 @@
             </div>
             <div class="col-md-6" *ngIf="memberTypeValue">
                 <label style="font-size: medium;">Video 2</label>
-                <textarea type="text" class="form-control" id="video2" formControlName="video1"></textarea>
+                <textarea type="text" class="form-control" id="video2" formControlName="video2"></textarea>
             </div>
             <div class="col-md-6" *ngIf="memberTypeValue">
                 <label style="font-size: medium;">Video 3</label>
-                <textarea type="text" class="form-control" id="video3" formControlName="video1"></textarea>
+                <textarea type="text" class="form-control" id="video3" formControlName="video3"></textarea>
             </div>
             <div class="col-md-6" *ngIf="memberTypeValue">
                 <label style="font-size: medium;">Video 4</label>
-                <textarea type="text" class="form-control" id="video4" formControlName="video1"></textarea>
+                <textarea type="text" class="form-control" id="video4" formControlName="video4"></textarea>
             </div>
 
             <div class="col-md-6">
@@ -236,8 +236,8 @@
                         <label style="font-size: medium;">NetBanking</label>
                         <div style="background-color: white;font-size:
                 1em;padding-left:10px;font-weight: bold;padding: 8px;display:grid">
-                            <span>Account No : 20264708218 </span>
-                            <span>Name : Asha Deepa R </span>
+                            <span>Account No : 40465698803 </span>
+                            <span>Name : ICMDA </span>
                             <span>IFSC : SBIN0016987 </span>
                             <span>BANK NAME : State Bank Of India</span>
 

@@ -42,6 +42,10 @@ img{
   display: none;
 }
 
+del{
+  color:red
+}
+
 /* Next & previous buttons */
 .prev, .next {
   cursor: pointer;

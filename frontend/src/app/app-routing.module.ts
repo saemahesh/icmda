@@ -25,6 +25,9 @@ import { UpdateOnlineCompetitionComponent } from "./update-online-competition/up
 import { OnlineCompetitions2021Component } from "./online-competitions2021/online-competitions2021.component";
 import { SubmitVideoComponent } from "./submit-video/submit-video.component";
 import { UploadWinningsComponent } from "./upload-winnings/upload-winnings.component";
+import { FindTeacherComponent } from "./find-teacher/find-teacher.component";
+import { MembershipBenefitsComponent } from "./membership-benefits/membership-benefits.component";
+import { MusicDirectoryComponent } from "./music-directory/music-directory.component";
 
 const routes: Routes = [
   {
@@ -54,8 +57,20 @@ const routes: Routes = [
     component: ActivitiesComponent
   },
   {
+    path: 'member-benefits',
+    component: MembershipBenefitsComponent
+  },
+  {
     path: 'membership',
     component: MembershipComponent
+  },
+  {
+    path: 'find-teacher',
+    component: FindTeacherComponent
+  },
+  {
+    path: 'musicians-directory',
+    component: MusicDirectoryComponent
   },
   {
     path: 'members-ethics',
@@ -89,7 +104,7 @@ const routes: Routes = [
     component: OnlineCompetitions2021Component
   },
   {
-    path: 'upload-your-winnings',
+    path: 'upload-winner-photos',
     component: UploadWinningsComponent
   },
   {

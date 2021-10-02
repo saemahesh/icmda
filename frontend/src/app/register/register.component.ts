@@ -24,7 +24,12 @@ export class RegisterComponent implements OnInit {
   ];
   allDanceList = [
     { id: 21, cat_id: 2, name: "BHARATHANATYAM" },
-    { id: 22, cat_id: 2, name: "KUCHIPUDI" }
+    { id: 22, cat_id: 2, name: "KUCHIPUDI" },
+    { id: 22, cat_id: 2, name: "MOHINI ATAM" },
+    { id: 22, cat_id: 2, name: "KATHAKALI" },
+    { id: 22, cat_id: 2, name: "KATHAK" },
+    { id: 22, cat_id: 2, name: "IDISI" },
+    { id: 22, cat_id: 2, name: "ANDHRA NATYAM" }
   ];
   allInstrumentList = [
     { id: 2, cat_id: 1, name: "VEENA" },
@@ -36,10 +41,12 @@ export class RegisterComponent implements OnInit {
     { id: 8, cat_id: 1, name: "CLARINATE" },
     { id: 9, cat_id: 1, name: "GOTTU VADYAM" },
     { id: 10, cat_id: 1, name: "KEYBOARD" },
-  ];
-  allRythmList = [
     { id: 11, cat_id: 1, name: "THAMBOORA" },
     { id: 12, cat_id: 1, name: "SITHAR / CARNATIC" },
+    { id: 21, cat_id: 1, name: "JALATHARAGAM" },
+    { id: 22, cat_id: 1, name: "KAZOO" }
+  ];
+  allRythmList = [
     { id: 13, cat_id: 1, name: "MRIDHANGAM" },
     { id: 14, cat_id: 1, name: "GATAM" },
     { id: 15, cat_id: 1, name: "MORSING" },
@@ -47,11 +54,8 @@ export class RegisterComponent implements OnInit {
     { id: 17, cat_id: 1, name: "TABLA" },
     { id: 18, cat_id: 1, name: "THAVIL" },
     { id: 19, cat_id: 1, name: "KONNAKOL" },
-    { id: 20, cat_id: 1, name: "DRUMS SPADS" },
-    { id: 21, cat_id: 1, name: "JALATHARAGAM" },
-    { id: 22, cat_id: 1, name: "KAZOO" }
-  ];
-  memberShipTypes: any = [
+    { id: 20, cat_id: 1, name: "DRUMS SPADS" }
+  ];  memberShipTypes: any = [
     { type: 'Annual' },
     { type: 'Life-Time' }
   ]
@@ -88,7 +92,6 @@ export class RegisterComponent implements OnInit {
       city: ['', Validators.required],
       zipcode: ['', Validators.required],
       artSubCategory: ["", Validators.required],
-      aadharNo: [""],
       membershipType: ["", Validators.required],
       aboutYourSelf: [""],
       video1: [""],
@@ -250,5 +253,9 @@ export class RegisterComponent implements OnInit {
     } else if (value == 'Life-Time') {
       this.amount = 5000;
     }
+  }
+
+  memberBenefits(){
+    this.router.navigate(['/member-benefits']);
   }
 }

@@ -23,6 +23,19 @@ label {
     margin-right: 5px;
   }
 
+  .blinking {
+      background: none !important;
+  }
+h6 {
+    color: white;
+    text-align: center;
+}
+del{
+    color:red
+}
+i{
+    color:green
+}
 .row {
     margin-left: 20px;
     margin-right: 20px;

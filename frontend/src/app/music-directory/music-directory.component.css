@@ -1,0 +1,48 @@
+.table-layout{
+    padding: 1% 7%;
+    background-image: url(https://storage.needpix.com/rsynced_images/background-2203989_1280.jpg);
+}
+h3{
+    color: aliceblue; background-color: black;    padding: 1% 1%; 
+    margin-top: 3px !important;
+    margin-bottom: auto !important;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even){background-color: #f2f2f2}
+
+  .card {
+    margin-left: 5%;
+    background: #e0fff6;
+    padding: 15px;
+}
+.card i{
+    color:#066c74
+}
+.name {
+    color: #0c8244;
+    font-size: 15px;
+}
+
+input[type=text] {
+  width: 100%;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 15px;
+  font-size: 16px;
+  background-color: white;
+  background-image: url('https://www.w3schools.com/css/searchicon.png');
+  background-position: 10px 3px; 
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
+}

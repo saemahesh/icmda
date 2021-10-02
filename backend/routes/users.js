@@ -144,6 +144,7 @@ router.post("/login", (req, res) => {
         }
     });
 });
+
 router.get("/get-member/:id", (req, res) => {
     var id = req.params.id;
     console.log('id ', id);
@@ -151,6 +152,57 @@ router.get("/get-member/:id", (req, res) => {
         if (err) {
             res.status(500);
             res.send({ err: "no users found", result: null });
+        } else {
+            res.send(result);
+        }
+    });
+});
+
+//Get Member Details With Email-id
+router.get("/get-details/:email", (req, res) => {
+    var emailId = req.params.email;
+    console.log('email ', emailId);
+    UserService.getDetailsByEmailId(emailId, (err, result) => {
+        if (err) {
+            res.status(500);
+            res.send({ err: "no users found", result: null });
+        } else {
+            res.send(result);
+        }
+    });
+});
+
+//Get members with filters
+router.post("/get-details", (req, res) => {
+    UserService.getDetailsByFilters(req.body, (err, result) => {
+        if (err) {
+            res.status(500);
+            res.send({ err: "no users found", result: null });
+        } else {
+            res.send(result);
+        }
+    });
+});
+
+//Update members details 
+router.put("/get-details", (req, res) => {
+    // console.log("HI");
+    UserService.updateDetails(req.body, (err, result) => {
+        if (err) {
+            res.status(500);
+            res.send({ err: "no users found", result: null });
+        }
+    });
+});
+
+//Table Details
+router.get("/getTableDetails/:table", (req, res) => {
+    let tableName = req.params.table;
+    console.log('tableName ', tableName);
+    UserService.getTableDetails(tableName, (err, result) => {
+        if (err) {
+            res.status(500);
+            res.send({ err: err, result: null });
         } else {
             res.send(result);
         }
