@@ -28,6 +28,7 @@ import { UploadWinningsComponent } from "./upload-winnings/upload-winnings.compo
 import { FindTeacherComponent } from "./find-teacher/find-teacher.component";
 import { MembershipBenefitsComponent } from "./membership-benefits/membership-benefits.component";
 import { MusicDirectoryComponent } from "./music-directory/music-directory.component";
+import { GuinnessCertificateComponent } from "./guinness-certificate/guinness-certificate.component";
 
 const routes: Routes = [
   {
@@ -37,8 +38,11 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent
-  }
-  ,
+  },
+  {
+    path: 'guinness-certificate',
+    component: GuinnessCertificateComponent
+  },
   {
     path: 'dashboard',
     component: DashboardComponent

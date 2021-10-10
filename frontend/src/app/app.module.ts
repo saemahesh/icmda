@@ -38,6 +38,7 @@ import { UploadWinningsComponent } from './upload-winnings/upload-winnings.compo
 import { FindTeacherComponent } from './find-teacher/find-teacher.component';
 import { MembershipBenefitsComponent } from './membership-benefits/membership-benefits.component';
 import { MusicDirectoryComponent } from './music-directory/music-directory.component';
+import { GuinnessCertificateComponent } from './guinness-certificate/guinness-certificate.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,8 @@ import { MusicDirectoryComponent } from './music-directory/music-directory.compo
     UploadWinningsComponent,
     FindTeacherComponent,
     MembershipBenefitsComponent,
-    MusicDirectoryComponent
+    MusicDirectoryComponent,
+    GuinnessCertificateComponent
   ],
   imports: [
     BrowserModule,
