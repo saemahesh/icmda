@@ -28,6 +28,7 @@ import { UploadWinningsComponent } from "./upload-winnings/upload-winnings.compo
 import { FindTeacherComponent } from "./find-teacher/find-teacher.component";
 import { MembershipBenefitsComponent } from "./membership-benefits/membership-benefits.component";
 import { MusicDirectoryComponent } from "./music-directory/music-directory.component";
+import { TermsAndConditionsComponent } from "./terms-and-conditions/terms-and-conditions.component";
 
 const routes: Routes = [
   {
@@ -71,6 +72,10 @@ const routes: Routes = [
   {
     path: 'musicians-directory',
     component: MusicDirectoryComponent
+  },
+  {
+    path: 'terms-and-conditions',
+    component: TermsAndConditionsComponent
   },
   {
     path: 'members-ethics',
