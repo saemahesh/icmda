@@ -565,6 +565,35 @@ exports.submitVideo = (data, callback) => {
   );
 };
 
+//Submit payment
+exports.razorpayPaymentCapture = (data, callback) => {
+  data = data.payload.payment.entity;
+  console.log('\n\n daata ', data);
+  executeQuery.queryForAll(
+    sqlQueryMap["insertGuinnessPayments"], 
+    [data.notes.name,
+      data.notes.artform,
+      data.notes.whatsapp_phone,
+      data.notes.email,
+      data.notes.collect_certificates,
+      data.notes.delivery_address,
+      data.notes.no_of_certificates,
+      data.notes.all_student_names,
+      data.notes.transaction_id,
+      data.amount / 100,
+      data.id],
+    (err, result) => {
+      if (err) {
+        console.log('err ', err);
+        callback(err, null);
+      } else {
+        console.log('result ', result);
+        callback(null, result);
+      }
+    }
+  );
+};
+
 //Insert Winners
 exports.uploadWinnings = (data, callback) => {
   executeQuery.queryForAll(
