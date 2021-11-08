@@ -533,7 +533,7 @@ let mailDetails = {
     </p>
 
     <p>
-      If anybody wants to participate in the ICMDA festival, please visit the HTTP://ICMDA.CO.IN website to register your slot.
+      If anybody wants to participate in the ICMDA festival, please visit the HTTP://ICMDA.IN website to register your slot.
       Please Join the ICMDA Telegram channel (http://t.me/icmdachennai) for the latest updates.
     </p> 
   <div>

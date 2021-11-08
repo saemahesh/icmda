@@ -106,15 +106,15 @@ const routes: Routes = [
     component: EventRegisterComponent
   },
   {
-    path: 'online-competition-results-2021/register',
+    path: 'online-competition-2021/register',
     component: EventRegisterComponent
   },
   {
-    path: 'online-competition-results-2021/update',
+    path: 'online-competition-2021/update',
     component: EventRegisterComponent
   },
   {
-    path: 'online-competition-results-2021',
+    path: 'online-competition-2021',
     component: OnlineCompetitions2021Component
   },
   {

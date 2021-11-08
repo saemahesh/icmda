@@ -669,7 +669,7 @@ exports.sendMail = (mail_data, callback) => {
       pass: 'IcmdaChennai1$'
     }
   });
-  let id_url = `https://icmda.co.in/idcard/${data.id}`
+  let id_url = `https://icmda.in/idcard/${data.id}`
   let mailDetails = {
     from: 'icmdachennai@gmail.com',
     to: data.email,
@@ -729,7 +729,7 @@ exports.sendEventMail = (mail_data, callback) => {
   data.imageUrl = mail_data.imageUrl;
   data.amount = mail_data.amount;
   data.payment_receipt = mail_data.payment_receipt;
-  data.guidelines_url = 'http://icmda.co.in/guidelines';
+  data.guidelines_url = 'http://icmda.in/guidelines';
 
 
   let mailTransporter = nodemailer.createTransport({
@@ -1060,7 +1060,7 @@ exports.sendEventMail = (mail_data, callback) => {
       </div>
       </div>
   
-  <p style="color:red;margin-top:10px"> Important Note: Please e-mail your video link along with payment receipt to the <strong style="color:black">videos@icmda.co.in</strong> email. If payment receipt is not valid, then you are not allowed to participate in competition
+  <p style="color:red;margin-top:10px"> Important Note: Please e-mail your video link along with payment receipt to the <strong style="color:black">videos@icmda.in</strong> email. If payment receipt is not valid, then you are not allowed to participate in competition
   </p>
   
   Feel free to reach us if you have any queries.
@@ -1091,13 +1091,13 @@ exports.sendEventUpdateMail = (mail_data, callback) => {
   data.imageUrl = mail_data.imageUrl;
   data.amount = mail_data.amount;
   data.payment_receipt = mail_data.payment_receipt;
-  data.guidelines_url = 'http://icmda.co.in/guidelines';
+  data.guidelines_url = 'http://icmda.in/guidelines';
 
     data = mail_data.formValues;
     data.imageUrl = mail_data.imageUrl;
     data.amount = mail_data.amount;
     data.payment_receipt = mail_data.payment_receipt;
-    data.guidelines_url = 'http://icmda.co.in/guidelines';
+    data.guidelines_url = 'http://icmda.in/guidelines';
 
   let mailTransporter = nodemailer.createTransport({
     service: 'gmail',
@@ -1427,7 +1427,7 @@ exports.sendEventUpdateMail = (mail_data, callback) => {
       </div>
       </div>
   
-  <p style="color:red;margin-top:10px"> Important Note: Please e-mail your video link along with payment receipt to the <strong style="color:black">videos@icmda.co.in</strong> email. If payment receipt is not valid, then you are not allowed to participate in competition
+  <p style="color:red;margin-top:10px"> Important Note: Please e-mail your video link along with payment receipt to the <strong style="color:black">videos@icmda.in</strong> email. If payment receipt is not valid, then you are not allowed to participate in competition
   </p>
   
   Feel free to reach us if you have any queries.
@@ -1696,7 +1696,7 @@ exports.sendPrizeMail = (mail_data, callback) => {
     </p>
 
     <p>
-      If anybody wants to participate in the ICMDA festival, please visit the HTTP://ICMDA.CO.IN website on 1st March to register your slot.
+      If anybody wants to participate in the ICMDA festival, please visit the HTTP://icmda.in website on 1st March to register your slot.
       Please Join the ICMDA Telegram channel (http://t.me/icmdachennai) for the latest updates.
     </p> 
   <div>
@@ -1728,7 +1728,7 @@ exports.sendPrizeMail = (mail_data, callback) => {
 exports.sendConnectMail = (mail_data, callback) => {
   let data = mail_data;
 
-  data.guidelines_url = 'http://icmda.co.in/guidelines';
+  data.guidelines_url = 'http://icmda.in/guidelines';
 
   console.log("dateae", data);
   let mailTransporter = nodemailer.createTransport({
@@ -1979,7 +1979,7 @@ Phone : 9840111333 | 9884112999
 //Send Connecting Mail between Teacher and Student
 exports.sendDisconnectMail = (mail_data, callback) => {
   let data = mail_data;
-  data.guidelines_url = 'http://icmda.co.in/guidelines';
+  data.guidelines_url = 'http://icmda.in/guidelines';
   console.log("datata", data);
   let mailTransporter = nodemailer.createTransport({
     service: 'gmail',
