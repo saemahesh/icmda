@@ -102,7 +102,7 @@ const routes: Routes = [
     component: IcmdaPageComponent
   },
   {
-    path: 'competition-registration',
+    path: 'online-competition-season1',
     component: EventRegisterComponent
   },
   {

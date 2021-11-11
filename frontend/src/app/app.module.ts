@@ -41,6 +41,7 @@ import { MusicDirectoryComponent } from './music-directory/music-directory.compo
 import { GuinnessCertificateComponent } from './guinness-certificate/guinness-certificate.component';
 import { TermsAndConditionsComponent } from './terms-and-conditions/terms-and-conditions.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
+import { SitemapComponent } from './sitemap/sitemap.component';
 
 @NgModule({
   declarations: [
@@ -76,7 +77,8 @@ import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.componen
     MusicDirectoryComponent,
     GuinnessCertificateComponent,
     TermsAndConditionsComponent,
-    PrivacyPolicyComponent
+    PrivacyPolicyComponent,
+    SitemapComponent
   ],
   imports: [
     BrowserModule,

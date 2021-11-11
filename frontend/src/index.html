@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>ICMDA - International Carnatic Musicians & Dancers Association</title>
+    <title>ICMDA - REGISTER NOW FOR ONLINE COMPETITIONS SEASON 2 </title>
     <meta charset="UTF-8">
     <meta name="description" content="ICMDA">
     <meta name="keywords" content="music, html">
@@ -107,8 +107,87 @@
     </style>
 
     <body>
+        
         <header class="header-section clearfix">
-            <div class="alert alert-info alert-dismissible show member-notification" role="alert">
+
+            <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+            <script type="text/javascript">
+                function googleTranslateElementInit() {
+                  new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.FloatPosition.TOP_LEFT}, 'google_translate_element');
+                }
+            
+                function triggerHtmlEvent(element, eventName) {
+                  var event;
+                  if (document.createEvent) {
+                    event = document.createEvent('HTMLEvents');
+                    event.initEvent(eventName, true, true);
+                    element.dispatchEvent(event);
+                  } else {
+                    event = document.createEventObject();
+                    event.eventType = eventName;
+                    element.fireEvent('on' + event.eventType, event);
+                  }
+                }
+            
+                jQuery('.lang-select').click(function() {
+                    alert('telugu')
+                  var theLang = jQuery(this).attr('data-lang');
+                  jQuery('.goog-te-combo').val(theLang);
+            
+                  //alert(jQuery(this).attr('href'));
+                  window.location = jQuery(this).attr('href');
+                  location.reload();
+            
+                });
+                // Set a Cookie
+                function setCookie(cName, cValue, expDays) {
+                        let date = new Date();
+                        date.setTime(date.getTime() + (expDays * 24 * 60 * 60 * 1000));
+                        const expires = "expires=" + date.toUTCString();
+                        document.cookie = 'googtrans=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT; Domain=.icmda.in';
+                        document.cookie = 'googtrans=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+                        document.cookie = cName + "=" + cValue + "; " + expires + "; path=/";
+                        window.location = jQuery(this).attr('href');
+                  location.reload();
+                }
+
+                function hideTranslator() {
+                    jQuery('.skiptranslate').hide();
+                    jQuery('body').css('top','0px');
+                }
+                setTimeout(()=> {
+                    hideTranslator();
+                },2000);
+                // Apply setCookie
+
+              </script>
+            <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+         
+            <button class="btn btn-primary" style="margin-left:5%" onclick="setCookie('googtrans', '/hi/en', 30)" > 
+                <span class="notranslate">ENGLISH</span>  
+                </button>
+
+            <button class="btn btn-success" onclick="setCookie('googtrans', '/hi/te', 30)" > 
+            <span class="notranslate">తెలుగు</span>  
+            </button>
+
+            <button class="btn btn-warning" onclick="setCookie('googtrans', '/hi/ta', 30)" class="notranslate">
+                <span class="notranslate">தமிழ்</span>  
+                 </button>
+
+                 <button class="btn btn-info" onclick="setCookie('googtrans', '/hi/kn', 30)" class="notranslate">
+                    <span class="notranslate">ಕನ್ನಡ</span>  
+                     </button>
+
+                     
+                 <button class="btn btn-danger" onclick="setCookie('googtrans', '/en/hi', 30)" class="notranslate">
+                    <span class="notranslate">हिंदी</span>  
+                     </button>
+
+                     
+
+            
+            <div class="alert alert-info alert-dismissible show member-notification" style="padding: 0;" role="alert">
                 <marquee behavior="scroll" onmouseover="this.stop();" onmouseout="this.start();" direction="left" scrollamount="7" style="font-size: 23px;font-weight: bold;">
                     <span class="label label-default blinking">New</span>
                     <strong>Are you a member?</strong> Anual membership with benefits at <del>5000</del> 3000 INR.<i></i> Lifetime membership with benefits at <del>15000</del> 10000 INR <i>* Opening Offer 
@@ -116,8 +195,10 @@
               </marquee>
                
             </div>
+            <!-- <div id="google_translate_element"></div> -->
+
             <a href="/" class="site-logo">
-                <img width="350px" src="./assets/images/new logo.png" alt="">
+                <img src="./assets/images/new logo.png" alt="">
             </a>
 
             <ul class="main-menu menu">
@@ -145,7 +226,7 @@
                                             Competition Season 2 <span class="label label-default blinking">New</span> 
                                         </a>
                                         </li>
-                                        <li><a href="/competition-registration">Online
+                                        <li><a href="/online-competition-season1">Online
                                             Competition 2020 Results</a>
                                         </li>
                         <!-- <li>
@@ -171,7 +252,7 @@
                 <li><a href="/musicians-directory">Musicians Directory</a></li>
                 <li><a href="/find-teacher" class="register">Find Teacher</a></li>
                 <!-- <li><a href="/">Grade Exams</a></li> -->
-                <li>
+                <li style="margin-right:20px">
                     <a href="https://icmda.tawk.help/" target="_blank">FAQ</a>
                 </li>
 
@@ -202,7 +283,7 @@
                     <li><a href="/online-competition-2021">Online Competition Season 2 
                         <span class="label label-default blinking">New</span>
                     </a>
-                        <li><a href="/competition-registration">Online Competition 2020 Results </a>
+                        <li><a href="/online-competition-season1">Online Competition 2020 Results </a>
                         
                         <!-- <li><a href="/world-record-certificate">World Record Certificates
                             <span class="label label-default blinking">New</span>
@@ -233,10 +314,14 @@
                                 Registration
                             </a>
                                 </li>
-                                <li><a href="http://t.me/s/icmdachennai">Join
-                                Telegram <span class="label
-                                                    label-default blinking">New</span>
-                            </a></li>
+                                <li><a href="http://t.me/s/icmdachennai">Join Telegram
+                                    <span class="label label-default blinking">New</span>
+                                </a>
+                            </li>
+                            <li><a href="https://chat.whatsapp.com/DUZpnPMsDXxKyiQ9GujfYn">Join Whatsapp Group
+                                    <span class="label label-default blinking">New</span>
+                                </a>
+                            </li>
 
                                 <!-- <li><a href="/register">Member Registration <span class="label label-default blinking">New</span> </a></li>
             <li><a href="http://t.me/s/icmdachennai">Jion Telegram <span class="label label-default blinking">New</span>
@@ -253,7 +338,7 @@
                         <!-- <li><a href="/support-us">Support Us</a> -->
 
                         </li>
-                        <li><a href="/contact-us">Contact</a></li>
+                        <li><a href="/contact-us">Contact Us</a></li>
                         <li><a href="/terms-and-conditions">Terms and Conditions / Privacy Policy</a></li>
                         <li><a href="/return-refund-policy">Return & Refund Policy</a></li>
 
@@ -276,8 +361,9 @@
                 }
             }
         </script>
+
         <app-root></app-root>
-        <footer class="footer-section" style="background:#163639">
+        <footer class="footer-section" style="background:#004538">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-6 col-lg-7 order-lg-2">
@@ -298,7 +384,7 @@
                     <div class="col-xl-6 col-lg-5 order-lg-1">
                         <img src="img/logo.png"
                              alt="">
-                        <div class="copyright">
+                        <div class="copyright" style="color: white;font-weight: bold;">
                             Copyright ©
                             <script type="text/javascript"
                                     async="">
@@ -309,14 +395,22 @@
                             ICMDA
                         </div>
                         <div class="social-links">
-                            <a href="https://www.facebook.com/thyagayyatv"
-                               target="blank"><i class="fa fa-facebook"></i></a>
-                            <a href="https://www.youtube.com/channel/UC6cllpmSyzW1dLMAJd9CXQg"
-                               target="blank"><i class="fa fa-youtube"></i></a>
-                            <a href="http://www.thyagayyatv.com/"
-                               target="blank"><i class="fa fa-television"></i></a>
-                            <a href="http://t.me/s/icmdachennai"
-                               target="blank"><i class="fa fa-telegram"></i></a>
+                            <a class="facebook" href="https://www.facebook.com/ICMDAchennai/"
+                               target="blank"><i class="fa fa-facebook"></i>
+                            </a>
+                            <a class="youtube" href="https://www.youtube.com/channel/UCVXtBv9HI4tEDynlZNKWr6g"
+                               target="blank"><i class="fa fa-youtube"></i>
+                            </a>
+                            <a class="television" href="http://www.thyagayyatv.in/"
+                               target="blank"><i class="fa fa-television"></i>
+                            </a>
+                            <a class="telegram" href="http://t.me/s/icmdachennai"
+                               target="blank"><i class="fa fa-telegram"></i>
+                            </a>
+                            <a  class="whatsapp" href="https://chat.whatsapp.com/DUZpnPMsDXxKyiQ9GujfYn"
+                               target="blank">
+                               <i class="fa fa-whatsapp"></i>
+                            </a>
                         </div>
                     </div>
             </div>

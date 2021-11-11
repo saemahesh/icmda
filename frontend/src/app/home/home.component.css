@@ -329,3 +329,7 @@ p {
 .card .content .foot .icon {
     font-size: 12px
 }
+
+.justify-content-between a {
+  padding-left: 5px;
+}
