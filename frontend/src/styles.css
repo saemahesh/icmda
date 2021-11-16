@@ -119,3 +119,7 @@ del {
     color:white;
     font-weight: bold;
 }
+
+.notranslate{
+    font-size: 9px;
+}

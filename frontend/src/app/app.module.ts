@@ -42,6 +42,9 @@ import { GuinnessCertificateComponent } from './guinness-certificate/guinness-ce
 import { TermsAndConditionsComponent } from './terms-and-conditions/terms-and-conditions.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 import { SitemapComponent } from './sitemap/sitemap.component';
+import { RemindmeComponent } from './remindme/remindme.component';
+import { Season2Component } from './season2/season2.component';
+import { GuideBharatComponent } from './guide-bharat/guide-bharat.component';
 
 @NgModule({
   declarations: [
@@ -78,7 +81,10 @@ import { SitemapComponent } from './sitemap/sitemap.component';
     GuinnessCertificateComponent,
     TermsAndConditionsComponent,
     PrivacyPolicyComponent,
-    SitemapComponent
+    SitemapComponent,
+    RemindmeComponent,
+    Season2Component,
+    GuideBharatComponent
   ],
   imports: [
     BrowserModule,

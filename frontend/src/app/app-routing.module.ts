@@ -31,6 +31,9 @@ import { MusicDirectoryComponent } from "./music-directory/music-directory.compo
 import { GuinnessCertificateComponent } from "./guinness-certificate/guinness-certificate.component";
 import { TermsAndConditionsComponent } from "./terms-and-conditions/terms-and-conditions.component";
 import { PrivacyPolicyComponent } from "./privacy-policy/privacy-policy.component";
+import { RemindmeComponent } from "./remindme/remindme.component";
+import { Season2Component } from "./season2/season2.component";
+import { GuideBharatComponent } from "./guide-bharat/guide-bharat.component";
 
 const routes: Routes = [
   {
@@ -42,8 +45,12 @@ const routes: Routes = [
     component: RegisterComponent
   },
   {
-    path: 'world-record-certificate',
-    component: GuinnessCertificateComponent
+    path: 'notify-me',
+    component: RemindmeComponent
+  },
+  {
+    path: 'season2/register',
+    component: Season2Component
   },
   {
     path: 'dashboard',
@@ -53,6 +60,10 @@ const routes: Routes = [
   {
     path: 'idcard/:id',
     component: IdcardComponent
+  },
+  {
+    path: 'guidelines/bharathanatyam',
+    component: GuideBharatComponent
   },
   {
     path: 'committee-members',
