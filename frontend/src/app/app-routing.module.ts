@@ -34,6 +34,10 @@ import { PrivacyPolicyComponent } from "./privacy-policy/privacy-policy.componen
 import { RemindmeComponent } from "./remindme/remindme.component";
 import { Season2Component } from "./season2/season2.component";
 import { GuideBharatComponent } from "./guide-bharat/guide-bharat.component";
+import { GuideKuchipudiComponent } from "./guide-kuchipudi/guide-kuchipudi.component"
+import { GuideInstrumentComponent } from "./guide-instrument/guide-instrument.component";
+import { GuideRhythmComponent } from "./guide-rhythm/guide-rhythm.component";
+import { FusionCompetitionsComponent } from "./fusion-competitions/fusion-competitions.component";
 
 const routes: Routes = [
   {
@@ -64,6 +68,22 @@ const routes: Routes = [
   {
     path: 'guidelines/bharathanatyam',
     component: GuideBharatComponent
+  },
+  {
+    path: 'guidelines/kuchipudi',
+    component: GuideKuchipudiComponent
+  },
+  {
+    path: 'guidelines/instruments',
+    component: GuideInstrumentComponent
+  },
+  {
+    path: 'guidelines/rhythm',
+    component: GuideRhythmComponent
+  },
+  {
+    path: 'fusion-competitions-2021',
+    component: FusionCompetitionsComponent
   },
   {
     path: 'committee-members',

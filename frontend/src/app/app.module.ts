@@ -45,6 +45,10 @@ import { SitemapComponent } from './sitemap/sitemap.component';
 import { RemindmeComponent } from './remindme/remindme.component';
 import { Season2Component } from './season2/season2.component';
 import { GuideBharatComponent } from './guide-bharat/guide-bharat.component';
+import { GuideKuchipudiComponent } from './guide-kuchipudi/guide-kuchipudi.component';
+import { GuideInstrumentComponent } from './guide-instrument/guide-instrument.component';
+import { GuideRhythmComponent } from './guide-rhythm/guide-rhythm.component';
+import { FusionCompetitionsComponent } from './fusion-competitions/fusion-competitions.component';
 
 @NgModule({
   declarations: [
@@ -84,7 +88,11 @@ import { GuideBharatComponent } from './guide-bharat/guide-bharat.component';
     SitemapComponent,
     RemindmeComponent,
     Season2Component,
-    GuideBharatComponent
+    GuideBharatComponent,
+    GuideKuchipudiComponent,
+    GuideInstrumentComponent,
+    GuideRhythmComponent,
+    FusionCompetitionsComponent
   ],
   imports: [
     BrowserModule,

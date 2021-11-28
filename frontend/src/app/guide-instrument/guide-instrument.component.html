@@ -1,10 +1,11 @@
 <div class='center'>
     <label class="title" >
-        GUIDELINES FOR BHARATHANATYAM 
+        GUIDELINES FOR INSTRUMENTS 
     </label>
     <label class="sub-title">
         STATE LEVEL, NATIONAL LEVEL & INTERNATIONAL LEVEL  
     </label>
+    <H4>Wind - String - Fret</H4>
     <h5 style=" color: #d82323;" class="title-note">Note: These competitions are only for upcoming artists and students but not for professional teachers/ professional performers </h5>
     <div class="row">
         <div *ngFor="let item of guidelines" class="col-md-6">
@@ -22,7 +23,7 @@
                 </tr>
                 <tr>
                     <td>ITEMS</td>
-                    <td> 
+                    <td>
                         <label *ngFor="let kertana of item.items;let last = last;">
                             {{kertana}} 
                             <span *ngIf="!last" style="color: red;"> or &nbsp;</span> 
