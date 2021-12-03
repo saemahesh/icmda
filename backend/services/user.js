@@ -237,19 +237,25 @@ exports.updateEventRegister = (data, callback) => {
 
 exports.getMember = (id, callback) => {
 
-    executeQuery.queryForAll(
-      sqlQueryMap["getMember"], [id],
-      (err, result) => {
-        if (err) {
-          callback(err, null);
-        } else {
-          {
-            callback(null, result)
-          }
+  executeQuery.queryForAll(
+    sqlQueryMap["getMember"], [id],
+    (err, result) => {
+      if (err) {
+        callback(err, null);
+      } else {
+        {
+          callback(null, result)
         }
-        // eslint-disable-next-line no-console
-    })
+      }
+      // eslint-disable-next-line no-console
+  })
 };
+
+exports.autoReply = (data, callback) => {
+    
+};
+
+
 
 //getTable Details
 exports.getTableDetails = (tableName, callback) => {

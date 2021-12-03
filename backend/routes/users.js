@@ -184,6 +184,17 @@ router.post("/get-details", (req, res) => {
     });
 });
 
+//Send Whatsapp Reply
+router.post("/whats-auto-reply", (req, res) => {
+    UserService.autoReply(req.body, (err, result) => {
+        if (err) {
+            res.send({ err: "No data found with given details", result: null });
+        } else {
+            res.send(result);
+        }
+    });
+});
+
 //Update members details 
 router.put("/get-details", (req, res) => {
     // console.log("HI");
