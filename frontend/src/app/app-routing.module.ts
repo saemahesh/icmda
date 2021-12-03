@@ -38,6 +38,7 @@ import { GuideKuchipudiComponent } from "./guide-kuchipudi/guide-kuchipudi.compo
 import { GuideInstrumentComponent } from "./guide-instrument/guide-instrument.component";
 import { GuideRhythmComponent } from "./guide-rhythm/guide-rhythm.component";
 import { FusionCompetitionsComponent } from "./fusion-competitions/fusion-competitions.component";
+import { GuideVocalComponent } from './guide-vocal/guide-vocal.component';
 
 const routes: Routes = [
   {
@@ -80,6 +81,10 @@ const routes: Routes = [
   {
     path: 'guidelines/rhythm',
     component: GuideRhythmComponent
+  },
+  {
+    path: 'guidelines/vocal',
+    component: GuideVocalComponent
   },
   {
     path: 'fusion-competitions-2021',
