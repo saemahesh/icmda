@@ -271,15 +271,17 @@ function getGuinnessStatus (data, callback) {
           let record_data = record.fields;
           let dispatch_date = moment(record_data['payment date']).add(14, 'd').format('DD-MM-YYYY')
           record_data['POST DATE'] = moment(record_data['POST DATE']).format('DD-MM-YYYY')
-          reply += `\n\n---------------------
-          Name: ${record_data.name}
-          Phone: ${record_data.whatsapp_phone}
-          Email: ${record_data.email}
-          ArtForm: ${record_data.artform}
-          Dispatch By: ${dispatch_date}
-          Tracking No: ${record_data['TRACKING ID']?record_data['TRACKING ID']:'Not available'}
-          Posted On: ${record_data['POST DATE']?record_data['POST DATE']: 'Not Available'}
-                  `
+          reply += `
+*GUINNESS CERTIFICATES STATUS*
+-----------------------------------------
+*Name*: ${record_data.name}
+*Phone*: ${record_data.whatsapp_phone}
+*Email*: ${record_data.email}
+*ArtForm*: ${record_data.artform}
+*Dispatch By*: ${dispatch_date}
+*Tracking Url*: https://bit.ly/3lBGACd
+*Tracking No*: ${record_data['TRACKING ID'] ? record_data['TRACKING ID'] : 'Not available'}
+*Posted On*: ${record_data['POST DATE'] ? record_data['POST DATE'] : 'Not Available'}`
         })
         if(reply === ''){
           reply = 'No data found with given details. It will take 24 hours to update database. Please try after 24 hours from the date of payment.'
@@ -315,17 +317,19 @@ function getSeason2Status (data, callback) {
           let record_data = record.fields;
           let dispatch_date = moment(record_data['payment date']).add(14, 'd').format('DD-MM-YYYY')
           record_data['POST DATE'] = moment(record_data['POST DATE']).format('DD-MM-YYYY')
-          reply += `\n\n---------------------
-          Id: SEASON2-${record_data.id}
-          Name: ${record_data.name}
-          Phone: ${record_data.whatsapp_number}
-          Email: ${record_data.email}
-          Art Category: ${record_data.art_category}
-          ArtForm: ${record_data.art_form}
-          Participation Category: ${record_data.participation_category}
-          Video Submit Link: https://bit.ly/32PfrFg
-          Result : Release on Jan-14-2021
-                  `
+          reply += `\n
+*SEASON2 PARTICIPANT DETAILS*\n
+--------------------------------------\n
+*ID*: SEASON2-${record_data.id}
+*Name*: ${record_data.name}
+*Phone*: ${record_data.whatsapp_number}
+*Email*: ${record_data.email}
+*Art Category*: ${record_data.art_category}
+*ArtForm*: ${record_data.art_form}
+*Participation Category*: ${record_data.participation_category}
+*Video Submit Link*: https://bit.ly/32PfrFg
+*Result* : Release on Jan-14-2021
+`
         })
         if(reply === ''){
           reply = 'No data found with given details. It will take 24 hours to update database. Please try after 24 hours from the date of payment.'
