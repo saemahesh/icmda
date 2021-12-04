@@ -4,6 +4,7 @@ let config = require("../config.js");
 let moment = require("moment");
 let _ = require("lodash");
 let async = require('async');
+const axios = require('axios');
 
 exports.register = (data, callback) => {
   let today = moment().toDate();
@@ -251,8 +252,103 @@ exports.getMember = (id, callback) => {
   })
 };
 
+function getGuinnessStatus (data, callback) {
+  let tableName = 'RAZORPAY%2015%20NOV';
+  data = data.message.split(' ');
+  mobile = data[data.length-1];
+  if(mobile.length>8){
+    axios.get(`https://api.airtable.com/v0/appwAyiRiFExwCInd/${tableName}`, {
+      "params": {
+        "maxRecords": 10,
+        "api_key": 'keyLhRgUYCRjowUwI',
+        "filterByFormula":`whatsapp_phone="${mobile}"`
+      }
+    })
+      .then(function (response) {
+        console.log('\nresponse', mobile, response.data.records)
+        let reply = ``;
+        response.data.records.forEach(function (record) {
+          let record_data = record.fields;
+          let dispatch_date = moment(record_data['payment date']).add(14, 'd').format('DD-MM-YYYY')
+          record_data['POST DATE'] = moment(record_data['POST DATE']).format('DD-MM-YYYY')
+          reply += `\n\n---------------------
+          Name: ${record_data.name}
+          Phone: ${record_data.whatsapp_phone}
+          Email: ${record_data.email}
+          ArtForm: ${record_data.artform}
+          Dispatch By: ${dispatch_date}
+          Tracking No: ${record_data['TRACKING ID']?record_data['TRACKING ID']:'Not available'}
+          Posted On: ${record_data['POST DATE']?record_data['POST DATE']: 'Not Available'}
+                  `
+        })
+        if(reply === ''){
+          reply = 'No data found with given details. It will take 24 hours to update database. Please try after 24 hours from the date of payment.'
+        }
+        callback(null,{reply});
+      })
+      .catch(function (error) {
+        console.log('\error', error)
+        callback(null, 'No data found with given details');
+      });
+  }else{
+    callback(null, {reply:''});
+  }
+
+}
+
+function getSeason2Status (data, callback) {
+  let tableName = 'REGISTRATIONS';
+  data = data.message.split(' ');
+  mobile = data[data.length-1];
+  if(mobile.length>8){
+    axios.get(`https://api.airtable.com/v0/appEORxIoUnp74THT/${tableName}`, {
+      "params": {
+        "maxRecords": 10,
+        "api_key": 'keyLhRgUYCRjowUwI',
+        "filterByFormula":`whatsapp_number="${mobile}"`
+      }
+    })
+      .then(function (response) {
+        console.log('\nresponse', mobile, response.data.records)
+        let reply = ``;
+        response.data.records.forEach(function (record) {
+          let record_data = record.fields;
+          let dispatch_date = moment(record_data['payment date']).add(14, 'd').format('DD-MM-YYYY')
+          record_data['POST DATE'] = moment(record_data['POST DATE']).format('DD-MM-YYYY')
+          reply += `\n\n---------------------
+          Id: SEASON2-${record_data.id}
+          Name: ${record_data.name}
+          Phone: ${record_data.whatsapp_number}
+          Email: ${record_data.email}
+          Art Category: ${record_data.art_category}
+          ArtForm: ${record_data.art_form}
+          Participation Category: ${record_data.participation_category}
+          Video Submit Link: https://bit.ly/32PfrFg
+          Result : Release on Jan-14-2021
+                  `
+        })
+        if(reply === ''){
+          reply = 'No data found with given details. It will take 24 hours to update database. Please try after 24 hours from the date of payment.'
+        }
+        callback(null,{reply});
+      })
+      .catch(function (error) {
+        console.log('\error', error)
+        callback(null, 'No data found with given details');
+      });
+  }else{
+    callback(null, {reply:''});
+  }
+
+}
+
 exports.autoReply = (data, callback) => {
-    
+  console.log('\n data', data)
+  if(data.message.toLowerCase().includes('guinness')){
+    return getGuinnessStatus(data, callback);
+  } else if(data.message.toLowerCase().includes('season2')){
+    return getSeason2Status(data, callback);
+  }
 };
 
 

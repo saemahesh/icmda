@@ -188,7 +188,7 @@ router.post("/get-details", (req, res) => {
 router.post("/whats-auto-reply", (req, res) => {
     UserService.autoReply(req.body, (err, result) => {
         if (err) {
-            res.send({ err: "No data found with given details", result: null });
+            res.send({ reply: "No data found with given details" });
         } else {
             res.send(result);
         }
