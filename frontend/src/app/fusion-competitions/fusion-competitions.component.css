@@ -134,5 +134,11 @@ td .blinking{
       .title-note{
         font-size: 2vw;
       }
+      .m-sub-title>li{
+          font-size:15px;
+      }
+      .discount-font{
+          font-size:20px;
+      }
     
   }
