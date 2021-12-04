@@ -271,16 +271,14 @@ function getGuinnessStatus (data, callback) {
           let record_data = record.fields;
           let dispatch_date = moment(record_data['payment date']).add(14, 'd').format('DD-MM-YYYY')
           record_data['POST DATE'] = moment(record_data['POST DATE']).format('DD-MM-YYYY')
-          reply += `
-*GUINNESS CERTIFICATES STATUS*
+          reply += `*GUINNESS CERTIFICATES STATUS*
 -----------------------------------------
 *Name*: ${record_data.name}
 *Phone*: ${record_data.whatsapp_phone}
 *Email*: ${record_data.email}
 *ArtForm*: ${record_data.artform}
 *Dispatch By*: ${dispatch_date}
-*Tracking Url*: https://bit.ly/3lBGACd
-*Tracking No*: ${record_data['TRACKING ID'] ? record_data['TRACKING ID'] : 'Not available'}
+*Tracking Url*: ${record_data['TRACKING ID'] ? 'https://t.17track.net/en#nums='+record_data['TRACKING ID'] : 'Not available yet'}
 *Posted On*: ${record_data['POST DATE'] ? record_data['POST DATE'] : 'Not Available'}`
         })
         if(reply === ''){
@@ -317,9 +315,8 @@ function getSeason2Status (data, callback) {
           let record_data = record.fields;
           let dispatch_date = moment(record_data['payment date']).add(14, 'd').format('DD-MM-YYYY')
           record_data['POST DATE'] = moment(record_data['POST DATE']).format('DD-MM-YYYY')
-          reply += `\n
-*SEASON2 PARTICIPANT DETAILS*\n
---------------------------------------\n
+          reply += `*SEASON2 PARTICIPANT DETAILS*
+--------------------------------------
 *ID*: SEASON2-${record_data.id}
 *Name*: ${record_data.name}
 *Phone*: ${record_data.whatsapp_number}
@@ -329,6 +326,7 @@ function getSeason2Status (data, callback) {
 *Participation Category*: ${record_data.participation_category}
 *Video Submit Link*: https://bit.ly/32PfrFg
 *Result* : Release on Jan-14-2021
+--------------------------------------
 `
         })
         if(reply === ''){
