@@ -324,7 +324,8 @@ function getSeason2Status (data, callback) {
           let record_data = record.fields;
           let dispatch_date = moment(record_data['payment date']).add(14, 'd').format('DD-MM-YYYY')
           record_data['POST DATE'] = moment(record_data['POST DATE']).format('DD-MM-YYYY')
-          reply += `*SEASON2 PARTICIPANT DETAILS*
+          if(record_data['payment status'] === 'captured'){
+            reply += `*SEASON2 PARTICIPANT DETAILS*
 *********************************
 *ID*: ${record_data.id? 'SB'+record_data.id : 'Not yet assigned'}
 *Name*: ${record_data.name}
@@ -340,7 +341,11 @@ function getSeason2Status (data, callback) {
 <<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>
 
 
-`})
+`
+
+          }
+          
+})
         if(reply === ''){
           reply = 'No data found with given details. Please try after 24 hours from the date of registration.'
         }
