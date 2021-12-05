@@ -61,7 +61,7 @@ export class GuideInstrumentComponent implements OnInit {
         "items": [
           "Varnam in 2 speeds",
           "Krithi",
-          "Devarnamaarnama"
+          "Devarnama"
         ],
         "1st_prize": "GOLD MEDAL ( Not pure gold )",
         "2nd_prize": "SILVER MEDAL ( not pure silver )",
@@ -75,7 +75,7 @@ export class GuideInstrumentComponent implements OnInit {
         "items": [
           "Varnam in 2 speeds",
           "Krithi",
-          "Devarnamaarnama"
+          "Devarnama"
         ],
         "1st_prize": "GOLD MEDAL ( Not pure gold )",
         "2nd_prize": "SILVER MEDAL ( not pure silver )",
