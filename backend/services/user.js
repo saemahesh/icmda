@@ -256,7 +256,7 @@ function getGuinnessStatus (data, callback) {
   let tableName = 'RAZORPAY%2015%20NOV';
   data = data.message.split(' ');
   mobile = data[data.length-1];
-  if(mobile.length>8){
+  if(mobile.length>8 && parseInt(mobile)){ 
     axios.get(`https://api.airtable.com/v0/appwAyiRiFExwCInd/${tableName}`, {
       "params": {
         "maxRecords": 10,
@@ -272,15 +272,15 @@ function getGuinnessStatus (data, callback) {
           let dispatch_date = moment(record_data['payment date']).add(14, 'd').format('DD-MM-YYYY')
           record_data['POST DATE'] = moment(record_data['POST DATE']).format('DD-MM-YYYY')
           reply += `*GUINNESS CERTIFICATES STATUS*
-*************************************************
+*******************************
 *Name*: ${record_data.name}
 *Phone*: ${record_data.whatsapp_phone}
 *Email*: ${record_data.email}
 *ArtForm*: ${record_data.artform}
 *Dispatch By*: ${dispatch_date}
-*Tracking Url*: ${record_data['TRACKING ID'] ? 'https://t.17track.net/en#nums='+record_data['TRACKING ID'] : 'Not available yet'}
-*Posted On*: ${record_data['POST DATE'] ? record_data['POST DATE'] : 'Not Available'}
-*************************************************
+*Tracking Url*: ${record_data['TRACKING ID'] ? 'https://t.17track.net/en#nums='+record_data['TRACKING ID'] : 'Not yet posted'}
+*Posted On*: ${record_data['POST DATE'] ? record_data['POST DATE'] : 'Not yet posted'}
+*******************************
 `
         })
         if(reply === ''){
@@ -302,7 +302,7 @@ function getSeason2Status (data, callback) {
   let tableName = 'REGISTRATIONS';
   data = data.message.split(' ');
   mobile = data[data.length-1];
-  if(mobile.length>6){
+  if(mobile.length>6 && parseInt(mobile)){
     axios.get(`https://api.airtable.com/v0/appEORxIoUnp74THT/${tableName}`, {
       "params": {
         "maxRecords": 10,
@@ -318,17 +318,18 @@ function getSeason2Status (data, callback) {
           let dispatch_date = moment(record_data['payment date']).add(14, 'd').format('DD-MM-YYYY')
           record_data['POST DATE'] = moment(record_data['POST DATE']).format('DD-MM-YYYY')
           reply += `*SEASON2 PARTICIPANT DETAILS*
-*************************************************
+*******************************
 *ID*: SB${record_data.id}
 *Name*: ${record_data.name}
 *Phone*: ${record_data.whatsapp_number}
 *Email*: ${record_data.email}
+*Teacher Name*: ${record_data.teacher_name}
 *Art Category*: ${record_data.art_category}
 *ArtForm*: ${record_data.art_form}
 *Participation Category*: ${record_data.participation_category}
 *Video Submit Link*: https://bit.ly/32PfrFg
 *Result* : Release on Jan-14-2021
-*************************************************
+*******************************
 `})
         if(reply === ''){
           reply = 'No data found with given details. Please try after 24 hours from the date of payment.'
