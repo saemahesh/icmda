@@ -291,7 +291,7 @@ function getGuinnessStatus (data, callback) {
 `
         })
         if(reply === ''){
-          reply = 'No data found with given details. Please try after 24 hours from the date of payment.'
+          reply = 'No data found with given details. Please try after 24 hours from the date of registration.'
         }
         callback(null,{reply});
       })
@@ -342,7 +342,7 @@ function getSeason2Status (data, callback) {
 
 `})
         if(reply === ''){
-          reply = 'No data found with given details. Please try after 24 hours from the date of payment.'
+          reply = 'No data found with given details. Please try after 24 hours from the date of registration.'
         }
         callback(null,{reply});
       })
@@ -362,7 +362,10 @@ exports.autoReply = (data, callback) => {
     return getGuinnessStatus(data, callback);
   } else if(data.message.toLowerCase().includes('season2') || data.message.toLowerCase().includes('season 2')){
     return getSeason2Status(data, callback);
-  }
+  } 
+  // else if(data.message.toLowerCase().includes('fusion')){
+  //   return getFusionStatus(data, callback);
+  // }
 };
 
 
