@@ -330,7 +330,7 @@ function getSeason2Status (data, callback) {
 *Name*: ${record_data.name}
 *Phone*: ${record_data.whatsapp_number}
 *Email*: ${record_data.email}
-*Teacher Name*: ${record_data.teacher_name}
+*Teacher Name*: ${record_data.teacher_name? record_data.teacher_name : 'Not Available'}
 *Art Category*: ${record_data.art_category}
 *ArtForm*: ${record_data.art_form}
 *Participation Category*: ${record_data.participation_category}
