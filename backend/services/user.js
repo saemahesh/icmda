@@ -280,7 +280,7 @@ function getGuinnessStatus (data, callback) {
 *Dispatch By*: ${dispatch_date}
 *Tracking Url*: ${record_data['TRACKING ID'] ? 'https://t.17track.net/en#nums='+record_data['TRACKING ID'] : 'Not yet posted'}
 *Posted On*: ${record_data['POST DATE'] ? record_data['POST DATE'] : 'Not yet posted'}
-*******************************
+<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>
 `
         })
         if(reply === ''){
@@ -318,7 +318,7 @@ function getSeason2Status (data, callback) {
           let dispatch_date = moment(record_data['payment date']).add(14, 'd').format('DD-MM-YYYY')
           record_data['POST DATE'] = moment(record_data['POST DATE']).format('DD-MM-YYYY')
           reply += `*SEASON2 PARTICIPANT DETAILS*
-*******************************
+******************************
 *ID*: SB${record_data.id}
 *Name*: ${record_data.name}
 *Phone*: ${record_data.whatsapp_number}
@@ -329,7 +329,7 @@ function getSeason2Status (data, callback) {
 *Participation Category*: ${record_data.participation_category}
 *Video Submit Link*: https://bit.ly/32PfrFg
 *Result* : Release on Jan-14-2021
-*******************************
+<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>
 `})
         if(reply === ''){
           reply = 'No data found with given details. Please try after 24 hours from the date of payment.'
