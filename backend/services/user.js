@@ -269,8 +269,8 @@ function getGuinnessStatus (data, callback) {
         let reply = ``;
         response.data.records.forEach(function (record) {
           let record_data = record.fields;
-          record_data['payment date'] = moment(record_data['payment date']).format('DD-MM-YYYY')
           let dispatch_date = moment(record_data['payment date']).add(14, 'd').format('DD-MM-YYYY')
+          record_data['payment date'] = moment(record_data['payment date']).format('DD-MM-YYYY')
           if(record_data['POST DATE']){
             record_data['POST DATE'] = moment(record_data['POST DATE']).format('DD-MM-YYYY')
           }
@@ -283,9 +283,11 @@ function getGuinnessStatus (data, callback) {
 *ArtForm*: ${record_data.artform}
 *Payment Date*: ${record_data['payment date']}
 *Dispatch By*: ${dispatch_date}
-*Tracking Url*: ${record_data['TRACKING ID'] ? 'https://t.17track.net/en#nums='+record_data['TRACKING ID'] : 'Not yet posted'}
 *Posted On*: ${record_data['POST DATE'] ? record_data['POST DATE'] : 'Not yet posted'}
+*Tracking Url*: ${record_data['TRACKING ID'] ? 'https://t.17track.net/en#nums='+record_data['TRACKING ID'] : 'Not yet Available'}
 <<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>
+
+
 `
         })
         if(reply === ''){
@@ -336,6 +338,8 @@ function getSeason2Status (data, callback) {
 *Video Submit Link*: https://bit.ly/32PfrFg
 *Result* : Release on Jan-14-2021
 <<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>
+
+
 `})
         if(reply === ''){
           reply = 'No data found with given details. Please try after 24 hours from the date of payment.'
