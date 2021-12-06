@@ -15,7 +15,7 @@ export class GuideBharatComponent implements OnInit {
 
     this.guidelines = [
         {
-          "category": "SUB JUNIOR",
+          "category": "SUB JUNIORS",
           "age_limit": "5 TO 8 YEARS",
           "time_limit": "Maximum 4 Minutes",
           "items": [
@@ -24,9 +24,9 @@ export class GuideBharatComponent implements OnInit {
             "Alarippu",
             "Pushpanjali"
           ],
-          "1st_prize": "GOLD MEDAL ( Not pure gold )",
-          "2nd_prize": "SILVER MEDAL ( not pure silver )",
-          "3rd_prize": "BRONZE MEDAL",
+          "1st_prize": "CERTIFICATE & GOLD MEDAL  ( Not pure gold )",
+          "2nd_prize": "CERTIFICATE & SILVER MEDAL  ( Not pure silver )",
+          "3rd_prize": "CERTIFICATE & BRONZE MEDAL ",
           "title": ""
         },
         {
@@ -38,9 +38,9 @@ export class GuideBharatComponent implements OnInit {
             "MALLARI",
             "JATHISWARAM"
           ],
-          "1st_prize": "GOLD MEDAL ( Not pure gold )",
-          "2nd_prize": "SILVER MEDAL ( not pure silver )",
-          "3rd_prize": "BRONZE MEDAL",
+          "1st_prize": "CERTIFICATE & GOLD MEDAL  ( Not pure gold )",
+          "2nd_prize": "CERTIFICATE & SILVER MEDAL  ( Not pure silver )",
+          "3rd_prize": "CERTIFICATE & BRONZE MEDAL ",
           "title": ""
         },
         {
@@ -49,12 +49,12 @@ export class GuideBharatComponent implements OnInit {
           "time_limit": "Maximum 8 Minutes",
           "items": [
             "Invocation iteam",
-            "padam",
-            "THILLANA"
+            "padham",
+            "Thillana"
           ],
-          "1st_prize": "GOLD MEDAL ( Not pure gold )",
-          "2nd_prize": "SILVER MEDAL ( not pure silver )",
-          "3rd_prize": "BRONZE MEDAL",
+          "1st_prize": "CERTIFICATE & GOLD MEDAL  ( Not pure gold )",
+          "2nd_prize": "CERTIFICATE & SILVER MEDAL  ( Not pure silver )",
+          "3rd_prize": "CERTIFICATE & BRONZE MEDAL ",
           "title": ""
         },
         {
@@ -65,28 +65,28 @@ export class GuideBharatComponent implements OnInit {
             "Thyagaraja keerthana",
             "Jaavali"
           ],
-          "1st_prize": "GOLD MEDAL ( Not pure gold )",
-          "2nd_prize": "SILVER MEDAL ( not pure silver )",
-          "3rd_prize": "BRONZE MEDAL",
+          "1st_prize": "CERTIFICATE & GOLD MEDAL  ( Not pure gold )",
+          "2nd_prize": "CERTIFICATE & SILVER MEDAL  ( Not pure silver )",
+          "3rd_prize": "CERTIFICATE & BRONZE MEDAL ",
           "title": ""
         },
         {
           "category": "OPEN CATEGORY",
-          "age_limit": "20 YEARS ABOVE",
+          "age_limit": "ABOVE 20 YEARS",
           "time_limit": "Maximum 45 Minutes",
           "items": [
             "Varnam",
             "Ashtapadhi,padham,Thillana",
-            "Jaavali,Thillana",
-            "Pushpanjali"
+            "Jaavali and Thillana",
+            // "Pushpanjali"
           ],
-          "1st_prize": "GOLD MEDAL ( Pure gold )",
-          "2nd_prize": "SILVER MEDAL ( not pure silver )",
-          "3rd_prize": "BRONZE MEDAL",
+          "1st_prize": "CERTIFICATE & GOLD MEDAL  ( Pure gold )",
+          "2nd_prize": "CERTIFICATE & SILVER MEDAL  ( Not pure silver )",
+          "3rd_prize": "CERTIFICATE & BRONZE MEDAL ",
           "title": " INTERNATIONAL LEVEL NATYA SIRONMANI TITLE & certificate. "
         },
         {
-          "category": "PRODIGY",
+          "category": "PRODIGY CATEGORY",
           "age_limit": "BELOW 15 YEARS",
           "time_limit": "Maximum 30 Minutes",
           "items": [
@@ -94,14 +94,14 @@ export class GuideBharatComponent implements OnInit {
             "Compositionon on lord siva exbit",
             "AbhinayaM from navarasas with story line"
           ],
-          "1st_prize": "GOLD MEDAL ( Not pure gold )",
-          "2nd_prize": "SILVER MEDAL ( not pure silver )",
-          "3rd_prize": "BRONZE MEDAL",
+          "1st_prize": "CERTIFICATE & GOLD MEDAL  ( Not pure gold )",
+          "2nd_prize": "CERTIFICATE & SILVER MEDAL  ( Not pure silver )",
+          "3rd_prize": "CERTIFICATE & BRONZE MEDAL ",
           "title": ""
         },
         {
-          "category": "SPECIAL",
-          "age_limit": "NO AGE LIMIT",
+          "category": "SPECIAL CATEGORY",
+          "age_limit": "ABOVE 23",
           "time_limit": "Maximum 20 Minutes",
           "items": [
             "PADHAM",
@@ -110,9 +110,9 @@ export class GuideBharatComponent implements OnInit {
             "Asstapathi",
             "Abhang"
           ],
-          "1st_prize": "GOLD MEDAL ( Not pure gold )",
-          "2nd_prize": "SILVER MEDAL ( Not pure silver )",
-          "3rd_prize": "BRONZE MEDAL",
+          "1st_prize": "CERTIFICATE & GOLD MEDAL  ( Not pure gold )",
+          "2nd_prize": "CERTIFICATE & SILVER MEDAL  ( Not pure silver )",
+          "3rd_prize": "CERTIFICATE & BRONZE MEDAL ",
           "title": ""
         }
       ]

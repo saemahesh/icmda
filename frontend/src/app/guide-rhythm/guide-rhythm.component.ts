@@ -16,118 +16,120 @@ export class GuideRhythmComponent implements OnInit {
       {
         "category": "SUB JUNIOR",
         "age_limit": "5 TO 8 YEARS",
-        "time_limit": "Maximum 5 Min",
+        "time_limit": "Maximum 5 Mintues",
         "items": [
           "Any Eka",
           "adhi thala sarvalagu "
         ],
-        "1st_prize": "GOLD MEDAL ( Not pure gold )",
-        "2nd_prize": "SILVER MEDAL ( not pure silver )",
-        "3rd_prize": "BRONZE MEDAL",
+        "1st_prize": "CERTIFICATE & GOLD MEDAL ( Not pure gold )",
+        "2nd_prize": "CERTIFICATE & SILVER MEDAL ( Not pure silver )",
+        "3rd_prize": "CERTIFICATE & BRONZE MEDAL",
         "title": ""
       },
       {
         "category": " SUB JUNIORS PROGRESSIVE ",
         "age_limit": "5 TO 8 YEARS",
-        "time_limit": "Maximum 6 Min",
+        "time_limit": "Maximum 6 Mintues",
         "items": [
           "Roopaka",
           " khanda chapu sarvalagu with korvai"
         ],
-        "1st_prize": "GOLD MEDAL ( Not pure gold )",
-        "2nd_prize": "SILVER MEDAL ( not pure silver )",
-        "3rd_prize": "BRONZE MEDAL",
+        "1st_prize": "CERTIFICATE & GOLD MEDAL ( Not pure gold )",
+        "2nd_prize": "CERTIFICATE & SILVER MEDAL ( Not pure silver )",
+        "3rd_prize": "CERTIFICATE & BRONZE MEDAL",
         "title": ""
       },
       {
         "category": "JUNIORS",
         "age_limit": "9 TO 12 YEARS",
-        "time_limit": "Maximum 16 Min",
+        "time_limit": "Maximum 16 Mintues",
         "items": [
           "Any Adhi ",
           "Roopaka sarvalagu"
         ],
-        "1st_prize": "GOLD MEDAL ( Not pure gold )",
-        "2nd_prize": "SILVER MEDAL ( not pure silver )",
-        "3rd_prize": "BRONZE MEDAL",
+        "1st_prize": "CERTIFICATE & GOLD MEDAL ( Not pure gold )",
+        "2nd_prize": "CERTIFICATE & SILVER MEDAL ( Not pure silver )",
+        "3rd_prize": "CERTIFICATE & BRONZE MEDAL",
         "title": ""
       },
       {
         "category": " JUNIORS PROGRESSIVE ",
         "age_limit": "9 TO 12 YEARS",
-        "time_limit": "Maximum 8 Min",
+        "time_limit": "Maximum 8 Mintues",
         "items": [
           "Khandachaapu",
-          "  Misrachapu thani avarthanam along with Mora",
-          "khanda chapu sarvalagu with korvai"
+          "  Misrachapu thani avarthanam along with Mora korvai"
         ],
-        "1st_prize": "GOLD MEDAL ( Not pure gold )",
-        "2nd_prize": "SILVER MEDAL ( not pure silver )",
-        "3rd_prize": "BRONZE MEDAL",
+        "1st_prize": "CERTIFICATE & GOLD MEDAL ( Not pure gold )",
+        "2nd_prize": "CERTIFICATE & SILVER MEDAL ( Not pure silver )",
+        "3rd_prize": "CERTIFICATE & BRONZE MEDAL",
         "title": ""
       },
       {
         "category": " SENIORS ",
         "age_limit": "13 TO 16 YEARS",
-        "time_limit": "Maximum 8 Min",
+        "time_limit": "Maximum 8 Mintues",
         "items": [
-          "Adhi",
-          "khandachaapu  sarvalage with korval"
+          "Roopaka",
+          "khanda chapu sarvalagu with korvai"
         ],
-        "1st_prize": "GOLD MEDAL ( Not pure gold )",
-        "2nd_prize": "SILVER MEDAL ( not pure silver )",
-        "3rd_prize": "BRONZE MEDAL",
+        "1st_prize": "CERTIFICATE & GOLD MEDAL ( Not pure gold )",
+        "2nd_prize": "CERTIFICATE & SILVER MEDAL ( Not pure silver )",
+        "3rd_prize": "CERTIFICATE & BRONZE MEDAL",
         "title": " INTERNATIONAL LEVEL NATYA SIRONMANI TITLE & certificate. "
       },
       {
         "category": " SUPER SENIORS ",
         "age_limit": "17 TO 20 YEARS",
-        "time_limit": "Maximum 8 Min",
+        "time_limit": "Maximum 8 Mintues",
         "items": [
           "Adhi",
           "Roopalca,Khandachaapu",
           " Misrachapu thani avarthanam along with Mora korvai"
         ],
-        "1st_prize": "GOLD MEDAL ( Not pure gold )",
-        "2nd_prize": "SILVER MEDAL ( not pure silver )",
-        "3rd_prize": "BRONZE MEDAL",
+        "1st_prize": "CERTIFICATE & GOLD MEDAL ( Not pure gold )",
+        "2nd_prize": "CERTIFICATE & SILVER MEDAL ( Not pure silver )",
+        "3rd_prize": "CERTIFICATE & BRONZE MEDAL",
         "title": ""
       },
       {
-        "category": " OPEN Category ABOVE",
-        "age_limit": "20 YEARS",
-        "time_limit": "Maximum 10 Min",
+        "category": " OPEN CATEGORY",
+        "age_limit": "ABOVE 20 YEARS",
+        "time_limit": "Maximum 10 Mintues",
         "items": [
-          "Adhi Of Roopaaka/khandachaapu thani avarthanam along with any Korappu in between Thani & Mora korvai"
+            "Any Adhi",
+            "Roopaaka/khandachaapu thani avarthanam along with any Korappu in between Thani & Mora korvai"
         ],
-        "1st_prize": "GOLD MEDAL ( Not pure gold )",
-        "2nd_prize": "SILVER MEDAL ( not pure silver )",
-        "3rd_prize": "BRONZE MEDAL",
+        "1st_prize": "CERTIFICATE & GOLD MEDAL ( Not pure gold )",
+        "2nd_prize": "CERTIFICATE & SILVER MEDAL ( Not pure silver )",
+        "3rd_prize": "CERTIFICATE & BRONZE MEDAL",
         "title": ""
       },
       {
-        "category": "PRODIGY category",
-        "age_limit": "15 YEARS",
-        "time_limit": "Maximum 15 Min",
+        "category": "PRODIGY CATEGORY",
+        "age_limit": "Under 15 YEARS",
+        "time_limit": "Maximum 15 Mintues",
         "items": [
-          " Can choose any of Senior",
-          "Super senior",
+          " Can choose any of Senior, Super senior",
           "open category items "
         ],
-        "1st_prize": "GOLD MEDAL ( Not pure gold )",
-        "2nd_prize": "SILVER MEDAL ( not pure silver )",
-        "3rd_prize": "BRONZE MEDAL",
+        "1st_prize": "CERTIFICATE & GOLD MEDAL ( Not pure gold )",
+        "2nd_prize": "CERTIFICATE & SILVER MEDAL ( Not pure silver )",
+        "3rd_prize": "CERTIFICATE & BRONZE MEDAL",
         "title": ""
       },
       {
-        "category": "SPECIAL category",
+        "category": "SPECIAL CATEGORY",
         "age_limit": "no age limit",
-        "time_limit": "Maximum 15 Min",
+        "time_limit": "Maximum 15 Mintues",
         "items": [
-          " Can choose any of Sub-junior",
-          "Junior, Senior, Super senior",
+          " Can choose any of Sub-junior , Junior, Senior, Super senior",
           "open category items. partcipants can choose bhajans."
-        ]
+        ],
+        "1st_prize": "CERTIFICATE & GOLD MEDAL ( Not pure gold )",
+        "2nd_prize": "CERTIFICATE & SILVER MEDAL ( Not pure silver )",
+        "3rd_prize": "CERTIFICATE & BRONZE MEDAL",
+        "title": ""
       }
     ]
   }
