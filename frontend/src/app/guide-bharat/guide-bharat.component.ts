@@ -70,21 +70,7 @@ export class GuideBharatComponent implements OnInit {
           "3rd_prize": "CERTIFICATE & BRONZE MEDAL ",
           "title": ""
         },
-        {
-          "category": "OPEN CATEGORY",
-          "age_limit": "ABOVE 20 YEARS",
-          "time_limit": "Maximum 45 Minutes",
-          "items": [
-            "Varnam",
-            "Ashtapadhi,padham,Thillana",
-            "Jaavali and Thillana",
-            // "Pushpanjali"
-          ],
-          "1st_prize": "CERTIFICATE & GOLD MEDAL  ( Pure gold )",
-          "2nd_prize": "CERTIFICATE & SILVER MEDAL  ( Not pure silver )",
-          "3rd_prize": "CERTIFICATE & BRONZE MEDAL ",
-          "title": " INTERNATIONAL LEVEL NATYA SIRONMANI TITLE & certificate. "
-        },
+       
         {
           "category": "PRODIGY CATEGORY",
           "age_limit": "BELOW 15 YEARS",
@@ -114,6 +100,21 @@ export class GuideBharatComponent implements OnInit {
           "2nd_prize": "CERTIFICATE & SILVER MEDAL  ( Not pure silver )",
           "3rd_prize": "CERTIFICATE & BRONZE MEDAL ",
           "title": ""
+        },
+        {
+          "category": "OPEN CATEGORY",
+          "age_limit": "ABOVE 20 YEARS",
+          "time_limit": "Maximum 45 Minutes",
+          "items": [
+            "Varnam",
+            "Ashtapadhi,padham,Thillana",
+            "Jaavali and Thillana",
+            // "Pushpanjali"
+          ],
+          "1st_prize": "CERTIFICATE & GOLD MEDAL  ( Pure gold )",
+          "2nd_prize": "CERTIFICATE & SILVER MEDAL  ( pure silver )",
+          "3rd_prize": "CERTIFICATE & BRONZE MEDAL ",
+          "title": " INTERNATIONAL LEVEL NATYA SIRONMANI TITLE "
         }
       ]
   }

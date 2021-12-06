@@ -77,31 +77,17 @@ export class GuideInstrumentComponent implements OnInit {
           "Krithi",
           "Devarnama"
         ],
-        "1st_prize": "CERTIFICATE & GoLD MEDAL ( Not pure gold )",
+        "1st_prize": "CERTIFICATE & GOLD MEDAL ( Not pure gold )",
         "2nd_prize": "CERTIFICATE & SILVER MEDAL ( Not pure silver )",
         "3rd_prize": "CERTIFICATE & BRONZE MEDAL",
-        "title": " INTERNATIONAL LEVEL NATYA SIRONMANI TITLE & certificate. "
+        "title": " INTERNATIONAL LEVEL NATYA SIRONMANI TITLE "
       },
       {
         "category": "SUPER SENIORS",
         "age_limit": "17 TO 20 YEARS",
         "time_limit": "Maximum 15 Minutes",
         "items": [
-          "Krithi with Devwith Manodharma Raga ,Neraval, Kalpanaswara and Thillana",
-          "any Devotional Songs"
-        ],
-        "1st_prize": "CERTIFICATE & GOLD MEDAL ( Not pure gold )",
-        "2nd_prize": "CERTIFICATE & SILVER MEDAL ( Not pure silver )",
-        "3rd_prize": "CERTIFICATE & BRONZE MEDAL",
-        "title": ""
-      },
-      {
-        "category": "OPEN CATEGORY",
-        "age_limit": "ABOVE 20 YEARS",
-        "time_limit": "Maximum 40 Minutes",
-        "items": [
-          " Ata tala varnam with ragam {must} & (Kirti with raga alapana, neraval, Kalpana swaras and Pancharathna keerthana",
-          " Ragam,Thanam, Pallavi (RTP) "
+          "Krithi with Devwith Manodharma Raga ,Neraval, Kalpanaswara and Thillan","any Devotional Songs"
         ],
         "1st_prize": "CERTIFICATE & GOLD MEDAL ( Not pure gold )",
         "2nd_prize": "CERTIFICATE & SILVER MEDAL ( Not pure silver )",
@@ -131,6 +117,19 @@ export class GuideInstrumentComponent implements OnInit {
         ],
         "1st_prize": "CERTIFICATE & GOLD MEDAL ( Not pure gold )",
         "2nd_prize": "CERTIFICATE & SILVER MEDAL ( Not pure silver )",
+        "3rd_prize": "CERTIFICATE & BRONZE MEDAL",
+        "title": ""
+      },
+      {
+        "category": "OPEN CATEGORY",
+        "age_limit": "ABOVE 20 YEARS",
+        "time_limit": "Maximum 40 Minutes",
+        "items": [
+          " Ata tala varnam with ragam {must} & (Kirti with raga alapana, neraval, Kalpana swaras and Pancharathna keerthana",
+          " Ragam,Thanam, Pallavi (RTP) "
+        ],
+        "1st_prize": "CERTIFICATE & GOLD MEDAL ( pure gold )",
+        "2nd_prize": "CERTIFICATE & SILVER MEDAL ( pure silver )",
         "3rd_prize": "CERTIFICATE & BRONZE MEDAL",
         "title": ""
       }

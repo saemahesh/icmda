@@ -76,7 +76,7 @@ export class GuideRhythmComponent implements OnInit {
         "1st_prize": "CERTIFICATE & GOLD MEDAL ( Not pure gold )",
         "2nd_prize": "CERTIFICATE & SILVER MEDAL ( Not pure silver )",
         "3rd_prize": "CERTIFICATE & BRONZE MEDAL",
-        "title": " INTERNATIONAL LEVEL NATYA SIRONMANI TITLE & certificate. "
+        "title": " INTERNATIONAL LEVEL NATYA SIRONMANI TITLE "
       },
       {
         "category": " SUPER SENIORS ",
@@ -92,19 +92,7 @@ export class GuideRhythmComponent implements OnInit {
         "3rd_prize": "CERTIFICATE & BRONZE MEDAL",
         "title": ""
       },
-      {
-        "category": " OPEN CATEGORY",
-        "age_limit": "ABOVE 20 YEARS",
-        "time_limit": "Maximum 10 Mintues",
-        "items": [
-            "Any Adhi",
-            "Roopaaka/khandachaapu thani avarthanam along with any Korappu in between Thani & Mora korvai"
-        ],
-        "1st_prize": "CERTIFICATE & GOLD MEDAL ( Not pure gold )",
-        "2nd_prize": "CERTIFICATE & SILVER MEDAL ( Not pure silver )",
-        "3rd_prize": "CERTIFICATE & BRONZE MEDAL",
-        "title": ""
-      },
+    
       {
         "category": "PRODIGY CATEGORY",
         "age_limit": "Under 15 YEARS",
@@ -128,6 +116,19 @@ export class GuideRhythmComponent implements OnInit {
         ],
         "1st_prize": "CERTIFICATE & GOLD MEDAL ( Not pure gold )",
         "2nd_prize": "CERTIFICATE & SILVER MEDAL ( Not pure silver )",
+        "3rd_prize": "CERTIFICATE & BRONZE MEDAL",
+        "title": ""
+      },
+      {
+        "category": " OPEN CATEGORY",
+        "age_limit": "ABOVE 20 YEARS",
+        "time_limit": "Maximum 10 Mintues",
+        "items": [
+            "Any Adhi",
+            "Roopaaka/khandachaapu thani avarthanam along with any Korappu in between Thani & Mora korvai"
+        ],
+        "1st_prize": "CERTIFICATE & GOLD MEDAL ( pure gold )",
+        "2nd_prize": "CERTIFICATE & SILVER MEDAL ( pure silver )",
         "3rd_prize": "CERTIFICATE & BRONZE MEDAL",
         "title": ""
       }

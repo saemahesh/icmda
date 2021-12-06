@@ -73,18 +73,6 @@ export class GuideKuchipudiComponent implements OnInit {
         "title": ""
       },
       {
-        "category": "OPEN CATEGORY",
-        "age_limit": "ABOVE 20 YEARS",
-        "time_limit": "minimum 7 Minutes , Maximum 15 Minutes",
-        "items": [
-          "any kuchipudi dance item",
-        ],
-        "1st_prize": "CERTIFICATE & GOLD MEDAL ( Not pure gold )",
-        "2nd_prize": "CERTIFICATE & SILVER MEDAL  ( Not pure silver )",
-        "3rd_prize": "CERTIFICATE & BRONZE MEDAL ",
-        "title": " INTERNATIONAL LEVEL NATYA SIRONMANI TITLE & certificate. "
-      },
-      {
         "category": " PRODIGY CATEGORY",
         "age_limit": "Under 15 YEARS",
         "time_limit": "Maximum 15 Minutes",
@@ -110,6 +98,18 @@ export class GuideKuchipudiComponent implements OnInit {
         "2nd_prize": "CERTIFICATE & SILVER MEDAL  ( Not pure silver )",
         "3rd_prize": "CERTIFICATE & BRONZE MEDAL ",
         "title": ""
+      },
+      {
+        "category": "OPEN CATEGORY",
+        "age_limit": "ABOVE 20 YEARS",
+        "time_limit": "minimum 7 Minutes , Maximum 15 Minutes",
+        "items": [
+          "any kuchipudi dance item",
+        ],
+        "1st_prize": "CERTIFICATE & GOLD MEDAL ( pure gold )",
+        "2nd_prize": "CERTIFICATE & SILVER MEDAL  (pure silver )",
+        "3rd_prize": "CERTIFICATE & BRONZE MEDAL ",
+        "title": " INTERNATIONAL LEVEL NATYA SIRONMANI TITLE "
       }
     ]
   }
