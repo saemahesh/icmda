@@ -123,3 +123,11 @@ del {
 .notranslate{
     font-size: 9px;
 }
+
+.change-language span{
+    font-size: 20px;
+}
+.change-language button{
+    margin-left: 10px;
+    margin-top: 5px;
+}

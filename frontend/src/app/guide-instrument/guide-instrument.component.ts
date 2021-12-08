@@ -89,7 +89,7 @@ export class GuideInstrumentComponent implements OnInit {
         "items": [
           "Krithi with Devwith Manodharma Raga ,Neraval, Kalpanaswara and Thillan","any Devotional Songs"
         ],
-        "1st_prize": "CERTIFICATE & GOLD MEDAL ( Not pure gold )",
+        "1st_prize": "CERTIFICATE & GOLD MEDAL ( Not pure gold ) & CASH PRIZE",
         "2nd_prize": "CERTIFICATE & SILVER MEDAL ( Not pure silver )",
         "3rd_prize": "CERTIFICATE & BRONZE MEDAL",
         "title": ""

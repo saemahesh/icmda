@@ -90,7 +90,7 @@ export class GuideVocalComponent implements OnInit {
           "Krithi with Manodharma Raga,Neraval,skalpanaswara and Thillana",
           "any Devotional Songs"
      ],
-        "1st_prize": "CERTIFICATE & GOLD MEDAL ( Not pure gold )",
+        "1st_prize": "CERTIFICATE & GOLD MEDAL ( Not pure gold ) & CASH PRIZE",
         "2nd_prize": "CERTIFICATE & SILVER MEDAL ( Not pure silver )",
         "3rd_prize": "CERTIFICATE & BRONZE MEDAL",
         "title": ""

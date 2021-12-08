@@ -65,7 +65,7 @@ export class GuideBharatComponent implements OnInit {
             "Thyagaraja keerthana",
             "Jaavali"
           ],
-          "1st_prize": "CERTIFICATE & GOLD MEDAL  ( Not pure gold )",
+          "1st_prize": "CERTIFICATE & GOLD MEDAL  ( Not pure gold ) & CASH PRIZE",
           "2nd_prize": "CERTIFICATE & SILVER MEDAL  ( Not pure silver )",
           "3rd_prize": "CERTIFICATE & BRONZE MEDAL ",
           "title": ""
@@ -87,7 +87,7 @@ export class GuideBharatComponent implements OnInit {
         },
         {
           "category": "SPECIAL CATEGORY",
-          "age_limit": "ABOVE 23",
+          "age_limit": "ABOVE 25",
           "time_limit": "Maximum 20 Minutes",
           "items": [
             "PADHAM",

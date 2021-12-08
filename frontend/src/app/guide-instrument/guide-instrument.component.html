@@ -8,8 +8,43 @@
         STATE LEVEL, NATIONAL LEVEL & INTERNATIONAL LEVEL  
     </label>
     <H4 style="font-weight:bold;color:green">Wind - String - Fret</H4>
+    <div class="change-language">
+        <button class="btn btn-primary btn-sm"
+                style="margin-left:1%"
+                onclick="setCookie('googtrans', '/hi/en', 30)">
+            <span class="notranslate">ENGLISH</span>
+        </button>
 
-    <h5 style=" color: #d82323;" class="title-note">Note: These competitions are only for upcoming artists and students but not for professional teachers/ professional performers </h5>
+        <button class="btn btn-success btn-sm"
+                onclick="setCookie('googtrans', '/hi/te', 30)">
+            <span class="notranslate">తెలుగు</span>
+        </button>
+
+        <button class="btn btn-warning btn-sm"
+                onclick="setCookie('googtrans', '/hi/ta', 30)"
+               >
+            <span class="notranslate">தமிழ்</span>
+        </button>
+
+        <button class="btn btn-info btn-sm"
+                onclick="setCookie('googtrans', '/hi/kn', 30)"
+               >
+            <span class="notranslate">ಕನ್ನಡ</span>
+        </button>
+
+        <button class="btn btn-danger btn-sm"
+                onclick="setCookie('googtrans', '/hi/ml', 30)"
+                >
+            <span class="notranslate">മലയാളം</span>
+        </button>
+
+        <button class="btn btn-info btn-sm"
+                onclick="setCookie('googtrans', '/en/hi', 30)"
+               >
+            <span class="notranslate">हिंदी</span>
+        </button>
+    </div>
+    <!-- <h5 style=" color: #d82323;" class="title-note">Note: These competitions are only for upcoming artists and students but not for professional teachers/ professional performers </h5> -->
     <h5>(<span style="color:red">Any 1</span> songs for 1,2,3 levels) (<span style="color:red;">Any 2 or 3 </span>songs for 4,5,6,7 levels)</h5>
     <div class="row">
         <div *ngFor="let item of guidelines" class="col-md-6">
@@ -130,6 +165,6 @@
       
     </div>
 
-    <H3>LAST DATE TO REGISTER and UPLOAD YOUR VIDEOS is 31ST DECEMBER 2021</H3>
+    <H3 style=" font-weight: bold; color: red; ">LAST DATE TO REGISTER and UPLOAD YOUR VIDEOS is 31ST DECEMBER 2021</H3>
 
 </div>

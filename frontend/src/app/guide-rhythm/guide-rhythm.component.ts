@@ -42,7 +42,7 @@ export class GuideRhythmComponent implements OnInit {
       {
         "category": "JUNIORS",
         "age_limit": "9 TO 12 YEARS",
-        "time_limit": "Maximum 16 Mintues",
+        "time_limit": "Maximum 6 Mintues",
         "items": [
           "Any Adhi ",
           "Roopaka sarvalagu"
@@ -87,7 +87,7 @@ export class GuideRhythmComponent implements OnInit {
           "Roopalca,Khandachaapu",
           " Misrachapu thani avarthanam along with Mora korvai"
         ],
-        "1st_prize": "CERTIFICATE & GOLD MEDAL ( Not pure gold )",
+        "1st_prize": "CERTIFICATE & GOLD MEDAL ( Not pure gold ) & CASH PRIZE",
         "2nd_prize": "CERTIFICATE & SILVER MEDAL ( Not pure silver )",
         "3rd_prize": "CERTIFICATE & BRONZE MEDAL",
         "title": ""
