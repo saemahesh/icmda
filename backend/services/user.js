@@ -292,6 +292,13 @@ function getGuinnessStatus (data, callback) {
         })
         if(reply === ''){
           reply = 'No data found with given details. Please try after 24 hours from the date of registration.'
+        } else{
+          reply +=`
+Join ICMDA Whatsapp Group for the latest updates about Competitions, Events, Awards & GradeExaminations
+Click here to join : https://chat.whatsapp.com/EaC2KlleV9w0hZtXMLLhvX
+
+Check all updates with posters in ICMDA catalog
+Click here to view : https://wa.me/c/919515417732`
         }
         callback(null,{reply});
       })
@@ -348,6 +355,15 @@ function getSeason2Status (data, callback) {
 })
         if(reply === ''){
           reply = 'No data found with given details. Please try after 24 hours from the date of registration.'
+        }else{
+          reply +=`
+Join ICMDA Whatsapp Group for the latest updates about Competitions, Events, Awards & GradeExaminations
+Click here to join : https://chat.whatsapp.com/EaC2KlleV9w0hZtXMLLhvX
+
+Check all updates with posters in ICMDA catalog
+Click here to view : https://wa.me/c/919515417732
+`
+
         }
         callback(null,{reply});
       })
