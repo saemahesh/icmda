@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SubmitTicketComponent implements OnInit {
 
+  loading = true;
   constructor() { }
 
   ngOnInit(): void {
+    setTimeout(() => {
+      this.loading = false;
+    }, 5000);
+  
   }
 
 }

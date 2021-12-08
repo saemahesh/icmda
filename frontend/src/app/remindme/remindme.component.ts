@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-remindme',
   templateUrl: './remindme.component.html',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RemindmeComponent implements OnInit {
 
+  loading = true;
   constructor() { }
 
   ngOnInit(): void {
+    setTimeout(() => {
+      this.loading = false;
+    }, 5000);
   }
 
 }
