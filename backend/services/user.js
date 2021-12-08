@@ -344,7 +344,7 @@ function getSeason2Status (data, callback) {
 *Participation Category*: ${record_data.participation_category}
 *Guidelines*: https://www.icmda.in/guidelines
 *Video Submit Link*: https://bit.ly/32PfrFg
-*Result* : Release on Jan-14-2021
+*Result* : Release on Jan-14-2022
 <<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>
 
 
