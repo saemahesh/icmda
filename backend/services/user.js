@@ -291,7 +291,15 @@ function getGuinnessStatus (data, callback) {
 `
         })
         if(reply === ''){
+          // reply = 'No data found with given details. Please try after 24 hours from the date of registration.'
           reply = 'If you did not receive any data please try to add/remove your country code.If you still did not get your registration details please join our ICMDA official whatsapp group to get the notifications once we update the database. https://chat.whatsapp.com/EaC2KlleV9w0hZtXMLLhvX'
+        } else{
+          reply +=`
+Join ICMDA Whatsapp Group for the latest updates about Competitions, Events, Awards & GradeExaminations
+Click here to join : https://chat.whatsapp.com/EaC2KlleV9w0hZtXMLLhvX
+
+Check all updates with posters in ICMDA catalog
+Click here to view : https://wa.me/c/919515417732`
         }
         callback(null,{reply});
       })
@@ -337,7 +345,7 @@ function getSeason2Status (data, callback) {
 *Participation Category*: ${record_data.participation_category}
 *Guidelines*: https://www.icmda.in/guidelines
 *Video Submit Link*: https://bit.ly/32PfrFg
-*Result* : Release on Jan-14-2021
+*Result* : Release on Jan-14-2022
 <<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>
 
 
@@ -348,6 +356,15 @@ function getSeason2Status (data, callback) {
 })
         if(reply === ''){
           reply = 'If you did not receive any data please try to add/remove your country code.If you still did not get your registration details please join our ICMDA official whatsapp group to get the notifications once we update the database. https://chat.whatsapp.com/EaC2KlleV9w0hZtXMLLhvX.'
+        }else{
+          reply +=`
+Join ICMDA Whatsapp Group for the latest updates about Competitions, Events, Awards & GradeExaminations
+Click here to join : https://chat.whatsapp.com/EaC2KlleV9w0hZtXMLLhvX
+
+Check all updates with posters in ICMDA catalog
+Click here to view : https://wa.me/c/919515417732
+`
+
         }
         callback(null,{reply});
       })
