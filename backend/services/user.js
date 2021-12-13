@@ -292,7 +292,7 @@ function getGuinnessStatus (data, callback) {
         })
         if(reply === ''){
           // reply = 'No data found with given details. Please try after 24 hours from the date of registration.'
-          reply = 'If you did not receive any data please try to add/remove your country code.If you still did not get your registration details please join our ICMDA official whatsapp group to get the notifications once we update the database. https://chat.whatsapp.com/EaC2KlleV9w0hZtXMLLhvX'
+          reply = 'If you did not receive any data please try to add/remove your country code.If you still did not get your registration details please join our ICMDA official whatsapp group to get latest updates. https://chat.whatsapp.com/EaC2KlleV9w0hZtXMLLhvX'
         } else{
           reply +=`
 Join ICMDA Whatsapp Group for the latest updates about Competitions, Events, Awards & GradeExaminations
@@ -355,7 +355,7 @@ function getSeason2Status (data, callback) {
           
 })
         if(reply === ''){
-          reply = 'If you did not receive any data please try to add/remove your country code.If you still did not get your registration details please join our ICMDA official whatsapp group to get the notifications once we update the database. https://chat.whatsapp.com/EaC2KlleV9w0hZtXMLLhvX.'
+          reply = 'If you did not receive any data please try to add/remove your country code.If you still did not get your registration details please join our ICMDA official whatsapp group to get latest updates. https://chat.whatsapp.com/EaC2KlleV9w0hZtXMLLhvX.'
         }else{
           reply +=`
 Join ICMDA Whatsapp Group for the latest updates about Competitions, Events, Awards & GradeExaminations
