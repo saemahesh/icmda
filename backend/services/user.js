@@ -287,7 +287,6 @@ function getGuinnessStatus (data, callback) {
 *Tracking Url*: ${record_data['TRACKING ID'] ? 'https://t.17track.net/en#nums='+record_data['TRACKING ID'] : 'Not yet Available'}
 <<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>
 
-
 `
         })
         if(reply === ''){
@@ -329,8 +328,6 @@ function getSeason2Status (data, callback) {
         let reply = ``;
         response.data.records.forEach(function (record) {
           let record_data = record.fields;
-          let dispatch_date = moment(record_data['payment date']).add(14, 'd').format('DD-MM-YYYY')
-          record_data['POST DATE'] = moment(record_data['POST DATE']).format('DD-MM-YYYY')
           if(record_data['payment status'] === 'captured'){
             reply += `*SEASON2 PARTICIPANT DETAILS*
 *********************************
@@ -346,7 +343,6 @@ function getSeason2Status (data, callback) {
 *Video Submit Link*: https://bit.ly/32PfrFg
 *Result* : Release on Jan-14-2022
 <<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>
-
 
 `
 
