@@ -39,6 +39,7 @@ import { GuideInstrumentComponent } from "./guide-instrument/guide-instrument.co
 import { GuideRhythmComponent } from "./guide-rhythm/guide-rhythm.component";
 import { FusionCompetitionsComponent } from "./fusion-competitions/fusion-competitions.component";
 import { GuideVocalComponent } from './guide-vocal/guide-vocal.component';
+import { KuchipudiEvent2021Component } from "./kuchipudi-event2021/kuchipudi-event2021.component";
 
 const routes: Routes = [
   {
@@ -196,6 +197,10 @@ const routes: Routes = [
   {
     path: 'prize-distribution',
     component: PrizeDistributionComponent
+  },
+  {
+    path:'kuchipudi/event',
+    component:KuchipudiEvent2021Component
   }
 ];
 
