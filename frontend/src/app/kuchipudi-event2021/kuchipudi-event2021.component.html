@@ -1,0 +1,29 @@
+<div class="container">
+    <h2 class="text-center font-weight-bold text-danger">KUCHIPUDI EVENT</h2>
+<div class="row m-2">
+    <div class="col-md-7">
+        <img src="../../assets/images/3.jpeg" height="400px" width="100%">
+    </div>
+    <div class="col-md-5">
+       <h2>Dance guru</h2>
+       <p> If you do not wish to perform in this festival, you no need to book the slot, but you can come and collect your prize and certificate if you have participated in DEC 2020-21 Online Competitions </p>
+    </div>
+</div>
+ <h3 class="text-center font-weight-bold">UTTAMA ACHARYA</h3>
+<div class="row">
+<div class="col-md-3 card col-6" *ngFor="let teacherdata of TeacherData">
+    <img class="card-img-top"  src="{{teacherdata.fields['AWARD PHOTOS'][0].url}}" width=100% heigth=100%> 
+     <div class="card-title" *ngIf="teacherdata.fields && teacherdata.fields.Name && teacherdata.fields.Name.length>0">{{teacherdata.fields.Name}}</div> 
+    
+    </div> 
+</div>
+</div>
+
+<!-- <h3 class="text-center font-weight-bold">Best Guru</h3>
+<div class="row">
+<div class="col-md-3 card col-6" *ngFor="let eventdata of eventData">
+    <img class="card-img-top" src={{eventdata.img}} width=100% heigth=100%>
+    <div class="card-title">{{eventdata.name}}</div>
+</div>
+</div>
+<div>-->
