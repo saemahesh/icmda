@@ -42,6 +42,7 @@ export class KuchipudiEvent2021Component implements OnInit {
   TeacherData;
   bestGurus: any = [];
   uttamaAcharya:any=[];
+  gallery:any=[];
   constructor(private kuchipudievent: KuchipudiEvent2021Service) { }
 
   ngOnInit(): void {
@@ -52,10 +53,14 @@ export class KuchipudiEvent2021Component implements OnInit {
         if (teacherdata.fields && (teacherdata.fields.TITLE == 'sikamani' || teacherdata.fields.TITLE == 'yesaswi') && teacherdata.fields['AWARD PHOTOS'] && teacherdata.fields['AWARD PHOTOS'][0].url && teacherdata.fields['AWARD PHOTOS'][0].url.length > 0) {
           this.bestGurus.push(teacherdata);
         }
-        // else if(teacherdata.fields && teacherdata.fields.TITLE == 'tapaswi' && teacherdata.fields['AWARD PHOTOS'] && teacherdata.fields['AWARD PHOTOS'][0].url && teacherdata.fields['AWARD PHOTOS'][0].url.length > 0 )
-        // {
-        //   this.uttamaAcharya.push(teacherdata);
-        // }
+        else if(teacherdata.fields && teacherdata.fields.TITLE == 'tapaswi' && teacherdata.fields['AWARD PHOTOS'] && teacherdata.fields['AWARD PHOTOS'][0].url && teacherdata.fields['AWARD PHOTOS'][0].url.length > 0 )
+        {
+          this.uttamaAcharya.push(teacherdata);
+        }
+        else if(teacherdata.fields && teacherdata.fields.TITLE == 'gallery' && teacherdata.fields['AWARD PHOTOS'] && teacherdata.fields['AWARD PHOTOS'][0].url && teacherdata.fields['AWARD PHOTOS'][0].url.length > 0 )
+        {
+          this.gallery.push(teacherdata);
+        }
       });
     });
   }
