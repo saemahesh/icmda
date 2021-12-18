@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { KuchipudiEvent2021Service } from './kuchipudi-event2021.service';
 
 @Component({
@@ -8,41 +8,14 @@ import { KuchipudiEvent2021Service } from './kuchipudi-event2021.service';
 })
 export class KuchipudiEvent2021Component implements OnInit {
 
-  // eventData=[{
-  //   img:"../../assets/images/5.jpeg",
-  //   name:"Gopala Krishna"
-  // },
-  // {
-  //   img:"../../assets/images/2.jpeg",
-  //   name:"Gopala Krishna"
-  // },
-  // {
-  //   img:"../../assets/images/6.jpeg",
-  //   name:"Gopala Krishna"
-  // },
-  // {
-  //   img:"../../assets/images/4.jpeg",
-  //   name:"Gopala Krishna"
-  // },{
-  // img:"../../assets/images/5.jpeg",
-  //   name:"Gopala Krishna"
-  // },
-  // {
-  //   img:"../../assets/images/2.jpeg",
-  //   name:"Gopala Krishna"
-  // },
-  // {
-  //   img:"../../assets/images/6.jpeg",
-  //   name:"Gopala Krishna"
-  // },
-  // {
-  //   img:"../../assets/images/4.jpeg",
-  //   name:"Gopala Krishna"
-  // }]
   TeacherData;
   bestGurus: any = [];
-  uttamaAcharya:any=[];
-  gallery:any=[];
+  uttamaAcharya: any = [];
+  gallery: any = [];
+  photoData;
+  currentUrl;
+  currentId;
+ 
   constructor(private kuchipudievent: KuchipudiEvent2021Service) { }
 
   ngOnInit(): void {
@@ -53,16 +26,35 @@ export class KuchipudiEvent2021Component implements OnInit {
         if (teacherdata.fields && (teacherdata.fields.TITLE == 'sikamani' || teacherdata.fields.TITLE == 'yesaswi') && teacherdata.fields['AWARD PHOTOS'] && teacherdata.fields['AWARD PHOTOS'][0].url && teacherdata.fields['AWARD PHOTOS'][0].url.length > 0) {
           this.bestGurus.push(teacherdata);
         }
-        else if(teacherdata.fields && teacherdata.fields.TITLE == 'tapaswi' && teacherdata.fields['AWARD PHOTOS'] && teacherdata.fields['AWARD PHOTOS'][0].url && teacherdata.fields['AWARD PHOTOS'][0].url.length > 0 )
-        {
+        else if (teacherdata.fields && teacherdata.fields.TITLE == 'tapaswi' && teacherdata.fields['AWARD PHOTOS'] && teacherdata.fields['AWARD PHOTOS'][0].url && teacherdata.fields['AWARD PHOTOS'][0].url.length > 0) {
           this.uttamaAcharya.push(teacherdata);
         }
-        else if(teacherdata.fields && teacherdata.fields.TITLE == 'gallery' && teacherdata.fields['AWARD PHOTOS'] && teacherdata.fields['AWARD PHOTOS'][0].url && teacherdata.fields['AWARD PHOTOS'][0].url.length > 0 )
-        {
+        else if (teacherdata.fields && teacherdata.fields.TITLE == 'gallery' && teacherdata.fields['AWARD PHOTOS'] && teacherdata.fields['AWARD PHOTOS'][0].url && teacherdata.fields['AWARD PHOTOS'][0].url.length > 0) {
           this.gallery.push(teacherdata);
         }
       });
+      this.currentUrl= window.location.href;
+   this.currentUrl=this.currentUrl.split("#");
+   this.currentId=this.currentUrl[1];
+   console.log(this.currentId);
+   setTimeout(()=>{
+    let el = document.getElementById(this.currentId);
+    console.log(el);
+   el.scrollIntoView();
+   },5000)
+
     });
+  }
+
+  getLink(index: any, name: any) {
+    let data = name.replace(/ /g, "_");
+    return data + '_' + index;
+  }
+
+  sharePhone(index, name) {
+    let id = this.getLink(index, name);
+    let link = `Hi, Please checkout this link. https://www.icmda.in/kuchipudi/event#${id}`
+    window.open("https://api.whatsapp.com/send?text=" + link, "_blank")
   }
 
 }

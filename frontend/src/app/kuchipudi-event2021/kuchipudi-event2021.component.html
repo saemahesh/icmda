@@ -1,6 +1,8 @@
 <div class="container">
-    <h2 class="text-center font-weight-bold text-danger">KUCHIPUDI EVENT   <button class="btn btn-primary float-right">Apply for best guru award <i class="fa fa-hand-pointer-o" aria-hidden="true"></i></button></h2>
-   
+        <h2 class="text-center font-weight-bold text-danger">KUCHIPUDI EVENT
+            <button class="btn btn-primary float-md-right float-center">Apply for best guru award <i
+                    class="fa fa-hand-pointer-o" aria-hidden="true"></i></button>
+        </h2>
     <div class="row m-2">
         <div class="col-md-7">
             <img src="../../assets/images/3.jpeg" height="400px" width="100%">
@@ -11,7 +13,7 @@
                 collect your prize and certificate if you have participated in DEC 2020-21 Online Competitions </p>
         </div>
     </div>
-    
+
     <h3 class="text-center font-weight-bold">GALLERY</h3>
     <div class="row">
         <div class="col-md-3 card col-6" *ngFor="let teacherdata of gallery">
@@ -34,17 +36,26 @@
         </div>
     </div>
 
- 
+
 
     <h3 class="text-center font-weight-bold">BEST GURU</h3>
     <div class="row">
-        <div class="col-md-3 card col-6" *ngFor="let teacherdata of bestGurus">
-            <img class="card-img-top" src="{{teacherdata.fields['AWARD PHOTOS'][0].url}}" width=100% heigth=100%>
+        <div class="col-md-3 card col-6" *ngFor="let teacherdata of bestGurus;index as i">
+
+            <img #ref [id]="getLink(i,teacherdata.fields.Name)" class="card-img-top" src="{{teacherdata.fields['AWARD PHOTOS'][0].url}}" width=100% heigth=100%>
             <div class="card-title"
                 *ngIf="teacherdata.fields && teacherdata.fields.Name && teacherdata.fields.Name.length>0">
                 {{teacherdata.fields.Name | uppercase}}
+
             </div>
+            <div class="text-center">
+                <a (click)="sharePhone(i,teacherdata.fields.Name)" href="javascript:void(0);">
+                    <img src="../../assets/images/WHATSAPP_SHARE.png"    style="height: 30px;border-radius:5px;"/>
+                </a>
+            </div>
+            
+
         </div>
     </div>
-    
+
 </div>

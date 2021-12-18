@@ -7,11 +7,11 @@ import { Observable } from 'rxjs';
 })
 export class KuchipudiEvent2021Service {
 
-  private url="https://api.airtable.com/v0/apphcypxnexoIQBti/BEST%20TEACHERS%20ICMDA?maxRecords=100&view=TEACHERS";
+  private url = "https://api.airtable.com/v0/apphcypxnexoIQBti/BEST%20TEACHERS%20ICMDA?maxRecords=100&view=TEACHERS";
 
-  constructor(private http:HttpClient) { }
-  getBestTeachersData():Observable<any[]>
-  {
-    return this.http.get<any[]>(this.url,{headers: { 'Authorization': `Bearer keyqTM7fqRgqcPay3` }});
+  constructor(private http: HttpClient) { }
+  getBestTeachersData(): Observable<any[]> {
+    return this.http.get<any[]>(this.url, { headers: { 'Authorization': `Bearer keyqTM7fqRgqcPay3` } });
   }
+
 }
