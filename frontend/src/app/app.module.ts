@@ -51,6 +51,7 @@ import { GuideRhythmComponent } from './guide-rhythm/guide-rhythm.component';
 import { FusionCompetitionsComponent } from './fusion-competitions/fusion-competitions.component';
 import { GuideVocalComponent } from './guide-vocal/guide-vocal.component';
 import { SubmitTicketComponent } from './submit-ticket/submit-ticket.component';
+import { HelpDeskComponent } from './help-desk/help-desk.component';
 
 @NgModule({
   declarations: [
@@ -96,7 +97,8 @@ import { SubmitTicketComponent } from './submit-ticket/submit-ticket.component';
     GuideRhythmComponent,
     FusionCompetitionsComponent,
     GuideVocalComponent,
-    SubmitTicketComponent
+    SubmitTicketComponent,
+    HelpDeskComponent
   ],
   imports: [
     BrowserModule,

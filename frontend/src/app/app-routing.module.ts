@@ -40,6 +40,7 @@ import { GuideRhythmComponent } from "./guide-rhythm/guide-rhythm.component";
 import { FusionCompetitionsComponent } from "./fusion-competitions/fusion-competitions.component";
 import { GuideVocalComponent } from './guide-vocal/guide-vocal.component';
 import { SubmitTicketComponent } from "./submit-ticket/submit-ticket.component";
+import { HelpDeskComponent } from "./help-desk/help-desk.component";
 
 const routes: Routes = [
   {
@@ -57,6 +58,10 @@ const routes: Routes = [
   {
     path:"submit-ticket",
     component:SubmitTicketComponent
+  },
+  {
+    path:"help-desk",
+    component:HelpDeskComponent
   },
   {
     path: 'season2/register',
