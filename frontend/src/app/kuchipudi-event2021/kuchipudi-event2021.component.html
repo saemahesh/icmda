@@ -1,23 +1,33 @@
-<div class="container">
-        <h2 class="text-center font-weight-bold text-danger">KUCHIPUDI EVENT
-            <button class="btn btn-primary float-md-right float-center">Apply for best guru award <i
-                    class="fa fa-hand-pointer-o" aria-hidden="true"></i></button>
+<div style="padding:3%">
+        <h2 class="text-center font-weight-bold text-danger">INTERNATIONAL AWARD CEREMONY
+            <button class="btn btn-primary float-md-right float-center">Apply for best guru award 
+                <i class="fa fa-hand-pointer-o" aria-hidden="true"></i></button>
         </h2>
     <div class="row m-2">
         <div class="col-md-7">
-            <img src="../../assets/images/3.jpeg" height="400px" width="100%">
+            <img src="https://dl.airtable.com/.attachmentThumbnails/d62484feee9244db71edcdeb38e78f57/44728ac8" width="100%">
         </div>
         <div class="col-md-5">
-            <h2>Dance guru</h2>
-            <p> If you do not wish to perform in this festival, you no need to book the slot, but you can come and
-                collect your prize and certificate if you have participated in DEC 2020-21 Online Competitions </p>
+            <p> Renowned violinist Mahamahopadhyaya Padmashree Dr.Annavarapu Ramaswamy On the auspicious occasion of announcing
+                the Padma Shri award to  by the government, ICMDA Chennai honored him
+                with the Sangeet Ratna Sagara title. On the same occasion, the founders of the association
+                honored various artists who participated in the Guinness World Record Program.
+                The Pure Gold Medal and Pure Silver Medal was presented as the first and second prize to the winners of the International
+                Music and Dance Competitions organized by the ICMDA and Thyagayya Charitable Trust and Thyagayya TV. Sri Siddhendra
+                Yogi Kalapeetham Principal Dr. Vedanta Ramalingashastri, Radheshyam, Natyacharya Krishnakumar,
+                Dr. Yeleswarapu Srinivasu, Kalaimamani Sri Madhavpeddi Murthy, Founder and General Secretary E.R Janardhan
+                and music and dance teachers are participated. College Principal Vedanta Ramalinga
+                Shastri lauded the initiative taken by the institute in developing the cultural arts.
+                Janardhan said that he is going to held many such great programs in the future.
+                The teachers were presented with the Yasaswi and Sikhamani Awards.
+            </p>
         </div>
     </div>
 
     <h3 class="text-center font-weight-bold">GALLERY</h3>
     <div class="row">
         <div class="col-md-3 card col-6" *ngFor="let teacherdata of gallery">
-            <img class="card-img-top" src="{{teacherdata.fields['AWARD PHOTOS'][0].url}}" width=100% heigth=100%>
+            <img class="card-img-top" src="{{teacherdata.fields['AWARD PHOTOS'][0].url}}" width=100%  style="height:250px" >
             <div class="card-title"
                 *ngIf="teacherdata.fields && teacherdata.fields.Name && teacherdata.fields.Name.length>0">
                 {{teacherdata.fields.Name | uppercase}}
@@ -28,7 +38,7 @@
     <h3 class="text-center font-weight-bold">UTTAMA ACHARYA</h3>
     <div class="row">
         <div class="col-md-3 card col-6" *ngFor="let teacherdata of uttamaAcharya">
-            <img class="card-img-top" src="{{teacherdata.fields['AWARD PHOTOS'][0].url}}" width=100% heigth=100%>
+            <img class="card-img-top" src="{{teacherdata.fields['AWARD PHOTOS'][0].url}}" width=100% style="height:250px">
             <div class="card-title"
                 *ngIf="teacherdata.fields && teacherdata.fields.Name && teacherdata.fields.Name.length>0">
                 {{teacherdata.fields.Name | uppercase}}
@@ -42,7 +52,8 @@
     <div class="row">
         <div class="col-md-3 card col-6" *ngFor="let teacherdata of bestGurus;index as i">
 
-            <img #ref [id]="getLink(i,teacherdata.fields.Name)" class="card-img-top" src="{{teacherdata.fields['AWARD PHOTOS'][0].url}}" width=100% heigth=100%>
+            <img #ref [id]="getLink(i,teacherdata.fields.Name)" class="card-img-top" 
+            src="{{teacherdata.fields['AWARD PHOTOS'][0].url}}" width=100% style="height:250px">
             <div class="card-title"
                 *ngIf="teacherdata.fields && teacherdata.fields.Name && teacherdata.fields.Name.length>0">
                 {{teacherdata.fields.Name | uppercase}}
