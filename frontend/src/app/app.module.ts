@@ -51,6 +51,8 @@ import { GuideRhythmComponent } from './guide-rhythm/guide-rhythm.component';
 import { FusionCompetitionsComponent } from './fusion-competitions/fusion-competitions.component';
 import { GuideVocalComponent } from './guide-vocal/guide-vocal.component';
 import { KuchipudiEvent2021Component } from './kuchipudi-event2021/kuchipudi-event2021.component';
+import { SubmitTicketComponent } from './submit-ticket/submit-ticket.component';
+import { HelpDeskComponent } from './help-desk/help-desk.component';
 
 @NgModule({
   declarations: [
@@ -96,7 +98,12 @@ import { KuchipudiEvent2021Component } from './kuchipudi-event2021/kuchipudi-eve
     GuideRhythmComponent,
     FusionCompetitionsComponent,
     GuideVocalComponent,
+<<<<<<< HEAD
     KuchipudiEvent2021Component
+=======
+    SubmitTicketComponent,
+    HelpDeskComponent
+>>>>>>> 2e6b4ce5b1fa546468d27be6271f530efd83fcf6
   ],
   imports: [
     BrowserModule,
