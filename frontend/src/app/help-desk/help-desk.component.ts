@@ -24,7 +24,7 @@ export class HelpDeskComponent implements OnInit {
       this.FaqData = data;
       this.dataFaq = this.FaqData.records;
       this.dataFaq.forEach((element: any) => {
-        allCategories.push(element.fields.Category);
+        allCategories.push(element.fields.category);
       });
       this.validCategories = [...new Set(allCategories)];
       console.log(this.validCategories);

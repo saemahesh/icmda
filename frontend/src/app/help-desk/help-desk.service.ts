@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class HelpDeskService {
 
-  url="https://api.airtable.com/v0/appubs0zPp9o7hrQn/Table%201?maxRecords=10&view=Grid%20view";
+  url="https://api.airtable.com/v0/appcs1MTfB8T5HKL3/FAQ?maxRecords=100&view=FAQ";
 
 
   constructor(private http:HttpClient) { }

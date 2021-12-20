@@ -9,14 +9,16 @@
     </div>
   </div>
 
-<div class="accordion-wrapper" *ngFor="let fData of dataFaq">
-  <div class="accordion" *ngIf="selectedCategory && selectedCategory==fData.fields.Category">
+<div class="accordion-wrapper" style="margin-bottom: 12px;" *ngFor="let fData of dataFaq">
+  <div class="accordion" *ngIf="selectedCategory && selectedCategory==fData.fields.category">
     <input type="radio" name="radio-a" id="check3">
-    <label class="accordion-label" for="check3">{{fData.fields.question}}</label>
+    <label class="accordion-label question" for="check3" style="color: white;">{{fData.fields.question}}</label>
     <div class="accordion-content" style="display: contents;">
-      <p style="padding: 15px;">{{fData.fields.Answer}} </p>
-      <label style="font-size:15px;padding:0 15px">click on this Link</label>
-      <a href={{fData.fields.Link}} target="_blank">{{fData.fields.Link}}</a>
+      <p style="padding: 15px;font-weight: bold;">{{fData.fields.answer}} </p>
+      <div style="padding: 10px;">
+        <label style="font-size:15px;padding:0 15px">click on this Link</label>
+        <a href={{fData.fields.Link}} target="_blank">{{fData.fields.link}}</a>
+      </div>
     </div>
   </div>
 </div>

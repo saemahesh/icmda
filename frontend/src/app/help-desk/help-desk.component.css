@@ -76,3 +76,10 @@ input:checked ~ .accordion-content {
   max-height: 100vh;
   padding: 16px;
 }
+
+@media screen and (max-width: 480px) {
+  .question {
+    height: 100% !important;
+  }
+}
+
