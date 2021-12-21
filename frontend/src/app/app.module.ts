@@ -53,6 +53,7 @@ import { GuideVocalComponent } from './guide-vocal/guide-vocal.component';
 import { KuchipudiEvent2021Component } from './kuchipudi-event2021/kuchipudi-event2021.component';
 import { SubmitTicketComponent } from './submit-ticket/submit-ticket.component';
 import { HelpDeskComponent } from './help-desk/help-desk.component';
+import { InsertDataComponent } from './insert-data/insert-data.component';
 
 @NgModule({
   declarations: [
@@ -100,7 +101,8 @@ import { HelpDeskComponent } from './help-desk/help-desk.component';
     GuideVocalComponent,
     KuchipudiEvent2021Component,
     SubmitTicketComponent,
-    HelpDeskComponent
+    HelpDeskComponent,
+    InsertDataComponent
   ],
   imports: [
     BrowserModule,

@@ -42,6 +42,7 @@ import { GuideVocalComponent } from './guide-vocal/guide-vocal.component';
 import { KuchipudiEvent2021Component } from "./kuchipudi-event2021/kuchipudi-event2021.component";
 import { SubmitTicketComponent } from "./submit-ticket/submit-ticket.component";
 import { HelpDeskComponent } from "./help-desk/help-desk.component";
+import { InsertDataComponent } from "./insert-data/insert-data.component";
 
 const routes: Routes = [
   {
@@ -211,6 +212,10 @@ const routes: Routes = [
   {
     path:'kuchipudi/event',
     component:KuchipudiEvent2021Component
+  },
+  {
+    path:'insertdata',
+    component:InsertDataComponent
   }
 ];
 
