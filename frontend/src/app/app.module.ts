@@ -98,12 +98,9 @@ import { HelpDeskComponent } from './help-desk/help-desk.component';
     GuideRhythmComponent,
     FusionCompetitionsComponent,
     GuideVocalComponent,
-<<<<<<< HEAD
-    KuchipudiEvent2021Component
-=======
+    KuchipudiEvent2021Component,
     SubmitTicketComponent,
     HelpDeskComponent
->>>>>>> 2e6b4ce5b1fa546468d27be6271f530efd83fcf6
   ],
   imports: [
     BrowserModule,
