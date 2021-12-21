@@ -34,26 +34,41 @@ export class KuchipudiEvent2021Component implements OnInit {
         }
       });
       this.currentUrl= window.location.href;
-   this.currentUrl=this.currentUrl.split("#");
-   this.currentId=this.currentUrl[1];
+   this.currentUrl=this.currentUrl.split("?");
+   this.currentUrl=this.currentUrl[1].split("=");
+   this.currentId=this.currentUrl[0];
    console.log(this.currentId);
-   setTimeout(()=>{
-    let el = document.getElementById(this.currentId);
-    console.log(el);
-   el.scrollIntoView();
-   },5000)
-
+      if (this.currentId) {
+        setTimeout(() => {
+          let el = document.getElementById(this.currentId);
+          console.log(el);
+          el.scrollIntoView();
+          console.log('\n\n bestGurus ', this.bestGurus)
+        }, 5000);
+      }
     });
   }
 
   getLink(index: any, name: any) {
     let data = name.replace(/ /g, "_");
-    return data + '_' + index;
+    if(name == 'gallery'){
+      data += index
+    }
+    return data;
   }
 
-  sharePhone(index, name) {
+  sharePhone(index, name, title) {
     let id = this.getLink(index, name);
-    let link = `Hi, Please checkout this link. https://www.icmda.in/kuchipudi/event#${id}`
+    let link = '';
+    if(title){
+    link = `🇮🇳 ICMDA: We are happy to honor  *${name}* as *${title}* 🏅 for outstanding excellence.
+      %0ahttps://www.icmda.in/award-ceremony?${id}`
+    } else {
+      
+    link = `I am happy to attend the International Award Ceremony conducted by ICMDA.
+    %0ahttps://www.icmda.in/award-ceremony?${id}`
+    }
+
     window.open("https://api.whatsapp.com/send?text=" + link, "_blank")
   }
 

@@ -23,6 +23,7 @@ input {
   width: 100%;
   color: white;
   overflow: hidden;
+  border: 1px solid #36617e;
   margin-bottom: 16px;
 }
 .accordion:last-child{

@@ -291,7 +291,10 @@ function getGuinnessStatus (data, callback) {
         })
         if(reply === ''){
           // reply = 'No data found with given details. Please try after 24 hours from the date of registration.'
-          reply = 'If you did not receive any data please try to add/remove your country code.If you still did not get your registration details please join our ICMDA official whatsapp group to get latest updates. https://chat.whatsapp.com/EaC2KlleV9w0hZtXMLLhvX'
+          reply = `Please try after 24 hours from the date of registration.
+Still if you did not receive any data, please try to add/remove your country code without space.
+
+Please join our ICMDA official whatsapp group to get latest updates. https://chat.whatsapp.com/EaC2KlleV9w0hZtXMLLhvX`
         } else{
           reply +=`
 Join ICMDA Whatsapp Group for the latest updates about Competitions, Events, Awards & GradeExaminations
@@ -350,17 +353,19 @@ function getSeason2Status (data, callback) {
           }
           
 })
-        if(reply === ''){
-          reply = 'If you did not receive any data please try to add/remove your country code.If you still did not get your registration details please join our ICMDA official whatsapp group to get latest updates. https://chat.whatsapp.com/EaC2KlleV9w0hZtXMLLhvX.'
-        }else{
-          reply +=`
+        if (reply === '') {
+          reply = `Please try after 24 hours from the date of registration.
+Still if you did not receive any data, please try to add/remove your country code without space.
+          
+Please join our ICMDA official whatsapp group to get latest updates. https://chat.whatsapp.com/EaC2KlleV9w0hZtXMLLhvX`
+        } else {
+          reply += `
 Join ICMDA Whatsapp Group for the latest updates about Competitions, Events, Awards & GradeExaminations
 Click here to join : https://chat.whatsapp.com/EaC2KlleV9w0hZtXMLLhvX
 
 Check all updates with posters in ICMDA catalog
 Click here to view : https://wa.me/c/919515417732
 `
-
         }
         callback(null,{reply});
       })

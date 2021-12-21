@@ -1,7 +1,9 @@
 <div style="padding:3%">
         <h2 class="text-center font-weight-bold text-danger">INTERNATIONAL AWARD CEREMONY
-            <button class="btn btn-primary float-md-right float-center">Apply for best guru award 
-                <i class="fa fa-hand-pointer-o" aria-hidden="true"></i></button>
+            <a href="https://rzp.io/l/ICMDA-BEST-TEACHER-CERTIFICATE">
+                <button class="btn btn-primary float-md-right float-center">Apply for best teacher certificate 
+                    <i class="fa fa-hand-pointer-o" aria-hidden="true"></i></button>
+            </a>
         </h2>
     <div class="row m-2">
         <div class="col-md-7">
@@ -23,49 +25,54 @@
             </p>
         </div>
     </div>
-
-    <h3 class="text-center font-weight-bold">GALLERY</h3>
+    <h3 class="text-center font-weight-bold text-success" style="text-decoration: underline;">GALLERY</h3>
     <div class="row">
-        <div class="col-md-3 card col-6" *ngFor="let teacherdata of gallery">
-            <img class="card-img-top" src="{{teacherdata.fields['AWARD PHOTOS'][0].url}}" width=100%  style="height:250px" >
-            <div class="card-title"
+        <div class="col-md-3 card col-12" *ngFor="let teacherdata of gallery;index as i">
+            <img #ref [id]="getLink(i,'gallery')" class="card-img-top" src="{{teacherdata.fields['AWARD PHOTOS'][0].url}}" width=100%  style="height:250px" >
+            <div class="card-title" style="font-weight: bold;text-align: center;"
                 *ngIf="teacherdata.fields && teacherdata.fields.Name && teacherdata.fields.Name.length>0">
-                {{teacherdata.fields.Name | uppercase}}
-            </div>
-        </div>
-    </div>
-
-    <h3 class="text-center font-weight-bold">UTTAMA ACHARYA</h3>
-    <div class="row">
-        <div class="col-md-3 card col-6" *ngFor="let teacherdata of uttamaAcharya">
-            <img class="card-img-top" src="{{teacherdata.fields['AWARD PHOTOS'][0].url}}" width=100% style="height:250px">
-            <div class="card-title"
-                *ngIf="teacherdata.fields && teacherdata.fields.Name && teacherdata.fields.Name.length>0">
-                {{teacherdata.fields.Name | uppercase}}
-            </div>
-        </div>
-    </div>
-
-
-
-    <h3 class="text-center font-weight-bold">BEST GURU</h3>
-    <div class="row">
-        <div class="col-md-3 card col-6" *ngFor="let teacherdata of bestGurus;index as i">
-
-            <img #ref [id]="getLink(i,teacherdata.fields.Name)" class="card-img-top" 
-            src="{{teacherdata.fields['AWARD PHOTOS'][0].url}}" width=100% style="height:250px">
-            <div class="card-title"
-                *ngIf="teacherdata.fields && teacherdata.fields.Name && teacherdata.fields.Name.length>0">
-                {{teacherdata.fields.Name | uppercase}}
-
+                <!-- {{teacherdata.fields.Name | uppercase}} -->
             </div>
             <div class="text-center">
-                <a (click)="sharePhone(i,teacherdata.fields.Name)" href="javascript:void(0);">
+                <a (click)="sharePhone(i,'gallery', '')" href="javascript:void(0);">
                     <img src="../../assets/images/WHATSAPP_SHARE.png"    style="height: 30px;border-radius:5px;"/>
                 </a>
             </div>
-            
+        </div>
+    </div>
 
+    <h3 class="text-center font-weight-bold text-success" style="text-decoration: underline;">UTTAMACHARYA</h3>
+    <div class="row">
+        <div class="col-md-3 card col-12" *ngFor="let teacherdata of uttamaAcharya;index as i">
+            <img #ref [id]="getLink(i,teacherdata.fields.Name)" class="card-img-top" src="{{teacherdata.fields['AWARD PHOTOS'][0].url}}" width=100% style="height:250px">
+            <div class="card-title" style="font-weight: bold;text-align: center;"
+                *ngIf="teacherdata.fields && teacherdata.fields.Name && teacherdata.fields.Name.length>0">
+                {{teacherdata.fields.Name | uppercase}}
+            </div>
+            <div class="text-center">
+                <a (click)="sharePhone(i,teacherdata.fields.Name, 'Uttamacharya')" href="javascript:void(0);">
+                    <img src="../../assets/images/WHATSAPP_SHARE.png"    style="height: 30px;border-radius:5px;"/>
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+
+    <h3 class="text-center font-weight-bold text-success" style="text-decoration: underline;">BEST GURU</h3>
+    <div class="row">
+        <div class="col-md-3 card col-12" *ngFor="let teacherdata of bestGurus;index as i">
+            <img #ref [id]="getLink(i,teacherdata.fields.Name)" class="card-img-top" 
+            src="{{teacherdata.fields['AWARD PHOTOS'][0].url}}" width=100% style="height:250px">
+            <div class="card-title" style="font-weight: bold;text-align: center;"
+                *ngIf="teacherdata.fields && teacherdata.fields.Name && teacherdata.fields.Name.length>0">
+                {{teacherdata.fields.Name | uppercase}}
+            </div>
+            <div class="text-center">
+                <a (click)="sharePhone(i,teacherdata.fields.Name, 'Best Guru')" href="javascript:void(0);">
+                    <img src="../../assets/images/WHATSAPP_SHARE.png"    style="height: 30px;border-radius:5px;"/>
+                </a>
+            </div>
         </div>
     </div>
 

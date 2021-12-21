@@ -175,7 +175,7 @@
 
     <style>
         .main-menu li a {
-            margin-left: 15px;
+            margin-left: 5px;
             ;
         }
 
@@ -279,42 +279,6 @@
         <script type="text/javascript"
                 src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-        <div class="change-language">
-            <button class="btn btn-primary btn-sm"
-                    style="margin-left:1%"
-                    onclick="setCookie('googtrans', '/hi/en', 30)">
-                <span class="notranslate">ENGLISH</span>
-            </button>
-
-            <button class="btn btn-success btn-sm"
-                    onclick="setCookie('googtrans', '/hi/te', 30)">
-                <span class="notranslate">తెలుగు</span>
-            </button>
-
-            <button class="btn btn-warning btn-sm"
-                    onclick="setCookie('googtrans', '/hi/ta', 30)"
-                    class="notranslate">
-                <span class="notranslate">தமிழ்</span>
-            </button>
-
-            <button class="btn btn-info btn-sm"
-                    onclick="setCookie('googtrans', '/hi/kn', 30)"
-                    class="notranslate">
-                <span class="notranslate">ಕನ್ನಡ</span>
-            </button>
-
-            <button class="btn btn-danger btn-sm"
-                    onclick="setCookie('googtrans', '/hi/ml', 30)"
-                    class="notranslate">
-                <span class="notranslate">മലയാളം</span>
-            </button>
-
-            <button class="btn btn-info btn-sm"
-                    onclick="setCookie('googtrans', '/en/hi', 30)"
-                    class="notranslate">
-                <span class="notranslate">हिंदी</span>
-            </button>
-        </div>
         <div class="alert alert-info alert-dismissible show member-notification"
              style="padding: 0;"
              role="alert">
@@ -339,7 +303,7 @@
                  alt="">
         </a>
 
-        <ul class="main-menu menu">
+        <ul class="main-menu menu" style="margin-right: 30px;">
             <li><a href="/">Home</a></li>
             <li><a href="#">Organization</a>
                 <ul class="sub-menu">
@@ -369,6 +333,10 @@
                         <span class="label label-default blinking">New</span>
                        </a>
                     </li>
+                    <li><a href="/award-ceremony">International Award Ceremony
+                        <span class="label label-default blinking">New</span>
+                    </a>
+                </li>
                     <li><a href="/online-competition-season1">Online
                             Competition 2020 Results</a>
                     </li>
@@ -385,9 +353,7 @@
                     <li><a href="/upload-winner-photos">Upload Winner Photos
                         </a>
                     </li>
-                    <li><a href="/kuchipudi/event">Kuchipudi event
-                    </a>
-                </li>
+                  
                     <!-- <li><a href="/prize-distribution">Prize Distribution</a></li> -->
                 </ul>
             </li>
@@ -397,7 +363,9 @@
             
             <!-- <li><a href="/dashboard">Dashboard</a></li> -->
             <li style="margin-right:20px">
-                <a href="#">Help</a>
+                <a href="/help-desk">Help Desk 
+                    <span class="label label-default blinking">New</span>
+                </a>
                 <ul class="sub-menu">
                  <!-- <li><a href="https://icmda.tawk.help/" target="_blank">Help Desk</a></li> -->
                  <li><a href="/help-desk">Help Desk</a></li>
@@ -407,13 +375,14 @@
                 class="register">Member Register</a></li>
 
             <li><a href="/musicians-directory">Musicians Directory</a></li>
-            <li><a href="/find-teacher"
-                   class="register">Find Teacher</a></li>
-            <!-- <li><a href="/">Grade Exams</a></li> -->
-           
+            <li><a href="https://rzp.io/l/ICMDA-BEST-TEACHER-CERTIFICATE"
+                class="register">Teacher Certificate</a>
             </li>
-           
-
+            <!-- <li><a href="/find-teacher"
+                class="register">Find Teacher</a>
+            </li> -->
+            <!-- <li><a href="/">Grade Exams</a></li> -->
+            </li>
         </ul>
         <div class="slicknav_menu"
              id="slicknav_menu"
@@ -456,7 +425,7 @@
                                 <span class="label label-default blinking">New</span>
                             </a>
                         </li>
-                            <li><a href="https://pages.razorpay.com/icmda-competition-season-2">Register for Season 2 Competitions
+                            <li><a href="https://pages.razorpay.com/ICMDA-BEST-TEACHER-CERTIFICATE">Teacher Certificate
                                 <span class="label label-default blinking">New</span>
                             </a>
                         </li>
@@ -464,13 +433,19 @@
                         <span class="label label-default blinking">New</span>
                     </a>
                 </li>
+                <li><a href="/award-ceremony">International Award Ceremony
+                    <span class="label label-default blinking">New</span>
+                </a>
+            </li>
                 <li><a href="/online-competition-season1">Online Competition 2020 Results </a>
                 </li>
                 <li><a href="/upload-winner-photos">Upload Winner Photos
                     </a>
                 </li>
-                <li><a href="/kuchipudi/event">Kuchipudi event
-                </a>
+
+            <li><a href="/submit-ticket">Submit ticket  <span class="label label-default blinking">New</span></a>
+            </li>
+            <li><a href="/help-desk">Help Desk  <span class="label label-default blinking">New</span></a> 
             </li>
                 <!-- <li><a href="/guidelines">Guidelines for Online
                                     Competition <span
@@ -518,13 +493,47 @@
                 <li><a href="/contact-us">Contact Us</a></li>
                 <li><a href="/terms-and-conditions">Terms and Conditions / Privacy Policy</a></li>
                 <li><a href="/return-refund-policy">Return & Refund Policy</a></li>
-                <li><a href="/submit-ticket">Submit ticket</a></li>
-                <li>
-                    <a href="/help-desk">Help Desk </a>
-                </li>
             </div>
         </div>
     </header>
+    <div style="background:#1c395d">
+        <div class="change-language col-md-offset-4">
+            <button class="btn btn-primary btn-sm"
+                    style="margin-left:2%"
+                    onclick="setCookie('googtrans', '/hi/en', 30)">
+                <span class="notranslate">ENGLISH</span>
+            </button>
+            <button class="btn btn-success btn-sm"
+                    onclick="setCookie('googtrans', '/hi/te', 30)">
+                <span class="notranslate">తెలుగు</span>
+            </button>
+    
+            <button class="btn btn-warning btn-sm"
+                    onclick="setCookie('googtrans', '/hi/ta', 30)"
+                    class="notranslate">
+                <span class="notranslate">தமிழ்</span>
+            </button>
+    
+            <button class="btn btn-info btn-sm"
+                    onclick="setCookie('googtrans', '/hi/kn', 30)"
+                    class="notranslate">
+                <span class="notranslate">ಕನ್ನಡ</span>
+            </button>
+    
+            <button class="btn btn-danger btn-sm"
+                    onclick="setCookie('googtrans', '/hi/ml', 30)"
+                    class="notranslate">
+                <span class="notranslate">മലയാളം</span>
+            </button>
+    
+            <button class="btn btn-info btn-sm"
+                    onclick="setCookie('googtrans', '/en/hi', 30)"
+                    class="notranslate">
+                <span class="notranslate">हिंदी</span>
+            </button>
+        </div>
+    </div>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://preview.colorlib.com/theme/solmusic/js/main.js"></script>
