@@ -53,6 +53,10 @@ import { GuideVocalComponent } from './guide-vocal/guide-vocal.component';
 import { KuchipudiEvent2021Component } from './kuchipudi-event2021/kuchipudi-event2021.component';
 import { SubmitTicketComponent } from './submit-ticket/submit-ticket.component';
 import { HelpDeskComponent } from './help-desk/help-desk.component';
+import { InsertDataComponent } from './insert-data/insert-data.component';
+import { TearchersDataComponent } from './tearchers-data/tearchers-data.component';
+import { PastEventsComponent } from './past-events/past-events.component';
+import { IcmdaCscComponent } from './icmda-csc/icmda-csc.component';
 
 @NgModule({
   declarations: [
@@ -100,7 +104,11 @@ import { HelpDeskComponent } from './help-desk/help-desk.component';
     GuideVocalComponent,
     KuchipudiEvent2021Component,
     SubmitTicketComponent,
-    HelpDeskComponent
+    HelpDeskComponent,
+    InsertDataComponent,
+    TearchersDataComponent,
+    PastEventsComponent,
+    IcmdaCscComponent
   ],
   imports: [
     BrowserModule,
