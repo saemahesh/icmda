@@ -43,6 +43,8 @@ import { KuchipudiEvent2021Component } from "./kuchipudi-event2021/kuchipudi-eve
 import { SubmitTicketComponent } from "./submit-ticket/submit-ticket.component";
 import { HelpDeskComponent } from "./help-desk/help-desk.component";
 import { InsertDataComponent } from "./insert-data/insert-data.component";
+import { TearchersDataComponent } from "./tearchers-data/tearchers-data.component";
+import { PastEventsComponent } from "./past-events/past-events.component";
 
 const routes: Routes = [
   {
@@ -216,6 +218,14 @@ const routes: Routes = [
   {
     path:'insertdata',
     component:InsertDataComponent
+  },
+  {
+    path:'teacher/sirisha',
+    component:TearchersDataComponent
+  },
+  {
+    path:'past-events',
+    component:PastEventsComponent
   }
 ];
 
