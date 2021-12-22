@@ -56,6 +56,7 @@ import { HelpDeskComponent } from './help-desk/help-desk.component';
 import { InsertDataComponent } from './insert-data/insert-data.component';
 import { TearchersDataComponent } from './tearchers-data/tearchers-data.component';
 import { PastEventsComponent } from './past-events/past-events.component';
+import { IcmdaCscComponent } from './icmda-csc/icmda-csc.component';
 
 @NgModule({
   declarations: [
@@ -106,7 +107,8 @@ import { PastEventsComponent } from './past-events/past-events.component';
     HelpDeskComponent,
     InsertDataComponent,
     TearchersDataComponent,
-    PastEventsComponent
+    PastEventsComponent,
+    IcmdaCscComponent
   ],
   imports: [
     BrowserModule,
