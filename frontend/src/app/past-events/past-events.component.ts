@@ -12,7 +12,8 @@ export class PastEventsComponent implements OnInit {
   pastEvent2019:any=[];
   pastEvent2020:any=[];
   pastEvent2021:any=[];
-  pastMainData:any;
+  pastMainData:any=[];
+  pastDesData:any=[];
 
   constructor(private pastEventData:PastEventsService) { }
 
@@ -33,6 +34,15 @@ export class PastEventsComponent implements OnInit {
         {
           this.pastEvent2021.push(PastData);
         }
+        else if(PastData.fields && PastData.fields.main && PastData.fields.main[0].url && PastData.fields.main[0].url.length > 0)
+        {
+          this.pastMainData.push(PastData);
+        }
+        else if(PastData.fields && PastData.fields.Name && PastData.fields.Name.length > 0)
+        {
+          this.pastDesData.push(PastData);
+        }
+        
       });
   });
 }
