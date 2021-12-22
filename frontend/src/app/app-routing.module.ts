@@ -213,7 +213,7 @@ const routes: Routes = [
     component: PrizeDistributionComponent
   },
   {
-    path:'kuchipudi/event',
+    path:'award-ceremony',
     component:KuchipudiEvent2021Component
   },
   {
