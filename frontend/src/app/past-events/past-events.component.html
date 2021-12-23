@@ -1,18 +1,22 @@
 <div style="padding:3%">
+    <div *ngIf="loading" class="text-center">
+        <img src="../../assets/images/loading.gif" width=7%  height=7%/>
+    </div>
     <h2 class="text-center font-weight-bold text-danger">PAST EVENTS
     </h2>
-
-    <!-- <div class="row m-2">
-        <div class="col-md-7" *ngFor="let pastEventData of pastMainData">
+ 
+    <div class="row m-2" *ngFor="let pastEventData of pastMainData">
+        <div class="col-md-7">
             <img src="{{pastEventData.fields.main[0].url}}" alt="main" width="100%">
+            
         </div>
-        <div class="col-md-5" *ngFor="let pastEventData of pastDesData">
+        <div class="col-md-5">
             <p>{{pastEventData.fields.Name}}</p>
         </div>
 
-    </div> -->
+    </div>
 
-    <h3 class="text-center font-weight-bold">YEAR 2019</h3>
+    <h3 class="text-center font-weight-bold text-success">YEAR 2019</h3>
     <div class="row">
         <div class="col-md-3 card col-6" *ngFor="let pastEventData of pastEvent2019">
             <img class="card-img-top" src="{{pastEventData.fields.photos[0].url}}" width=100%  style="height:250px" >
@@ -24,7 +28,7 @@
     </div>
 
 
-    <h3 class="text-center font-weight-bold">YEAR 2020</h3>
+    <h3 class="text-center font-weight-bold text-success">YEAR 2020</h3>
     <div class="row">
         <div class="col-md-3 card col-6" *ngFor="let pastEventData of pastEvent2020">
             <img class="card-img-top" src="{{pastEventData.fields.photos[0].url}}" width=100%  style="height:250px" >
@@ -35,7 +39,7 @@
         </div>
     </div>
     
-    <h3 class="text-center font-weight-bold">YEAR 2021</h3>
+    <h3 class="text-center font-weight-bold text-success">YEAR 2021</h3>
     <div class="row">
         <div class="col-md-3 card col-6" *ngFor="let pastEventData of pastEvent2021">
             <img class="card-img-top" src="{{pastEventData.fields.photos[0].url}}" width=100%  style="height:250px" >
