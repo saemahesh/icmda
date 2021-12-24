@@ -46,6 +46,7 @@ import { InsertDataComponent } from "./insert-data/insert-data.component";
 import { TearchersDataComponent } from "./tearchers-data/tearchers-data.component";
 import { PastEventsComponent } from "./past-events/past-events.component";
 import { IcmdaCscComponent } from "./icmda-csc/icmda-csc.component";
+import { TeacherProfileComponent } from "./teacher-profile/teacher-profile.component";
 
 const routes: Routes = [
   {
@@ -221,8 +222,12 @@ const routes: Routes = [
     component:InsertDataComponent
   },
   {
-    path:'teacher/sirisha',
+    path:'teacher/:username',
     component:TearchersDataComponent
+  },
+  {
+    path:'teacher-profile',
+    component:TeacherProfileComponent
   },
   {
     path:'past-events',

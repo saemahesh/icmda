@@ -57,6 +57,7 @@ import { InsertDataComponent } from './insert-data/insert-data.component';
 import { TearchersDataComponent } from './tearchers-data/tearchers-data.component';
 import { PastEventsComponent } from './past-events/past-events.component';
 import { IcmdaCscComponent } from './icmda-csc/icmda-csc.component';
+import { TeacherProfileComponent } from './teacher-profile/teacher-profile.component';
 
 @NgModule({
   declarations: [
@@ -108,7 +109,8 @@ import { IcmdaCscComponent } from './icmda-csc/icmda-csc.component';
     InsertDataComponent,
     TearchersDataComponent,
     PastEventsComponent,
-    IcmdaCscComponent
+    IcmdaCscComponent,
+    TeacherProfileComponent
   ],
   imports: [
     BrowserModule,
