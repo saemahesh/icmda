@@ -1,0 +1,66 @@
+<div class="container" *ngIf="userData">
+    <div class="row py-5 px-3 ">
+        <div class="col-md-12 mx-auto">
+            <!-- Profile widget -->
+            <div class="bg-white shadow rounded-top profile-container">
+                <div class="py-2 cover">
+                    <div class="inner-container">
+                        <div class="profile mx-4 mt-5">
+                            <img src="{{userData.fields.Photo[0].url}}" alt="..." width="130"
+                                class="rounded-circle mb-2 img-thumbnail">
+                        </div>
+                        <div class="text-light profile-name">
+                            <h5 class="mt-0 mb-0" style="font-size:20px">{{userData.fields.Name}}</h5>
+                            <p class="">{{userData.fields.Location | uppercase}}</p>
+                            <p>{{userData.fields['Contact Number']}}</p>
+                            <p>{{userData.fields['Email Id']}}</p>
+                        </div>
+                        <div class="profile-button">
+                            <a href="#" class="btn btn-warning btn-sm mr-4 ">Following</a>
+                            <a href="#" class="btn btn-light btn-sm ">contact</a>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <div class="row px-5">
+        <div class="col-md-6 col-12">
+            <h4 class="font-weight-bold text-warning">{{userData.fields.Classes}}</h4>
+            <hr />
+            <p>{{userData.fields.Description}}</p>
+        </div>
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-6"> <img
+                        src="https://previews.123rf.com/images/ihorsw/ihorsw1804/ihorsw180400027/98712772-apple-icon-vector-outline-fruit-line-apple-symbol-.jpg"
+                        class="rounded-circle" width="60" /><span>{{userData.fields['No.of students']}}</span><span
+                        style="font-size:15px;font-weight:bold;color:grey"> students</span> </div>
+                <div class="col-md-6"> <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQH35x7tjUR24jtACChhKSrGQUyL9vEqSo7fIznBjr_IWjBPhfyO3nljZpTG1K_kAjkiIY&usqp=CAU"
+                        class="rounded-circle" width="60" /><span>10</span><span
+                        style="font-size:15px;font-weight:bold;color:grey"> completed visits</span> </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- <div class="px-5">
+        <p style="font-size:20px"> I'm playing around with some key interactions for the School Square app, a non-profit
+            that facilitates educational volunteerism. The aim here is to give prospective volunteers an easy way to
+            evaluate potential opportunities.</p>
+    </div> -->
+    <hr />
+    <div>
+        <h2 class="text-danger text-center font-weight-bold">Gallery</h2>
+        <div class="row">
+            <div class="col-md-3 card col-12" *ngFor="let gallery of userData.fields.Gallery">
+                <img src="{{gallery.url}}"/>
+            </div>
+            </div>
+    </div>
+
+</div>
