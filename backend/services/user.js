@@ -255,17 +255,22 @@ exports.getMember = (id, callback) => {
 function getGuinnessStatus (data, callback) {
   let tableName = 'RAZORPAY%2015%20NOV';
   data = data.message.split(' ');
-  mobile = data[data.length-1];
-  if(mobile.length>8 && parseInt(mobile)){ 
+  mobile_or_email = data[data.length-1];
+  let email;
+  if(mobile_or_email.includes('@'))
+  {
+    email=mobile_or_email;
+  }
+  if(mobile_or_email.length>6){ 
     axios.get(`https://api.airtable.com/v0/appwAyiRiFExwCInd/${tableName}`, {
       "params": {
         "maxRecords": 10,
         "api_key": 'keyLhRgUYCRjowUwI',
-        "filterByFormula":`whatsapp_phone="${mobile}"`
+        "filterByFormula":`${email?'email':'whatsapp_phone'}="${mobile_or_email}"`
       }
     })
       .then(function (response) {
-        console.log('\nresponse', mobile, response.data.records)
+        console.log('\nresponse', mobile_or_email, response.data.records)
         let reply = ``;
         response.data.records.forEach(function (record) {
           let record_data = record.fields;
@@ -318,17 +323,21 @@ Click here to view : https://wa.me/c/919515417732`
 function getSeason2Status (data, callback) {
   let tableName = 'REGISTRATIONS';
   data = data.message.split(' ');
-  mobile = data[data.length-1];
-  if(mobile.length>6 && parseInt(mobile)){
+  mobile_or_email = data[data.length-1];
+  let email;
+  if(mobile_or_email.includes('@')){
+      email = mobile_or_email
+  }
+  if(mobile_or_email.length>6){
     axios.get(`https://api.airtable.com/v0/appEORxIoUnp74THT/${tableName}`, {
       "params": {
         "maxRecords": 10,
         "api_key": 'keyLhRgUYCRjowUwI',
-        "filterByFormula":`whatsapp_number="${mobile}"`
+        "filterByFormula":`${email?'email':'whatsapp_number'}="${mobile_or_email}"`
       }
     })
       .then(function (response) {
-        console.log('\nresponse', mobile, response.data.records)
+        console.log('\nresponse', mobile_or_email, response.data.records)
         let reply = ``;
         response.data.records.forEach(function (record) {
           let record_data = record.fields;
@@ -345,7 +354,7 @@ function getSeason2Status (data, callback) {
 *Participation Category*: ${record_data.participation_category}
 *Guidelines*: https://www.icmda.in/guidelines
 *Video Submit Link*: https://bit.ly/32PfrFg
-*Result* : Release on Jan-14-2022
+*Result* : Release on 28-02-2022
 <<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>
 
 `

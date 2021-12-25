@@ -13,6 +13,7 @@ export class TearchersDataComponent implements OnInit {
   currentUrl;
   username;
   userData: any;
+  loading=false;
   constructor(private teacherData:TearchersDataService,private route:ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -23,13 +24,14 @@ export class TearchersDataComponent implements OnInit {
          console.log(this.profileData);
         // console.log(this.profileData[0].fields['CERTIFICATE NAME']);
          this.profileData.forEach((profiledata: any) => {
-          console.log(profiledata.fields.Name);
-           if(profiledata.fields.Name.trim()==this.username.trim())
+          console.log(profiledata.fields.username);
+           if((profiledata.fields.username.trim()==this.username.trim()) && profiledata.fields.Approved )
            {
              this.userData=profiledata;
              console.log(this.userData);
            }
           });
+        this.loading=true;
   });
 
   

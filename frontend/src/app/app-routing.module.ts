@@ -43,10 +43,10 @@ import { KuchipudiEvent2021Component } from "./kuchipudi-event2021/kuchipudi-eve
 import { SubmitTicketComponent } from "./submit-ticket/submit-ticket.component";
 import { HelpDeskComponent } from "./help-desk/help-desk.component";
 import { InsertDataComponent } from "./insert-data/insert-data.component";
-import { TearchersDataComponent } from "./tearchers-data/tearchers-data.component";
 import { PastEventsComponent } from "./past-events/past-events.component";
 import { IcmdaCscComponent } from "./icmda-csc/icmda-csc.component";
 import { TeacherProfileComponent } from "./teacher-profile/teacher-profile.component";
+import { TearchersDataComponent } from "./tearchers-data/tearchers-data.component";
 
 const routes: Routes = [
   {

@@ -23,11 +23,16 @@ body {
     margin:0 20px;
 } 
 .profile-name{
-    margin-top:27px;
+    margin-top:20px;
 }
 .profile-button{
-    margin-left:400px;
+    margin-left:500px;
     margin-top:115px;
+}
+.img-thumbnails{
+    height:130px;
+    width:130px;
+    border:2px solid white;
 }
 @media screen and (max-width: 600px) { 
   .profile-container{
