@@ -1,0 +1,18 @@
+.mainContainer{
+    padding:0 200px;
+}
+.track-form{
+    padding:27px 60px;
+}
+@media screen and (max-width: 600px) {
+    .mainContainer{
+        padding:0 5px;
+    }
+      .cards 
+      {
+        width: 100% !important;
+    }
+    .track-form{
+        padding:27px 10px;
+    }
+}
