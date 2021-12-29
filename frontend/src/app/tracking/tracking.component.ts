@@ -1,0 +1,70 @@
+import { LowerCasePipe } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { TrackingService } from './tracking.service';
+import * as moment from 'moment/moment';
+
+@Component({
+  selector: 'app-tracking',
+  templateUrl: './tracking.component.html',
+  styleUrls: ['./tracking.component.css']
+})
+export class TrackingComponent implements OnInit {
+
+  userDetails; 
+  selectedCategory="";
+
+  email;
+  elements: any;
+  emailData: any;
+  loading=false;
+  finalEmail;
+  userGuinnessDetails;
+  userSeason2Details;
+  Date:any;
+  userFusionDetails: any;
+
+
+
+  constructor(private userData: TrackingService) { }
+
+  ngOnInit(): void {   
+  }
+     
+    trackData(email,selectedCategory)
+    {
+      this.finalEmail=email.toLowerCase().trim();
+      this.userSeason2Details = [];
+      this.userGuinnessDetails = [];
+      this.userFusionDetails = [];
+      this.loading=false ;
+      if(selectedCategory=="SEASON 2 ONLINE COMPETITIONS FOR MUSIC & DANCE")
+      {
+      
+      this.userData.getSeason2Data(this.finalEmail).subscribe((data:any) => {
+        this.userSeason2Details= data.records;
+         this.loading=true;
+        });
+      }
+  
+        
+       else if(selectedCategory=="GUINNESS WORLD RECORD CERTIFICATES"){
+        this.userData.getGuinnessData(this.finalEmail).subscribe((data:any) => {
+          this.userGuinnessDetails= data.records;
+           this.loading=true;
+  
+      });
+  }
+  else if(selectedCategory=="FUSION COMPETITIONS FOR MUSIC & DANCE"){
+    this.userData.getFusionData(this.finalEmail).subscribe((data:any) => {
+      this.userFusionDetails= data.records;
+       this.loading=true;
+  });
+}
+  
+}
+// dispatchedDate(paymentDate){
+//   return paymentDate.format('DD-MM-YYYY')
+//    return  moment(paymentDate.format('DD-MM-YYYY')).add(14, 'd').format('DD-MM-YYYY');
+//  }
+
+}

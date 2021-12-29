@@ -47,6 +47,7 @@ import { PastEventsComponent } from "./past-events/past-events.component";
 import { IcmdaCscComponent } from "./icmda-csc/icmda-csc.component";
 import { TeacherProfileComponent } from "./teacher-profile/teacher-profile.component";
 import { TearchersDataComponent } from "./tearchers-data/tearchers-data.component";
+import { TrackingComponent } from "./tracking/tracking.component";
 
 const routes: Routes = [
   {
@@ -236,6 +237,10 @@ const routes: Routes = [
   {
     path:'teacher-profile',
     component:TeacherProfileComponent
+  },
+  {
+    path:'tracking',
+    component:TrackingComponent
   }
 ];
 
