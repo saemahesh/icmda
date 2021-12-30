@@ -15,13 +15,13 @@ export class TrackingService {
 
   getSeason2Data(final_email):Observable<any[]>
   {
-    this.season2ApiUrl=`https://api.airtable.com/v0/appEORxIoUnp74THT/REGISTRATIONS?filterByFormula=final_email="${final_email}"`;
+    this.season2ApiUrl=`https://api.airtable.com/v0/appEORxIoUnp74THT/REGISTRATIONS?filterByFormula=final_email="${final_email}"&view=ALL DATA`;
 
     return this.http.get<any[]>(this.season2ApiUrl, { headers: { 'Authorization': `Bearer keyqTM7fqRgqcPay3` } });
   }
   getFusionData(final_email):Observable<any[]>
   {
-    this.fusionApiUrl=`https://api.airtable.com/v0/appHoOiF6I0v88Baa/FUSION?filterByFormula=final_email="${final_email}"`;
+    this.fusionApiUrl=`https://api.airtable.com/v0/appHoOiF6I0v88Baa/FUSION?filterByFormula=final_email="${final_email}"&view=ALL DATA`;
 
     return this.http.get<any[]>(this.fusionApiUrl, { headers: { 'Authorization': `Bearer keyqTM7fqRgqcPay3` } });
   }
