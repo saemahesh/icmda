@@ -22,27 +22,43 @@ export class TrackingComponent implements OnInit {
   userSeason2Details;
   Date:any;
   userFusionDetails: any;
-
-
+  dataLoad;
+  emailmessage;
+  categorymsg;
+  
 
   constructor(private userData: TrackingService) { }
 
   ngOnInit(): void {   
+    
   }
      
     trackData(email,selectedCategory)
     {
+      this.emailmessage='';
+      this.categorymsg='';
+      if(!email || email=='')
+      {
+        this.emailmessage="Enter your email!";
+      }
+      if(!selectedCategory || selectedCategory=='')
+      {
+        this.categorymsg="plaese choose category"
+      }
       this.finalEmail=email.toLowerCase().trim();
       this.userSeason2Details = [];
       this.userGuinnessDetails = [];
       this.userFusionDetails = [];
       this.loading=false ;
+      this.dataLoad=true;
+    
       if(selectedCategory=="SEASON 2 ONLINE COMPETITIONS FOR MUSIC & DANCE")
       {
       
       this.userData.getSeason2Data(this.finalEmail).subscribe((data:any) => {
         this.userSeason2Details= data.records;
          this.loading=true;
+         this.dataLoad=false;
         });
       }
   
@@ -51,6 +67,7 @@ export class TrackingComponent implements OnInit {
         this.userData.getGuinnessData(this.finalEmail).subscribe((data:any) => {
           this.userGuinnessDetails= data.records;
            this.loading=true;
+           this.dataLoad=false;
   
       });
   }
@@ -58,10 +75,12 @@ export class TrackingComponent implements OnInit {
     this.userData.getFusionData(this.finalEmail).subscribe((data:any) => {
       this.userFusionDetails= data.records;
        this.loading=true;
+       this.dataLoad=false;
   });
 }
   
 }
+
 // dispatchedDate(paymentDate){
 //   return paymentDate.format('DD-MM-YYYY')
 //    return  moment(paymentDate.format('DD-MM-YYYY')).add(14, 'd').format('DD-MM-YYYY');
