@@ -28,8 +28,26 @@ import { UploadWinningsComponent } from "./upload-winnings/upload-winnings.compo
 import { FindTeacherComponent } from "./find-teacher/find-teacher.component";
 import { MembershipBenefitsComponent } from "./membership-benefits/membership-benefits.component";
 import { MusicDirectoryComponent } from "./music-directory/music-directory.component";
+import { GuinnessCertificateComponent } from "./guinness-certificate/guinness-certificate.component";
 import { TermsAndConditionsComponent } from "./terms-and-conditions/terms-and-conditions.component";
 import { PrivacyPolicyComponent } from "./privacy-policy/privacy-policy.component";
+import { RemindmeComponent } from "./remindme/remindme.component";
+import { Season2Component } from "./season2/season2.component";
+import { GuideBharatComponent } from "./guide-bharat/guide-bharat.component";
+import { GuideKuchipudiComponent } from "./guide-kuchipudi/guide-kuchipudi.component"
+import { GuideInstrumentComponent } from "./guide-instrument/guide-instrument.component";
+import { GuideRhythmComponent } from "./guide-rhythm/guide-rhythm.component";
+import { FusionCompetitionsComponent } from "./fusion-competitions/fusion-competitions.component";
+import { GuideVocalComponent } from './guide-vocal/guide-vocal.component';
+import { KuchipudiEvent2021Component } from "./kuchipudi-event2021/kuchipudi-event2021.component";
+import { SubmitTicketComponent } from "./submit-ticket/submit-ticket.component";
+import { HelpDeskComponent } from "./help-desk/help-desk.component";
+import { InsertDataComponent } from "./insert-data/insert-data.component";
+import { PastEventsComponent } from "./past-events/past-events.component";
+import { IcmdaCscComponent } from "./icmda-csc/icmda-csc.component";
+import { TeacherProfileComponent } from "./teacher-profile/teacher-profile.component";
+import { TearchersDataComponent } from "./tearchers-data/tearchers-data.component";
+import { TrackingComponent } from "./tracking/tracking.component";
 
 const routes: Routes = [
   {
@@ -39,8 +57,23 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent
-  }
-  ,
+  },
+  {
+    path: 'notify-me',
+    component: RemindmeComponent
+  },
+  {
+    path:"submit-ticket",
+    component:SubmitTicketComponent
+  },
+  {
+    path:"help-desk",
+    component:HelpDeskComponent
+  },
+  {
+    path: 'season2/register',
+    component: Season2Component
+  },
   {
     path: 'dashboard',
     component: DashboardComponent
@@ -49,6 +82,30 @@ const routes: Routes = [
   {
     path: 'idcard/:id',
     component: IdcardComponent
+  },
+  {
+    path: 'guidelines/bharathanatyam',
+    component: GuideBharatComponent
+  },
+  {
+    path: 'guidelines/kuchipudi',
+    component: GuideKuchipudiComponent
+  },
+  {
+    path: 'guidelines/instruments',
+    component: GuideInstrumentComponent
+  },
+  {
+    path: 'guidelines/rhythm',
+    component: GuideRhythmComponent
+  },
+  {
+    path: 'guidelines/vocal',
+    component: GuideVocalComponent
+  },
+  {
+    path: 'fusion-competitions-2021',
+    component: FusionCompetitionsComponent
   },
   {
     path: 'committee-members',
@@ -98,19 +155,19 @@ const routes: Routes = [
     component: IcmdaPageComponent
   },
   {
-    path: 'competition-registration',
+    path: 'online-competition-season1',
     component: EventRegisterComponent
   },
   {
-    path: 'online-competition-results-2021/register',
+    path: 'online-competition-2021/register',
     component: EventRegisterComponent
   },
   {
-    path: 'online-competition-results-2021/update',
+    path: 'online-competition-2021/update',
     component: EventRegisterComponent
   },
   {
-    path: 'online-competition-results-2021',
+    path: 'online-competition-2021',
     component: OnlineCompetitions2021Component
   },
   {
@@ -156,6 +213,34 @@ const routes: Routes = [
   {
     path: 'prize-distribution',
     component: PrizeDistributionComponent
+  },
+  {
+    path:'award-ceremony',
+    component:KuchipudiEvent2021Component
+  },
+  {
+    path:'insertdata',
+    component:InsertDataComponent
+  },
+  {
+    path:'teacher/:username',
+    component:TearchersDataComponent
+  },
+  {
+    path:'past-events',
+    component:PastEventsComponent
+  },
+  {
+    path:'csc',
+    component:IcmdaCscComponent
+  },
+  {
+    path:'teacher-profile',
+    component:TeacherProfileComponent
+  },
+  {
+    path:'tracking',
+    component:TrackingComponent
   }
 ];
 

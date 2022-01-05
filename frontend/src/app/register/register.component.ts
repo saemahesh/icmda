@@ -249,9 +249,9 @@ export class RegisterComponent implements OnInit {
 
   membershipType(value) {
     if (value == 'Annual') {
-      this.amount = 1000;
+      this.amount = 3000;
     } else if (value == 'Life-Time') {
-      this.amount = 5000;
+      this.amount = 10000;
     }
   }
 

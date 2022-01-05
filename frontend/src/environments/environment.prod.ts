@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  baseUrl : 'https://icmda.co.in/api/users',
-  apiUrl : 'https://icmda.co.in/api'
+  baseUrl : 'https://www.icmda.in/api/users',
+  apiUrl : 'https://www.icmda.in/api'
 };

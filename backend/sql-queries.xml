@@ -101,6 +101,14 @@
                 values (?,?,?,?,?,?,?,?,?)]]>
    </sql-query>
 
+    <sql-query id="insertGuinnessPayments">
+       <![CDATA[insert into guinness_dispatch_payments (name,artform, whatsapp_phone,email,collect_certificates,delivery_address,
+       no_of_certificates,all_student_names,transaction_id,amount,payment_id)
+                values (?,?,?,?,?,?,?,?,?,?,?)]]>
+   </sql-query>
+
+   
+
      <sql-query id="insertPaymentHistory">
        <![CDATA[insert into payment_history (name,phone_number,amount,transaction_id,payment_mode,payment_date,payment_code,occupied,slot_type)
                 values (?,?,?,?,?,?,?,?,?)]]>

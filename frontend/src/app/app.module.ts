@@ -38,8 +38,27 @@ import { UploadWinningsComponent } from './upload-winnings/upload-winnings.compo
 import { FindTeacherComponent } from './find-teacher/find-teacher.component';
 import { MembershipBenefitsComponent } from './membership-benefits/membership-benefits.component';
 import { MusicDirectoryComponent } from './music-directory/music-directory.component';
+import { GuinnessCertificateComponent } from './guinness-certificate/guinness-certificate.component';
 import { TermsAndConditionsComponent } from './terms-and-conditions/terms-and-conditions.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
+import { SitemapComponent } from './sitemap/sitemap.component';
+import { RemindmeComponent } from './remindme/remindme.component';
+import { Season2Component } from './season2/season2.component';
+import { GuideBharatComponent } from './guide-bharat/guide-bharat.component';
+import { GuideKuchipudiComponent } from './guide-kuchipudi/guide-kuchipudi.component';
+import { GuideInstrumentComponent } from './guide-instrument/guide-instrument.component';
+import { GuideRhythmComponent } from './guide-rhythm/guide-rhythm.component';
+import { FusionCompetitionsComponent } from './fusion-competitions/fusion-competitions.component';
+import { GuideVocalComponent } from './guide-vocal/guide-vocal.component';
+import { KuchipudiEvent2021Component } from './kuchipudi-event2021/kuchipudi-event2021.component';
+import { SubmitTicketComponent } from './submit-ticket/submit-ticket.component';
+import { HelpDeskComponent } from './help-desk/help-desk.component';
+import { InsertDataComponent } from './insert-data/insert-data.component';
+import { TearchersDataComponent } from './tearchers-data/tearchers-data.component';
+import { PastEventsComponent } from './past-events/past-events.component';
+import { IcmdaCscComponent } from './icmda-csc/icmda-csc.component';
+import { TeacherProfileComponent } from './teacher-profile/teacher-profile.component';
+import { TrackingComponent } from './tracking/tracking.component';
 
 @NgModule({
   declarations: [
@@ -73,8 +92,27 @@ import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.componen
     FindTeacherComponent,
     MembershipBenefitsComponent,
     MusicDirectoryComponent,
+    GuinnessCertificateComponent,
     TermsAndConditionsComponent,
-    PrivacyPolicyComponent
+    PrivacyPolicyComponent,
+    SitemapComponent,
+    RemindmeComponent,
+    Season2Component,
+    GuideBharatComponent,
+    GuideKuchipudiComponent,
+    GuideInstrumentComponent,
+    GuideRhythmComponent,
+    FusionCompetitionsComponent,
+    GuideVocalComponent,
+    KuchipudiEvent2021Component,
+    SubmitTicketComponent,
+    HelpDeskComponent,
+    InsertDataComponent,
+    TearchersDataComponent,
+    PastEventsComponent,
+    IcmdaCscComponent,
+    TeacherProfileComponent,
+    TrackingComponent
   ],
   imports: [
     BrowserModule,

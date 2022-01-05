@@ -1,0 +1,157 @@
+<div class='center'>
+    <h3 style="font-weight:bold;color:green">ONLINE CLASSICAL COMPETITIONS SEASON 2</h3>
+    <label class="title" >
+        GUIDELINES FOR BHARATHANATYAM 
+    </label>
+    <label class="sub-title">
+        STATE LEVEL, NATIONAL LEVEL & INTERNATIONAL LEVEL  
+    </label>
+    <div class="change-language">
+        <button class="btn btn-primary btn-sm"
+                style="margin-left:1%"
+                onclick="setCookie('googtrans', '/hi/en', 30)">
+            <span class="notranslate">ENGLISH</span>
+        </button>
+
+        <button class="btn btn-success btn-sm"
+                onclick="setCookie('googtrans', '/hi/te', 30)">
+            <span class="notranslate">తెలుగు</span>
+        </button>
+
+        <button class="btn btn-warning btn-sm"
+                onclick="setCookie('googtrans', '/hi/ta', 30)"
+               >
+            <span class="notranslate">தமிழ்</span>
+        </button>
+
+        <button class="btn btn-info btn-sm"
+                onclick="setCookie('googtrans', '/hi/kn', 30)"
+               >
+            <span class="notranslate">ಕನ್ನಡ</span>
+        </button>
+
+        <button class="btn btn-danger btn-sm"
+                onclick="setCookie('googtrans', '/hi/ml', 30)"
+                >
+            <span class="notranslate">മലയാളം</span>
+        </button>
+
+        <button class="btn btn-info btn-sm"
+                onclick="setCookie('googtrans', '/en/hi', 30)"
+               >
+            <span class="notranslate">हिंदी</span>
+        </button>
+    </div>
+    <!-- <h5 style=" color: #d82323;" class="title-note">Note: These competitions are only for upcoming artists and students but not for professional teachers/ professional performers </h5> -->
+    <div class="row">
+        <div *ngFor="let item of guidelines" class="col-md-6">
+            <table style="margin-top:20px">
+                <tr>
+                    <th colspan="2">{{item.category}}</th>
+                </tr>
+                <tr>
+                    <td>AGE LIMIT</td>
+                    <td>{{item.age_limit}}</td>
+                </tr>
+                <tr>
+                    <td>TIME LIMIT</td>
+                    <td>{{item.time_limit}}</td>
+                </tr>
+                <tr>
+                    <td>ITEMS</td>
+                    <td> 
+                        <label *ngFor="let kertana of item.items;let last = last;">
+                            {{kertana}} 
+                            <span *ngIf="!last" style="color: red;"> or &nbsp;</span> 
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>1ST PRIZE</td>
+                    <td>{{item["1st_prize"]}}
+                        <span *ngIf="item.title" style="color: red;"> and &nbsp;</span> 
+                        {{item.title}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>2ND PRIZE</td>
+                    <td>{{item["2nd_prize"]}}</td>
+                </tr>
+                <tr>
+                    <td>3RD PRIZE</td>
+                    <td>{{item["3rd_prize"]}}</td>
+                </tr>
+                <tr>
+                    <td>NOTE</td>
+                    <td>ALL PARTICIPANTS WILL GET PARTICIPANT CERTIFICATE</td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+    <div class="row center" style="display: block;" >
+        <h3 class="m-title" style=" font-weight: bold; color: red; ">  GUIDELINES FOR COSTUMES  </h3>
+        <br>
+        <ol class="m-sub-title" style=" text-align: left; margin: auto; color: #8d0096; font-size: 1.5vw; ">
+            <li>Can perform with dance practice saree with makeup or without makeup. </li>
+            <li>Can perform with dance dress of the respective dance traditions, with makeup </li>
+            <li>Only juniors and sub-juniors are permitted to wear kurti ( chudidhar or dance dress ). </li>
+        </ol>
+    </div>
+
+    <div class="row center" style="display: block;" >
+        <h3 class="m-title" style=" font-weight: bold; color: red; ">  AUDIO GUIDELINES  </h3>
+        <br>
+        <ol class="m-sub-title" style=" text-align: left; margin: auto; color: #8d0096; font-size: 1.5vw; ">
+            <li>Can use pre-recorded audio </li>
+            <li>Can utilize live orchestra  </li>
+            <li>Guru can sing with shruthi box ( without the need of any orchestra ) </li>
+        </ol>
+        <p class="m-sub-title" style="color: red;text-align: left;">
+            NOTE: It doesn't matter whether the music is pre-recorded or live orchestra or Guru's singing .
+            The priority of the Marks is given for the background music with perfect shruthi and laya related to the respective songs ( ITEMS ) & the performers talent of bhaava, abhinaya with perfect laya are taken into much consideration. 
+
+        </p>
+    </div>
+
+    <div class="row center" style="display: block;" >
+        <h3 class="m-title" style=" font-weight: bold; color: red; ">  VIDEO GUIDELINES  </h3>
+        <br>
+        <ol class="m-sub-title" style=" text-align: left; margin: auto; color: #8d0096; font-size: 1.5vw; ">
+            <li>Can record the video at home or stage with a decent background. </li>
+            <li>  Any kind of decorations or flex boards are not allowed in the background.</li>
+            <li>The background should be simple and neat and should match against the colour of the outfit of the performer.</li>
+            <li>The audio and video should have a good clarity. </li>
+            <li>The participant (dancer) should give an introduction about ragam, talam, and composer's (writer) name,
+                the name of the song to be performed and the date of recording also have to be mentioned in the video introduction </li>
+            <li>Use tripod to avoid shaky videos.</li>
+        </ol>
+      
+    </div>
+    <div class="row center" style="display: block;" >
+        <h3 class="m-title" style=" font-weight: bold; color: red; "> JUDGEMENT
+            </h3>
+        <br>
+        <ol class="m-sub-title" style=" text-align: left; margin: auto; color: #8d0096; font-size: 1.5vw; ">
+            <li>Performances will be judged by senior leading international dance teachers. Judges decision is final</li>
+            <li> Once registered, only registration number will be used for judgement</li>
+            <li> Participation Certificates will be given to all the Participants </li>
+            <li>Certificates will be issued for each and every category & levels</li>
+             <li>1st, 2nd  3rd place Certificates will be issued for international/national/state - for each Category & levels </li>
+            </ol>
+</div>
+
+    <div class="row center" style="display: block;" >
+        <h3 class="m-title" style=" font-weight: bold; color: red; ">  RESULTS ANNOUNCEMENT   </h3>
+        <br>
+        <ol class="m-sub-title" style=" text-align: left; margin: auto; color: #8d0096; font-size: 1.5vw; ">
+            <li>All the Prizes will be announced on February 28th 2022.</li>
+            <li>Performances will be judged by senior leading international dance teachers. Judges decision is final</li>
+            <li>The pure Gold medal and the pure Silver medal along with the Award will either be given personally at Eluru office (Andhra Pradesh) or Chennai (Tamilnadu) office. (OR) The Award and medal will be distributed in any of our Music & Dance Festival organized by ICMDA (International Carnatic Musicians and Dancers Association ). </li>
+        </ol>
+      
+    </div>
+
+    <H3 style=" font-weight: bold; color: red; ">LAST DATE TO REGISTER and UPLOAD YOUR VIDEOS is 31st JANUARY 2022</H3>
+
+</div>

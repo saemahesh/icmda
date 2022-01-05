@@ -26,7 +26,7 @@ input {
   /* width: auto; */
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url(https://icmda.co.in/assets/images/guidelines/kuchipudi-blank.jpg);
+  background-image: url(https://icmda.in/assets/images/guidelines/kuchipudi-blank.jpg);
 }
 @media screen and (max-width: 600px) {
   .container .hs-item {
@@ -44,6 +44,6 @@ input {
   .hs-item {
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: url(https://icmda.co.in/assets/images/guidelines/kuchipudi-blank.jpg);
+    background-image: url(https://icmda.in/assets/images/guidelines/kuchipudi-blank.jpg);
   }
 }

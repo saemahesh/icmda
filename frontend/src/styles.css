@@ -18,6 +18,8 @@ del {
     color: red;
 }
 
+
+
 .member-notification marquee {
     color: #03a84e
 }
@@ -63,7 +65,7 @@ del {
 }
 
 .main-menu li a {
-    margin-left: 30px;
+    margin-left: 5px;
 }
 
 
@@ -76,3 +78,56 @@ del {
   display: inline;
   position: absolute;
 } */
+
+.social-links .facebook{
+    background: blue;
+    padding: 5px 10px;
+    border-radius: 9px;
+}
+
+.social-links .youtube{
+    background: red;
+    padding: 5px 10px;
+    border-radius: 9px;
+}
+
+.social-links .whatsapp{
+    background: green;
+    padding: 5px 10px;
+    border-radius: 9px;
+}
+
+.social-links .telegram{
+    background: #0088cc;
+    padding: 5px 10px;
+    border-radius: 9px;
+}
+
+.social-links .television{
+    background: #7621ff;
+    padding: 5px 10px;
+    border-radius: 9px;
+}
+
+
+.social-links i{
+    color:white
+}
+
+
+.footer-widget a{
+    color:white;
+    font-weight: bold;
+}
+
+.notranslate{
+    font-size: 9px;
+}
+
+.change-language span{
+    font-size: 20px;
+}
+.change-language button{
+    margin-left: 10px;
+    margin-top: 5px;
+}

@@ -1,0 +1,73 @@
+.center{
+    margin: auto;
+    width: 95%;
+    padding: 10px;
+}
+
+table th{
+    color:white;
+    background: red;
+    width:50%;
+    text-align: center;
+}
+table td:nth-child(1){
+white-space: nowrap;
+}
+
+table, th, td {
+    border: 3px solid #7490ba;
+    font-size: 1vw;
+    text-align: center;
+    font-weight: bold;
+    color: #226094;
+    background: #ffffff
+  }
+
+  table label{
+      font-size: 1vw;
+      color:#226094;
+  }
+
+  .title{
+    font-size: 4vw;
+    color: #901e1e;
+  }
+
+  
+  .sub-title{
+    font-size: 2vw;    
+    color: #e319e7;
+  }
+
+  .title-note{
+    font-size: 2vw;
+  }
+
+  
+  /* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+  @media screen and (max-width: 600px) {
+    table, th, td, label {
+        font-size: 3vw !important
+      }
+
+      .title{
+        font-size: 5vw;
+      }
+
+      .m-title{
+        font-size: 5vw;
+      }
+
+      .sub-title{
+        font-size: 3vw;
+      }
+
+      .m-sub-title{
+        font-size: 3vw !important
+      }
+
+      .title-note{
+        font-size: 2vw;
+      }
+    
+  }

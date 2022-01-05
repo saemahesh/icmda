@@ -4,6 +4,7 @@ let config = require("../config.js");
 let moment = require("moment");
 let _ = require("lodash");
 let async = require('async');
+const axios = require('axios');
 
 exports.register = (data, callback) => {
   let today = moment().toDate();
@@ -237,19 +238,169 @@ exports.updateEventRegister = (data, callback) => {
 
 exports.getMember = (id, callback) => {
 
-    executeQuery.queryForAll(
-      sqlQueryMap["getMember"], [id],
-      (err, result) => {
-        if (err) {
-          callback(err, null);
-        } else {
-          {
-            callback(null, result)
-          }
+  executeQuery.queryForAll(
+    sqlQueryMap["getMember"], [id],
+    (err, result) => {
+      if (err) {
+        callback(err, null);
+      } else {
+        {
+          callback(null, result)
         }
-        // eslint-disable-next-line no-console
-    })
+      }
+      // eslint-disable-next-line no-console
+  })
 };
+
+function getGuinnessStatus (data, callback) {
+  let tableName = 'RAZORPAY%2015%20NOV';
+  data = data.message.split(' ');
+  mobile_or_email = data[data.length-1];
+  let email;
+  if(mobile_or_email.includes('@'))
+  {
+    email=mobile_or_email;
+  }
+  if(mobile_or_email.length>6){ 
+    axios.get(`https://api.airtable.com/v0/appwAyiRiFExwCInd/${tableName}`, {
+      "params": {
+        "maxRecords": 10,
+        "api_key": 'keyLhRgUYCRjowUwI',
+        "filterByFormula":`${email?'email':'whatsapp_phone'}="${mobile_or_email}"`
+      }
+    })
+      .then(function (response) {
+        console.log('\nresponse', mobile_or_email, response.data.records)
+        let reply = ``;
+        response.data.records.forEach(function (record) {
+          let record_data = record.fields;
+          let dispatch_date = moment(record_data['payment date']).add(14, 'd').format('DD-MM-YYYY')
+          record_data['payment date'] = moment(record_data['payment date']).format('DD-MM-YYYY')
+          if(record_data['POST DATE']){
+            record_data['POST DATE'] = moment(record_data['POST DATE']).format('DD-MM-YYYY')
+          }
+          reply += `
+*GUINNESS CERTIFICATES STATUS*
+*********************************
+*Name*: ${record_data.name}
+*Phone*: ${record_data.whatsapp_phone}
+*Email*: ${record_data.email}
+*ArtForm*: ${record_data.artform}
+*Payment Date*: ${record_data['payment date']}
+*Dispatch By*: ${dispatch_date}
+*Posted On*: ${record_data['POST DATE'] ? record_data['POST DATE'] : 'Not yet posted'}
+*Tracking Url*: ${record_data['TRACKING ID'] ? 'https://t.17track.net/en#nums='+record_data['TRACKING ID'] : 'Not yet Available'}
+<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>
+
+`
+        })
+        if(reply === ''){
+          // reply = 'No data found with given details. Please try after 24 hours from the date of registration.'
+          reply = `Please try after 24 hours from the date of registration.
+Still if you did not receive any data, please try to add/remove your country code without space.
+
+Please join our ICMDA official whatsapp group to get latest updates. https://chat.whatsapp.com/EaC2KlleV9w0hZtXMLLhvX`
+        } else{
+          reply +=`
+Join ICMDA Whatsapp Group for the latest updates about Competitions, Events, Awards & GradeExaminations
+Click here to join : https://chat.whatsapp.com/EaC2KlleV9w0hZtXMLLhvX
+
+Check all updates with posters in ICMDA catalog
+Click here to view : https://wa.me/c/919515417732`
+        }
+        callback(null,{reply});
+      })
+      .catch(function (error) {
+        console.log('\error', error)
+        callback(null, 'No data found with given details');
+      });
+  }else{
+    callback(null, {reply:''});
+  }
+
+}
+
+function getSeason2Status (data, callback) {
+  let tableName = 'REGISTRATIONS';
+  data = data.message.split(' ');
+  mobile_or_email = data[data.length-1];
+  let email;
+  if(mobile_or_email.includes('@')){
+      email = mobile_or_email
+  }
+  if(mobile_or_email.length>6){
+    axios.get(`https://api.airtable.com/v0/appEORxIoUnp74THT/${tableName}`, {
+      "params": {
+        "maxRecords": 10,
+        "api_key": 'keyLhRgUYCRjowUwI',
+        "filterByFormula":`${email?'email':'whatsapp_number'}="${mobile_or_email}"`
+      }
+    })
+      .then(function (response) {
+        console.log('\nresponse', mobile_or_email, response.data.records)
+        let reply = ``;
+        response.data.records.forEach(function (record) {
+          let record_data = record.fields;
+          if(record_data['payment status'] === 'captured'){
+            reply += `*SEASON2 PARTICIPANT DETAILS*
+*********************************
+*ID*: ${record_data.id? 'SB'+record_data.id : 'Not yet assigned'}
+*Name*: ${record_data.name}
+*Phone*: ${record_data.whatsapp_number}
+*Email*: ${record_data.email}
+*Teacher Name*: ${record_data.teacher_name? record_data.teacher_name : 'Not Available'}
+*Art Category*: ${record_data.art_category}
+*ArtForm*: ${record_data.art_form}
+*Participation Category*: ${record_data.participation_category}
+*Guidelines*: https://www.icmda.in/guidelines
+*Video Submit Link*: https://bit.ly/32PfrFg
+*Result* : Release on 28-02-2022
+<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>
+
+`
+
+          }
+          
+})
+        if (reply === '') {
+          reply = `Please try after 24 hours from the date of registration.
+Still if you did not receive any data, please try to add/remove your country code without space.
+          
+Please join our ICMDA official whatsapp group to get latest updates. https://chat.whatsapp.com/EaC2KlleV9w0hZtXMLLhvX`
+        } else {
+          reply += `
+Join ICMDA Whatsapp Group for the latest updates about Competitions, Events, Awards & GradeExaminations
+Click here to join : https://chat.whatsapp.com/EaC2KlleV9w0hZtXMLLhvX
+
+Check all updates with posters in ICMDA catalog
+Click here to view : https://wa.me/c/919515417732
+`
+        }
+        callback(null,{reply});
+      })
+      .catch(function (error) {
+        console.log('\error', error)
+        callback(null, 'No data found with given details');
+      });
+  }else{
+    callback(null, {reply:''});
+  }
+
+}
+
+exports.autoReply = (data, callback) => {
+  console.log('\n data', data)
+  if(data.message.toLowerCase().includes('guinness')){
+    return getGuinnessStatus(data, callback);
+  } else if(data.message.toLowerCase().includes('season2') || data.message.toLowerCase().includes('season 2')){
+    return getSeason2Status(data, callback);
+  } 
+  // else if(data.message.toLowerCase().includes('fusion')){
+  //   return getFusionStatus(data, callback);
+  // }
+};
+
+
 
 //getTable Details
 exports.getTableDetails = (tableName, callback) => {
@@ -565,6 +716,35 @@ exports.submitVideo = (data, callback) => {
   );
 };
 
+//Submit payment
+exports.razorpayPaymentCapture = (data, callback) => {
+  data = data.payload.payment.entity;
+  console.log('\n\n daata ', data);
+  executeQuery.queryForAll(
+    sqlQueryMap["insertGuinnessPayments"], 
+    [data.notes.name,
+      data.notes.artform,
+      data.notes.whatsapp_phone,
+      data.notes.email,
+      data.notes.collect_certificates,
+      data.notes.delivery_address,
+      (data.amount / 100)/500,
+      data.notes.all_your_student_names,
+      data.notes.transaction_id,
+      data.amount / 100,
+      data.id],
+    (err, result) => {
+      if (err) {
+        console.log('err ', err);
+        callback(err, null);
+      } else {
+        console.log('result ', result);
+        callback(null, result);
+      }
+    }
+  );
+};
+
 //Insert Winners
 exports.uploadWinnings = (data, callback) => {
   executeQuery.queryForAll(
@@ -640,7 +820,7 @@ exports.sendMail = (mail_data, callback) => {
       pass: 'IcmdaChennai1$'
     }
   });
-  let id_url = `https://icmda.co.in/idcard/${data.id}`
+  let id_url = `https://icmda.in/idcard/${data.id}`
   let mailDetails = {
     from: 'icmdachennai@gmail.com',
     to: data.email,
@@ -700,7 +880,7 @@ exports.sendEventMail = (mail_data, callback) => {
   data.imageUrl = mail_data.imageUrl;
   data.amount = mail_data.amount;
   data.payment_receipt = mail_data.payment_receipt;
-  data.guidelines_url = 'http://icmda.co.in/guidelines';
+  data.guidelines_url = 'http://icmda.in/guidelines';
 
 
   let mailTransporter = nodemailer.createTransport({
@@ -1031,7 +1211,7 @@ exports.sendEventMail = (mail_data, callback) => {
       </div>
       </div>
   
-  <p style="color:red;margin-top:10px"> Important Note: Please e-mail your video link along with payment receipt to the <strong style="color:black">videos@icmda.co.in</strong> email. If payment receipt is not valid, then you are not allowed to participate in competition
+  <p style="color:red;margin-top:10px"> Important Note: Please e-mail your video link along with payment receipt to the <strong style="color:black">videos@icmda.in</strong> email. If payment receipt is not valid, then you are not allowed to participate in competition
   </p>
   
   Feel free to reach us if you have any queries.
@@ -1062,13 +1242,13 @@ exports.sendEventUpdateMail = (mail_data, callback) => {
   data.imageUrl = mail_data.imageUrl;
   data.amount = mail_data.amount;
   data.payment_receipt = mail_data.payment_receipt;
-  data.guidelines_url = 'http://icmda.co.in/guidelines';
+  data.guidelines_url = 'http://icmda.in/guidelines';
 
     data = mail_data.formValues;
     data.imageUrl = mail_data.imageUrl;
     data.amount = mail_data.amount;
     data.payment_receipt = mail_data.payment_receipt;
-    data.guidelines_url = 'http://icmda.co.in/guidelines';
+    data.guidelines_url = 'http://icmda.in/guidelines';
 
   let mailTransporter = nodemailer.createTransport({
     service: 'gmail',
@@ -1398,7 +1578,7 @@ exports.sendEventUpdateMail = (mail_data, callback) => {
       </div>
       </div>
   
-  <p style="color:red;margin-top:10px"> Important Note: Please e-mail your video link along with payment receipt to the <strong style="color:black">videos@icmda.co.in</strong> email. If payment receipt is not valid, then you are not allowed to participate in competition
+  <p style="color:red;margin-top:10px"> Important Note: Please e-mail your video link along with payment receipt to the <strong style="color:black">videos@icmda.in</strong> email. If payment receipt is not valid, then you are not allowed to participate in competition
   </p>
   
   Feel free to reach us if you have any queries.
@@ -1667,7 +1847,7 @@ exports.sendPrizeMail = (mail_data, callback) => {
     </p>
 
     <p>
-      If anybody wants to participate in the ICMDA festival, please visit the HTTP://ICMDA.CO.IN website on 1st March to register your slot.
+      If anybody wants to participate in the ICMDA festival, please visit the HTTP://icmda.in website on 1st March to register your slot.
       Please Join the ICMDA Telegram channel (http://t.me/icmdachennai) for the latest updates.
     </p> 
   <div>
@@ -1699,7 +1879,7 @@ exports.sendPrizeMail = (mail_data, callback) => {
 exports.sendConnectMail = (mail_data, callback) => {
   let data = mail_data;
 
-  data.guidelines_url = 'http://icmda.co.in/guidelines';
+  data.guidelines_url = 'http://icmda.in/guidelines';
 
   console.log("dateae", data);
   let mailTransporter = nodemailer.createTransport({
@@ -1950,7 +2130,7 @@ Phone : 9840111333 | 9884112999
 //Send Connecting Mail between Teacher and Student
 exports.sendDisconnectMail = (mail_data, callback) => {
   let data = mail_data;
-  data.guidelines_url = 'http://icmda.co.in/guidelines';
+  data.guidelines_url = 'http://icmda.in/guidelines';
   console.log("datata", data);
   let mailTransporter = nodemailer.createTransport({
     service: 'gmail',

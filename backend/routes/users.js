@@ -184,6 +184,17 @@ router.post("/get-details", (req, res) => {
     });
 });
 
+//Send Whatsapp Reply
+router.post("/whats-auto-reply", (req, res) => {
+    UserService.autoReply(req.body, (err, result) => {
+        if (err) {
+            res.send({ reply: "No data found with given details" });
+        } else {
+            res.send(result);
+        }
+    });
+});
+
 //Update members details 
 router.put("/get-details", (req, res) => {
     // console.log("HI");
@@ -225,6 +236,19 @@ router.get("/getRegistrationProfiles", (req, res) => {
 //July2021 Competition Registeration
 router.post("/getNewRegistrationProfiles", (req, res) => {
     UserService.getNewRegistrationProfiles(req.body, (err, result) => {
+        if (err) {
+            res.status(500);
+            res.send({ err: "no users found", result: null });
+        } else {
+            res.send(result);
+        }
+    });
+});
+
+
+//guinness payments
+router.post("/razorpayPaymentCapture", (req, res) => {
+    UserService.razorpayPaymentCapture(req.body, (err, result) => {
         if (err) {
             res.status(500);
             res.send({ err: "no users found", result: null });

@@ -1,0 +1,79 @@
+<div style="padding:3%">
+        <h2 class="text-center font-weight-bold text-danger">INTERNATIONAL AWARD CEREMONY
+            <a href="https://rzp.io/l/ICMDA-BEST-TEACHER-CERTIFICATE">
+                <button class="btn btn-primary float-md-right float-center">Apply for best teacher certificate 
+                    <i class="fa fa-hand-pointer-o" aria-hidden="true"></i></button>
+            </a>
+        </h2>
+    <div class="row m-2">
+        <div class="col-md-7">
+            <img src="https://dl.airtable.com/.attachmentThumbnails/d62484feee9244db71edcdeb38e78f57/44728ac8" width="100%">
+        </div>
+        <div class="col-md-5">
+            <p> Renowned violinist Mahamahopadhyaya Padmashree Dr.Annavarapu Ramaswamy On the auspicious occasion of announcing
+                the Padma Shri award to  by the government, ICMDA Chennai honored him
+                with the Sangeet Ratna Sagara title. On the same occasion, the founders of the association
+                honored various artists who participated in the Guinness World Record Program.
+                The Pure Gold Medal and Pure Silver Medal was presented as the first and second prize to the winners of the International
+                Music and Dance Competitions organized by the ICMDA and Thyagayya Charitable Trust and Thyagayya TV. Sri Siddhendra
+                Yogi Kalapeetham Principal Dr. Vedanta Ramalingashastri, Radheshyam, Natyacharya Krishnakumar,
+                Dr. Yeleswarapu Srinivasu, Kalaimamani Sri Madhavpeddi Murthy, Founder and General Secretary E.R Janardhan
+                and music and dance teachers are participated. College Principal Vedanta Ramalinga
+                Shastri lauded the initiative taken by the institute in developing the cultural arts.
+                Janardhan said that he is going to held many such great programs in the future.
+                The teachers were presented with the Yasaswi and Sikhamani Awards.
+            </p>
+        </div>
+    </div>
+    <h3 class="text-center font-weight-bold text-success" style="text-decoration: underline;">GALLERY</h3>
+    <div class="row">
+        <div class="col-md-3 card col-12" *ngFor="let teacherdata of gallery;index as i">
+            <img #ref [id]="getLink(i,'gallery')" class="card-img-top" src="{{teacherdata.fields['AWARD PHOTOS'][0].url}}" width=100%  style="height:250px" >
+            <div class="card-title" style="font-weight: bold;text-align: center;"
+                *ngIf="teacherdata.fields && teacherdata.fields.Name && teacherdata.fields.Name.length>0">
+                <!-- {{teacherdata.fields.Name | uppercase}} -->
+            </div>
+            <div class="text-center">
+                <a (click)="sharePhone(i,'gallery', '')" href="javascript:void(0);">
+                    <img src="../../assets/images/WHATSAPP_SHARE.png"    style="height: 30px;border-radius:5px;"/>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <h3 class="text-center font-weight-bold text-success" style="text-decoration: underline;">UTTAMACHARYA</h3>
+    <div class="row">
+        <div class="col-md-3 card col-12" *ngFor="let teacherdata of uttamaAcharya;index as i">
+            <img #ref [id]="getLink(i,teacherdata.fields.Name)" class="card-img-top" src="{{teacherdata.fields['AWARD PHOTOS'][0].url}}" width=100% style="height:250px">
+            <div class="card-title" style="font-weight: bold;text-align: center;"
+                *ngIf="teacherdata.fields && teacherdata.fields.Name && teacherdata.fields.Name.length>0">
+                {{teacherdata.fields.Name | uppercase}}
+            </div>
+            <div class="text-center">
+                <a (click)="sharePhone(i,teacherdata.fields.Name, 'Uttamacharya')" href="javascript:void(0);">
+                    <img src="../../assets/images/WHATSAPP_SHARE.png"    style="height: 30px;border-radius:5px;"/>
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+
+    <h3 class="text-center font-weight-bold text-success" style="text-decoration: underline;">BEST GURU</h3>
+    <div class="row">
+        <div class="col-md-3 card col-12" *ngFor="let teacherdata of bestGurus;index as i">
+            <img #ref [id]="getLink(i,teacherdata.fields.Name)" class="card-img-top" 
+            src="{{teacherdata.fields['AWARD PHOTOS'][0].url}}" width=100% style="height:250px">
+            <div class="card-title" style="font-weight: bold;text-align: center;"
+                *ngIf="teacherdata.fields && teacherdata.fields.Name && teacherdata.fields.Name.length>0">
+                {{teacherdata.fields.Name | uppercase}}
+            </div>
+            <div class="text-center">
+                <a (click)="sharePhone(i,teacherdata.fields.Name, 'Best Guru')" href="javascript:void(0);">
+                    <img src="../../assets/images/WHATSAPP_SHARE.png"    style="height: 30px;border-radius:5px;"/>
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>

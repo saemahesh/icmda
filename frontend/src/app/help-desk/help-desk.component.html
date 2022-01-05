@@ -1,0 +1,25 @@
+<div class="container" style="margin-bottom:100px"> 
+<h1 class="text-center text-danger">Help Desk</h1>
+<div class="dropdown">
+    <div class="form-group">
+      <select style="border: 2px solid #00b0f9;color: #6a20d4;font-size:16px" class="form-control" [(ngModel)]="selectedCategory" >
+        <option value="">Click here and select one option to get help</option>
+        <option *ngFor="let category of validCategories;" value={{category}}>{{category}}</option>
+      </select>
+    </div>
+  </div>
+<div class="accordion-wrapper" style="margin-bottom: 12px;" *ngFor="let fData of dataFaq; index as i">
+  <div class="accordion" *ngIf="selectedCategory && selectedCategory==fData.fields.category">
+    <input type="radio" name="radio-{{i}}" id="radio-{{i}}">
+    <label class="accordion-label question" for="radio-{{i}}" style="color: white;">{{fData.fields.question}}</label>
+    <div class="accordion-content" style="display: contents;">
+      <p style="padding: 15px;font-weight: bold;">{{fData.fields.answer}} </p>
+      <div style="padding: 10px;" *ngIf="fData.fields.link">
+        <a href={{fData.fields.link}} style="color: red;font-size: 18px;" target="_blank">
+          {{fData.fields.link_text}} <i class="fa fa-hand-pointer-o" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

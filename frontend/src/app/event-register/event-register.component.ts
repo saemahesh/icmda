@@ -134,7 +134,7 @@ export class EventRegisterComponent implements OnInit {
   ngOnInit() {
     this.type = 'add';
     var path = window.location.pathname;
-    if (path == '/competition-registration') {
+    if (path == '/online-competition-season1') {
       this.displayForm = false;
       this.type = 'add';
     }
