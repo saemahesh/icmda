@@ -1,39 +1,49 @@
 <div class="container my-5 mainContainer">
     <h2 class="text-danger text-center" style="font-weight:bold;margin:0 0 20px 0;">Tracking</h2>
     <div class="card track-form">
-         <label style="font-size:20px;color:purple;">Enter Email Id</label>
-        <input type="email" class="form-control" id="email" name="email" required style="font-size:18px" placeholder="Enter your registered email"
-            [(ngModel)]="email"/>
-            <div *ngIf="emailmessage" class="alert alert-danger">
-                {{emailmessage}}
-            </div>
-            <div class="dropdown">
+        <label style="font-size:20px;color:purple;">Enter Email Id</label>
+        <input type="email" class="form-control" id="email" name="email" required style="font-size:18px"
+            placeholder="Enter your registered email" [(ngModel)]="email" />
+        <div *ngIf="emailmessage" class="alert alert-danger">
+            {{emailmessage}}
+        </div>
+        <div class="dropdown">
             <div class="form-group">
                 <select style="border: 1px solid lightgrey;font-size:16px" class="form-control"
                     [(ngModel)]="selectedCategory">
                     <option value="">Click here choose category</option>
-                    <!-- <option *ngFor="let category of validCategories;" value={{category}}>{{category}}</option> -->
-                    <option value="SEASON 2 ONLINE COMPETITIONS FOR MUSIC & DANCE">SEASON 2 ONLINE COMPETITIONS FOR MUSIC & DANCE</option>
+                    <option value="SEASON 2 ONLINE COMPETITIONS FOR MUSIC & DANCE">SEASON 2 ONLINE COMPETITIONS FOR
+                        MUSIC & DANCE</option>
                     <option value="FUSION COMPETITIONS FOR MUSIC & DANCE">FUSION COMPETITIONS FOR MUSIC & DANCE</option>
                     <option value="GUINNESS WORLD RECORD CERTIFICATES">GUINNESS WORLD RECORD CERTIFICATES</option>
 
                 </select>
-                
+
             </div>
             <div *ngIf="categorymsg" class="alert alert-danger">
                 {{categorymsg}}
             </div>
-            
-             </div>
 
-        
-            <div class="text-center">
+        </div>
+
+        <div class="row mb-4" *ngIf="selectedCategory=='SEASON 2 ONLINE COMPETITIONS FOR MUSIC & DANCE'">
+            <div class="col-12 col-md-6">
+                <input type="radio" id="teacher_email" name="tracking" [(ngModel)]="track" value="teacherEmail">
+                <label for="teacher_email" style="font-size:15px;color:red">Track By Teacher Email</label>
+            </div>
+            <div class="col-12 col-md-6">
+                <input type="radio" id="participantemail" name="tracking" [(ngModel)]="track" value="participantEmail">
+                <label for="participantemail" style="font-size:15px;color:red">Track By Participant Email</label>
+            </div>
+        </div>
+        <div class="text-center">
             <button class="btn btn-primary mt-5" type="submit"
-                (click)="trackData(email,selectedCategory)" >Track</button>
-    
+                (click)="trackData(email,selectedCategory,track)">Track</button>
+
         </div>
     </div>
 
+<<<<<<< HEAD
   <div *ngIf="dataLoad" class="text-center">
       <img src="../../assets/images/ezgif-2-6e0edaa254.gif"/>
   </div>
@@ -104,152 +114,238 @@
         <tr>
             <td class="font-weight-bold" colspan="2"> Check all updates with posters in ICMDA catalog
             </td>
+=======
+    <div *ngIf="dataLoad" class="text-center">
+        <img src="../../assets/images/Load.gif" />
+    </div>
+
+
+    <div *ngIf="userSeason2Details && userSeason2Details.length>0 && loading" class="card userdata-table">
+
+        <table class="table bg-light" *ngFor="let userData of userSeason2Details">
+            <tr>
+                <th colspan="2"
+                    style="font-size:20px;font-family:'beer serif';font-weight:bold;color:red;text-align:center">
+                    SEASON2 PARTICIPANT DETAILS
+                </th>
+            </tr>
+            <tr>
+                <td class="font-weight-bold">ID</td>
+                <td>SB{{userData.fields.id}}</td>
+            </tr>
+            <tr>
+                <td class="font-weight-bold">Name</td>
+                <td>{{userData.fields.name}}</td>
+            </tr>
+            <!-- <tr>
+            <td class="font-weight-bold">Phone</td>
+            <td>{{userData.fields.whatsapp_number}}</td>
+        </tr> -->
+            <tr>
+                <td class="font-weight-bold">Email </td>
+                <td>{{userData.fields.final_email}}</td>
+            </tr>
+            <tr>
+                <td class="font-weight-bold">Teacher Name</td>
+                <td>{{userData.fields.teacher_name}}</td>
+            </tr>
+            <tr>
+                <td class="font-weight-bold">Art Category</td>
+                <td>{{userData.fields.art_category}}</td>
+            </tr>
+            <tr>
+                <td class="font-weight-bold">ArtForm</td>
+                <td>{{userData.fields.art_form}}</td>
+            </tr>
+            <tr>
+                <td class="font-weight-bold">Participation Category</td>
+                <td>{{userData.fields['participation_category']}}</td>
+            </tr>
+            <tr>
+                <td class="font-weight-bold">Guidelines</td>
+                <td><a href="https://www.icmda.in/guidelines">https://www.icmda.in/guidelines</a></td>
+            </tr>
+            <tr>
+                <td class="font-weight-bold">Video Submit Link</td>
+                <td><a href="https://bit.ly/32PfrFg">https://bit.ly/32PfrFg</a></td>
+            </tr>
+            <tr>
+                <td class="font-weight-bold">Result</td>
+                <td>Release on Feb-28-2022</td>
+            </tr>
+
+            <tr>
+                <td class="font-weight-bold" colspan="2">
+                    Join ICMDA Whatsapp Group for the latest updates about Competitions, Events, Awards &
+                    GradeExaminations
+                </td>
+            </tr>
+            <tr>
+                <td class="font-weight-bold">Click here to join</td>
+                <td><a href="https://chat.whatsapp.com/EaC2KlleV9w0hZtXMLLhvX"
+                        style="word-break:break-all">https://chat.whatsapp.com/EaC2KlleV9w0hZtXMLLhvX</a></td>
+            </tr>
+            <tr>
+                <td class="font-weight-bold" colspan="2"> Check all updates with posters in ICMDA catalog
+                </td>
+>>>>>>> 533125341dc87301c550e2db92c78647b4ef5902
             </tr>
             <tr>
                 <td class="font-weight-bold">Click here to view</td>
                 <td><a href=" https://wa.me/c/919515417732"> https://wa.me/c/919515417732</a></td>
             </tr>
-    </table>
-</div>
+        </table>
+    </div>
 
 
-<div *ngIf="userGuinnessDetails && userGuinnessDetails.length>0 && loading" class="card userdata-table">
-  
-    <table class="table  bg-light" style="width:100%" *ngFor="let userData of userGuinnessDetails">
-        
-        <thead>
-        <tr>
-            <th colspan="2" style="font-size:20px;font-family:'bree serif';font-weight:bold;color:red;text-align:center">
-              GUINNESS CERTIFICATES STATUS
-           </th>
-       </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td class="font-weight-bold">Name</td>
-            <td>{{userData.fields.name}}</td>
-        </tr>
-        <tr>
+    <div *ngIf="userGuinnessDetails && userGuinnessDetails.length>0 && loading" class="card userdata-table">
+
+        <table class="table  bg-light" style="width:100%" *ngFor="let userData of userGuinnessDetails">
+
+            <thead>
+                <tr>
+                    <th colspan="2"
+                        style="font-size:20px;font-family:'bree serif';font-weight:bold;color:red;text-align:center">
+                        GUINNESS CERTIFICATES STATUS
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="font-weight-bold">Name</td>
+                    <td>{{userData.fields.name}}</td>
+                </tr>
+                <!-- <tr>
             <td class="font-weight-bold">Phone</td>
             <td>{{userData.fields.whatsapp_phone}}</td>
-        </tr>
-        <tr>
-            <td class="font-weight-bold">Email</td>
-            <td>{{userData.fields.final_email}}</td>
-        </tr>
-        <tr>
-            <td class="font-weight-bold">Art Form</td>
-            <td>{{userData.fields.artform}}</td>
-        </tr>
-        <tr>
-            <td class="font-weight-bold">Payment Date</td>
-            <td>{{userData.fields['payment date'] | date: 'dd/MM/yyyy'}}</td>
-        </tr>
-         <!-- <tr>
+        </tr> -->
+                <tr>
+                    <td class="font-weight-bold">Email</td>
+                    <td>{{userData.fields.final_email}}</td>
+                </tr>
+                <tr>
+                    <td class="font-weight-bold">Art Form</td>
+                    <td>{{userData.fields.artform}}</td>
+                </tr>
+                <tr>
+                    <td class="font-weight-bold">Payment Date</td>
+                    <td>{{userData.fields['payment date'] | date: 'dd/MM/yyyy'}}</td>
+                </tr>
+                <!-- <tr>
             <td class="font-weight-bold">Dispatched By</td>
             <td>{{dispatchedDate(userData.fields['payment date'])}}</td>
         </tr>  -->
-        <tr>
-            <td class="font-weight-bold">Posted On</td>
-            <td *ngIf="userData.fields['POST DATE']">{{userData.fields['POST DATE']}}</td>
-            <td *ngIf="!userData.fields['POST DATE']">Not yet posted</td>
-        </tr>
-        <tr>
-            <td class="font-weight-bold">Tracking Url</td>
-            <td *ngIf="userData.fields['TRACKING ID']"><a href="https://t.17track.net/en#nums='{{userData.fields['TRACKING ID']}}'"  style="word-break:break-all">https://t.17track.net/en#nums={{userData.fields['TRACKING ID']}}</a></td>
-             <td *ngIf="!userData.fields['TRACKING ID']">Not yet posted</td>
-        </tr>
-        <tr>
-            <td class="font-weight-bold" colspan="2">
-            Join ICMDA Whatsapp Group for the latest updates about Competitions, Events, Awards & GradeExaminations
-        </td>
-        </tr>
-        <tr>
-            <td class="font-weight-bold">Click here to join</td>
-            <td><a href="https://chat.whatsapp.com/BtRzMnYoeLxLmamqkW6Xyx"  style="word-break:break-all">https://chat.whatsapp.com/BtRzMnYoeLxLmamqkW6Xyx</a></td>
-        </tr>
-        <tr>
-            <td class="font-weight-bold" colspan="2"> Check all updates with posters in ICMDA catalog
-            </td>
+                <tr>
+                    <td class="font-weight-bold">Posted On</td>
+                    <td *ngIf="userData.fields['POST DATE']">{{userData.fields['POST DATE']}}</td>
+                    <td *ngIf="!userData.fields['POST DATE']">Not yet posted</td>
+                </tr>
+                <tr>
+                    <td class="font-weight-bold">Tracking Url</td>
+                    <td *ngIf="userData.fields['TRACKING ID']"><a
+                            href="https://t.17track.net/en#nums={{userData.fields['TRACKING ID']}}"
+                            style="word-break:break-all">https://t.17track.net/en#nums={{userData.fields['TRACKING
+                            ID']}}</a></td>
+                    <td *ngIf="!userData.fields['TRACKING ID']">Not yet posted</td>
+                </tr>
+                <tr>
+                    <td class="font-weight-bold" colspan="2">
+                        Join ICMDA Whatsapp Group for the latest updates about Competitions, Events, Awards &
+                        GradeExaminations
+                    </td>
+                </tr>
+                <tr>
+                    <td class="font-weight-bold">Click here to join</td>
+                    <td><a href="https://chat.whatsapp.com/EaC2KlleV9w0hZtXMLLhvX"
+                            style="word-break:break-all">https://chat.whatsapp.com/EaC2KlleV9w0hZtXMLLhvX</a></td>
+                </tr>
+                <tr>
+                    <td class="font-weight-bold" colspan="2"> Check all updates with posters in ICMDA catalog
+                    </td>
+                </tr>
+                <tr>
+                    <td class="font-weight-bold">Click here to view</td>
+                    <td><a href=" https://wa.me/c/919515417732"> https://wa.me/c/919515417732</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+
+    <div *ngIf="userFusionDetails && userFusionDetails.length>0 && loading" class="card userdata-table">
+
+        <table class="table bg-light" *ngFor="let userData of userFusionDetails">
+            <tr>
+                <th colspan="2"
+                    style="font-size:20px;font-family:'bree serif';font-weight:bold;color:red;text-align:center">
+                    FUSION PARTICIPANT DETAILS
+                </th>
             </tr>
             <tr>
-                <td class="font-weight-bold">Click here to view</td>
-                <td><a href=" https://wa.me/c/919515417732"> https://wa.me/c/919515417732</a></td>
+                <td class="font-weight-bold">ID</td>
+                <td>FA{{userData.fields.id}}</td>
             </tr>
-        </tbody>
-    </table>
-</div>
-
-
-
-<div *ngIf="userFusionDetails && userFusionDetails.length>0 && loading" class="card userdata-table" >
-
-    <table class="table bg-light" *ngFor="let userData of userFusionDetails">
-        <tr>
-            <th colspan="2" style="font-size:20px;font-family:'bree serif';font-weight:bold;color:red;text-align:center">
-               FUSION PARTICIPANT DETAILS
-           </th>
-       </tr>
-       <tr>
-        <td class="font-weight-bold">ID</td>
-        <td>FA{{userData.fields.id}}</td>
-       </tr>
-        <tr>
-            <td class="font-weight-bold">Name</td>
-            <td>{{userData.fields.participant_names}}</td>
-        </tr>
-        <tr>
+            <tr>
+                <td class="font-weight-bold">Name</td>
+                <td>{{userData.fields.participant_names}}</td>
+            </tr>
+            <!-- <tr>
             <td class="font-weight-bold">Phone</td>
             <td>{{userData.fields.whatsapp_number}}</td>
-        </tr>
-        <tr>
-            <td class="font-weight-bold">Email </td>
-            <td>{{userData.fields.email}}</td>
-        </tr>
-        <tr>
-            <td class="font-weight-bold">ArtForm</td>
-            <td>{{userData.fields.artform}}</td>
-        </tr>
-        <tr>
-            <td class="font-weight-bold">Participation Category</td>
-            <td>{{userData.fields.category}}</td>
-        </tr>
-        <tr>
-            <td class="font-weight-bold">Performance</td>
-            <td>{{userData.fields.performance}}</td>
-        </tr>
+        </tr> -->
+            <tr>
+                <td class="font-weight-bold">Email </td>
+                <td>{{userData.fields.email}}</td>
+            </tr>
+            <tr>
+                <td class="font-weight-bold">ArtForm</td>
+                <td>{{userData.fields.artform}}</td>
+            </tr>
+            <tr>
+                <td class="font-weight-bold">Participation Category</td>
+                <td>{{userData.fields.category}}</td>
+            </tr>
+            <tr>
+                <td class="font-weight-bold">Performance</td>
+                <td>{{userData.fields.performance}}</td>
+            </tr>
 
-        <tr>
-            <td class="font-weight-bold">Video Submit Link</td>
-            <td><a href="https://bit.ly/32t6PVh">https://bit.ly/32t6PVh</a></td>
-        </tr>
-        <tr>
-            <td class="font-weight-bold">Result</td>
-            <td>Release on Feb-28-2022</td>
-        </tr> 
-        
-        <tr>
-            <td class="font-weight-bold" colspan="2">
-            Join ICMDA Whatsapp Group for the latest updates about Competitions, Events, Awards & GradeExaminations
-        </td>
-        </tr>
-        <tr>
-            <td class="font-weight-bold">Click here to join</td>
-            <td><a href="https://chat.whatsapp.com/BtRzMnYoeLxLmamqkW6Xyx"  style="word-break:break-all">https://chat.whatsapp.com/BtRzMnYoeLxLmamqkW6Xyx</a></td>
-        </tr>
-        <tr>
-            <td class="font-weight-bold" colspan="2"> Check all updates with posters in ICMDA catalog
-            </td>
+            <tr>
+                <td class="font-weight-bold">Video Submit Link</td>
+                <td><a href="https://bit.ly/32t6PVh">https://bit.ly/32t6PVh</a></td>
+            </tr>
+            <tr>
+                <td class="font-weight-bold">Result</td>
+                <td>Release on Feb-28-2022</td>
+            </tr>
+
+            <tr>
+                <td class="font-weight-bold" colspan="2">
+                    Join ICMDA Whatsapp Group for the latest updates about Competitions, Events, Awards &
+                    GradeExaminations
+                </td>
+            </tr>
+            <tr>
+                <td class="font-weight-bold">Click here to join</td>
+                <td><a href="https://chat.whatsapp.com/EaC2KlleV9w0hZtXMLLhvX"
+                        style="word-break:break-all">https://chat.whatsapp.com/EaC2KlleV9w0hZtXMLLhvX</a></td>
+            </tr>
+            <tr>
+                <td class="font-weight-bold" colspan="2"> Check all updates with posters in ICMDA catalog
+                </td>
             </tr>
             <tr>
                 <td class="font-weight-bold">Click here to view</td>
                 <td><a href=" https://wa.me/c/919515417732"> https://wa.me/c/919515417732</a></td>
             </tr>
-    </table>
-</div>
+        </table>
+    </div>
 
-<div *ngIf="((!userGuinnessDetails || userGuinnessDetails.length==0)&& (!userFusionDetails || userFusionDetails.length==0)  && (!userSeason2Details || userSeason2Details.length==0)) && loading" class="card p-4 text-center" style="font-size:25px;color:maroon">
-    No data found with this Email Id
-</div>
+    <div *ngIf="((!userGuinnessDetails || userGuinnessDetails.length==0)&& (!userFusionDetails || userFusionDetails.length==0)  && (!userSeason2Details || userSeason2Details.length==0)) && loading"
+        class="card p-4 text-center" style="font-size:25px;color:maroon">
+        No data found with this Email Id.<br/> 
+        If you register today, please check after 24 hours.
+    </div>
 
 </div>

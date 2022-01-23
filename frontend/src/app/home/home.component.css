@@ -141,7 +141,9 @@ del{
   from {opacity: .4}
   to {opacity: 1}
 }
-
+.carousel-imgs{
+  width:80%;
+}
 @media screen and (max-width: 600px) {
     .hero-section .intro-section .how-section .concept-section {
       width: 50%;
@@ -166,7 +168,9 @@ del{
   height: 200px;
 }
 
-
+.carousel-imgs{
+  width:100%;
+}
 }
 
 
