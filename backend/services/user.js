@@ -299,11 +299,11 @@ function getGuinnessStatus (data, callback) {
           reply = `Please try after 24 hours from the date of registration.
 Still if you did not receive any data, please try to add/remove your country code without space.
 
-Please join our ICMDA official whatsapp group to get latest updates. https://chat.whatsapp.com/EaC2KlleV9w0hZtXMLLhvX`
+Please join our ICMDA official whatsapp group to get latest updates. https://chat.whatsapp.com/BtRzMnYoeLxLmamqkW6Xyx`
         } else{
           reply +=`
 Join ICMDA Whatsapp Group for the latest updates about Competitions, Events, Awards & GradeExaminations
-Click here to join : https://chat.whatsapp.com/EaC2KlleV9w0hZtXMLLhvX
+Click here to join : https://chat.whatsapp.com/BtRzMnYoeLxLmamqkW6Xyx
 
 Check all updates with posters in ICMDA catalog
 Click here to view : https://wa.me/c/919515417732`
@@ -366,11 +366,11 @@ function getSeason2Status (data, callback) {
           reply = `Please try after 24 hours from the date of registration.
 Still if you did not receive any data, please try to add/remove your country code without space.
           
-Please join our ICMDA official whatsapp group to get latest updates. https://chat.whatsapp.com/EaC2KlleV9w0hZtXMLLhvX`
+Please join our ICMDA official whatsapp group to get latest updates. https://chat.whatsapp.com/BtRzMnYoeLxLmamqkW6Xyx`
         } else {
           reply += `
 Join ICMDA Whatsapp Group for the latest updates about Competitions, Events, Awards & GradeExaminations
-Click here to join : https://chat.whatsapp.com/EaC2KlleV9w0hZtXMLLhvX
+Click here to join : https://chat.whatsapp.com/BtRzMnYoeLxLmamqkW6Xyx
 
 Check all updates with posters in ICMDA catalog
 Click here to view : https://wa.me/c/919515417732
