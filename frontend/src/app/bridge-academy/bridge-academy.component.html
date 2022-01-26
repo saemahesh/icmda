@@ -1,0 +1,55 @@
+<form class="hs-item" [formGroup]="syllabusForm">
+    <div class="container">
+        <h1 style="text-align: center;color: white; margin-bottom: 3%;">Grade Examinations</h1>
+        <div class="row">
+            <div class="col-md-5">
+                <label style="font-size: medium;">Art Form
+                    <span *ngIf="submitted && f.artForm.errors?.required" style="color:red">&nbsp;
+                        Required</span></label>
+                <select class="form-control" id="power" formControlName="artForm"
+                    (change)="onArtFormSelect($event.target.value)">
+                    <option value="" disabled selected>Select your choice</option>
+                    <option *ngFor="let form of artForm">{{form}}</option>
+                </select>
+            </div>
+            <div class="col-md-5">
+                <label style="font-size: medium;">Grade
+                    <span *ngIf="submitted && f.gradeType.errors?.required" style="color:red">&nbsp;
+                        Required</span></label>
+                <select class="form-control" id="power" formControlName="gradeType"
+                    (change)="onGradeChange($event.target.value)">
+                    <option value="" disabled selected>Select your choice</option>
+                    <option *ngFor="let grade of gradeTypes">{{grade.Name}}</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <br>
+                <button type="submit" class="btn btn-success" (click)="submit()">Submit</button>
+            </div>
+        </div>
+        <div style="display: block;" class="row" *ngIf="theoryData.length > 0">
+            <div class="col-md-6">
+                <h3 style="text-align: left;font-family: cursive;
+                font-size: xx-large;
+                color: #80ff7e;">Theory :</h3>
+                <h4 style="    color: #dbf6e9;
+                margin-left: 3%;
+                font-size: large;
+                font-family: cursive;" *ngFor="let theory of theoryData">
+                    {{theory}}
+                </h4>
+            </div>
+            <div class="col-md-6">
+                <h3 style="text-align: left;font-family: cursive;
+                font-size: xx-large;
+                color: #80ff7e;">Practical :</h3>
+                <h4 style="    color: #dbf6e9;
+                margin-left: 3%;
+                font-size: large;
+                font-family: cursive;" *ngFor="let practical of practicalData">
+                    {{practical}}
+                </h4>
+            </div>
+        </div>
+    </div>
+</form>
