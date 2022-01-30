@@ -16,7 +16,7 @@ export class GuideVocalComponent implements OnInit {
       {
         "category": "SUB JUNIORS",
         "age_limit": "5 TO 8 YEARS",
-        "time_limit": "Maximum 3 Mintues",
+        "time_limit": "Approximate 3 Mintues",
         "items":  [
           "Nottu Swara",
           "Shlokam",
@@ -30,7 +30,7 @@ export class GuideVocalComponent implements OnInit {
       {
         "category": " SUB JUNIORS PROGRESSIVE ",
         "age_limit": "5 TO 8 YEARS",
-        "time_limit": "Maximum 6 Mintues",
+        "time_limit": "Approximate 6 Mintues",
         "items": [
           "Varnam",
           "Krithi"
@@ -43,7 +43,7 @@ export class GuideVocalComponent implements OnInit {
       {
         "category": "JUNIORS",
         "age_limit": "9 TO 12 YEARS",
-        "time_limit": "Maximum 4 Mintues",
+        "time_limit": "Approximate 4 Mintues",
         "items":[
           "Any Geetham",
           "Swarajathi ",
@@ -57,7 +57,7 @@ export class GuideVocalComponent implements OnInit {
       {
         "category": " JUNIORS PROGRESSIVE ",
         "age_limit": "9 TO 12 YEARS",
-        "time_limit": "Maximum 15 Mintues",
+        "time_limit": "Approximate 15 Mintues",
         "items": [
           "Varnam in 2 speeds",
           " Krithi",
@@ -71,7 +71,7 @@ export class GuideVocalComponent implements OnInit {
       {
         "category": " SENIORS ",
         "age_limit": "13 TO 16 YEARS",
-        "time_limit": "Maximum 8 Mintues",
+        "time_limit": "Approximate 8 Mintues",
         "items": [
            "Varnam in 2 speeds",
           "Krithi",
@@ -85,7 +85,7 @@ export class GuideVocalComponent implements OnInit {
       {
         "category": " SUPER SENIORS ",
         "age_limit": "17 TO 20 YEARS",
-        "time_limit": "Maximum 15 Mintues",
+        "time_limit": "Approximate 15 Mintues",
         "items": [
           "Krithi with Manodharma Raga,Neraval,skalpanaswara and Thillana",
           "any Devotional Songs"
@@ -99,7 +99,7 @@ export class GuideVocalComponent implements OnInit {
       {
         "category": "PRODIGY CATEGORY",
         "age_limit": "Under 15 YEARS",
-        "time_limit": "Maximum 15 Mintues",
+        "time_limit": "Approximate 15 Mintues",
         "items": [
           " Can choose any of Senior,Super senior",
           "open category items "
@@ -112,7 +112,7 @@ export class GuideVocalComponent implements OnInit {
       {
         "category":"SPECIAL CATEGORY",
         "age_limit": "no age limit",
-        "time_limit": "Maximum 15 Mintues",
+        "time_limit": "Approximate 15 Mintues",
         "items": [
           " Can choose any of Sub-junior,Junior, Senior, Super senior",
           "open category items. partcipants can choose bhajan."
@@ -125,7 +125,7 @@ export class GuideVocalComponent implements OnInit {
       {
         "category": " OPEN CATEGORY",
         "age_limit": "ABOVE20 YEARS",
-        "time_limit": "Maximum 40 Mintues",
+        "time_limit": "Approximate 40 Mintues",
         "items": [
           "Ata tala varnam with ragam {must) & kirti with raga alapana, neraval, Kalpana swaras and Pancharathna keerthana Ragam,Thanam, Pallavi { RTP)"
         ],

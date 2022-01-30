@@ -16,7 +16,7 @@ export class GuideRhythmComponent implements OnInit {
       {
         "category": "SUB JUNIOR",
         "age_limit": "5 TO 8 YEARS",
-        "time_limit": "Maximum 5 Mintues",
+        "time_limit": "Approximate 5 Mintues",
         "items": [
           "Any Eka",
           "adhi thala sarvalagu "
@@ -29,7 +29,7 @@ export class GuideRhythmComponent implements OnInit {
       {
         "category": " SUB JUNIORS PROGRESSIVE ",
         "age_limit": "5 TO 8 YEARS",
-        "time_limit": "Maximum 6 Mintues",
+        "time_limit": "Approximate 6 Mintues",
         "items": [
           "Roopaka",
           " khanda chapu sarvalagu with korvai"
@@ -42,7 +42,7 @@ export class GuideRhythmComponent implements OnInit {
       {
         "category": "JUNIORS",
         "age_limit": "9 TO 12 YEARS",
-        "time_limit": "Maximum 6 Mintues",
+        "time_limit": "Approximate 6 Mintues",
         "items": [
           "Any Adhi ",
           "Roopaka sarvalagu"
@@ -55,7 +55,7 @@ export class GuideRhythmComponent implements OnInit {
       {
         "category": " JUNIORS PROGRESSIVE ",
         "age_limit": "9 TO 12 YEARS",
-        "time_limit": "Maximum 8 Mintues",
+        "time_limit": "Approximate 8 Mintues",
         "items": [
           "Khandachaapu",
           "  Misrachapu thani avarthanam along with Mora korvai"
@@ -68,7 +68,7 @@ export class GuideRhythmComponent implements OnInit {
       {
         "category": " SENIORS ",
         "age_limit": "13 TO 16 YEARS",
-        "time_limit": "Maximum 8 Mintues",
+        "time_limit": "Approximate 8 Mintues",
         "items": [
           "Roopaka",
           "khanda chapu sarvalagu with korvai"
@@ -81,7 +81,7 @@ export class GuideRhythmComponent implements OnInit {
       {
         "category": " SUPER SENIORS ",
         "age_limit": "17 TO 20 YEARS",
-        "time_limit": "Maximum 8 Mintues",
+        "time_limit": "Approximate 8 Mintues",
         "items": [
           "Adhi",
           "Roopalca,Khandachaapu",
@@ -96,7 +96,7 @@ export class GuideRhythmComponent implements OnInit {
       {
         "category": "PRODIGY CATEGORY",
         "age_limit": "Under 15 YEARS",
-        "time_limit": "Maximum 15 Mintues",
+        "time_limit": "Approximate 15 Mintues",
         "items": [
           " Can choose any of Senior, Super senior",
           "open category items "
@@ -109,7 +109,7 @@ export class GuideRhythmComponent implements OnInit {
       {
         "category": "SPECIAL CATEGORY",
         "age_limit": "no age limit",
-        "time_limit": "Maximum 15 Mintues",
+        "time_limit": "Approximate 15 Mintues",
         "items": [
           " Can choose any of Sub-junior , Junior, Senior, Super senior",
           "open category items. partcipants can choose bhajans."
@@ -122,7 +122,7 @@ export class GuideRhythmComponent implements OnInit {
       {
         "category": " OPEN CATEGORY",
         "age_limit": "ABOVE 20 YEARS",
-        "time_limit": "Maximum 10 Mintues",
+        "time_limit": "Approximate 10 Mintues",
         "items": [
             "Any Adhi",
             "Roopaaka/khandachaapu thani avarthanam along with any Korappu in between Thani & Mora korvai"
