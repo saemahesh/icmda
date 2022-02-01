@@ -48,6 +48,7 @@ import { IcmdaCscComponent } from "./icmda-csc/icmda-csc.component";
 import { TeacherProfileComponent } from "./teacher-profile/teacher-profile.component";
 import { TearchersDataComponent } from "./tearchers-data/tearchers-data.component";
 import { TrackingComponent } from "./tracking/tracking.component";
+import { BridgeAcademyComponent } from "./bridge-academy/bridge-academy.component";
 
 const routes: Routes = [
   {
@@ -130,6 +131,10 @@ const routes: Routes = [
   {
     path: 'musicians-directory',
     component: MusicDirectoryComponent
+  },
+  {
+    path: 'grade-examinations',
+    component: BridgeAcademyComponent
   },
   {
     path: 'terms-and-conditions',

@@ -17,7 +17,7 @@ export class GuideBharatComponent implements OnInit {
         {
           "category": "SUB JUNIORS",
           "age_limit": "5 TO 8 YEARS",
-          "time_limit": "Maximum 4 Minutes",
+          "time_limit": "Approximate 4 Minutes",
           "items": [
             "Invocation item",
             "Slokas",
@@ -32,7 +32,7 @@ export class GuideBharatComponent implements OnInit {
         {
           "category": " JUNIORS",
           "age_limit": "9 TO 12 YEARS",
-          "time_limit": "Maximum 6 Minutes",
+          "time_limit": "Approximate 6 Minutes",
           "items": [
             "Invocation item",
             "MALLARI",
@@ -46,7 +46,7 @@ export class GuideBharatComponent implements OnInit {
         {
           "category": "SENIORS",
           "age_limit": "13 TO 16 YEARS",
-          "time_limit": "Maximum 8 Minutes",
+          "time_limit": "Approximate 8 Minutes",
           "items": [
             "Invocation iteam",
             "padham",
@@ -60,7 +60,7 @@ export class GuideBharatComponent implements OnInit {
         {
           "category": "SUPER SENIORS",
           "age_limit": "17 TO 20 YEARS",
-          "time_limit": "Maximum 12 Minutes",
+          "time_limit": "Approximate 12 Minutes",
           "items": [
             "Thyagaraja keerthana",
             "Jaavali"
@@ -74,7 +74,7 @@ export class GuideBharatComponent implements OnInit {
         {
           "category": "PRODIGY CATEGORY",
           "age_limit": "BELOW 15 YEARS",
-          "time_limit": "Maximum 30 Minutes",
+          "time_limit": "Approximate 30 Minutes",
           "items": [
             "Invocation item",
             "Compositionon on lord siva exbit",
@@ -88,7 +88,7 @@ export class GuideBharatComponent implements OnInit {
         {
           "category": "SPECIAL CATEGORY",
           "age_limit": "ABOVE 25",
-          "time_limit": "Maximum 20 Minutes",
+          "time_limit": "Approximate 20 Minutes",
           "items": [
             "PADHAM",
             "Jaavali",
@@ -104,7 +104,7 @@ export class GuideBharatComponent implements OnInit {
         {
           "category": "OPEN CATEGORY",
           "age_limit": "ABOVE 20 YEARS",
-          "time_limit": "Maximum 45 Minutes",
+          "time_limit": "Approximate 45 Minutes",
           "items": [
             "Varnam",
             "Ashtapadhi,padham,Thillana",

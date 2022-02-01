@@ -59,6 +59,7 @@ import { PastEventsComponent } from './past-events/past-events.component';
 import { IcmdaCscComponent } from './icmda-csc/icmda-csc.component';
 import { TeacherProfileComponent } from './teacher-profile/teacher-profile.component';
 import { TrackingComponent } from './tracking/tracking.component';
+import { BridgeAcademyComponent } from './bridge-academy/bridge-academy.component';
 
 @NgModule({
   declarations: [
@@ -112,7 +113,8 @@ import { TrackingComponent } from './tracking/tracking.component';
     PastEventsComponent,
     IcmdaCscComponent,
     TeacherProfileComponent,
-    TrackingComponent
+    TrackingComponent,
+    BridgeAcademyComponent
   ],
   imports: [
     BrowserModule,

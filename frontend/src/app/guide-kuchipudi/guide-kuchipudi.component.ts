@@ -16,7 +16,7 @@ export class GuideKuchipudiComponent implements OnInit {
       {
         "category": "SUB JUNIORs",
         "age_limit": "5 TO 8 YEARS",
-        "time_limit": "Maximum 6 Minutes",
+        "time_limit": "Approximate 6 Minutes",
         "items": [
           "Kowtham",
           "Brahmanjali",
@@ -31,7 +31,7 @@ export class GuideKuchipudiComponent implements OnInit {
       {
         "category": "  JUNIORS ",
         "age_limit": "9 TO 12 YEARS",
-        "time_limit": "Maximum 8 Minutes",
+        "time_limit": "Approximate 8 Minutes",
         "items": [
           "Jathiswaram",
           "Any keerthana",
@@ -45,7 +45,7 @@ export class GuideKuchipudiComponent implements OnInit {
       {
         "category": "SENIORS",
         "age_limit": "13 TO 16 YEARS",
-        "time_limit": "Maximum 10 Minutes",
+        "time_limit": "Approximate 10 Minutes",
         "items": [
           " Tarangam",
           "Sivashtakam",
@@ -59,7 +59,7 @@ export class GuideKuchipudiComponent implements OnInit {
       {
         "category": " SUPER SENIORS",
         "age_limit": "17 TO 20 YEARS",
-        "time_limit": "Maximum 12 Minutes",
+        "time_limit": "Approximate 12 Minutes",
         "items": [
           "Daruvu",
           " Kshethrayya padam",
@@ -75,7 +75,7 @@ export class GuideKuchipudiComponent implements OnInit {
       {
         "category": " PRODIGY CATEGORY",
         "age_limit": "Under 15 YEARS",
-        "time_limit": "Maximum 15 Minutes",
+        "time_limit": "Approximate 15 Minutes",
         "items": [
           "  Bhagavta",
           "Mahabharata",
@@ -90,7 +90,7 @@ export class GuideKuchipudiComponent implements OnInit {
       {
         "category": "SPECIAL CATEGORY",
         "age_limit": "no age limit",
-        "time_limit": "Maximum 15 Minutes",
+        "time_limit": "Approximate 15 Minutes",
         "items": [
           "any of Sub-junior, Junior, Senior, Super senior or open category items "
         ],
@@ -102,7 +102,7 @@ export class GuideKuchipudiComponent implements OnInit {
       {
         "category": "OPEN CATEGORY",
         "age_limit": "ABOVE 20 YEARS",
-        "time_limit": "minimum 7 Minutes , Maximum 15 Minutes",
+        "time_limit": "minimum 7 Minutes , Approximate 15 Minutes",
         "items": [
           "any kuchipudi dance item",
         ],
