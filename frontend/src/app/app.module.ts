@@ -60,6 +60,7 @@ import { IcmdaCscComponent } from './icmda-csc/icmda-csc.component';
 import { TeacherProfileComponent } from './teacher-profile/teacher-profile.component';
 import { TrackingComponent } from './tracking/tracking.component';
 import { BridgeAcademyComponent } from './bridge-academy/bridge-academy.component';
+import { AcamedyComponent } from './acamedy/acamedy.component';
 
 @NgModule({
   declarations: [
@@ -114,7 +115,8 @@ import { BridgeAcademyComponent } from './bridge-academy/bridge-academy.componen
     IcmdaCscComponent,
     TeacherProfileComponent,
     TrackingComponent,
-    BridgeAcademyComponent
+    BridgeAcademyComponent,
+    AcamedyComponent
   ],
   imports: [
     BrowserModule,

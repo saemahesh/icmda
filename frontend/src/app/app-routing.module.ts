@@ -49,6 +49,7 @@ import { TeacherProfileComponent } from "./teacher-profile/teacher-profile.compo
 import { TearchersDataComponent } from "./tearchers-data/tearchers-data.component";
 import { TrackingComponent } from "./tracking/tracking.component";
 import { BridgeAcademyComponent } from "./bridge-academy/bridge-academy.component";
+import { AcamedyComponent } from "./acamedy/acamedy.component";
 
 const routes: Routes = [
   {
@@ -62,6 +63,10 @@ const routes: Routes = [
   {
     path: 'notify-me',
     component: RemindmeComponent
+  },
+  {
+    path: 'academy',
+    component: AcamedyComponent
   },
   {
     path:"submit-ticket",
