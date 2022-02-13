@@ -865,7 +865,7 @@ exports.InsertSeason2Airtable = (data, callback) => {
   var Airtable = require('airtable');
   var base = new Airtable({ apiKey: 'keyLhRgUYCRjowUwI' }).base('appEORxIoUnp74THT');
 
-  base('REGISTRATIONS FEB').select({
+  base('REGISTRATIONS').select({
     // Selecting the first 3 records in ALL DATA:
     maxRecords: 1,
     view: "LATEST RECORDS"
@@ -876,7 +876,7 @@ exports.InsertSeason2Airtable = (data, callback) => {
       console.log('Retrieved Latest Id : ', record.get('id'));
       data.reg_id = parseInt(record.get('id')) + 1;
 
-      base('REGISTRATIONS FEB').create([
+      base('REGISTRATIONS').create([
         {
           "fields": {
             "payment page id": "pl_IIN00CQIyZSmkd",
@@ -897,6 +897,8 @@ exports.InsertSeason2Airtable = (data, callback) => {
             "art_category": data.art_category,
             "art_form": data.art_form,
             "participation_category": data.participation_category,
+            "teacher_name": data.teacher_name,
+            "teacher_whatsapp": parseInt(data.teacher_whatsapp),
             "referer_phone_number": parseInt(data.referer_phone_number),
             "how_did_you_know_about_us": data.how_did_you_know_about_us,
             "id": data.reg_id
@@ -923,6 +925,7 @@ sendSeason2Mail = (data, callback) => {
 
   console.log('mail data: ', data);
   data.guidelines_url = 'https://www.icmda.in/guidelines';
+  data.video_submit_link = 'https://docs.google.com/forms/d/e/1FAIpQLSe-VC-ONyZK5DeLW0d6VGIK7Li9a1gfCj7bellQar86L-h5Nw/viewform';
 
   let mailTransporter = nodemailer.createTransport({
     service: 'gmail',
@@ -934,7 +937,7 @@ sendSeason2Mail = (data, callback) => {
   let mailDetails = {
     from: 'icmdachennai@gmail.com',
     to: data.email,
-    subject: `Thanks ${data.season2_participant_name} for registering to the SEASON2 International Online Music & Dance Competitions.`,
+    subject: `Thanks <b>${data.season2_participant_name}</b> for registering to the SEASON2 International Online Music & Dance Competitions.`,
     html: `<html lang="en">
     <head>
       <meta charset="utf-8" />
@@ -1109,7 +1112,7 @@ sendSeason2Mail = (data, callback) => {
     <body>
       <header class="site-header" id="header">
         <div class="row" style="background-color:black;margin-bottom:40px">
-        <img width="80%" height="100px" src="https://ucarecdn.com/7c183c4f-2843-466d-a7d6-968148e10b88/" >
+        <img width="80%" height="100px" src="https://www.icmda.in/assets/images/new%20logo.png" >
         </div>
         <h2  data-lead-id="site-header-title" style="color:#b64f33;font-size:40px">THANK YOU!</h2>
       </header>
@@ -1124,9 +1127,7 @@ sendSeason2Mail = (data, callback) => {
       <tr>
         <td>Registration Id</td>
         <td>SB${data.reg_id}</td>
-      </tr>
-      <tr>
-        
+      </tr>        
       <tr>
         <td>Name</td>
         <td>${data.season2_participant_name}</td>
@@ -1144,80 +1145,57 @@ sendSeason2Mail = (data, callback) => {
         <td>Solo</td>
       </tr>
       <tr>
-        <td>Art Category</td>
-        <td>${data.artCategory}</td>
-      </tr>
-      <tr>
-        <td>Art Form</td>
-        <td>${data.art_form}</td>
-      </tr>
-      <tr>
         <td>Gender</td>
         <td>${data.gender}</td>
-      </tr>
-      <tr>
-        <td>Date of Birth</td>
-        <td>${data.age}</td>
-      </tr>
-      <tr>
-        <td>Competition Level</td>
-        <td>International</td>
-      </tr>
-      <tr>
-        <td>Participation Category</td>
-        <td>${data.participationCategory}</td>
-      </tr>
-      <tr>
-        <td>Email</td>
-        <td>${data.email}</td>
-      </tr>
-  
-      <tr>
-        <td>Address</td>
-        <td>${data.address}</td>
       </tr>
       <tr>
         <td>Country</td>
         <td>${data.country}</td>
       </tr>
       <tr>
-        <td>City</td>
-        <td>${data.city}</td>
+        <td>Art Category</td>
+        <td>${data.art_category}</td>
       </tr>
       <tr>
-        <td>Zipcode/PinCode</td>
-        <td>${data.zipcode}</td>
+        <td>ArtForm</td>
+        <td>${data.artform}</td>
+      </tr>
+      <tr>
+        <td>Participation Category</td>
+        <td>${data.participation_category}</td>
       </tr>
       <tr>
         <td>Teacher Name</td>
-        <td>${data.teacherName}</td>
+        <td>${data.teacher_name}</td>
       </tr>
       <tr>
-        <td>Teacher Mobile</td>
-        <td>${data.teacherNumber}</td>
-      </tr>
-  
-  
-      <tr>
-        <td>Payment ID</td>
-        <td>${data.transaction_id}</td>
-      </tr>
+        <td>Referrer Phone Number</td>
+        <td>${data.referer_phone_number}</td>
+      </tr> 
   
     </table>
-    
-       <div style="margin:30px 0;display:grid">
-       <a target="_blank" href="${data.guidelines_url}">
-       <button type="button" class="btn btn-success" style="cursor:pointer">Click here to see the Guidelines</button>
-       </a>
-        </div>
-  
-    
+      <div style="margin:30px 0;display:grid">
+            <a target="_blank" href="${data.guidelines_url}">
+              <button type="button" class="btn btn-success" style="cursor:pointer">Click here to see the Guidelines for Songs,  Time limit, Prizes etc</button>
+            </a>
+      </div>    
+      <div style="margin:30px 0;display:grid">
+            <a target="_blank" href="${data.video_submit_link}">
+              <button type="button" class="btn btn-success" style="cursor:pointer">Click here to upload video</button>
+            </a>
+      </div> 
+
+      <div style="margin:30px 0;display:grid">
+            <a target="_blank" href="${data.video_submit_link}">
+              <button type="button" class="btn btn-success" style="cursor:pointer">Click here to visit ICMDA Help Desk for all your doubts and questions</button>
+            </a>
+      </div> 
     Feel free to reach us if you have any queries.
   
     Email : icmdachennai@gmail.com 
-    Phone : 9840111333 | 9884112999
+    Phone : 919515417732 | 919059842444
       <footer class="site-footer" id="footer" style="padding:15px">
-        <p class="site-footer__fineprint" id="fineprint">Copyright © ICMDA 2021 | All Rights Reserved</p>
+        <p class="site-footer__fineprint" id="fineprint">Copyright © ICMDA 2022 | All Rights Reserved</p>
       </footer>
     </body>
     </html>
