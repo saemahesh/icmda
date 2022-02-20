@@ -50,6 +50,7 @@ import { TearchersDataComponent } from "./tearchers-data/tearchers-data.componen
 import { TrackingComponent } from "./tracking/tracking.component";
 import { BridgeAcademyComponent } from "./bridge-academy/bridge-academy.component";
 import { AcamedyComponent } from "./acamedy/acamedy.component";
+import { JoinUsComponent } from "./join-us/join-us.component";
 
 const routes: Routes = [
   {
@@ -59,6 +60,10 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent
+  },
+  {
+    path: 'join-us',
+    component: JoinUsComponent
   },
   {
     path: 'notify-me',

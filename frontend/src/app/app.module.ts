@@ -61,6 +61,7 @@ import { TeacherProfileComponent } from './teacher-profile/teacher-profile.compo
 import { TrackingComponent } from './tracking/tracking.component';
 import { BridgeAcademyComponent } from './bridge-academy/bridge-academy.component';
 import { AcamedyComponent } from './acamedy/acamedy.component';
+import { JoinUsComponent } from './join-us/join-us.component';
 
 @NgModule({
   declarations: [
@@ -116,7 +117,8 @@ import { AcamedyComponent } from './acamedy/acamedy.component';
     TeacherProfileComponent,
     TrackingComponent,
     BridgeAcademyComponent,
-    AcamedyComponent
+    AcamedyComponent,
+    JoinUsComponent
   ],
   imports: [
     BrowserModule,
