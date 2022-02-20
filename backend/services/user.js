@@ -725,7 +725,7 @@ exports.razorpayPaymentCapture = (data, callback) => {
   data.notes.currency = data.currency;
   data.notes.status = data.status;
   data.notes.order_id = data.order_id;
-  data.notes.payment_date = '2022-02-12T17:26:00.000Z';
+  data.notes.payment_date = moment().format().toString();
   console.log('\n\n daata ', data);
   if (data.notes.season2_participant_name) {
     this.InsertSeason2Airtable(data.notes);
@@ -1158,7 +1158,7 @@ sendSeason2Mail = (data, callback) => {
       </tr>
       <tr>
         <td>ArtForm</td>
-        <td>${data.artform}</td>
+        <td>${data.art_form}</td>
       </tr>
       <tr>
         <td>Participation Category</td>
