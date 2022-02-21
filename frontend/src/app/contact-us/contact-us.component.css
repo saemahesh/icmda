@@ -4,3 +4,11 @@
     padding:0% 5% !important;
 }
 }
+.contact-us-bg-color
+{
+    background-image: linear-gradient(120deg, #66a6ff 0%, #89f7fe 100%);
+}
+.address-icon
+{
+    color: white;
+}

@@ -3,10 +3,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="HandheldFriendly" content="true">
   <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 </head>
 <div id="preloder" style="display: none;">
   <div class="loader" style="display: none;"></div>
@@ -47,49 +43,30 @@
   </div>
   
   <div class="container text-center" style="width:auto;display: block;">
+
     
-    <div class="pt-3 ">
-      <div class="container ">
-          <div class="row">
-              <div class="col-12 col-md-12 d-flex flex-column justify-content-center ">
-                  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                      <ol class="carousel-indicators">
-                          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                      </ol>
-                      <div class="carousel-inner">
-                          <div class="carousel-item active">
-                              <img class="d-block w-70 slide-images" src="https://dl.airtable.com/.attachments/c49d7ebbffb7edca328e699d2cd3d291/18bc996e/winner-1.jpg" alt="First slide">
-                          </div>
-                          <div class="carousel-item">
-                              <img class="d-block w-70 slide-images" src="https://dl.airtable.com/.attachments/64919173aebdcf3838d885704367cc22/94c69a1b/16.jpg" alt="Second slide">
-                          </div>
-                          <div class="carousel-item">
-                              <img class="d-block w-70 slide-images" src="https://dl.airtable.com/.attachments/175f9c24547503ca625c237901e7abc3/37406a48/13.jpg" alt="Third slide">
-                          </div>
-
-
-
-
-                      </div>
-                      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                          <span class="sr-only">Previous</span>
-                      </a>
-                      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                          <span class="sr-only">Next</span>
-                      </a>
-
-                  </div>
-              </div>
-          </div>
+    <div id="myCarousel" class="carousel slide m-auto carousel-imgs" data-ride="carousel" style="height: auto;" data-interval="3000">
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="item"  *ngFor="let galleryPic of galleryPhoto;let i = index"
+        [ngClass]="{'active': i == 0 }">
+          <img src={{galleryPic.fields.Gallery[0].url}} alt="homePageGallery">
+        </div>
       </div>
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
     
-    
-
-
     <h3 style="color: white;margin-top: 60px;">Events & Competitions</h3>
     <div class="container">
       <div class="d-lg-flex">
