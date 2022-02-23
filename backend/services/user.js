@@ -730,6 +730,7 @@ exports.razorpayPaymentCapture = (data, callback) => {
   if (data.notes.season2_participant_name) {
     this.InsertSeason2Airtable(data.notes);
   }
+  callback(null, {status: 'success'});
 };
 
 //Insert Winners
