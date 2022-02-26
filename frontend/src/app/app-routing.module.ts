@@ -51,6 +51,7 @@ import { TrackingComponent } from "./tracking/tracking.component";
 import { BridgeAcademyComponent } from "./bridge-academy/bridge-academy.component";
 import { AcamedyComponent } from "./acamedy/acamedy.component";
 import { JoinUsComponent } from "./join-us/join-us.component";
+import { FreeMembershipComponent } from "./free-membership/free-membership.component";
 
 const routes: Routes = [
   {
@@ -64,6 +65,10 @@ const routes: Routes = [
   {
     path: 'join-us',
     component: JoinUsComponent
+  },
+  {
+    path: 'free-membership',
+    component: FreeMembershipComponent
   },
   {
     path: 'notify-me',

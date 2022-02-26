@@ -27,7 +27,7 @@
     "ngx-bootstrap": "^6.2.0",
     "ngx-modal-dialog": "^4.0.0",
     "ngx-toastr": "^12.1.0",
-    "ngx-uploadcare-widget": "^1.2.3",
+    "ngx-uploadcare-widget": "^1.2.5",
     "rxjs": "~6.5.4",
     "sweetalert2": "^10.10.1",
     "tslib": "^1.10.0",
