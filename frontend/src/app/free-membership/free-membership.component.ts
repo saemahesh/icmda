@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FreeMembershipComponent implements OnInit {
 
+  loading = true;
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    setTimeout(() => {
+      this.loading = false;
+    }, 5000);
+  
   }
-
 }

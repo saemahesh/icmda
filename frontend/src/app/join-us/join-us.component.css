@@ -4,7 +4,7 @@
 
 #generic_price_table{
   background: rgb(21,98,197);
-background: linear-gradient(90deg, rgba(21,98,197,1) 49%, rgba(0,159,255,1) 65%);
+background: linear-gradient(90deg, rgb(63 81 121) 49%, rgb(41 83 129) 65%)
 
 }
 
@@ -75,7 +75,6 @@ background: linear-gradient(90deg, rgba(21,98,197,1) 49%, rgba(0,159,255,1) 65%)
   color: #fff;
 } 
 #generic_price_table{
-  margin: 50px 0 50px 0;
     font-family: 'Raleway', sans-serif;
 }
 .row .table{
