@@ -730,6 +730,7 @@ exports.razorpayPaymentCapture = (data, callback) => {
   if (data.notes.season2_participant_name) {
     this.InsertSeason2Airtable(data.notes);
   }
+  callback(null, {status: 'success'});
 };
 
 //Insert Winners
@@ -937,7 +938,7 @@ sendSeason2Mail = (data, callback) => {
   let mailDetails = {
     from: 'icmdachennai@gmail.com',
     to: data.email,
-    subject: `Thanks <b>${data.season2_participant_name}</b> for registering to the SEASON2 International Online Music & Dance Competitions.`,
+    subject: `Thanks ${data.season2_participant_name} for registering to the SEASON2 International Online Music & Dance Competitions.`,
     html: `<html lang="en">
     <head>
       <meta charset="utf-8" />
