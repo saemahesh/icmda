@@ -1,6 +1,48 @@
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
     .contact-us
 {
     padding:0% 5% !important;
 }
+}
+.contact-us-bg-color {
+    background-image: linear-gradient(120deg, #66a6ff 0%, #89f7fe 100%);
+    padding-left: 20px;
+}
+.contact-section {
+    padding-left: 0px;
+}
+
+.icmda-heading {
+    color: white;
+    font-family: Roboto;
+    font-weight: bold;
+}
+
+.address-section {
+
+    color: white;
+}
+
+ul {
+    list-style-type: none;
+    font-family: Roboto;
+    padding-left: 10px;
+    
+}
+
+.contact-heading {
+    color: white;
+    font-size: 30px;
+    font-family: Roboto;
+    font-weight: bold;
+
+}
+
+.list {
+    padding-left: 20px;
+    padding-top: 10px;
+}
+
+.andhra-section {
+    margin-left: 20px;
 }
