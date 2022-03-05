@@ -5,7 +5,7 @@
 }
 }
 .contact-us-bg-color {
-    background-image: linear-gradient(120deg, #66a6ff 0%, #89f7fe 100%);
+    background-image: linear-gradient(120deg, #a0bbe0 0%, #89f7fe 100%);
     padding-left: 20px;
 }
 .contact-section {
@@ -13,14 +13,14 @@
 }
 
 .icmda-heading {
-    color: white;
+    color:rgb(49, 58, 2);
     font-family: Roboto;
     font-weight: bold;
 }
 
 .address-section {
 
-    color: white;
+    color:rgb(5, 80, 5);
 }
 
 ul {
@@ -31,7 +31,7 @@ ul {
 }
 
 .contact-heading {
-    color: white;
+    color:rgb(4, 136, 4);
     font-size: 30px;
     font-family: Roboto;
     font-weight: bold;
