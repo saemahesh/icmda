@@ -53,6 +53,14 @@ export class TrackingComponent implements OnInit {
 
       this.userData.getSeason2Data(this.finalEmail, track).subscribe((data: any) => {
         this.userSeason2Details = data.records;
+        this.userSeason2Details = []
+        data.records.forEach((item)=>{
+          if(item.fields.photo_link.length > 0){
+            item.fields.photo_link[0] = item.fields.photo_link[0].replace('open','uc');            
+            item.fields.video_link[0] = `https://drive.google.com/file/d/video_link/preview`.replace('video_link', item.fields.video_link[0].split('=')[1]);
+          }
+          this.userSeason2Details.push(item);
+        });
         this.loading = true;
         this.dataLoad = false;
       });
@@ -69,7 +77,14 @@ export class TrackingComponent implements OnInit {
     }
     else if (selectedCategory == "FUSION COMPETITIONS FOR MUSIC & DANCE") {
       this.userData.getFusionData(this.finalEmail, track).subscribe((data: any) => {
-        this.userFusionDetails = data.records;
+        this.userFusionDetails = []
+        data.records.forEach((item)=>{
+          if(item.fields.photo_link.length > 0){
+            item.fields.photo_link[0] = item.fields.photo_link[0].replace('open','uc');            
+            item.fields.video_link[0] = `https://drive.google.com/file/d/video_link/preview`.replace('video_link', item.fields.video_link[0].split('=')[1]);
+          }
+          this.userFusionDetails.push(item);
+        });
         this.loading = true;
         this.dataLoad = false;
       });

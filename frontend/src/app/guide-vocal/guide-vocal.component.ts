@@ -124,7 +124,7 @@ export class GuideVocalComponent implements OnInit {
       },
       {
         "category": " OPEN CATEGORY",
-        "age_limit": "ABOVE20 YEARS",
+        "age_limit": "ABOVE 20 YEARS",
         "time_limit": "Approximate 40 Mintues",
         "items": [
           "Ata tala varnam with ragam {must) & kirti with raga alapana, neraval, Kalpana swaras and Pancharathna keerthana Ragam,Thanam, Pallavi { RTP)"
