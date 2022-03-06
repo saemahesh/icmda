@@ -55,7 +55,7 @@ export class TrackingComponent implements OnInit {
         this.userSeason2Details = data.records;
         this.userSeason2Details = []
         data.records.forEach((item)=>{
-          if(item.fields.photo_link.length > 0){
+          if(item.fields.photo_link && item.fields.photo_link.length > 0){
             item.fields.photo_link[0] = item.fields.photo_link[0].replace('open','uc');            
             item.fields.video_link[0] = `https://drive.google.com/file/d/video_link/preview`.replace('video_link', item.fields.video_link[0].split('=')[1]);
           }
@@ -79,7 +79,7 @@ export class TrackingComponent implements OnInit {
       this.userData.getFusionData(this.finalEmail, track).subscribe((data: any) => {
         this.userFusionDetails = []
         data.records.forEach((item)=>{
-          if(item.fields.photo_link.length > 0){
+          if(item.fields.photo_link && item.fields.photo_link.length > 0){
             item.fields.photo_link[0] = item.fields.photo_link[0].replace('open','uc');            
             item.fields.video_link[0] = `https://drive.google.com/file/d/video_link/preview`.replace('video_link', item.fields.video_link[0].split('=')[1]);
           }
