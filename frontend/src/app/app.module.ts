@@ -63,6 +63,8 @@ import { BridgeAcademyComponent } from './bridge-academy/bridge-academy.componen
 import { AcamedyComponent } from './acamedy/acamedy.component';
 import { JoinUsComponent } from './join-us/join-us.component';
 import { FreeMembershipComponent } from './free-membership/free-membership.component';
+import { ResultsPageComponent } from './results-page/results-page.component';
+import { WhatsappComponent } from './whatsapp/whatsapp.component';
 
 @NgModule({
   declarations: [
@@ -120,7 +122,9 @@ import { FreeMembershipComponent } from './free-membership/free-membership.compo
     BridgeAcademyComponent,
     AcamedyComponent,
     JoinUsComponent,
-    FreeMembershipComponent
+    FreeMembershipComponent,
+    ResultsPageComponent,
+    WhatsappComponent
   ],
   imports: [
     BrowserModule,

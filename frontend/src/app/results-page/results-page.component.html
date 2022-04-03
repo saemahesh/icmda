@@ -1,0 +1,176 @@
+<div class="container my-5 mainContainer">
+    <h2 class="text-danger text-center" style="font-weight:bold;margin:20px 0 20px 0;color:white !important">Results</h2>
+    <div class="card track-form" style="background-color:#141419">
+        <label style="font-size:20px;color:white;">Enter Email Id</label>
+        <input type="email" class="form-control" id="email" name="email" required style="font-size:18px;background-color:white"
+            placeholder="Enter your registered email" [(ngModel)]="email" />
+        <div *ngIf="emailmessage" class="alert alert-danger">
+            {{emailmessage}}
+        </div>
+        <label style="font-size:20px;color:white;">Choose Competition Name</label>
+        <div class="dropdown">
+            <div class="form-group">
+                <select style="border: 1px solid lightgrey;font-size:16px" class="form-control"
+                    [(ngModel)]="selectedCategory">
+                    <option value="">Click here choose category</option>
+                    <option value="SEASON 2 ONLINE COMPETITIONS FOR MUSIC & DANCE">SEASON 2 ONLINE COMPETITIONS FOR
+                        MUSIC & DANCE</option>
+                    <option value="FUSION COMPETITIONS FOR MUSIC & DANCE">FUSION COMPETITIONS FOR MUSIC & DANCE</option>
+                </select>
+            </div>
+            <div *ngIf="categorymsg" class="alert alert-danger">
+                {{categorymsg}}
+            </div>
+        </div>
+        <div class="text-center">
+            <button class="btn btn-primary mt-5" type="submit"
+                (click)="trackData(email,selectedCategory,'participantEmail')">Get My Results</button>
+        </div>
+    </div>
+
+    <div *ngIf="dataLoad" class="text-center">
+        <img src="../../assets/images/Load.gif" />
+    </div>
+
+
+    <div *ngIf="userSeason2Details && userSeason2Details.length>0 && loading" class="card userdata-table">
+
+        <table class="table bg-light" *ngFor="let userData of userSeason2Details">
+            <tr>
+                <th colspan="2"
+                    style="font-size:20px;font-family:'beer serif';font-weight:bold;color:red;text-align:center">
+                    ICMDA SEASON 2 ONLINE COMPETITIONS RESULTS
+                </th>
+            </tr>
+            <tr>
+                <td class="font-weight-bold">ID</td>
+                <td>SB{{userData.fields.id}}</td>
+            </tr>
+            <tr>
+                <td class="font-weight-bold">Name</td>
+                <td>{{userData.fields.name}}</td>
+            </tr>
+
+            <tr>
+                <td class="font-weight-bold">Prize</td>
+                <td style="display: grid;" *ngIf="userData.fields.prize.includes('1')">{{userData.fields.prize}}<img src="https://dl.airtable.com/.attachmentThumbnails/b617b141c9ecc476c669f786ef11490c/8ccd6188" width="150" ></td>
+                <td style="display: grid;" *ngIf="userData.fields.prize.includes('2')">{{userData.fields.prize}}<img src="https://dl.airtable.com/.attachmentThumbnails/cfc54a5b12a3406ce41f0eecdd6dec53/ff3cd007" width="150" ></td>
+                <td style="display: grid;" *ngIf="userData.fields.prize.includes('3')">{{userData.fields.prize}}<img src="https://dl.airtable.com/.attachmentThumbnails/66e8f6f8d1acbf4c0b4d984c3013d6f2/6363ac28" width="150" ></td>
+                <td style="display: grid;" *ngIf="userData.fields.prize.includes('SPECIAL')">{{userData.fields.prize}}<img src="https://dl.airtable.com/.attachmentThumbnails/b0e06ece4a48e1e4b99de5eda06af514/bed567c4" width="150" ></td>
+                <td *ngIf="userData.fields.prize.includes('PARTICIPATION')">PARTICIPATION CERTIFICATE</td>
+                <td *ngIf="userData.fields.prize.includes('DISQUALIFIED')">DISQUALIFIED</td>
+            </tr>
+            <tr>
+                <td class="font-weight-bold">Your Photo</td>
+                <td><img src="{{userData.fields.photo_link}}" width="150" alt="Not Submitted Photo"></td>
+            </tr>
+            <tr>
+                <td class="font-weight-bold">Art Category</td>
+                <td>{{userData.fields.art_category}}</td>
+            </tr>
+            <tr>
+                <td class="font-weight-bold">ArtForm</td>
+                <td>{{userData.fields.art_form}}</td>
+            </tr>
+            <tr>
+                <td class="font-weight-bold">Participation Category</td>
+                <td>{{userData.fields['participation_category']}}</td>
+            </tr>
+          
+
+            <tr>
+                <td class="font-weight-bold" colspan="2">
+                    Join ICMDA Whatsapp Group for the latest updates about Competitions, Events, Awards &
+                    GradeExaminations
+                </td>
+            </tr>
+            <tr>
+                <td class="font-weight-bold">Click here to join</td>
+                <td><a href="/joinWhatsApp"
+                        style="word-break:break-all">Join WhatsApp Group</a></td>
+            </tr>
+            <tr>
+                <td class="font-weight-bold" colspan="2"> Check all updates with posters in ICMDA catalog
+                </td>
+            </tr>
+            <tr>
+                <td class="font-weight-bold">Click here to view</td>
+                <td><a href=" https://wa.me/c/919515417732"> https://wa.me/c/919515417732</a></td>
+            </tr>
+        </table>
+    </div>
+
+
+    <div *ngIf="userFusionDetails && userFusionDetails.length>0 && loading" class="card userdata-table">
+
+        <table class="table bg-light" *ngFor="let userData of userFusionDetails">
+            <tr>
+                <th colspan="2"
+                    style="font-size:20px;font-family:'bree serif';font-weight:bold;color:red;text-align:center">
+                    ICMDA FUSION COMPETITIONS RESULTS
+                </th>
+            </tr>
+            <tr>
+                <td class="font-weight-bold">ID</td>
+                <td>FA{{userData.fields.id}}</td>
+            </tr>
+            <tr>
+                <td class="font-weight-bold">Name</td>
+                <td>{{userData.fields.participant_names}}</td>
+            </tr>
+
+            <tr>
+                <td class="font-weight-bold">Prize</td>
+                <td *ngIf="userData.fields.prize == '1ST PRIZE'"><img src="https://dl.airtable.com/.attachmentThumbnails/b617b141c9ecc476c669f786ef11490c/8ccd6188" width="150" ></td>
+                <td *ngIf="userData.fields.prize == '2ND PRIZE'"><img src="https://dl.airtable.com/.attachmentThumbnails/cfc54a5b12a3406ce41f0eecdd6dec53/ff3cd007" width="150" ></td>
+                <td *ngIf="userData.fields.prize == '3RD PRIZE'"><img src="https://dl.airtable.com/.attachmentThumbnails/66e8f6f8d1acbf4c0b4d984c3013d6f2/6363ac28" width="150" ></td>
+                <td *ngIf="userData.fields.prize == 'SPECIAL PRIZE'"><img src="https://dl.airtable.com/.attachmentThumbnails/b0e06ece4a48e1e4b99de5eda06af514/bed567c4" width="150" ></td>
+                <td *ngIf="!userData.fields.prize"><img src="https://dl.airtable.com/.attachmentThumbnails/b0e06ece4a48e1e4b99de5eda06af514/bed567c4" width="150" ></td>
+            </tr>
+          
+            <tr>
+                <td class="font-weight-bold">Your Submitted Photo</td>
+                <td><img src="{{userData.fields.photo_link}}" width="150" alt="Not Submitted Photo"></td>
+            </tr>
+
+            <tr>
+                <td class="font-weight-bold">ArtForm</td>
+                <td>{{userData.fields.artform}}</td>
+            </tr>
+            <tr>
+                <td class="font-weight-bold">Participation Category</td>
+                <td>{{userData.fields.category}}</td>
+            </tr>
+            <tr>
+                <td class="font-weight-bold">Performance</td>
+                <td>{{userData.fields.performance}}</td>
+            </tr>
+
+            <tr>
+                <td class="font-weight-bold" colspan="2">
+                    Join ICMDA Whatsapp Group for the latest updates about Competitions, Events, Awards &
+                    GradeExaminations
+                </td>
+            </tr>
+            <tr>
+                <td class="font-weight-bold">Click here to join</td>
+                <td><a href="/joinWhatsApp"
+                        style="word-break:break-all">Join WhatsApp Group</a></td>
+            </tr>
+            <tr>
+                <td class="font-weight-bold" colspan="2"> Check all updates with posters in ICMDA catalog
+                </td>
+            </tr>
+            <tr>
+                <td class="font-weight-bold">Click here to view</td>
+                <td><a href=" https://wa.me/c/919515417732"> https://wa.me/c/919515417732</a></td>
+            </tr>
+        </table>
+    </div>
+
+    <div *ngIf="((!userGuinnessDetails || userGuinnessDetails.length==0)&& (!userFusionDetails || userFusionDetails.length==0)  && (!userSeason2Details || userSeason2Details.length==0)) && loading"
+        class="card p-4 text-center" style="font-size:25px;color:maroon">
+        No data found with this Email Id.<br/> 
+        If you register today, please check after 24 hours.
+    </div>
+</div>
