@@ -1,14 +1,14 @@
 import { LowerCasePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { TrackingService } from './tracking.service';
+import { ResultsService } from './results-page.service';
 import * as moment from 'moment/moment';
 
 @Component({
-  selector: 'app-tracking',
-  templateUrl: './tracking.component.html',
-  styleUrls: ['./tracking.component.css']
+  selector: 'app-results-page',
+  templateUrl: './results-page.component.html',
+  styleUrls: ['./results-page.component.css']
 })
-export class TrackingComponent implements OnInit {
+export class ResultsPageComponent implements OnInit {
 
   userDetails;
   selectedCategory = "";
@@ -27,7 +27,7 @@ export class TrackingComponent implements OnInit {
   categorymsg;
 
 
-  constructor(private userData: TrackingService) { }
+  constructor(private userData: ResultsService) { }
 
   ngOnInit(): void {
 

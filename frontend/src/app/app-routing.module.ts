@@ -48,6 +48,8 @@ import { IcmdaCscComponent } from "./icmda-csc/icmda-csc.component";
 import { TeacherProfileComponent } from "./teacher-profile/teacher-profile.component";
 import { TearchersDataComponent } from "./tearchers-data/tearchers-data.component";
 import { TrackingComponent } from "./tracking/tracking.component";
+import { ResultsPageComponent} from "./results-page/results-page.component"
+import { WhatsappComponent } from "./whatsapp/whatsapp.component";
 import { BridgeAcademyComponent } from "./bridge-academy/bridge-academy.component";
 import { AcamedyComponent } from "./acamedy/acamedy.component";
 import { JoinUsComponent } from "./join-us/join-us.component";
@@ -261,6 +263,14 @@ const routes: Routes = [
   {
     path:'tracking',
     component:TrackingComponent
+  },
+  {
+    path:'results',
+    component:ResultsPageComponent
+  },
+  {
+    path:'joinWhatsApp',
+    component:WhatsappComponent
   }
 ];
 
