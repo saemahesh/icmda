@@ -1,6 +1,7 @@
 <div class="container my-5 mainContainer">
     <h2 class="text-danger text-center" style="font-weight:bold;margin:20px 0 20px 0;color:white !important">Results</h2>
     <div class="card track-form" style="background-color:#141419">
+        <h5 style="color:red;text-align: center;">🙏 Thanks to all 1000+ participants from all over the world for participating in the competitions 🙏</h5>
         <label style="font-size:20px;color:white;">Enter Email Id</label>
         <input type="email" class="form-control" id="email" name="email" required style="font-size:18px;background-color:white"
             placeholder="Enter your registered email" [(ngModel)]="email" />
@@ -121,11 +122,12 @@
 
             <tr>
                 <td class="font-weight-bold">Prize</td>
-                <td *ngIf="userData.fields.prize == '1ST PRIZE'"><img src="https://dl.airtable.com/.attachmentThumbnails/b617b141c9ecc476c669f786ef11490c/8ccd6188" width="150" ></td>
-                <td *ngIf="userData.fields.prize == '2ND PRIZE'"><img src="https://dl.airtable.com/.attachmentThumbnails/cfc54a5b12a3406ce41f0eecdd6dec53/ff3cd007" width="150" ></td>
-                <td *ngIf="userData.fields.prize == '3RD PRIZE'"><img src="https://dl.airtable.com/.attachmentThumbnails/66e8f6f8d1acbf4c0b4d984c3013d6f2/6363ac28" width="150" ></td>
-                <td *ngIf="userData.fields.prize == 'SPECIAL PRIZE'"><img src="https://dl.airtable.com/.attachmentThumbnails/b0e06ece4a48e1e4b99de5eda06af514/bed567c4" width="150" ></td>
-                <td *ngIf="!userData.fields.prize"><img src="https://dl.airtable.com/.attachmentThumbnails/b0e06ece4a48e1e4b99de5eda06af514/bed567c4" width="150" ></td>
+                <td style="display: grid;" *ngIf="userData.fields.prize.includes('1')">{{userData.fields.prize}}<img src="https://dl.airtable.com/.attachmentThumbnails/b617b141c9ecc476c669f786ef11490c/8ccd6188" width="150" ></td>
+                <td style="display: grid;" *ngIf="userData.fields.prize.includes('2')">{{userData.fields.prize}}<img src="https://dl.airtable.com/.attachmentThumbnails/cfc54a5b12a3406ce41f0eecdd6dec53/ff3cd007" width="150" ></td>
+                <td style="display: grid;" *ngIf="userData.fields.prize.includes('3')">{{userData.fields.prize}}<img src="https://dl.airtable.com/.attachmentThumbnails/66e8f6f8d1acbf4c0b4d984c3013d6f2/6363ac28" width="150" ></td>
+                <td style="display: grid;" *ngIf="userData.fields.prize.includes('SPECIAL')">{{userData.fields.prize}}<img src="https://dl.airtable.com/.attachmentThumbnails/b0e06ece4a48e1e4b99de5eda06af514/bed567c4" width="150" ></td>
+                <td *ngIf="userData.fields.prize.includes('PARTICIPATION')">PARTICIPATION CERTIFICATE</td>
+                <td *ngIf="userData.fields.prize.includes('DISQUALIFIED')">DISQUALIFIED</td>
             </tr>
           
             <tr>
