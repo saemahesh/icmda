@@ -1,0 +1,26 @@
+.center{
+    margin: auto;
+    width: 95%;
+    padding: 10px;
+}
+
+.sub-title{
+    font-size: 2vw;    
+    color: #e319e7;
+  }
+  @media screen and (max-width: 600px) {  
+.title{
+    font-size: 5vw;
+}
+.m-title{
+    font-size: 5vw;
+  }
+
+.sub-title{
+    font-size: 3vw;
+  }
+
+.m-sub-title{
+    font-size: 3vw !important
+  }
+}

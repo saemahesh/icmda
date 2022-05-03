@@ -65,6 +65,20 @@ import { JoinUsComponent } from './join-us/join-us.component';
 import { FreeMembershipComponent } from './free-membership/free-membership.component';
 import { ResultsPageComponent } from './results-page/results-page.component';
 import { WhatsappComponent } from './whatsapp/whatsapp.component';
+import { ThallapakaAnnamayyaComponent } from './monthly-competitions/thallapaka-annamayya/thallapaka-annamayya.component';
+import { NatyaSagarComponent } from './monthly-competitions/natya-sagar/natya-sagar.component';
+import { SangeethSamratComponent } from './monthly-competitions/sangeeth-samrat/sangeeth-samrat.component';
+import { MuthuswamiDeekshitharComponent } from './monthly-competitions/muthuswami-deekshithar/muthuswami-deekshithar.component';
+import { SyamaSastriComponent } from './monthly-competitions/syama-sastri/syama-sastri.component';
+import { RamadasuComponent } from './monthly-competitions/ramadasu/ramadasu.component';
+import { NarayanaTheertharComponent } from './monthly-competitions/narayana-theerthar/narayana-theerthar.component';
+import { UthukkaduVenkatakaviComponent } from './monthly-competitions/uthukkadu-venkatakavi/uthukkadu-venkatakavi.component';
+import { GopalakrishnaBharathiComponent } from './monthly-competitions/gopalakrishna-bharathi/gopalakrishna-bharathi.component';
+import { SubramanyaBharathiComponent } from './monthly-competitions/subramanya-bharathi/subramanya-bharathi.component';
+import { PapanasamSivanComponent } from './monthly-competitions/papanasam-sivan/papanasam-sivan.component';
+import { ThillanaComponent } from './monthly-competitions/thillana/thillana.component';
+import { GuidelinesMonthlyCompetitionsComponent } from './guidelines-monthly-competitions/guidelines-monthly-competitions.component';
+
 
 @NgModule({
   declarations: [
@@ -124,7 +138,24 @@ import { WhatsappComponent } from './whatsapp/whatsapp.component';
     JoinUsComponent,
     FreeMembershipComponent,
     ResultsPageComponent,
-    WhatsappComponent
+    WhatsappComponent,
+    ThallapakaAnnamayyaComponent,
+    NatyaSagarComponent,
+    SangeethSamratComponent,
+    MuthuswamiDeekshitharComponent,
+    SyamaSastriComponent,
+    RamadasuComponent,
+    NarayanaTheertharComponent,
+    UthukkaduVenkatakaviComponent,
+    GopalakrishnaBharathiComponent,
+    SubramanyaBharathiComponent,
+    PapanasamSivanComponent,
+    ThillanaComponent,
+    GuidelinesMonthlyCompetitionsComponent,
+    
+    
+  
+
   ],
   imports: [
     BrowserModule,
