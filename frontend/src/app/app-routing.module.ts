@@ -88,11 +88,11 @@ const routes: Routes = [
     component:  GuidelinesMonthlyCompetitionsComponent 
   },
   {
-    path: 'monthly-competitions/thallapaka-annamayya',
+    path: 'monthly-competitions/august',
     component: ThallapakaAnnamayyaComponent
   },
   {
-    path: 'monthly-competitions/muthuswami-deekshithar',
+    path: 'monthly-competitions/september',
     component: MuthuswamiDeekshitharComponent
   },
   {
@@ -108,7 +108,7 @@ const routes: Routes = [
     component: SyamaSastriComponent
   },
   {
-    path: 'monthly-competitions/ramadasu',
+    path: 'monthly-competitions/july',
     component: RamadasuComponent
   },
   {
