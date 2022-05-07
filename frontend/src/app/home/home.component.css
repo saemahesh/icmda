@@ -188,12 +188,12 @@ body {
 }
 
 p {
-    margin: 0px
+  color:rgb(1, 1, 32);  
+  margin: 0px
 }
 
 .card {
-    width: 280px;
-    height: 520px;
+    width: 320px;
     margin: 10px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     background: #fff;
@@ -222,7 +222,7 @@ p {
     width: 100%;
     position: absolute;
     z-index: -1;
-    background: #1b9ce3;
+    background: #8fdbee;
     animation: popBackground 0.3s ease-in
 }
 
@@ -258,7 +258,6 @@ p {
 
 .card .pic img {
     width: 100%;
-    height: 280px;
     object-fit: cover
 }
 
@@ -291,7 +290,7 @@ p {
 }
 
 .card:hover .text-muted {
-    color: #fff !important
+    color: rgb(18, 3, 82) !important
 }
 
 .card .content {

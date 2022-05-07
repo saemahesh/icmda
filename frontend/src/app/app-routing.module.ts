@@ -54,6 +54,21 @@ import { BridgeAcademyComponent } from "./bridge-academy/bridge-academy.componen
 import { AcamedyComponent } from "./acamedy/acamedy.component";
 import { JoinUsComponent } from "./join-us/join-us.component";
 import { FreeMembershipComponent } from "./free-membership/free-membership.component";
+import { ThallapakaAnnamayyaComponent } from "./monthly-competitions/thallapaka-annamayya/thallapaka-annamayya.component";
+import { NatyaSagarComponent } from "./monthly-competitions/natya-sagar/natya-sagar.component";
+import { SangeethSamratComponent } from './monthly-competitions/sangeeth-samrat/sangeeth-samrat.component';
+import { MuthuswamiDeekshitharComponent } from "./monthly-competitions/muthuswami-deekshithar/muthuswami-deekshithar.component";
+import { SyamaSastriComponent } from "./monthly-competitions/syama-sastri/syama-sastri.component";
+import { RamadasuComponent } from "./monthly-competitions/ramadasu/ramadasu.component";
+import { NarayanaTheertharComponent } from "./monthly-competitions/narayana-theerthar/narayana-theerthar.component";
+import { UthukkaduVenkatakaviComponent } from "./monthly-competitions/uthukkadu-venkatakavi/uthukkadu-venkatakavi.component";
+import { GopalakrishnaBharathiComponent } from "./monthly-competitions/gopalakrishna-bharathi/gopalakrishna-bharathi.component";
+import { SubramanyaBharathiComponent } from "./monthly-competitions/subramanya-bharathi/subramanya-bharathi.component";
+import { PapanasamSivanComponent } from "./monthly-competitions/papanasam-sivan/papanasam-sivan.component";
+import { ThillanaComponent } from "./monthly-competitions/thillana/thillana.component";
+import { GuidelinesMonthlyCompetitionsComponent } from "./guidelines-monthly-competitions/guidelines-monthly-competitions.component";
+
+
 
 const routes: Routes = [
   {
@@ -67,6 +82,58 @@ const routes: Routes = [
   {
     path: 'join-us',
     component: JoinUsComponent
+  },
+  {
+    path: 'guidelines-monthly-competitions',
+    component:  GuidelinesMonthlyCompetitionsComponent 
+  },
+  {
+    path: 'monthly-competitions/august',
+    component: ThallapakaAnnamayyaComponent
+  },
+  {
+    path: 'monthly-competitions/september',
+    component: MuthuswamiDeekshitharComponent
+  },
+  {
+    path: 'monthly-competitions/natya-sagar',
+    component: NatyaSagarComponent
+  },
+  {
+    path: 'monthly-competitions/sangeeth-samrat',
+    component: SangeethSamratComponent
+  },
+  {
+    path: 'monthly-competitions/syama-sastri',
+    component: SyamaSastriComponent
+  },
+  {
+    path: 'monthly-competitions/july',
+    component: RamadasuComponent
+  },
+  {
+    path: 'monthly-competitions/narayana-theerthar',
+    component: NarayanaTheertharComponent
+  },
+  {
+    path: 'monthly-competitions/uthukkadu-venkatakavi',
+    component: UthukkaduVenkatakaviComponent
+  },
+  {
+    path: 'monthly-competitions/gopalakrishna-bharathi',
+    component: GopalakrishnaBharathiComponent
+  },
+  {
+    path: 'monthly-competitions/subramanya-bharathi',
+    component: SubramanyaBharathiComponent 
+  },
+  {
+    path: 'monthly-competitions/papanasam-sivan',
+    component: PapanasamSivanComponent
+  },
+  {
+    path: 'monthly-competitions/thillana',
+    component: ThillanaComponent
   },
   {
     path: 'free-membership',
