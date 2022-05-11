@@ -10,7 +10,7 @@ export class WhatsappComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    window.location.href = 'https://chat.whatsapp.com/I1NzArFbkHu08iaKYYVqPI';
+    window.location.href = 'https://chat.whatsapp.com/Efh7eo2WwV3CZIoBWLaHXg';
   }
 
 }
