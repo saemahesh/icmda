@@ -730,6 +730,9 @@ exports.razorpayPaymentCapture = (data, callback) => {
   if (data.notes.season2_participant_name) {
     this.InsertSeason2Airtable(data.notes);
   }
+  if (data.notes.monthly_competition_name) {
+    this.InsertMonthlyCompetitionsData(data.notes);
+  }
   callback(null, {status: 'success'});
 };
 
@@ -862,48 +865,24 @@ exports.sendMail = (mail_data, callback) => {
     });
 };
 
-exports.InsertSeason2Airtable = (data, callback) => {
+exports.InsertMonthlyCompetitionsData = (data, callback) => {
   var Airtable = require('airtable');
-  var base = new Airtable({ apiKey: 'keyLhRgUYCRjowUwI' }).base('appEORxIoUnp74THT');
+  var base = new Airtable({ apiKey: 'keyLhRgUYCRjowUwI' }).base('appCtgVuTD2rTRmOv');
 
-  base('REGISTRATIONS').select({
+  base('MONTHLY COMPETITIONS').select({
     // Selecting the first 3 records in ALL DATA:
     maxRecords: 1,
-    view: "LATEST RECORDS"
+    view: "LATEST"
   }).eachPage(function page(records, fetchNextPage) {
     // This function (`page`) will get called for each page of records.
 
     records.forEach(function (record) {
       console.log('Retrieved Latest Id : ', record.get('id'));
-      data.reg_id = parseInt(record.get('id')) + 1;
+      data.id = parseInt(record.get('id')) + 1;
 
-      base('REGISTRATIONS').create([
+      base('MONTHLY COMPETITIONS').create([
         {
-          "fields": {
-            "payment page id": "pl_IIN00CQIyZSmkd",
-            "payment date": data.payment_date,
-            "order_id": data.order_id,
-            "item amount": data.amount,
-            "item quantity": 1,
-            "item payment amount": data.amount,
-            "total payment amount": data.amount,
-            "currency": "INR",
-            "payment status": "captured",
-            "payment id": data.payment_id,
-            "name": data.season2_participant_name,
-            "email": data.email,
-            "whatsapp_number": parseInt(data.whatsapp_number),
-            "gender": data.gender,
-            "country": data.country,
-            "art_category": data.art_category,
-            "art_form": data.art_form,
-            "participation_category": data.participation_category,
-            "teacher_name": data.teacher_name,
-            "teacher_whatsapp": parseInt(data.teacher_whatsapp),
-            "referer_phone_number": parseInt(data.referer_phone_number),
-            "how_did_you_know_about_us": data.how_did_you_know_about_us,
-            "id": data.reg_id
-          }
+          "fields": data
         }
       ], function(err, records) {
         if (err) {
@@ -911,8 +890,9 @@ exports.InsertSeason2Airtable = (data, callback) => {
           return;
         }
         records.forEach(function (record) {
-          console.log('Inserted Latest Season2 Record Id: ', record.get('id'));
-          sendSeason2Mail(data);
+          console.log('Inserted Latest Monthly Competition Record Id: ', record.get('id'));
+          sendMonthlyCompetitionMail(data);
+          sendWhatsAppMsg(data);
         });
       });
     });
@@ -921,12 +901,16 @@ exports.InsertSeason2Airtable = (data, callback) => {
   });
 }
 
+sendWhatsAppMsg = (data, callback) => {
 
-sendSeason2Mail = (data, callback) => {
+}
+
+
+sendMonthlyCompetitionMail = (data, callback) => {
 
   console.log('mail data: ', data);
-  data.guidelines_url = 'https://www.icmda.in/guidelines';
-  data.video_submit_link = 'https://docs.google.com/forms/d/e/1FAIpQLSe-VC-ONyZK5DeLW0d6VGIK7Li9a1gfCj7bellQar86L-h5Nw/viewform';
+  data.guidelines_url = 'http://localhost:4200/guidelines-monthly-competitions';
+  data.video_submit_link = 'https://docs.google.com/forms/d/e/1FAIpQLScnrL3fiNreI7z7Dz-wzoiKUzMA2vqL32mgmkDwAjCzTQiVwA/viewform';
 
   let mailTransporter = nodemailer.createTransport({
     service: 'gmail',
@@ -938,7 +922,7 @@ sendSeason2Mail = (data, callback) => {
   let mailDetails = {
     from: 'icmdachennai@gmail.com',
     to: data.email,
-    subject: `Thanks ${data.season2_participant_name} for registering to the SEASON2 International Online Music & Dance Competitions.`,
+    subject: `Thanks ${data.participant_name} for registering to the ${data.monthly_competition_name} Online Monthly Competition.`,
     html: `<html lang="en">
     <head>
       <meta charset="utf-8" />
@@ -1120,18 +1104,21 @@ sendSeason2Mail = (data, callback) => {
     
       <div class="main-content">
         <i class="fa fa-check main-content__checkmark" id="checkmark"></i>
-      <p class="main-content__body" data-lead-id="main-content-body">Thanks ${data.season2_participant_name} for registering to the SEASON2 International Music & Dance Online Competition. Your participation details are mentioned below.</p>
+      <p class="main-content__body" data-lead-id="main-content-body">Thanks ${data.participant_name} for registering to the ${data.monthly_competition_name} Online Monthly Competition. Your participation details are mentioned below.</p>
       </div>
     
     <table id="customers" style="margin-top:10px">
-    
       <tr>
         <td>Registration Id</td>
-        <td>SB${data.reg_id}</td>
+        <td>SB${data.id}</td>
       </tr>        
       <tr>
         <td>Name</td>
-        <td>${data.season2_participant_name}</td>
+        <td>${data.participant_name}</td>
+      </tr>
+      <tr>
+        <td>Competition Name</td>
+        <td>${data.monthly_competition_name}</td>
       </tr>
       <tr>
         <td>Email</td>
@@ -1171,7 +1158,7 @@ sendSeason2Mail = (data, callback) => {
       </tr>
       <tr>
         <td>Referrer Phone Number</td>
-        <td>${data.referer_phone_number}</td>
+        <td>${data.referer_number}</td>
       </tr> 
   
     </table>
@@ -1181,18 +1168,18 @@ sendSeason2Mail = (data, callback) => {
             </a>
       </div>    
       <div style="margin:30px 0;display:grid">
+      <p>You need to submit your video by the end of the respective competition month.
+      </p>
             <a target="_blank" href="${data.video_submit_link}">
               <button type="button" class="btn btn-success" style="cursor:pointer">Click here to upload video</button>
             </a>
-      </div> 
-
+      </div>
       <div style="margin:30px 0;display:grid">
             <a target="_blank" href="${data.video_submit_link}">
               <button type="button" class="btn btn-success" style="cursor:pointer">Click here to visit ICMDA Help Desk for all your doubts and questions</button>
             </a>
-      </div> 
+      </div>
     Feel free to reach us if you have any queries.
-  
     Email : icmdachennai@gmail.com 
     Phone : 919515417732 | 919059842444
       <footer class="site-footer" id="footer" style="padding:15px">
