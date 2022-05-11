@@ -50,7 +50,6 @@ export class TrackingComponent implements OnInit {
     this.dataLoad = true;
 
     if (selectedCategory == "SEASON 2 ONLINE COMPETITIONS FOR MUSIC & DANCE") {
-
       this.userData.getSeason2Data(this.finalEmail, track).subscribe((data: any) => {
         this.userSeason2Details = data.records;
         this.userSeason2Details = []
