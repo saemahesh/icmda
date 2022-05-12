@@ -909,7 +909,7 @@ sendWhatsAppMsg = (data, callback) => {
 sendMonthlyCompetitionMail = (data, callback) => {
 
   console.log('mail data: ', data);
-  data.guidelines_url = 'http://localhost:4200/guidelines-monthly-competitions';
+  data.guidelines_url = 'https://www.icmda.in/guidelines-monthly-competitions';
   data.video_submit_link = 'https://docs.google.com/forms/d/e/1FAIpQLScnrL3fiNreI7z7Dz-wzoiKUzMA2vqL32mgmkDwAjCzTQiVwA/viewform';
 
   let mailTransporter = nodemailer.createTransport({
@@ -1157,8 +1157,8 @@ sendMonthlyCompetitionMail = (data, callback) => {
         <td>${data.teacher_name}</td>
       </tr>
       <tr>
-        <td>Referrer Phone Number</td>
-        <td>${data.referer_number}</td>
+        <td>Referrer Number</td>
+        <td>${data.referrer_number}</td>
       </tr> 
   
     </table>
