@@ -1110,7 +1110,7 @@ sendMonthlyCompetitionMail = (data, callback) => {
     <table id="customers" style="margin-top:10px">
       <tr>
         <td>Registration Id</td>
-        <td>SB${data.id}</td>
+        <td>MC${data.id}</td>
       </tr>        
       <tr>
         <td>Name</td>
