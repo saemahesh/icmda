@@ -78,6 +78,7 @@ import { SubramanyaBharathiComponent } from './monthly-competitions/subramanya-b
 import { PapanasamSivanComponent } from './monthly-competitions/papanasam-sivan/papanasam-sivan.component';
 import { ThillanaComponent } from './monthly-competitions/thillana/thillana.component';
 import { GuidelinesMonthlyCompetitionsComponent } from './guidelines-monthly-competitions/guidelines-monthly-competitions.component';
+import { MahishasuraMardiniComponent } from './mahishasura-mardini/mahishasura-mardini.component';
 
 
 @NgModule({
@@ -152,6 +153,7 @@ import { GuidelinesMonthlyCompetitionsComponent } from './guidelines-monthly-com
     PapanasamSivanComponent,
     ThillanaComponent,
     GuidelinesMonthlyCompetitionsComponent,
+    MahishasuraMardiniComponent,
     
     
   
