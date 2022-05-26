@@ -10,6 +10,12 @@ export class MahishasuraMardiniComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    
+  }
+  
+  isMobile() {
+    const width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    return width < 768;
   }
 
 }

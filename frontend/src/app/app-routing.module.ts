@@ -137,7 +137,7 @@ const routes: Routes = [
     component: ThillanaComponent
   },
   {
-    path: 'mahishasura-mardini',
+    path: 'aigiri-nandini-world-records',
     component: MahishasuraMardiniComponent,
   },
   
@@ -343,6 +343,14 @@ const routes: Routes = [
   },
   {
     path:'joinWhatsApp',
+    component:WhatsappComponent
+  },
+  {
+    path:'joinwhatsapp',
+    component:WhatsappComponent
+  },
+  {
+    path:'JOINWHATSAPP',
     component:WhatsappComponent
   }
 ];
