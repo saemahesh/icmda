@@ -74,14 +74,23 @@ input {
     font-size: 40px;
 }
 
+.title2{
+    color: #3f9dff;text-align: center;margin-right:10%;font-weight:bold;font-size:27px;
+}
+.guidelines-title{
+    font-size: 23px;
+}
 
 @media screen and (max-width: 600px) {
  .laptop{
      display: none;
  }
  .title{
-     font-size: 16px;
- }
+    font-size: 16px;
+}
+.title2{
+    font-size: 15px;
+}
 .mobile{
     display:block;
 }
@@ -113,7 +122,7 @@ input {
         font-size: 5vw;
     }
     .m-sub-title{
-        font-size: 3vw !important
+        font-size: 5vw !important
       }
       table>tr>td{
         font-size:10px;
@@ -132,10 +141,9 @@ input {
     color: black
 }
 .certificates {
-    text-align:center;
+    text-align:left;
     color:rgb(175, 33, 33);
     font-size:20px;
-    margin:auto;
     font-weight: 700;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
@@ -174,3 +182,22 @@ font-family: 'Courier New', Courier, monospace;
     margin-left: 10px;
     margin-top: 5px;
 }
+
+.zoom-in-out-box {
+    margin: 24px;
+    width: 50px;
+    height: 50px;
+    animation: zoom-in-zoom-out 2s ease infinite;
+  }
+  
+  @keyframes zoom-in-zoom-out {
+    0% {
+      transform: scale(1, 1);
+    }
+    50% {
+      transform: scale(1.5, 1.5);
+    }
+    100% {
+      transform: scale(1, 1);
+    }
+  }
