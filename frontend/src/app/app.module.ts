@@ -79,6 +79,7 @@ import { PapanasamSivanComponent } from './monthly-competitions/papanasam-sivan/
 import { ThillanaComponent } from './monthly-competitions/thillana/thillana.component';
 import { GuidelinesMonthlyCompetitionsComponent } from './guidelines-monthly-competitions/guidelines-monthly-competitions.component';
 import { MahishasuraMardiniComponent } from './mahishasura-mardini/mahishasura-mardini.component';
+import { BecomeCoordinatorComponent } from './become-coordinator/become-coordinator.component';
 
 
 @NgModule({
@@ -154,6 +155,7 @@ import { MahishasuraMardiniComponent } from './mahishasura-mardini/mahishasura-m
     ThillanaComponent,
     GuidelinesMonthlyCompetitionsComponent,
     MahishasuraMardiniComponent,
+    BecomeCoordinatorComponent,
     
     
   

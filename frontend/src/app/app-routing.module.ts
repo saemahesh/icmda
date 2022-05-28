@@ -53,6 +53,7 @@ import { WhatsappComponent } from "./whatsapp/whatsapp.component";
 import { BridgeAcademyComponent } from "./bridge-academy/bridge-academy.component";
 import { AcamedyComponent } from "./acamedy/acamedy.component";
 import { JoinUsComponent } from "./join-us/join-us.component";
+import { BecomeCoordinatorComponent } from "./become-coordinator/become-coordinator.component";
 import { FreeMembershipComponent } from "./free-membership/free-membership.component";
 import { ThallapakaAnnamayyaComponent } from "./monthly-competitions/thallapaka-annamayya/thallapaka-annamayya.component";
 import { NatyaSagarComponent } from "./monthly-competitions/natya-sagar/natya-sagar.component";
@@ -76,9 +77,14 @@ const routes: Routes = [
     path: '',
     component: HomeComponent
   },
+  
   {
     path: 'register',
     component: RegisterComponent
+  },
+  {
+    path: 'become-coordinator',
+    component: BecomeCoordinatorComponent
   },
   {
     path: 'join-us',
