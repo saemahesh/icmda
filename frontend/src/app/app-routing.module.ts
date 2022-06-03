@@ -69,6 +69,7 @@ import { PapanasamSivanComponent } from "./monthly-competitions/papanasam-sivan/
 import { ThillanaComponent } from "./monthly-competitions/thillana/thillana.component";
 import { GuidelinesMonthlyCompetitionsComponent } from "./guidelines-monthly-competitions/guidelines-monthly-competitions.component";
 import { MahishasuraMardiniComponent } from './mahishasura-mardini/mahishasura-mardini.component';
+import { AigiriNandiniGroupRegistrationComponent } from "./aigiri-nandini-group-registration/aigiri-nandini-group-registration.component";
 
 
 
@@ -85,6 +86,10 @@ const routes: Routes = [
   {
     path: 'become-coordinator',
     component: BecomeCoordinatorComponent
+  },
+  {
+    path: 'aigiri-nandini-group-registration',
+    component: AigiriNandiniGroupRegistrationComponent
   },
   {
     path: 'join-us',

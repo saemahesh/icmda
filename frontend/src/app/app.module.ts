@@ -80,6 +80,7 @@ import { ThillanaComponent } from './monthly-competitions/thillana/thillana.comp
 import { GuidelinesMonthlyCompetitionsComponent } from './guidelines-monthly-competitions/guidelines-monthly-competitions.component';
 import { MahishasuraMardiniComponent } from './mahishasura-mardini/mahishasura-mardini.component';
 import { BecomeCoordinatorComponent } from './become-coordinator/become-coordinator.component';
+import { AigiriNandiniGroupRegistrationComponent } from './aigiri-nandini-group-registration/aigiri-nandini-group-registration.component';
 
 
 @NgModule({
@@ -156,6 +157,7 @@ import { BecomeCoordinatorComponent } from './become-coordinator/become-coordina
     GuidelinesMonthlyCompetitionsComponent,
     MahishasuraMardiniComponent,
     BecomeCoordinatorComponent,
+    AigiriNandiniGroupRegistrationComponent,
     
     
   
