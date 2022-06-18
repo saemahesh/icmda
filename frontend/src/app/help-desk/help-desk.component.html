@@ -13,8 +13,8 @@
     <input type="radio" name="radio-{{i}}" id="radio-{{i}}">
     <label class="accordion-label question" for="radio-{{i}}" style="color: white;">{{fData.fields.question}}</label>
     <div class="accordion-content" style="display: contents;">
-      <p style="padding: 15px;font-weight: bold;">{{fData.fields.answer}} </p>
-      <p class="accordion-wrapper"  *ngFor="let answer of fData.fields.answers; index as i">
+      <!-- <p style="padding: 15px;font-weight: bold;">{{fData.fields.answer}} </p> -->
+      <p style="padding: 15px;font-weight: bold;"  *ngFor="let answer of fData.fields.answers; index as i">
         {{answer}}
       </p>
       <div style="padding: 10px;" *ngIf="fData.fields.link">
