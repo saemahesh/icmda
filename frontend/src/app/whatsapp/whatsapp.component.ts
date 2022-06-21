@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { WhatsappLinkService } from './whatsapp.service';
+
 
 @Component({
   selector: 'app-whatsapp',
@@ -10,7 +12,7 @@ export class WhatsappComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    window.location.href = 'https://chat.whatsapp.com/Efh7eo2WwV3CZIoBWLaHXg';
+    window.location.href = 'https://chat.whatsapp.com/HjfAUOyC5cGFl3mMt0phhq';
   }
 
 }

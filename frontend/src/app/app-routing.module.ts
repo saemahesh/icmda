@@ -53,6 +53,7 @@ import { WhatsappComponent } from "./whatsapp/whatsapp.component";
 import { BridgeAcademyComponent } from "./bridge-academy/bridge-academy.component";
 import { AcamedyComponent } from "./acamedy/acamedy.component";
 import { JoinUsComponent } from "./join-us/join-us.component";
+import { BecomeCoordinatorComponent } from "./become-coordinator/become-coordinator.component";
 import { FreeMembershipComponent } from "./free-membership/free-membership.component";
 import { ThallapakaAnnamayyaComponent } from "./monthly-competitions/thallapaka-annamayya/thallapaka-annamayya.component";
 import { NatyaSagarComponent } from "./monthly-competitions/natya-sagar/natya-sagar.component";
@@ -67,6 +68,8 @@ import { SubramanyaBharathiComponent } from "./monthly-competitions/subramanya-b
 import { PapanasamSivanComponent } from "./monthly-competitions/papanasam-sivan/papanasam-sivan.component";
 import { ThillanaComponent } from "./monthly-competitions/thillana/thillana.component";
 import { GuidelinesMonthlyCompetitionsComponent } from "./guidelines-monthly-competitions/guidelines-monthly-competitions.component";
+import { MahishasuraMardiniComponent } from './mahishasura-mardini/mahishasura-mardini.component';
+import { AigiriNandiniGroupRegistrationComponent } from "./aigiri-nandini-group-registration/aigiri-nandini-group-registration.component";
 
 
 
@@ -75,9 +78,18 @@ const routes: Routes = [
     path: '',
     component: HomeComponent
   },
+  
   {
     path: 'register',
     component: RegisterComponent
+  },
+  {
+    path: 'become-coordinator',
+    component: BecomeCoordinatorComponent
+  },
+  {
+    path: 'aigiri-nandini-group-registration',
+    component: AigiriNandiniGroupRegistrationComponent
   },
   {
     path: 'join-us',
@@ -135,6 +147,11 @@ const routes: Routes = [
     path: 'monthly-competitions/thillana',
     component: ThillanaComponent
   },
+  {
+    path: 'aigiri-nandini-world-records',
+    component: MahishasuraMardiniComponent,
+  },
+  
   {
     path: 'free-membership',
     component: FreeMembershipComponent
@@ -337,6 +354,14 @@ const routes: Routes = [
   },
   {
     path:'joinWhatsApp',
+    component:WhatsappComponent
+  },
+  {
+    path:'joinwhatsapp',
+    component:WhatsappComponent
+  },
+  {
+    path:'JOINWHATSAPP',
     component:WhatsappComponent
   }
 ];

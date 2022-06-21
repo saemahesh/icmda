@@ -43,3 +43,11 @@ span.label-success{
     color:rgb(16 147 116);
     font-size: 21px;  
 }
+.designation{
+    font-size: 19px;
+    margin-top: 5px;
+    font-weight: bold;
+    color: #7c9911;
+    text-transform: uppercase;
+ 
+}
