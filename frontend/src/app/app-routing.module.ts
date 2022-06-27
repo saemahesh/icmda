@@ -70,6 +70,9 @@ import { ThillanaComponent } from "./monthly-competitions/thillana/thillana.comp
 import { GuidelinesMonthlyCompetitionsComponent } from "./guidelines-monthly-competitions/guidelines-monthly-competitions.component";
 import { MahishasuraMardiniComponent } from './mahishasura-mardini/mahishasura-mardini.component';
 import { AigiriNandiniGroupRegistrationComponent } from "./aigiri-nandini-group-registration/aigiri-nandini-group-registration.component";
+import { NamaSankeerthanaComponent } from './monthly-competitions/nama-sankeerthana/nama-sankeerthana.component';
+import { BalamuraliKrishnaComponent } from './monthly-competitions/balamurali-krishna/balamurali-krishna.component';
+
 
 
 
@@ -116,7 +119,7 @@ const routes: Routes = [
     component: SangeethSamratComponent
   },
   {
-    path: 'monthly-competitions/syama-sastri',
+    path: 'monthly-competitions/november',
     component: SyamaSastriComponent
   },
   {
@@ -124,27 +127,35 @@ const routes: Routes = [
     component: RamadasuComponent
   },
   {
-    path: 'monthly-competitions/narayana-theerthar',
+    path: 'monthly-competitions/january',
     component: NarayanaTheertharComponent
   },
   {
-    path: 'monthly-competitions/uthukkadu-venkatakavi',
+    path: 'monthly-competitions/february',
     component: UthukkaduVenkatakaviComponent
   },
   {
-    path: 'monthly-competitions/gopalakrishna-bharathi',
+    path: 'monthly-competitions/march',
     component: GopalakrishnaBharathiComponent
   },
   {
-    path: 'monthly-competitions/subramanya-bharathi',
+    path: 'monthly-competitions/april',
     component: SubramanyaBharathiComponent 
   },
   {
-    path: 'monthly-competitions/papanasam-sivan',
+    path: 'monthly-competitions/may',
     component: PapanasamSivanComponent
   },
   {
-    path: 'monthly-competitions/thillana',
+    path: 'monthly-competitions/june',
+    component: BalamuraliKrishnaComponent
+  },
+  {
+    path: 'monthly-competitions/december',
+    component: NamaSankeerthanaComponent
+  },
+  {
+    path: 'monthly-competitions/october',
     component: ThillanaComponent
   },
   {

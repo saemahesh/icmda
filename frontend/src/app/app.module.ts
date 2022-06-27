@@ -81,6 +81,8 @@ import { GuidelinesMonthlyCompetitionsComponent } from './guidelines-monthly-com
 import { MahishasuraMardiniComponent } from './mahishasura-mardini/mahishasura-mardini.component';
 import { BecomeCoordinatorComponent } from './become-coordinator/become-coordinator.component';
 import { AigiriNandiniGroupRegistrationComponent } from './aigiri-nandini-group-registration/aigiri-nandini-group-registration.component';
+import { NamaSankeerthanaComponent } from './monthly-competitions/nama-sankeerthana/nama-sankeerthana.component';
+import { BalamuraliKrishnaComponent } from './monthly-competitions/balamurali-krishna/balamurali-krishna.component';
 
 
 @NgModule({
@@ -158,6 +160,8 @@ import { AigiriNandiniGroupRegistrationComponent } from './aigiri-nandini-group-
     MahishasuraMardiniComponent,
     BecomeCoordinatorComponent,
     AigiriNandiniGroupRegistrationComponent,
+    NamaSankeerthanaComponent,
+    BalamuraliKrishnaComponent,
     
     
   
