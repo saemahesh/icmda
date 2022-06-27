@@ -18,6 +18,16 @@ label {
     color: white;
 }
 
+.grp-reg-button {
+    font-size: 20px;
+    width: auto;
+    color: white;
+    font-weight: 700;
+    border-radius: 10px;
+    padding: 10px;
+    background: #357028;
+    box-shadow: 3px 3px #666161;
+}
 
 
 input:not([type]),
