@@ -733,6 +733,10 @@ exports.razorpayPaymentCapture = (data, callback) => {
   if (data.notes.monthly_competition_name) {
     this.InsertMonthlyCompetitionsData(data.notes);
   }
+  if (data.notes.aigiri_nandini_participant_name) {
+    this.InsertAigiriNandiniData(data.notes);
+  }
+  
   callback(null, {status: 'success'});
 };
 
@@ -808,7 +812,7 @@ exports.sendMail = (mail_data, callback) => {
     service: 'gmail',
     auth: {
       user: 'icmdachennai@gmail.com',
-      pass: 'IcmdaChennai1$'
+      pass: 'rvaungmnxmtqlsqj'
     }
   });
   let id_url = `https://icmda.in/idcard/${data.id}`
@@ -905,6 +909,28 @@ sendWhatsAppMsg = (data, callback) => {
 
 }
 
+exports.InsertAigiriNandiniData = (data, callback) => {
+  var Airtable = require('airtable');
+  var base = new Airtable({ apiKey: 'keyLhRgUYCRjowUwI' }).base('app67IqMA7zYZ31GY');
+
+  base('REGISTRATIONS').create([
+    {
+      "fields": data
+    }
+  ], function(err, records) {
+    if (err) {
+      console.error(err);
+      return;
+    }
+    records.forEach(function (record) {
+      console.log('Inserted Latest Monthly Competition Record Id: ', record.get('id'));
+      sendMonthlyCompetitionMail(data);
+      sendWhatsAppMsg(data);
+    });
+  });
+
+}
+
 
 sendMonthlyCompetitionMail = (data, callback) => {
 
@@ -916,7 +942,7 @@ sendMonthlyCompetitionMail = (data, callback) => {
     service: 'gmail',
     auth: {
       user: 'icmdachennai@gmail.com',
-      pass: 'IcmdaChennai1$'
+      pass: 'rvaungmnxmtqlsqj'
     }
   });
   let mailDetails = {
@@ -1218,7 +1244,7 @@ exports.sendEventUpdateMail = (mail_data, callback) => {
     service: 'gmail',
     auth: {
       user: 'icmdachennai@gmail.com',
-      pass: 'IcmdaChennai1$'
+      pass: 'rvaungmnxmtqlsqj'
     }
   });
   let mailDetails = {
@@ -1573,7 +1599,7 @@ exports.sendPrizeMail = (mail_data, callback) => {
     service: 'gmail',
     auth: {
       user: 'icmdachennai@gmail.com',
-      pass: 'IcmdaChennai1$'
+      pass: 'rvaungmnxmtqlsqj'
     }
   });
   let mailDetails = {
@@ -1850,7 +1876,7 @@ exports.sendConnectMail = (mail_data, callback) => {
     service: 'gmail',
     auth: {
       user: 'icmdachennai@gmail.com',
-      pass: 'IcmdaChennai1$'
+      pass: 'rvaungmnxmtqlsqj'
     }
   });
   let mailDetails = {
@@ -2100,7 +2126,7 @@ exports.sendDisconnectMail = (mail_data, callback) => {
     service: 'gmail',
     auth: {
       user: 'icmdachennai@gmail.com',
-      pass: 'IcmdaChennai1$'
+      pass: 'rvaungmnxmtqlsqj'
     }
   });
   let mailDetails = {
