@@ -72,6 +72,7 @@ import { MahishasuraMardiniComponent } from './mahishasura-mardini/mahishasura-m
 import { AigiriNandiniGroupRegistrationComponent } from "./aigiri-nandini-group-registration/aigiri-nandini-group-registration.component";
 import { NamaSankeerthanaComponent } from './monthly-competitions/nama-sankeerthana/nama-sankeerthana.component';
 import { BalamuraliKrishnaComponent } from './monthly-competitions/balamurali-krishna/balamurali-krishna.component';
+import { MonthlyCompetitionsMainComponent } from './monthly-competitions-main/monthly-competitions-main.component';
 
 
 
@@ -85,6 +86,10 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent
+  },
+  {
+    path: 'monthly-competitions-main',
+    component: MonthlyCompetitionsMainComponent
   },
   {
     path: 'become-coordinator',
