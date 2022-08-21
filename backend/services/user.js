@@ -733,6 +733,9 @@ exports.razorpayPaymentCapture = (data, callback) => {
   if (data.notes.monthly_competition_name) {
     this.InsertMonthlyCompetitionsData(data.notes);
   }
+  if (data.notes.aigiri_nandini_participant_name) {
+    this.InsertAigiriNandiniData(data.notes);
+  }
   callback(null, {status: 'success'});
 };
 
@@ -898,6 +901,27 @@ exports.InsertMonthlyCompetitionsData = (data, callback) => {
     });
   }, function done(err) {
     if (err) { console.error(err); return; }
+  });
+}
+
+exports.InsertAigiriNandiniData = (data, callback) => {
+  var Airtable = require('airtable');
+  var base = new Airtable({ apiKey: 'keyLhRgUYCRjowUwI' }).base('app67IqMA7zYZ31GY');
+
+  base('REGISTRATIONS').create([
+    {
+      "fields": data
+    }
+  ], function(err, records) {
+    if (err) {
+      console.error(err);
+      return;
+    }
+    records.forEach(function (record) {
+      console.log('Inserted Latest Aigiri Nandini Record Id: ', record.get('id'));
+      // sendMonthlyCompetitionMail(data);
+      // sendWhatsAppMsg(data);
+    });
   });
 }
 
