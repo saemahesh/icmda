@@ -914,7 +914,7 @@ exports.InsertAigiriNandiniData = (data, callback) => {
     }
   ], function(err, records) {
     if (err) {
-      console.error(err);
+      console.log('Airtable err:', err);
       return;
     }
     records.forEach(function (record) {
