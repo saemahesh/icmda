@@ -84,6 +84,7 @@ import { AigiriNandiniGroupRegistrationComponent } from './aigiri-nandini-group-
 import { NamaSankeerthanaComponent } from './monthly-competitions/nama-sankeerthana/nama-sankeerthana.component';
 import { BalamuraliKrishnaComponent } from './monthly-competitions/balamurali-krishna/balamurali-krishna.component';
 import { MonthlyCompetitionsMainComponent } from './monthly-competitions-main/monthly-competitions-main.component';
+import { ValidateYandexComponent } from './validate-yandex/validate-yandex.component';
 
 
 @NgModule({
@@ -164,6 +165,7 @@ import { MonthlyCompetitionsMainComponent } from './monthly-competitions-main/mo
     NamaSankeerthanaComponent,
     BalamuraliKrishnaComponent,
     MonthlyCompetitionsMainComponent,
+    ValidateYandexComponent,
     
     
   

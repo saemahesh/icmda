@@ -73,6 +73,7 @@ import { AigiriNandiniGroupRegistrationComponent } from "./aigiri-nandini-group-
 import { NamaSankeerthanaComponent } from './monthly-competitions/nama-sankeerthana/nama-sankeerthana.component';
 import { BalamuraliKrishnaComponent } from './monthly-competitions/balamurali-krishna/balamurali-krishna.component';
 import { MonthlyCompetitionsMainComponent } from './monthly-competitions-main/monthly-competitions-main.component';
+import { ValidateYandexComponent } from './validate-yandex/validate-yandex.component';
 
 
 
@@ -82,7 +83,6 @@ const routes: Routes = [
     path: '',
     component: HomeComponent
   },
-  
   {
     path: 'register',
     component: RegisterComponent
@@ -90,6 +90,10 @@ const routes: Routes = [
   {
     path: 'monthly-competitions-main',
     component: MonthlyCompetitionsMainComponent
+  },
+  {
+    path: 'yandex_19c0e41d9099220e.html',
+    component: ValidateYandexComponent
   },
   {
     path: 'become-coordinator',
