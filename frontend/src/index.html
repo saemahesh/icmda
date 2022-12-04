@@ -170,11 +170,11 @@
     <header class="header-section clearfix">
         <script>
          setTimeout(()=>{
-            console.log('\n\n ** window.location.pathname: ', window.location.pathname)
-            if (window.location.pathname !== '/join-official-attempt' && window.location.pathname !== '/join-official-attempt?v=1') {
+            console.log('\n\n ** window.location.pathname: ', !window.location.pathname.includes('/join-official-attempt'))
+            if (!window.location.pathname.includes('/join-official-attempt')) {
                 document.getElementById('test-live').style.display = 'block';
             }
-         },5000)
+         },2000)
         </script>
         <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
         <script type="text/javascript">
@@ -232,8 +232,9 @@
         <script type="text/javascript"
             src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-        <div class="alert alert-info alert-dismissible member-notification " id="test-live" style="display:none;    padding: 0;
-                background: #604300;" role="alert">
+        <div class="alert alert-info alert-dismissible member-notification " id="test-live" style="display: none;
+        padding: 5px;
+        background: rgb(33 110 61);" role="alert">
             <!-- <marquee behavior="scroll" onmouseover="this.stop();" onmouseout="this.start();" direction="left"
                         scrollamount="7" style="font-size: 23px;font-weight: bold;">
                         <span class="label label-default blinking">New</span>
@@ -243,7 +244,7 @@
                     </marquee> -->
         
             <a href="/join-official-attempt?v=1" style="color:rgb(184, 184, 184);font-size: 17px;padding:10px"><span
-                    style="font-weight: bold;" class="blinking">Click here</span> for Test Live for 10 World Records Attempt</a>
+                    style="font-weight: bold;" class="blinking">New</span> Click here for <span style="color: red"> Test Live </span> of 10 World Records Attempt</a>
         </div>
         <!-- <div id="google_translate_element"></div> -->
 
