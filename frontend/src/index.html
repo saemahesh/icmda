@@ -167,7 +167,7 @@
         <script>
          setTimeout(()=>{
             console.log('\n\n ** window.location.pathname: ', window.location.pathname)
-            if (window.location.pathname !== '/join-official-attempt') {
+            if (window.location.pathname !== '/join-official-attempt' || window.location.pathname !== '/join-official-attempt?v=1') {
                 document.getElementById('test-live').style.display = 'block';
             }
          },5000)
@@ -238,7 +238,7 @@
                             <a href="/register">Click here to register as member</a>
                     </marquee> -->
         
-            <a href="/join-official-attempt" style="color:rgb(184, 184, 184);font-size: 17px;padding:10px"><span
+            <a href="/join-official-attempt?v=1" style="color:rgb(184, 184, 184);font-size: 17px;padding:10px"><span
                     style="font-weight: bold;" class="blinking">Click here</span> for Test Live for 10 World Records Attempt</a>
         </div>
         <!-- <div id="google_translate_element"></div> -->
