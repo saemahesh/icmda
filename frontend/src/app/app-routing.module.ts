@@ -74,7 +74,7 @@ import { NamaSankeerthanaComponent } from './monthly-competitions/nama-sankeerth
 import { BalamuraliKrishnaComponent } from './monthly-competitions/balamurali-krishna/balamurali-krishna.component';
 import { MonthlyCompetitionsMainComponent } from './monthly-competitions-main/monthly-competitions-main.component';
 import { ValidateYandexComponent } from './validate-yandex/validate-yandex.component';
-
+import { OfficialAttemptComponent } from "./official-attempt/official-attempt.component";
 
 
 
@@ -90,6 +90,10 @@ const routes: Routes = [
   {
     path: 'monthly-competitions-main',
     component: MonthlyCompetitionsMainComponent
+  },
+    {
+    path: 'join-official-attempt',
+    component: OfficialAttemptComponent
   },
   {
     path: 'yandex_19c0e41d9099220e.html',
