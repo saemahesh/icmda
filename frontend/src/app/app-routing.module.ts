@@ -75,6 +75,7 @@ import { BalamuraliKrishnaComponent } from './monthly-competitions/balamurali-kr
 import { MonthlyCompetitionsMainComponent } from './monthly-competitions-main/monthly-competitions-main.component';
 import { ValidateYandexComponent } from './validate-yandex/validate-yandex.component';
 import { OfficialAttemptComponent } from "./official-attempt/official-attempt.component";
+import { WorldRecordGuidelinesComponent } from "./world-record-guidelines/world-record-guidelines.component";
 
 
 
@@ -90,6 +91,10 @@ const routes: Routes = [
   {
     path: 'monthly-competitions-main',
     component: MonthlyCompetitionsMainComponent
+  },
+  {
+    path: 'world-record-guidelines',
+    component: WorldRecordGuidelinesComponent
   },
     {
     path: 'join-official-attempt',
