@@ -86,6 +86,7 @@ import { BalamuraliKrishnaComponent } from './monthly-competitions/balamurali-kr
 import { MonthlyCompetitionsMainComponent } from './monthly-competitions-main/monthly-competitions-main.component';
 import { ValidateYandexComponent } from './validate-yandex/validate-yandex.component';
 import { OfficialAttemptComponent } from './official-attempt/official-attempt.component';
+import { WorldRecordGuidelinesComponent } from './world-record-guidelines/world-record-guidelines.component';
 
 
 @NgModule({
@@ -168,6 +169,7 @@ import { OfficialAttemptComponent } from './official-attempt/official-attempt.co
     MonthlyCompetitionsMainComponent,
     ValidateYandexComponent,
     OfficialAttemptComponent,
+    WorldRecordGuidelinesComponent,
     
     
   
